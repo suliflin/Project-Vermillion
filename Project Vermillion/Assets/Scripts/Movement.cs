@@ -18,12 +18,12 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Rotate(0, rotatingSpeed * Time.deltaTime, 0);
-            System.Console.WriteLine("turning right");
+            Debug.Log("turning right");
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Rotate(0, -rotatingSpeed * Time.deltaTime, 0);
-            System.Console.WriteLine("turning left");
+            Debug.Log("turning left");
         }
 
 
@@ -35,8 +35,9 @@ public class Movement : MonoBehaviour
         moveHorizontalK = moveHorizontalX;
         moveVerticalK = moveVerticalX;
 
-        
 
+
+        //always use Debug.Log instead of System.Console.WriteLine(   );
         //GetComponent<Rigidbody>().velocity = new Vector3(moveHorizontalX, 0, moveHorizontalX);
     }
 }
