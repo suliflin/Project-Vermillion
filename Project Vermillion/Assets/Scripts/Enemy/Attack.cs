@@ -58,10 +58,12 @@ public class Attack : MonoBehaviour
             }
         }
     }
+
     public void ActivateFist()
     {
         fist.GetComponent<Collider>().enabled = true;
     }
+
     public void DeactivateFist()
     {
         fist.GetComponent<Collider>().enabled = false;

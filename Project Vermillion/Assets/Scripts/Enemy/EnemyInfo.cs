@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInfo : MonoBehaviour
+public class EnemyInfo : MonoBehaviour
 {
     public int health;
 
     // Start is called before the first frame update
     void Start()
     {
-        health = 10;
+        health = 5;
     }
 
     // Update is called once per frame
@@ -20,7 +20,7 @@ public class PlayerInfo : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Fist")
+        if(other.gameObject.tag == "Temp")
         {
             health -= 1;
         }
