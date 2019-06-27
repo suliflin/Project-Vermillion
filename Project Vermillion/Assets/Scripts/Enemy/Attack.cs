@@ -11,6 +11,9 @@ public class Attack : MonoBehaviour
     public int attackRange;
 
     public float angleRange;
+    public float strength;
+
+    private Rigidbody rb;
 
     private float attackCooldown;
     private float attackWait;
@@ -21,8 +24,10 @@ public class Attack : MonoBehaviour
         detectRange = 10;
         attackRange = 2;
         angleRange = 45;
+        strength = 6;
         attackCooldown = 5;
         attackWait = 1;
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -38,7 +43,7 @@ public class Attack : MonoBehaviour
 
             if(direction.magnitude > attackRange)
             {
-                this.transform.position += transform.forward * Time.deltaTime;
+                rb.AddForce(transform.forward * strength);
             }
             else
             {
