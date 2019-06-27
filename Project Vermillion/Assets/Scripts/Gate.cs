@@ -27,6 +27,11 @@ public class Gate : MonoBehaviour
 
     void Update()
     {
+        for (int i = 0; i < waves.Length; i++)
+        {
+            KillEnemy(waves[i]);
+        }
+
         if(state == SpawnState.WAITING)
         {
             WaveCompleted();
@@ -70,7 +75,7 @@ public class Gate : MonoBehaviour
 
         for (int i = 0; i < wave.count; i++)
         {
-            wave.enemy = ObjectPooler.SharedInstance.GetPooledObject();
+            wave.enemy = ObjectPooler.SharedInstance.GetPooledObject("Enemy");
             SpawnEnemy(wave.enemy);
             yield return new WaitForSeconds(1f/wave.rate);
         }
@@ -88,6 +93,17 @@ public class Gate : MonoBehaviour
             enemy.transform.position = this.transform.position;
             enemy.transform.rotation = this.transform.rotation;
             enemy.SetActive(true);
+        }
+    }
+
+    void KillEnemy(Wave wave)
+    {
+        if (wave.enemy != null)
+        {
+            if (Input.GetKeyDown(KeyCode.Space) && wave.enemy.activeInHierarchy)
+            {
+                wave.enemy.SetActive(false);
+            }
         }
     }
 }
