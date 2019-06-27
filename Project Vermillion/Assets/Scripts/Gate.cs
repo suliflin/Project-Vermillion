@@ -31,15 +31,7 @@ public class Gate : MonoBehaviour
     {
         if(state == SpawnState.WAITING)
         {
-            if (!EnemyIsAlive())
-            {
-                Debug.Log("Wave Completed");
-                return;
-            }
-            else
-            {
-                return;
-            }
+            
         }
 
         if(waveCountdown <= 0)
@@ -47,6 +39,7 @@ public class Gate : MonoBehaviour
             if (state != SpawnState.SPAWNING)
             {
                 StartCoroutine(SpawnWave(waves[nextWave]));
+                waveCountdown = timeBetweenWaves;
             }
         }
         else
@@ -72,22 +65,6 @@ public class Gate : MonoBehaviour
         }
     }
 
-    bool EnemyIsAlive()
-    {
-        searchCountdown -= Time.deltaTime;
-
-        if (searchCountdown <= 0f)
-        {
-            searchCountdown = 1f;
-            if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
-            {
-                return false;
-            }
-        }
-
-        return true;
-    }
-
     IEnumerator SpawnWave(Wave wave)
     {
         Debug.Log("Spawning wave:" + wave.name);
@@ -104,9 +81,14 @@ public class Gate : MonoBehaviour
         yield break;
     }
 
-    void SpawnEnemy(Transform enemy)
+    void SpawnEnemy(Transform stuff)
     {
-        Debug.Log("Spawning Enemy:" + enemy.name);
-        Instantiate(enemy, transform.position, transform.rotation);
+        GameObject enemy = ObjectPooler.SharedInstance.GetPooledObject();
+        if (enemy != null)
+        {
+            enemy.transform.position = this.transform.position;
+            enemy.transform.rotation = this.transform.rotation;
+            enemy.SetActive(true);
+        }
     }
 }
