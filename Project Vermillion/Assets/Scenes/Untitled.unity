@@ -151,15 +151,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - name: 1
-    enemy: {fileID: 8975476263627068135, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+    enemy: {fileID: 0}
     count: 2
     rate: 1
   - name: 2
-    enemy: {fileID: 8975476263627068135, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+    enemy: {fileID: 0}
     count: 3
     rate: 1.5
   - name: 3
-    enemy: {fileID: 8975476263627068135, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+    enemy: {fileID: 0}
     count: 5
     rate: 2
   timeBetweenWaves: 5

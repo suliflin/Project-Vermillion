@@ -20,8 +20,6 @@ public class Gate : MonoBehaviour
 
     private int nextWave = 0;
 
-    private float searchCountdown = 1f;
-
     void Start()
     {
         waveCountdown = timeBetweenWaves;     
@@ -31,7 +29,7 @@ public class Gate : MonoBehaviour
     {
         if(state == SpawnState.WAITING)
         {
-            
+            WaveCompleted();
         }
 
         if(waveCountdown <= 0)
@@ -72,6 +70,7 @@ public class Gate : MonoBehaviour
 
         for (int i = 0; i < wave.count; i++)
         {
+            wave.enemy = ObjectPooler.SharedInstance.GetPooledObject();
             SpawnEnemy(wave.enemy);
             yield return new WaitForSeconds(1f/wave.rate);
         }
@@ -81,9 +80,9 @@ public class Gate : MonoBehaviour
         yield break;
     }
 
-    void SpawnEnemy(Transform stuff)
+    void SpawnEnemy(GameObject enemy)
     {
-        GameObject enemy = ObjectPooler.SharedInstance.GetPooledObject();
+        
         if (enemy != null)
         {
             enemy.transform.position = this.transform.position;

@@ -7,7 +7,7 @@ public class Wave
 {
     public string name;
 
-    public Transform enemy;
+    public GameObject enemy;
 
     public int count;
 
