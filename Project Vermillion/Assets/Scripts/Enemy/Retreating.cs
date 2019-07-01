@@ -27,7 +27,7 @@ public class Retreating : MonoBehaviour
 
     public void NodeCheck()
     {
-        if (currentNode > 0)
+        if (currentNode < nodes.Length - 1)
             timer = 0;
         currentNodeHolder = nodes[currentNode].transform.position;
     }
@@ -42,9 +42,9 @@ public class Retreating : MonoBehaviour
         }
         else
         {
-            if (currentNode > 0)
+            if (currentNode < nodes.Length -1)
             {
-                currentNode--;
+                currentNode++;
                 NodeCheck();
             }
         }
