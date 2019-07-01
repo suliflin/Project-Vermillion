@@ -12,10 +12,11 @@ public class Attack : MonoBehaviour
 
     public float angleRange;
 
+    private Rigidbody rb;
+
     private float attackCooldown;
     private float attackWait;
 
-    // Start is called before the first frame update
     void Start()
     {
         detectRange = 10;
@@ -23,14 +24,14 @@ public class Attack : MonoBehaviour
         angleRange = 45;
         attackCooldown = 5;
         attackWait = 1;
+        rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Vector3 direction = player.transform.position - this.transform.position;
         float angle = Vector3.Angle(direction, this.transform.forward);
-
+        
         if (Vector3.Distance(player.transform.position, this.transform.position) < detectRange && angle < angleRange)
         {
             direction.y = 0;
@@ -38,7 +39,7 @@ public class Attack : MonoBehaviour
 
             if(direction.magnitude > attackRange)
             {
-                this.transform.position += transform.forward * Time.deltaTime;
+                GetComponent<Arrive>().enabled = true;
             }
             else
             {
@@ -56,6 +57,10 @@ public class Attack : MonoBehaviour
                     }
                 }
             }
+        }
+        else
+        {
+            GetComponent<Arrive>().enabled = false;
         }
     }
 
