@@ -221,8 +221,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad674a8531ca4644849155decb41cb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooledObjects: []
-  itemsToPool: []
+  pooledObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  itemsToPool:
+  - objectToPool: {fileID: 0}
+    amountToPool: 10
+    shouldExpand: 0
+  - objectToPool: {fileID: 0}
+    amountToPool: 0
+    shouldExpand: 0
+  - objectToPool: {fileID: 0}
+    amountToPool: 0
+    shouldExpand: 0
 --- !u!1001 &449332888
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -489,9 +501,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaaec561768ee5142a5badfa5fc3f972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: {fileID: 779566743}
-  player: {fileID: 1798653812}
-  disableTimer: 0
 --- !u!65 &1510154825
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -757,6 +766,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9fc497482eab0b48b7147b1e49a5e6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  appleText: {fileID: 0}
+  barricade: {fileID: 4734678040309978091, guid: 0db084517fbc84d429038aa921d01826,
+    type: 3}
   rotatingSpeed: 130
 --- !u!1 &1993060570
 GameObject:
@@ -790,9 +802,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaaec561768ee5142a5badfa5fc3f972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: {fileID: 2048280598}
-  player: {fileID: 1798653812}
-  disableTimer: 0
 --- !u!65 &1993060572
 BoxCollider:
   m_ObjectHideFlags: 0
