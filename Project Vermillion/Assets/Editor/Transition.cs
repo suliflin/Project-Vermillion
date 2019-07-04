@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace SA
 {
+    [System.Serializable]
     public class Transition 
     {
         public Condition condition;

@@ -7,6 +7,10 @@ namespace SA
     [CreateAssetMenu]
     public class State : ScriptableObject
     {
+        public StateActions[] actions;
+        public StateActions[] onEnter;
+        public StateActions[] onExit;
+
         public List<Transition> transitions = new List<Transition>();
 
         public void Tick()

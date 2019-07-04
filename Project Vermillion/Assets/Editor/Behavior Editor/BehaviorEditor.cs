@@ -15,6 +15,8 @@ namespace SA.BehaviorEditor
         bool makeTransition;
         bool clickedOnWindow;
 
+        int selectedIndex;
+
         BaseNode selectedNode;
 
         public enum UserActions
@@ -91,13 +93,15 @@ namespace SA.BehaviorEditor
         
         void RightClick(Event e)
         {
-            selectedNode = null;
+            selectedIndex = -1;
+            clickedOnWindow = false;
             for (int i = 0; i < windows.Count; i++)
             {
                 if (windows[i].windowRect.Contains(e.mousePosition))
                 {
                     clickedOnWindow = true;
                     selectedNode = windows[i];
+                    selectedIndex = i;
                     break;
                 }
             }
@@ -143,6 +147,12 @@ namespace SA.BehaviorEditor
                 menu.AddItem(new GUIContent("Delete"), false, ContextCallback, UserActions.DELETENODE);
             }
 
+            if (selectedNode is TransitionNode)
+            {
+                menu.AddSeparator("");
+                menu.AddItem(new GUIContent("Delete"), false, ContextCallback, UserActions.DELETENODE);
+            }
+
             if (selectedNode is CommentNode)
             {
                 menu.AddSeparator("");
@@ -166,6 +176,7 @@ namespace SA.BehaviorEditor
                     windows.Add(stateNode);
 
                     break;
+
                 case UserActions.ADDTRANSTITIONNODE:
 
                     if(selectedNode is StateNode)
@@ -176,14 +187,34 @@ namespace SA.BehaviorEditor
                     }
 
                     break;
+
                 case UserActions.DELETENODE:
 
-                    if (selectedNode != null)
+                    if (selectedNode is StateNode)
+                    {
+                        StateNode target = (StateNode)selectedNode;
+                        target.ClearReferences();
+                        windows.Remove(target);
+                    }
+
+                    if (selectedNode is TransitionNode)
+                    {
+                        TransitionNode target = (TransitionNode)selectedNode;
+                        windows.Remove(target);
+
+                        if (target.enterState.currentState.transitions.Contains(target.targetTransition))
+                        {
+                            target.enterState.currentState.transitions.Remove(target.targetTransition);
+                        }
+                    }
+
+                    if (selectedNode is CommentNode)
                     {
                         windows.Remove(selectedNode);
                     }
 
                     break;
+
                 case UserActions.COMMENTNODE:
 
                     CommentNode commentNode = new CommentNode();
@@ -235,6 +266,17 @@ namespace SA.BehaviorEditor
             }
 
             Handles.DrawBezier(startPos, endPos, startTan, EndTan, curveColor, null, 1);
+        }
+
+        public static void ClearWindowsFromList(List<BaseNode> baseNodes)
+        {
+            for (int i = 0; i < baseNodes.Count; i++)
+            {
+                if (windows.Contains(baseNodes[i]))
+                {
+                    windows.Remove(baseNodes[i]);
+                }
+            }
         }
         #endregion
     }

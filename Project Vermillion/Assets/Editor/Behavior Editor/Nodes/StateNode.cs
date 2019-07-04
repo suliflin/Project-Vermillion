@@ -9,6 +9,9 @@ namespace SA.BehaviorEditor
     public class StateNode : BaseNode
     {
         public State currentState;
+        public State previousState;
+
+        List<BaseNode> dependecies = new List<BaseNode>();
 
         bool collapse;
 
@@ -31,6 +34,21 @@ namespace SA.BehaviorEditor
                 collapse = EditorGUILayout.Toggle(" ", collapse);
             }
             currentState = (State)EditorGUILayout.ObjectField(currentState, typeof(State), false);
+
+            if (previousState != currentState)
+            {
+                previousState = currentState;
+                ClearReferences();
+                for (int i = 0; i < currentState.transitions.Count; i++)
+                {
+                    dependecies.Add(BehaviorEditor.AddTransitionNode(i, currentState.transitions[i], this));
+                }
+            }
+
+            if (currentState != null)
+            {
+
+            }
         }
 
         public override void DrawCurve()
@@ -42,6 +60,12 @@ namespace SA.BehaviorEditor
         public Transition AddTransition()
         {
             return currentState.AddTransition();
+        }
+
+        public void ClearReferences()
+        {
+            BehaviorEditor.ClearWindowsFromList(dependecies);
+            dependecies.Clear();
         }
     }
 }
