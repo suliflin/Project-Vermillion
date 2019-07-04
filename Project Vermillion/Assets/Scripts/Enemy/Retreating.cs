@@ -12,7 +12,6 @@ public class Retreating : MonoBehaviour
     private float timer;
     private int currentNode;
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -49,4 +48,9 @@ public class Retreating : MonoBehaviour
             }
         }
     }
+    /* You're supposed to take the array from Climb and reverse it
+     * you just copied it so we have to manually place
+     * all the nodes in the inspector again but in reverse
+     * which will be a pain when we have multiple areas
+     */
 }

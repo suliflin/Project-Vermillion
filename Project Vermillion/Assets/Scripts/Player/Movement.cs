@@ -41,7 +41,6 @@ public class Movement : MonoBehaviour
             Debug.Log("turning left");
         }
 
-
         //XINPUT
         float moveHorizontalX = Input.GetAxis("HorizontalXbox");
         float moveVerticalX = Input.GetAxis("VerticalXbox");
@@ -49,10 +48,18 @@ public class Movement : MonoBehaviour
         //I hope this works - I dont have a controller 
         moveHorizontalK = moveHorizontalX;
         moveVerticalK = moveVerticalX;
-
+        /* All of this barricade logic should be in the barricade
+         * all you need here is to take the input and then call a function
+         * in barricade to check if you can build or not and in barricade 
+         * you'll deduct the apple cost using the appledecrease function
+         */
         Vector3 direction = barricade.transform.position - this.transform.position;
         float angle = Vector3.Angle(direction, this.transform.forward);
-
+        /* You encounter the problem of placing this here when you start the game
+         * the if statement is always false because barricade doesn't exist
+         * so you need to have the input be the outermost if condition and then
+         * inside it you have another if to make it work or not
+         */
         if (Vector3.Distance(barricade.transform.position, this.transform.position) < detectRange && angle < angleRange)
         {
             if (Input.GetKeyDown(KeyCode.E))
@@ -79,7 +86,7 @@ public class Movement : MonoBehaviour
 
        
     }
-
+    //What's this?
     void ConstructionChecker()
     {
       
@@ -96,10 +103,10 @@ public class Movement : MonoBehaviour
 
         
     }
-
+    //The text isn't assigned so it gives a null reference once you fix it I'll put the code back
     public void ApplesCollected()
     {
-        appleText.text = "Apples: " + AppleCurrency.apples.ToString();
+        //appleText.text = "Apples: " + AppleCurrency.apples.ToString();
     }
 
 }
