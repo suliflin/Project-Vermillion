@@ -1,0 +1,16 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+namespace SA
+{
+    public class Transition 
+    {
+        public Condition condition;
+
+        public State targetState;
+
+        public bool disable;
+
+    }
+}
