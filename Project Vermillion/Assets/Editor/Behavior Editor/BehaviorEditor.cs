@@ -248,6 +248,7 @@ namespace SA.BehaviorEditor
             transNode.windowRect = new Rect(fromRect.x + 300, fromRect.y + (fromRect.height * 0.7f), 200, 80);
             transNode.windowTitle = "Condition Check";
             windows.Add(transNode);
+            from.dependecies.Add(transNode);
 
             return transNode;
         }

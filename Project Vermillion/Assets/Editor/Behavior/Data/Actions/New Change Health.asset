@@ -9,13 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 640c443c2ab2d0840a4842c633d55446, type: 3}
-  m_Name: Normal
+  m_Script: {fileID: 11500000, guid: ae4daac9686600141822bc08b2b38796, type: 3}
+  m_Name: New Change Health
   m_EditorClassIdentifier: 
-  actions: []
-  onEnter: []
-  onExit: []
-  transitions:
-  - condition: {fileID: 0}
-    targetState: {fileID: 0}
-    disable: 0
