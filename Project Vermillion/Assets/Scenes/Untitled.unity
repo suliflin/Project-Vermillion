@@ -221,8 +221,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad674a8531ca4644849155decb41cb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooledObjects: []
-  itemsToPool: []
+  pooledObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  itemsToPool:
+  - objectToPool: {fileID: 0}
+    amountToPool: 0
+    shouldExpand: 0
+  - objectToPool: {fileID: 0}
+    amountToPool: 0
+    shouldExpand: 0
 --- !u!1001 &449332888
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -457,6 +465,36 @@ Transform:
   m_Father: {fileID: 1993060575}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!1 &1254777545
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1254777546}
+  m_Layer: 0
+  m_Name: bullets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1254777546
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254777545}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1798653819}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1510154823
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,9 +527,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaaec561768ee5142a5badfa5fc3f972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: {fileID: 779566743}
-  player: {fileID: 1798653812}
-  disableTimer: 0
 --- !u!65 &1510154825
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -641,13 +676,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1570490227}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: 0.64099467, y: -0, z: -0, w: 0.76754534}
+  m_LocalPosition: {x: 0, y: 10.51, z: -1.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 79.732, y: 0, z: 0}
 --- !u!1 &1795774672
 GameObject:
   m_ObjectHideFlags: 0
@@ -758,6 +793,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotatingSpeed: 130
+--- !u!114 &1798653814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798653812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32fcefebae3ba5f40924dd6a4184b660, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullets: {fileID: 1254777546}
+--- !u!4 &1798653819 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5902655769405239703, guid: b78f1cab9b8368f488875ee6e42ade4b,
+    type: 3}
+  m_PrefabInstance: {fileID: 449332888}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1993060570
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,9 +844,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaaec561768ee5142a5badfa5fc3f972, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destination: {fileID: 2048280598}
-  player: {fileID: 1798653812}
-  disableTimer: 0
 --- !u!65 &1993060572
 BoxCollider:
   m_ObjectHideFlags: 0
