@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class AppleSpawning : MonoBehaviour
 {
+    public GameObject apples;
+    public List<AppleSpawning> appleSpawning = new List<AppleSpawning>(100);
+
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -16,3 +18,9 @@ public class AppleSpawning : MonoBehaviour
         
     }
 }
+
+public class IsEmpty : MonoBehaviour
+{
+
+}
+

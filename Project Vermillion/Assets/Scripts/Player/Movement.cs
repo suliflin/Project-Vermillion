@@ -5,18 +5,20 @@ using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
+
     public Text appleText;
-   
+
+    private ObjectPooler pool;
     public float rotatingSpeed = 130;
     public Barricade barricade;
-  
-   //Sultan you fix this..
 
+    //Sultan you fix the barricade..
     private void Start()
     {
-        AppleCurrency.apples = 0;     
-       
+        pool = GameObject.FindGameObjectWithTag("Pool").GetComponent<ObjectPooler>();
+        AppleCurrency.apples = 0;
     }
+
     //Update is called once per frame
     void Update()
     {
@@ -38,10 +40,14 @@ public class Movement : MonoBehaviour
             Debug.Log("turning left");
         }
 
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             barricade.CanBuild();
-            
+
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            TurretPlacing();
         }
 
         //XINPUT
@@ -49,8 +55,19 @@ public class Movement : MonoBehaviour
         float moveVerticalX = Input.GetAxis("VerticalXbox");
 
         //I hope this works - I dont have a controller 
-        moveHorizontalK = moveHorizontalX;
-        moveVerticalK = moveVerticalX;
+        moveHorizontalX = moveHorizontalK;
+        moveVerticalX = moveVerticalK;
+    }
+
+   
+
+    public void TurretPlacing()
+    {
+        GameObject placed = pool.GetPooledObject("Turret");
+        placed.SetActive(true);
+        placed.transform.position = (transform.position + (transform.forward * 2));
+
+        Debug.Log("Awesome");
     }
 
     private void OnTriggerEnter(Collider other)
@@ -62,7 +79,7 @@ public class Movement : MonoBehaviour
             other.gameObject.SetActive(false);
         }
 
-        
+
     }
     //The text isn't assigned so it gives a null reference once you fix it I'll put the code back
     public void ApplesCollected()
