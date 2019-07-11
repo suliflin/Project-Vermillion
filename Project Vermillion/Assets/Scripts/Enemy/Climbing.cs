@@ -5,18 +5,11 @@ using UnityEngine;
 public class Climbing : MonoBehaviour
 {
     public Transform[] nodes;
-    public GameObject player;
-    private Transform currentTarget;
+    public GameObject enemy;
     static Vector3 currentNodeHolder;
-    public float moveSpeed;
-    private float timer;
+    public float speed;
     private int currentNode;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        NodeCheck();
-    }
+    private bool destination;
 
     // Update is called once per frame
     void Update()
@@ -24,32 +17,23 @@ public class Climbing : MonoBehaviour
         MoveIt();
     }
 
-    public void NodeCheck()
-    {//This is in start so the current node will always be the first one only
-        if (currentNode < nodes.Length - 1)
-            timer = 0;
-        currentNodeHolder = nodes[currentNode].transform.position;
-    }
-
     public void MoveIt()
-    {//Why are you multiplying it by movespeed just use Time.deltaTime to create a timer
-        timer += Time.deltaTime * moveSpeed;
+    {
 
-        if (player.transform.position != currentNodeHolder)
+        if (enemy.transform.position != nodes[currentNode].position && !destination)
         {
-            /* Why is the 3rd parameter a timer it's supposed to be a max distance
-             * Why does it move the player instead of the object it is attached to?
-             */
-            player.transform.position = Vector3.MoveTowards(player.transform.position, currentNodeHolder, timer);
+            enemy.transform.position = Vector3.MoveTowards(enemy.transform.position,
+            nodes[currentNode].position, 10 * Time.deltaTime);
         }
-        else
+        else if (!destination)
         {
-            if (currentNode < nodes.Length - 1)
-            {
-                currentNode++;
-                NodeCheck();
-            }
+            currentNode++;
+        }
+
+        if (enemy.transform.position == nodes[nodes.Length - 1].position)
+        {
+            destination = true;
         }
     }
-    //Your climb code is pretty jumbled up it doesn't work at all
+
 }
