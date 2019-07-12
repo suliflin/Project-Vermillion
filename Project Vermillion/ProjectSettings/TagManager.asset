@@ -8,6 +8,8 @@ TagManager:
   - Fist
   - Apples
   - Barricade
+  - Turret
+  - Pool
   layers:
   - Default
   - TransparentFX

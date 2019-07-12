@@ -5,19 +5,21 @@ using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
+
     public Text appleText;
-   
+
+    private ObjectPooler pool;
     public float rotatingSpeed = 130;
-    public float angleRange;
-    public float detectRange;
+    public Barricade barricade;
 
-    public bool built = false;
-
+    //Sultan you fix the barricade..
     private void Start()
     {
-        AppleCurrency.apples = 5;
+        pool = GameObject.FindGameObjectWithTag("Pool").GetComponent<ObjectPooler>();
+        AppleCurrency.apples = 0;
     }
 
+    //Update is called once per frame
     void Update()
     {
         //Keyboard Controls
@@ -40,8 +42,11 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            GameObject barricade = ObjectPooler.SharedInstance.GetPooledObject("Barricade");
-            CanBuild(barricade, "Barricade", 1);
+
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            TurretPlacing();
         }
 
         //XINPUT
@@ -49,8 +54,17 @@ public class Movement : MonoBehaviour
         float moveVerticalX = Input.GetAxis("VerticalXbox");
 
         //I hope this works - I dont have a controller 
-        moveHorizontalK = moveHorizontalX;
-        moveVerticalK = moveVerticalX;
+        moveHorizontalX = moveHorizontalK;
+        moveVerticalX = moveVerticalK;
+    }
+
+    public void TurretPlacing()
+    {
+        GameObject placed = pool.GetPooledObject("Turret");
+        placed.SetActive(true);
+        placed.transform.position = (transform.position + (transform.forward * 2));
+
+        Debug.Log("Awesome");
     }
 
     private void OnTriggerEnter(Collider other)
@@ -61,60 +75,13 @@ public class Movement : MonoBehaviour
             ApplesCollected();
             other.gameObject.SetActive(false);
         }
-    }
 
+
+    }
     //The text isn't assigned so it gives a null reference once you fix it I'll put the code back
     public void ApplesCollected()
     {
         //appleText.text = "Apples: " + AppleCurrency.apples.ToString();
     }
 
-    public bool CanBuild(GameObject build, string tag, int cost)
-    {
-        int index = 0;
-        int count = 0;
-        build.transform.position = (transform.position + (transform.forward * 2));
-
-        for (int i = 0; i < ObjectPooler.SharedInstance.pooledObjects.Count; i++)
-        {
-            if (ObjectPooler.SharedInstance.pooledObjects[i].activeInHierarchy && ObjectPooler.SharedInstance.pooledObjects[i].tag == tag)
-            {
-                index++;
-                Debug.Log(Vector3.Distance(ObjectPooler.SharedInstance.pooledObjects[i].transform.position, build.transform.position));
-                if (Vector3.Distance(ObjectPooler.SharedInstance.pooledObjects[i].transform.position, build.transform.position) > detectRange)
-                {
-                    count++;
-                    if (AppleCurrency.AppleDecrease(cost) && count == index)
-                    {
-                        build.SetActive(true);
-                        return true;
-                    }
-                    else
-                    {
-                        Debug.Log("Not enough apples");
-                        return true;
-                    }
-                }
-                else
-                {
-                    Debug.Log("Too close");
-                }
-            }
-            else if (!built)
-            {
-                if (AppleCurrency.AppleDecrease(cost))
-                {
-                    build.SetActive(true);
-                    built = true;
-                    return true;
-                }
-                else
-                {
-                    Debug.Log("Not enough apples");
-                    return false;
-                }
-            }
-        }
-        return false;
-    }
 }
