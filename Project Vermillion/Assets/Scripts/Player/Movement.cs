@@ -42,7 +42,6 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-            barricade.CanBuild();
 
         }
         if (Input.GetKeyDown(KeyCode.F))
@@ -58,8 +57,6 @@ public class Movement : MonoBehaviour
         moveHorizontalX = moveHorizontalK;
         moveVerticalX = moveVerticalK;
     }
-
-   
 
     public void TurretPlacing()
     {
