@@ -5,23 +5,27 @@ using UnityEngine.UI;
 
 public class Movement : MonoBehaviour
 {
-
     public Text appleText;
 
-    private ObjectPooler pool;
+    public float teleporterTimer = 0;
     public float rotatingSpeed = 130;
-    public Barricade barricade;
+    public float angleRange;
+    public float detectRange;
 
-    //Sultan you fix the barricade..
+    public bool built = false;
+
+    public GameObject teleporterA;
+    public GameObject teleporterB;
+
     private void Start()
     {
-        pool = GameObject.FindGameObjectWithTag("Pool").GetComponent<ObjectPooler>();
-        AppleCurrency.apples = 0;
+        AppleCurrency.apples = 20;
     }
 
     //Update is called once per frame
     void Update()
     {
+        Debug.Log(AppleCurrency.apples);
         //Keyboard Controls
         float moveHorizontalK = Input.GetAxis("HorizontalKeyboard");
         float moveVerticalK = Input.GetAxis("VerticalKeyboard");
@@ -32,21 +36,30 @@ public class Movement : MonoBehaviour
         if (Input.GetKey(KeyCode.RightArrow))
         {
             transform.Rotate(0, rotatingSpeed * Time.deltaTime, 0);
-            Debug.Log("turning rights");
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Rotate(0, -rotatingSpeed * Time.deltaTime, 0);
-            Debug.Log("turning left");
         }
 
         if (Input.GetKeyDown(KeyCode.E))
         {
-
+            GameObject barricade = ObjectPooler.SharedInstance.GetPooledObject("Barricade");
+            CanBuild(barricade, 1);
         }
         if (Input.GetKeyDown(KeyCode.F))
         {
-            TurretPlacing();
+            GameObject turret = ObjectPooler.SharedInstance.GetPooledObject("Turret");
+            CanBuild(turret, 1);
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            GameObject teleporter = ObjectPooler.SharedInstance.GetPooledObject("Teleporter");
+
+            if (CanBuildTeleporter())
+            {
+                CanBuild(teleporter, 1);
+            }
         }
 
         //XINPUT
@@ -58,15 +71,6 @@ public class Movement : MonoBehaviour
         moveVerticalX = moveVerticalK;
     }
 
-    public void TurretPlacing()
-    {
-        GameObject placed = pool.GetPooledObject("Turret");
-        placed.SetActive(true);
-        placed.transform.position = (transform.position + (transform.forward * 2));
-
-        Debug.Log("Awesome");
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Apples"))
@@ -75,13 +79,107 @@ public class Movement : MonoBehaviour
             ApplesCollected();
             other.gameObject.SetActive(false);
         }
-
-
     }
-    //The text isn't assigned so it gives a null reference once you fix it I'll put the code back
+
     public void ApplesCollected()
     {
         //appleText.text = "Apples: " + AppleCurrency.apples.ToString();
     }
 
+    public bool CanBuild(GameObject build, int cost)
+    {
+        int index = 0;
+        int count = 0;
+        build.transform.position = (transform.position + (transform.forward * 2));
+        build.transform.rotation = transform.rotation;
+
+        for (int i = 0; i < ObjectPooler.SharedInstance.pooledObjects.Count; i++)
+        {
+            if (ObjectPooler.SharedInstance.pooledObjects[i].activeInHierarchy && ObjectPooler.SharedInstance.pooledObjects[i].tag != "Enemy")
+            {
+                index++;
+                if (Vector3.Distance(ObjectPooler.SharedInstance.pooledObjects[i].transform.position, build.transform.position) > detectRange)
+                {
+                    count++;
+                }
+                else
+                {
+                    Debug.Log("Too close");
+                }
+            }
+            else if (!built)
+            {
+                if (AppleCurrency.AppleCheck(cost))
+                {
+                    AppleCurrency.AppleDecrease(cost);
+                    build.SetActive(true);
+                    built = true;
+                    return true;
+                }
+                else
+                {
+                    Debug.Log("Not enough apples");
+                    return false;
+                }
+            }
+        }
+
+        if (AppleCurrency.AppleCheck(cost) && count == index)
+        {
+            AppleCurrency.AppleDecrease(cost);
+            build.SetActive(true);
+            return true;
+        }
+        else
+        {
+            Debug.Log("Not enough apples");
+            return true;
+        }
+    }
+
+    public bool CanBuildTeleporter()
+    {
+        int count = 0;
+
+        for (int i = 0; i < ObjectPooler.SharedInstance.pooledObjects.Count; i++)
+        {
+            if (ObjectPooler.SharedInstance.pooledObjects[i].activeInHierarchy && ObjectPooler.SharedInstance.pooledObjects[i].tag == "Teleporter")
+            {
+                count++;
+            }
+        }
+
+        if (count == 2)
+        {
+            TeleporterLink();
+            return false;
+        }
+
+        return true;
+    }
+
+    public void TeleporterLink()
+    {
+        for (int i = 0; i < ObjectPooler.SharedInstance.pooledObjects.Count; i++)
+        {
+            if (ObjectPooler.SharedInstance.pooledObjects[i].activeInHierarchy && ObjectPooler.SharedInstance.pooledObjects[i].tag == "Teleporter" && teleporterA == null)
+            {
+                teleporterA = ObjectPooler.SharedInstance.pooledObjects[i];
+                teleporterA.GetComponent<Teleporter>().player = gameObject;
+            }
+            else if (ObjectPooler.SharedInstance.pooledObjects[i].activeInHierarchy && ObjectPooler.SharedInstance.pooledObjects[i].tag == "Teleporter" && teleporterA != null)
+            {
+                teleporterB = ObjectPooler.SharedInstance.pooledObjects[i];
+                teleporterB.GetComponent<Teleporter>().player = gameObject;
+            }
+            else
+            {
+                Debug.Log("Press R again to link");
+            }
+        }
+        teleporterA.GetComponent<BoxCollider>().enabled = true;
+        teleporterB.GetComponent<BoxCollider>().enabled = true;
+        teleporterA.GetComponent<Teleporter>().destination = teleporterB.transform.GetChild(0).transform;
+        teleporterB.GetComponent<Teleporter>().destination = teleporterA.transform.GetChild(0).transform;
+    }
 }
