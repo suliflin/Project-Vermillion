@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 1250236073224036758}
   - component: {fileID: 1250236073224036757}
   - component: {fileID: 1250236073224036756}
-  - component: {fileID: 1250236073224036763}
-  - component: {fileID: 1250236073224036762}
   - component: {fileID: 1250236073224036761}
   - component: {fileID: 1250236073224036760}
   m_Layer: 0
@@ -96,44 +94,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1250236073224036763
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1250236073224036767}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39ec7dc36dd2f8f4cb73ff0e13f977d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  player: {fileID: 1250236073224036767}
-  moveSpeed: 1
---- !u!114 &1250236073224036762
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1250236073224036767}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d5a2b33685f6014cb9430a5c4e91ee4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  player: {fileID: 1250236073224036767}
-  moveSpeed: 1
 --- !u!54 &1250236073224036761
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -163,6 +123,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   appleText: {fileID: 0}
-  barricade: {fileID: 4734678040309978091, guid: 0db084517fbc84d429038aa921d01826,
-    type: 3}
   rotatingSpeed: 130
+  barricade: {fileID: 0}

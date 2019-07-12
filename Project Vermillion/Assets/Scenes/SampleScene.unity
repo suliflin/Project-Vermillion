@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -850,7 +850,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1086977394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1145,6 +1145,14 @@ MonoBehaviour:
   - {fileID: 4734678040309978091, guid: 0db084517fbc84d429038aa921d01826, type: 3}
   itemsToPool:
   - objectToPool: {fileID: 4734678040309978091, guid: 0db084517fbc84d429038aa921d01826,
+      type: 3}
+    amountToPool: 10
+    shouldExpand: 1
+  - objectToPool: {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4,
+      type: 3}
+    amountToPool: 10
+    shouldExpand: 1
+  - objectToPool: {fileID: 1019372240981863312, guid: e5c2d142f31c712498fb095e051be782,
       type: 3}
     amountToPool: 10
     shouldExpand: 1
@@ -1680,7 +1688,7 @@ PrefabInstance:
         type: 3}
       propertyPath: barricade
       value: 
-      objectReference: {fileID: 5845132395537504970, guid: 0db084517fbc84d429038aa921d01826,
+      objectReference: {fileID: 6916027328954379419, guid: 0db084517fbc84d429038aa921d01826,
         type: 3}
     - target: {fileID: 1250236073224036762, guid: 1e95e6502224a1f40bbbb4760bdaf30b,
         type: 3}
