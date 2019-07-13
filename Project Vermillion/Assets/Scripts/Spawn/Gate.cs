@@ -7,16 +7,7 @@ public class Gate : MonoBehaviour
 {
     public Wave[] waves;
 
-    void Start()
-    {
-        for (int i = 0; i < waves.Length; i++)
-        {
-            for (int x = 0; x < waves[i].enemies.Count; x++)
-            {
-                waves[i].enemies[x] = gameObject.GetComponentInParent<WavesManager>().enemies[x];
-            }
-        }
-    }
+    public GameObject[] nodes;
 
     public IEnumerator SpawnWave(Wave wave)
     {
@@ -34,8 +25,9 @@ public class Gate : MonoBehaviour
     {
         if (enemy != null)
         {
-            enemy.transform.position = this.transform.position;
-            enemy.transform.rotation = this.transform.rotation;
+            enemy.GetComponent<Climb>().SetGate(this);
+            enemy.transform.position = transform.position;
+            enemy.transform.rotation = transform.rotation;
             enemy.SetActive(true);
         }
     }

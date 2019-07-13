@@ -13,7 +13,7 @@ public class WavesManager : MonoBehaviour
     }
 
     public List<Gate> gates;
-    public List<GameObject> enemies;
+    public List<string> enemies;
 
     public int numberOfWaves;
 
@@ -39,7 +39,7 @@ public class WavesManager : MonoBehaviour
         {
             WaveCompleted();
         }
-        Debug.Log(spawnCountdown);
+
         if (waveCountdown <= 0)
         {
             if (state != SpawnState.SPAWNING && spawnCountdown == spawnWaitTime)
@@ -60,7 +60,6 @@ public class WavesManager : MonoBehaviour
 
     public void WaveCompleted()
     {
-        Debug.Log("Wave Completed");
         state = SpawnState.COUNTDOWN;
         waveCountdown = timeBetweenWaves;
         spawnCountdown = spawnWaitTime;
@@ -68,7 +67,6 @@ public class WavesManager : MonoBehaviour
         if (nextWave + 1 > numberOfWaves - 1)
         {
             nextWave = 0;
-            Debug.Log("All Waves Complete");
         }
         else
         {
