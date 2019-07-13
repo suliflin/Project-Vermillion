@@ -7,39 +7,47 @@ public class Movement : MonoBehaviour
 {
     public Text appleText;
 
+    public GameObject teleporterA;
+    public GameObject teleporterB;
+
+    public CrossbowController crossbow;
+
+    public float moveSpeed;
     public float teleporterTimer = 0;
     public float rotatingSpeed = 130;
     public float angleRange;
     public float detectRange;
 
     public bool built = false;
+    public bool useController;
 
-    public GameObject teleporterA;
-    public GameObject teleporterB;
+    private Rigidbody rb;
 
-    private void Start()
+    private Vector3 moveInput;
+    private Vector3 moveVelocity;
+
+    void Start()
     {
         AppleCurrency.apples = 20;
+        rb = GetComponent<Rigidbody>();
     }
 
     //Update is called once per frame
     void Update()
     {
-        Debug.Log(AppleCurrency.apples);
-        //Keyboard Controls
-        float moveHorizontal = Input.GetAxis("HorizontalLeft");
-        float moveVertical = Input.GetAxis("VerticalLeft");
+        moveInput = new Vector3(Input.GetAxisRaw("HorizontalLeft"), 0, Input.GetAxisRaw("VerticalLeft"));
+        moveVelocity = moveInput * moveSpeed;
 
-        GetComponent<Rigidbody>().velocity = new Vector3(3 * moveHorizontal, 0, 3 * moveVertical);
+        Vector3 playerDirection = Vector3.right * Input.GetAxisRaw("HorizontalRight") + Vector3.forward * -Input.GetAxisRaw("VerticalRight");
 
-        //Turning with keyboard
-        if (Input.GetKey(KeyCode.RightArrow))
+        if(playerDirection.sqrMagnitude > 0.0f)
         {
-            transform.Rotate(0, rotatingSpeed * Time.deltaTime, 0);
+            transform.rotation = Quaternion.LookRotation(playerDirection, Vector3.up);
+            crossbow.isFiring = true;
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+        else
         {
-            transform.Rotate(0, -rotatingSpeed * Time.deltaTime, 0);
+            crossbow.isFiring = false;
         }
 
         if (Input.GetButtonDown("Square"))
@@ -61,6 +69,11 @@ public class Movement : MonoBehaviour
                 CanBuild(teleporter, 1);
             }
         }
+    }
+
+    private void FixedUpdate()
+    {
+        rb.velocity = moveVelocity;
     }
 
     private void OnTriggerEnter(Collider other)

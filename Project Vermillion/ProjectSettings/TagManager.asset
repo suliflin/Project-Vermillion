@@ -11,6 +11,7 @@ TagManager:
   - Turret
   - Pool
   - Teleporter
+  - Bolt
   layers:
   - Default
   - TransparentFX

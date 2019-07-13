@@ -6,13 +6,11 @@ public class PlayerInfo : MonoBehaviour
 {
     public int health;
 
-    // Start is called before the first frame update
     void Start()
     {
-        health = 10;
+        health = 4;
     }
 
-    // Update is called once per frame
     void Update()
     {
         
