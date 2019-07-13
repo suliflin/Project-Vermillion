@@ -27,10 +27,10 @@ public class Movement : MonoBehaviour
     {
         Debug.Log(AppleCurrency.apples);
         //Keyboard Controls
-        float moveHorizontalK = Input.GetAxis("HorizontalKeyboard");
-        float moveVerticalK = Input.GetAxis("VerticalKeyboard");
+        float moveHorizontal = Input.GetAxis("HorizontalLeft");
+        float moveVertical = Input.GetAxis("VerticalLeft");
 
-        GetComponent<Rigidbody>().velocity = new Vector3(3 * moveHorizontalK, 0, 3 * moveVerticalK);
+        GetComponent<Rigidbody>().velocity = new Vector3(3 * moveHorizontal, 0, 3 * moveVertical);
 
         //Turning with keyboard
         if (Input.GetKey(KeyCode.RightArrow))
@@ -42,17 +42,17 @@ public class Movement : MonoBehaviour
             transform.Rotate(0, -rotatingSpeed * Time.deltaTime, 0);
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetButtonDown("Square"))
         {
             GameObject barricade = ObjectPooler.SharedInstance.GetPooledObject("Barricade");
             CanBuild(barricade, 1);
         }
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetButtonDown("Triangle"))
         {
             GameObject turret = ObjectPooler.SharedInstance.GetPooledObject("Turret");
             CanBuild(turret, 1);
         }
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetButtonDown("Circle"))
         {
             GameObject teleporter = ObjectPooler.SharedInstance.GetPooledObject("Teleporter");
 
@@ -61,14 +61,6 @@ public class Movement : MonoBehaviour
                 CanBuild(teleporter, 1);
             }
         }
-
-        //XINPUT
-        float moveHorizontalX = Input.GetAxis("HorizontalXbox");
-        float moveVerticalX = Input.GetAxis("VerticalXbox");
-
-        //I hope this works - I dont have a controller 
-        moveHorizontalX = moveHorizontalK;
-        moveVerticalX = moveVerticalK;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -174,7 +166,7 @@ public class Movement : MonoBehaviour
             }
             else
             {
-                Debug.Log("Press R again to link");
+                Debug.Log("Press Circle again to link");
             }
         }
         teleporterA.GetComponent<BoxCollider>().enabled = true;

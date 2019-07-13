@@ -9,6 +9,7 @@ public class WavesManager : MonoBehaviour
         SPAWNING,
         WAITING,
         COUNTDOWN,
+        APPLES,
         PAUSE
     }
 
