@@ -17,15 +17,20 @@ public class Movement : MonoBehaviour
     public GameObject teleporterA;
     public GameObject teleporterB;
 
+    public Text realAppleText;
+
     private void Start()
     {
-        AppleCurrency.apples = 20;
+        AppleCurrency.apples = 0;
+        AppleCurrency.appleText = realAppleText;
     }
 
     //Update is called once per frame
     void Update()
     {
         Debug.Log(AppleCurrency.apples);
+        realAppleText.text = "x" + AppleCurrency.apples.ToString();
+
         //Keyboard Controls
         float moveHorizontal = Input.GetAxis("HorizontalLeft");
         float moveVertical = Input.GetAxis("VerticalLeft");
@@ -68,14 +73,8 @@ public class Movement : MonoBehaviour
         if (other.gameObject.CompareTag("Apples"))
         {
             AppleCurrency.AppleIncrease();
-            ApplesCollected();
             other.gameObject.SetActive(false);
         }
-    }
-
-    public void ApplesCollected()
-    {
-        //appleText.text = "Apples: " + AppleCurrency.apples.ToString();
     }
 
     public bool CanBuild(GameObject build, int cost)
@@ -150,7 +149,7 @@ public class Movement : MonoBehaviour
         return true;
     }
 
-    public void TeleporterLink()
+     public void TeleporterLink()
     {
         for (int i = 0; i < ObjectPooler.SharedInstance.pooledObjects.Count; i++)
         {

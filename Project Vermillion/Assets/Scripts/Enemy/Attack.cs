@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
+    HealthController heartReference;
+
     public GameObject player;
     public GameObject fist;
 
@@ -44,9 +46,13 @@ public class Attack : MonoBehaviour
             else
             {
                 attackCooldown -= Time.deltaTime;
+
                 if(attackCooldown < 0)
                 {
                     ActivateFist();
+
+                   
+
                     attackWait -= Time.deltaTime;
 
                     if(attackWait < 0)
@@ -67,6 +73,8 @@ public class Attack : MonoBehaviour
     public void ActivateFist()
     {
         fist.GetComponent<Collider>().enabled = true;
+        Debug.Log("attacked");
+        HealthController.Instance.LooseHeart();
     }
 
     public void DeactivateFist()
