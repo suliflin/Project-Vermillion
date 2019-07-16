@@ -9,7 +9,9 @@ public class MoveToApple : BaseNode
         Vector3 dir = bt.currentApple.transform.position - bt.transform.position;
         bt.transform.Translate(dir.normalized * bt.moveSpeed * Time.deltaTime, Space.World);
 
-        if (bt.currentApple.transform.position == bt.transform.position)
+        float distanceToApple = Vector3.Distance(bt.transform.position, bt.currentApple.transform.position);
+
+        if (distanceToApple < bt.appleRange)
         {
             current = RESULTS.SUCCEED;
             return current;

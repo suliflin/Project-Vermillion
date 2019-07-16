@@ -8,7 +8,7 @@ public class EnemyInfo : MonoBehaviour
 
     void Start()
     {
-        health = 5;
+
     }
 
     void Update()

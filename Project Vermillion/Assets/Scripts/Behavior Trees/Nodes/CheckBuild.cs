@@ -49,6 +49,7 @@ public class CheckBuild : BaseNode
         if (closestBuild != null && shortestDistance <= bt.detectRange)
         {
             bt.targetBuild = closestBuild.transform;
+            bt.lastPosition = bt.transform;
             current = RESULTS.SUCCEED;
             return current;
         }

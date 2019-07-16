@@ -6,7 +6,7 @@ public class Chase : BaseNode
 {
     public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
     {
-        Vector3 accel = bt.sb.Arrive(bt.target.transform.position);
+        Vector3 accel = bt.sb.Arrive(bt.player.transform.position);
 
         bt.sb.Steer(accel);
 

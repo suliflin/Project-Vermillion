@@ -10,6 +10,7 @@ public class CheckDistance : BaseNode
 
         if (distanceToPlayer > bt.attackRange)
         {
+            bt.lastPosition = bt.transform;
             current = RESULTS.SUCCEED;
             return current;
         }

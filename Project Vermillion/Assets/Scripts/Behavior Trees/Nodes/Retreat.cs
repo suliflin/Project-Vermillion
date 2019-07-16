@@ -6,6 +6,7 @@ public class Retreat : BaseNode
 {
     public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
     {
+        Debug.Log("Retreating");
         Vector3 dir = bt.target.position - bt.transform.position;
         bt.transform.Translate(dir.normalized * bt.moveSpeed * Time.deltaTime, Space.World);
 

@@ -25,7 +25,7 @@ public class Gate : MonoBehaviour
     {
         if (enemy != null)
         {
-            //enemy.GetComponent<MeleeTreeManager>().spawner = this;
+            enemy.GetComponent<MeleeTreeManager>().spawner = this;
             enemy.transform.position = transform.position;
             enemy.transform.rotation = transform.rotation;
             enemy.SetActive(true);
