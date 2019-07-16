@@ -13,9 +13,6 @@ GameObject:
   - component: {fileID: 8975476263627068137}
   - component: {fileID: 8975476263627068136}
   - component: {fileID: 8975476263627068139}
-  - component: {fileID: 8975476263627068138}
-  - component: {fileID: 4443603515987912463}
-  - component: {fileID: 1853493879494925465}
   - component: {fileID: -4511665890490279132}
   m_Layer: 0
   m_Name: Capsule
@@ -114,49 +111,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 32
   m_CollisionDetection: 0
---- !u!114 &8975476263627068138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8975476263627068141}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60a40d32666e9424da8b011c7fb50812, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 5902655769405239704, guid: b78f1cab9b8368f488875ee6e42ade4b, type: 3}
-  fist: {fileID: 8975476263708966241}
-  detectRange: 0
-  attackRange: 2
-  angleRange: 0
---- !u!114 &4443603515987912463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8975476263627068141}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d3aabc52dcb79f45a958cadd79189f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawner: {fileID: 0}
-  moveSpeed: 5
---- !u!114 &1853493879494925465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8975476263627068141}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c874d368288ee6645bb08f3ce4519237, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &-4511665890490279132
 MonoBehaviour:
   m_ObjectHideFlags: 0

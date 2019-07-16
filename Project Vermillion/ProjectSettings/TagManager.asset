@@ -12,6 +12,7 @@ TagManager:
   - Pool
   - Teleporter
   - Bolt
+  - AppleSpawnManager
   layers:
   - Default
   - TransparentFX

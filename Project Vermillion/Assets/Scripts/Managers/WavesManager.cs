@@ -6,20 +6,21 @@ public class WavesManager : MonoBehaviour
 {
     public enum SpawnState
     {
-        SPAWNING,
         WAITING,
         COUNTDOWN,
-        APPLES,
         PAUSE
     }
 
     public List<Gate> gates;
     public List<string> enemies;
 
+    public GameObject appleManager;
+
     public int numberOfWaves;
 
     public float timeBetweenWaves;
     public float spawnWaitTime;
+    //public float appleWaitTime;
 
     public SpawnState state = SpawnState.COUNTDOWN;
 
@@ -27,11 +28,13 @@ public class WavesManager : MonoBehaviour
 
     private float waveCountdown;
     private float spawnCountdown;
+    //private float appleCountdown;
 
     void Start()
     {
         waveCountdown = timeBetweenWaves;
         spawnCountdown = spawnWaitTime;
+        //appleCountdown = appleWaitTime;
     }
 
     void Update()
@@ -40,11 +43,13 @@ public class WavesManager : MonoBehaviour
         {
             WaveCompleted();
         }
-
+        
         if (waveCountdown <= 0)
         {
-            if (state != SpawnState.SPAWNING && spawnCountdown == spawnWaitTime)
+            if (state != SpawnState.PAUSE && spawnCountdown == spawnWaitTime)
             {
+                appleManager.GetComponent<AppleSpawnManager>().AppleSpawn();
+
                 for (int i = 0; i < gates.Count; i++)
                 {
                     StartCoroutine(gates[i].SpawnWave(gates[i].waves[nextWave]));

@@ -4,37 +4,52 @@ using UnityEngine;
 
 public class AppleSpawnManager : MonoBehaviour
 {
-    public List<AppleSpawn> appleSpawn;
+    public List<GameObject> appleSpawn;
+    public List<int> chosenNums;
+
     public int spawnAmnt;
-    private float timer;
+
     private int randoAppleSpawn;
 
-    // Start is called before the first frame update
-    void Start()
+    public void AppleSpawn()
     {
-        timer = 10;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        timer -= Time.deltaTime;
-        Debug.Log(timer);
-
-        // After timer reaches 0, randomize between the apple spawn points, set "chosen" as true and spawn on chosen
-        // Remember to set it as false when you pick up the apple
-        if (timer <= 0)
+        InitializeList(chosenNums, appleSpawn.Count);
+        
+        for (int i = 0; i < spawnAmnt; i++)
         {
-            for (int i = 0; i < spawnAmnt; i++)
+            randoAppleSpawn = RandomRangeExcept(chosenNums);
+
+            for (int j = 0; j < appleSpawn.Count; j++)
             {
-                randoAppleSpawn = Random.Range(0, appleSpawn.Count);
-                if (!appleSpawn[randoAppleSpawn].chosen)
+                if (randoAppleSpawn == j && !appleSpawn[j].GetComponent<AppleSpawn>().chosen)
                 {
-                    appleSpawn[randoAppleSpawn].chosen = true;
-                    appleSpawn[randoAppleSpawn].Spawn();
+                    appleSpawn[j].GetComponent<AppleSpawn>().Spawn();
                 }
             }
-            timer = 10;
+        }
+    }
+
+    public int RandomRangeExcept(List<int> chosen)
+    {
+        int choice;
+
+        for (int i = 0; i < chosen.Count; i++)
+        {
+            choice = Random.Range(0, chosen.Count);
+            randoAppleSpawn = chosen[choice];
+            chosen.RemoveAt(choice);
+        }
+
+        return randoAppleSpawn;
+    }
+
+    public void InitializeList(List<int> chosen, int size)
+    {
+        chosen.Clear();
+
+        for (int i = 0; i < size; i++)
+        {
+            chosen.Add(i);
         }
     }
 }
