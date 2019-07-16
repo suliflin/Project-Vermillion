@@ -123,5 +123,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   appleText: {fileID: 0}
+  teleporterA: {fileID: 0}
+  teleporterB: {fileID: 0}
+  crossbow: {fileID: 0}
+  moveSpeed: 8
+  teleporterTimer: 60
   rotatingSpeed: 130
-  barricade: {fileID: 0}
+  angleRange: 0
+  detectRange: 0
+  built: 0
+  useController: 0

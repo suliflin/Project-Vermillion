@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8975476263627068139}
   - component: {fileID: -4511665890490279132}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9e7dc18db47b654cad2a08676c806e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 16
 --- !u!1 &8975476263708966241
 GameObject:
   m_ObjectHideFlags: 0
