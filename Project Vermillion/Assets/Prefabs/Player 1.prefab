@@ -117,7 +117,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250236073224036767}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d9fc497482eab0b48b7147b1e49a5e6c, type: 3}
   m_Name: 
@@ -125,11 +125,13 @@ MonoBehaviour:
   appleText: {fileID: 0}
   teleporterA: {fileID: 0}
   teleporterB: {fileID: 0}
+  mainCamera: {fileID: 0}
   crossbow: {fileID: 0}
   moveSpeed: 8
   teleporterTimer: 60
   rotatingSpeed: 130
-  angleRange: 0
-  detectRange: 0
+  smooth: 0.3
+  detectRange: 5
+  cameraHeight: 10
   built: 0
   useController: 0
