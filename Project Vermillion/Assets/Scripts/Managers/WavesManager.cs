@@ -35,6 +35,7 @@ public class WavesManager : MonoBehaviour
         waveCountdown = timeBetweenWaves;
         spawnCountdown = spawnWaitTime;
         //appleCountdown = appleWaitTime;
+        appleManager.GetComponent<AppleSpawnManager>().AppleSpawn();
     }
 
     void Update()

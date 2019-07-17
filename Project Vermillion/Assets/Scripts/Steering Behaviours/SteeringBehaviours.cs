@@ -47,7 +47,6 @@ public class SteeringBehaviours : MonoBehaviour
 
     public Vector3 Arrive(Vector3 targetPosition)
     {
-        Debug.DrawLine(transform.position, targetPosition, Color.cyan, 0f, false);
 
         targetPosition = ConvertVector(targetPosition);
 

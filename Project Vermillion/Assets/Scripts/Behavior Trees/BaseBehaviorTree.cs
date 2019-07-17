@@ -23,6 +23,7 @@ public class BaseBehaviorTree : MonoBehaviour
     public float moveSpeed;
     public float detectRange;
     public float attackRange;
+    public float appleRange;
 
     public int wavepointIndex;
     public int maxHealth;
@@ -32,7 +33,7 @@ public class BaseBehaviorTree : MonoBehaviour
 
     public virtual void Start()
     {
-
+        
     }
 
     public virtual void Update()

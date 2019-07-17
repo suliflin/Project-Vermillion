@@ -6,7 +6,7 @@ public class AttackPlayer : BaseNode
 {
     public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
     {
-
-        return current;
+        Debug.Log("Attacking Player");
+        return RESULTS.SUCCEED;
     }
 }
