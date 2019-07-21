@@ -42,16 +42,16 @@ public class Movement : MonoBehaviour
     //Update is called once per frame
     void Update()
     {
-<<<<<<< HEAD
+//<<<<<<< HEAD
         Debug.Log(AppleCurrency.apples);
         realAppleText.text = "x" + AppleCurrency.apples.ToString();
-=======
+//=======
         Vector3 pos = new Vector3();
         pos.x = transform.position.x;
         pos.z = transform.position.z;
         pos.y = transform.position.y + cameraHeight;
         mainCamera.transform.position = Vector3.SmoothDamp(mainCamera.transform.position, pos, ref velocity, smooth);
->>>>>>> e809a4457348f87087beec567b707a7f20f0e145
+//>>>>>>> e809a4457348f87087beec567b707a7f20f0e145
 
         moveInput = new Vector3(Input.GetAxisRaw("HorizontalLeft"), 0, Input.GetAxisRaw("VerticalLeft"));
         moveVelocity = moveInput * moveSpeed;
