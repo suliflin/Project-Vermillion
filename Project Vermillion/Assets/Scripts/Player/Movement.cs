@@ -26,15 +26,21 @@ public class Movement : MonoBehaviour
     private Vector3 moveInput;
     private Vector3 moveVelocity;
 
+    public Text realAppleText;
+
     void Start()
     {
-        AppleCurrency.apples = 20;
+        AppleCurrency.apples = 0;
+        AppleCurrency.appleText = realAppleText;
         rb = GetComponent<Rigidbody>();
     }
 
     //Update is called once per frame
     void Update()
     {
+        Debug.Log(AppleCurrency.apples);
+        realAppleText.text = "x" + AppleCurrency.apples.ToString();
+
         moveInput = new Vector3(Input.GetAxisRaw("HorizontalLeft"), 0, Input.GetAxisRaw("VerticalLeft"));
         moveVelocity = moveInput * moveSpeed;
 
