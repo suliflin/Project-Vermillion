@@ -3375,7 +3375,7 @@ Transform:
   - {fileID: 2111433640}
   - {fileID: 694753638}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &433446001
 GameObject:
@@ -4670,7 +4670,7 @@ PrefabInstance:
     - target: {fileID: 1250236073224036759, guid: 1e95e6502224a1f40bbbb4760bdaf30b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1250236073224036759, guid: 1e95e6502224a1f40bbbb4760bdaf30b,
         type: 3}
@@ -4692,7 +4692,23 @@ PrefabInstance:
       propertyPath: crossbow
       value: 
       objectReference: {fileID: 1598500191}
-    m_RemovedComponents: []
+    - target: {fileID: 1250236073224036761, guid: 1e95e6502224a1f40bbbb4760bdaf30b,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
+    - target: {fileID: 1250236073224036761, guid: 1e95e6502224a1f40bbbb4760bdaf30b,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1250236073224036761, guid: 1e95e6502224a1f40bbbb4760bdaf30b,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1250236073224036760, guid: 1e95e6502224a1f40bbbb4760bdaf30b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1e95e6502224a1f40bbbb4760bdaf30b, type: 3}
 --- !u!1 &520016923
 GameObject:
@@ -4997,6 +5013,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534560163}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &556067580 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1250236073224036767, guid: 1e95e6502224a1f40bbbb4760bdaf30b,
+    type: 3}
+  m_PrefabInstance: {fileID: 510026011}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &556067581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556067580}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbf6fcc0bae7b8f4c939b8a118633eed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotatingSpeed: 130
+--- !u!114 &556067586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556067580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b13ffd5ca3c056408e9785061709980, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  appleText: {fileID: 0}
+  teleporterA: {fileID: 0}
+  teleporterB: {fileID: 0}
+  mainCamera: {fileID: 0}
+  crossbow: {fileID: 0}
+  moveSpeed: 0
+  teleporterTimer: 0
+  rotatingSpeed: 130
+  smooth: 0.3
+  detectRange: 0
+  cameraHeight: 0
+  built: 0
+  useController: 0
+  realAppleText: {fileID: 0}
 --- !u!1 &563557815
 GameObject:
   m_ObjectHideFlags: 0
@@ -6868,7 +6929,7 @@ Transform:
   m_LocalScale: {x: 0.08547603, y: 0.08542502, z: 0.08535784}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &705509706
 GameObject:
@@ -7931,51 +7992,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 4
     rate: 0.5
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 2
     rate: 1
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 3
     rate: 0.5
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 2
     rate: 0.5
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 5
     rate: 1.5
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 3
     rate: 1
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 4
     rate: 1
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 3
     rate: 0.5
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 4
     rate: 2
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 2
     rate: 0.5
-  nodes:
-  - {fileID: 2047055161}
-  - {fileID: 1853146678}
-  - {fileID: 574488395}
-  - {fileID: 1577464537}
+  nodes: []
 --- !u!4 &793006626
 Transform:
   m_ObjectHideFlags: 0
@@ -8961,53 +9008,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 5
     rate: 1
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 7
     rate: 0.5
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 5
     rate: 1
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 4
     rate: 1
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 6
     rate: 2
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 4
     rate: 1
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 5
     rate: 1
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 3
     rate: 0.5
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 2
     rate: 1
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 6
     rate: 1
-  nodes:
-  - {fileID: 719067627}
-  - {fileID: 1017612750}
-  - {fileID: 73636404}
-  - {fileID: 339865361}
-  - {fileID: 26154873}
-  - {fileID: 422820379}
+  nodes: []
 --- !u!4 &929785764
 Transform:
   m_ObjectHideFlags: 0
@@ -9463,7 +9494,7 @@ Transform:
   - {fileID: 2026679915}
   - {fileID: 929785764}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &963194225
 GameObject:
@@ -9541,13 +9572,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.067575894, y: -0.92211187, z: 0.18807511, w: 0.33131725}
-  m_LocalPosition: {x: 113.38, y: 59.8, z: 4}
-  m_LocalScale: {x: 0.37088722, y: 0.3686801, z: 0.37088734}
+  m_LocalRotation: {x: 0.25869724, y: -0.6964408, z: 0.26074955, w: 0.6164865}
+  m_LocalPosition: {x: 7.6500015, y: 8.650955, z: -0.46300507}
+  m_LocalScale: {x: 0.37088722, y: 0.36868012, z: 0.37088728}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 23.056002, y: -140.473, z: 0}
+  m_Father: {fileID: 673156410}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 43.013, y: -98.170006, z: -3.045}
 --- !u!1 &975911575
 GameObject:
   m_ObjectHideFlags: 0
@@ -10609,7 +10640,7 @@ Transform:
   - {fileID: 74263470}
   - {fileID: 1600851709}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1032345444
 GameObject:
@@ -11707,51 +11738,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 2
     rate: 0.5
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 4
     rate: 1
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 2
     rate: 1
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 6
     rate: 0.5
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 2
     rate: 1
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 1
     rate: 0.5
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 3
     rate: 0.5
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 6
     rate: 1
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 5
     rate: 0.5
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 4
     rate: 1
-  nodes:
-  - {fileID: 1597980904}
-  - {fileID: 2033614302}
-  - {fileID: 888272682}
-  - {fileID: 478156653}
+  nodes: []
 --- !u!4 &1185452017
 Transform:
   m_ObjectHideFlags: 0
@@ -12595,52 +12612,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 3
     rate: 1
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 4
     rate: 0.5
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 4
     rate: 0.5
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 5
     rate: 2
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 2
     rate: 0.5
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 3
     rate: 2
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 7
     rate: 1.5
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 3
     rate: 1
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 2
     rate: 0.5
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 8
     rate: 1
-  nodes:
-  - {fileID: 563557815}
-  - {fileID: 495840321}
-  - {fileID: 58099978}
-  - {fileID: 38121052}
-  - {fileID: 1034052440}
+  nodes: []
 --- !u!4 &1309226067
 Transform:
   m_ObjectHideFlags: 0
@@ -13732,7 +13734,7 @@ Transform:
   m_Children:
   - {fileID: 1566150740}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1421412821
 GameObject:
@@ -15079,7 +15081,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1564192613
 GameObject:
@@ -19025,7 +19027,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: e3263a77733610442837c71352d82e46,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: e3263a77733610442837c71352d82e46,
         type: 3}
@@ -20232,52 +20234,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 3
     rate: 1
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 5
     rate: 1.5
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 4
     rate: 0.5
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 3
     rate: 0.5
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 6
     rate: 1
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 7
     rate: 0.5
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 3
     rate: 2
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 2
     rate: 0.5
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 4
     rate: 1
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 3
     rate: 1
-  nodes:
-  - {fileID: 529704999}
-  - {fileID: 1977505797}
-  - {fileID: 660434597}
-  - {fileID: 666166255}
-  - {fileID: 1874313762}
+  nodes: []
 --- !u!4 &2026679915
 Transform:
   m_ObjectHideFlags: 0
@@ -20963,52 +20950,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waves:
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 6
     rate: 1.5
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 3
     rate: 2
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 6
     rate: 1.5
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 3
     rate: 0.5
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 4
     rate: 1.5
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 3
     rate: 1
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 5
     rate: 0.5
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 4
     rate: 1
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 8
     rate: 2
-  - enemies:
-    - {fileID: 8975476263627068141, guid: 652d7060e3c64d34cbc14738a4efcea4, type: 3}
+  - enemies: []
     count: 4
     rate: 1.5
-  nodes:
-  - {fileID: 1221240415}
-  - {fileID: 1195943242}
-  - {fileID: 637093510}
-  - {fileID: 1700706861}
-  - {fileID: 700043391}
+  nodes: []
 --- !u!4 &2087665209
 Transform:
   m_ObjectHideFlags: 0
