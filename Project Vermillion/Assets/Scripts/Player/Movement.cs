@@ -10,13 +10,16 @@ public class Movement : MonoBehaviour
     public GameObject teleporterA;
     public GameObject teleporterB;
 
+    public Camera mainCamera;
+
     public CrossbowController crossbow;
 
     public float moveSpeed;
     public float teleporterTimer = 0;
     public float rotatingSpeed = 130;
-    public float angleRange;
+    public float smooth = 0.3f;
     public float detectRange;
+    public float cameraHeight;
 
     public bool built = false;
     public bool useController;
@@ -25,6 +28,7 @@ public class Movement : MonoBehaviour
 
     private Vector3 moveInput;
     private Vector3 moveVelocity;
+    private Vector3 velocity = Vector3.zero;
 
     public Text realAppleText;
 
@@ -38,41 +42,75 @@ public class Movement : MonoBehaviour
     //Update is called once per frame
     void Update()
     {
+<<<<<<< HEAD
         Debug.Log(AppleCurrency.apples);
         realAppleText.text = "x" + AppleCurrency.apples.ToString();
+=======
+        Vector3 pos = new Vector3();
+        pos.x = transform.position.x;
+        pos.z = transform.position.z;
+        pos.y = transform.position.y + cameraHeight;
+        mainCamera.transform.position = Vector3.SmoothDamp(mainCamera.transform.position, pos, ref velocity, smooth);
+>>>>>>> e809a4457348f87087beec567b707a7f20f0e145
 
         moveInput = new Vector3(Input.GetAxisRaw("HorizontalLeft"), 0, Input.GetAxisRaw("VerticalLeft"));
         moveVelocity = moveInput * moveSpeed;
 
-        Vector3 playerDirection = Vector3.right * Input.GetAxisRaw("HorizontalRight") + Vector3.forward * -Input.GetAxisRaw("VerticalRight");
-
-        if(playerDirection.sqrMagnitude > 0.0f)
+        if (!useController)
         {
-            transform.rotation = Quaternion.LookRotation(playerDirection, Vector3.up);
-            crossbow.isFiring = true;
+            Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
+            Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
+            float rayLength;
+
+            if (groundPlane.Raycast(cameraRay, out rayLength))
+            {
+                Vector3 pointToLook = cameraRay.GetPoint(rayLength);
+                Debug.DrawLine(cameraRay.origin, pointToLook, Color.black);
+                transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
+            }
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                crossbow.isFiring = true;
+            }
+
+            if (Input.GetMouseButtonUp(0))
+            {
+                crossbow.isFiring = false;
+            }
         }
         else
         {
-            crossbow.isFiring = false;
-        }
+            Vector3 playerDirection = Vector3.right * Input.GetAxisRaw("HorizontalRight") + Vector3.forward * -Input.GetAxisRaw("VerticalRight");
 
-        if (Input.GetButtonDown("Square"))
-        {
-            GameObject barricade = ObjectPooler.SharedInstance.GetPooledObject("Barricade");
-            CanBuild(barricade, 1);
-        }
-        if (Input.GetButtonDown("Triangle"))
-        {
-            GameObject turret = ObjectPooler.SharedInstance.GetPooledObject("Turret");
-            CanBuild(turret, 1);
-        }
-        if (Input.GetButtonDown("Circle"))
-        {
-            GameObject teleporter = ObjectPooler.SharedInstance.GetPooledObject("Teleporter");
-
-            if (CanBuildTeleporter())
+            if (playerDirection.sqrMagnitude > 0.0f)
             {
-                CanBuild(teleporter, 1);
+                transform.rotation = Quaternion.LookRotation(playerDirection, Vector3.up);
+                crossbow.isFiring = true;
+            }
+            else
+            {
+                crossbow.isFiring = false;
+            }
+
+            if (Input.GetButtonDown("Square"))
+            {
+                GameObject barricade = ObjectPooler.SharedInstance.GetPooledObject("Barricade");
+                CanBuild(barricade, 1);
+            }
+            if (Input.GetButtonDown("Triangle"))
+            {
+                GameObject turret = ObjectPooler.SharedInstance.GetPooledObject("Turret");
+                CanBuild(turret, 1);
+            }
+            if (Input.GetButtonDown("Circle"))
+            {
+                GameObject teleporter = ObjectPooler.SharedInstance.GetPooledObject("Teleporter");
+
+                if (CanBuildTeleporter())
+                {
+                    CanBuild(teleporter, 1);
+                }
             }
         }
     }

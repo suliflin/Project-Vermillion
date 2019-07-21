@@ -14,8 +14,10 @@ GameObject:
   - component: {fileID: 8975476263627068136}
   - component: {fileID: 8975476263627068139}
   - component: {fileID: -4511665890490279132}
+  - component: {fileID: -1306893016125403272}
+  - component: {fileID: 6922728293990386593}
   m_Layer: 0
-  m_Name: Capsule
+  m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -123,7 +125,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9e7dc18db47b654cad2a08676c806e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 16
+--- !u!114 &-1306893016125403272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8975476263627068141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c2775dbfc7da1440990ff4d693247b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sb: {fileID: 0}
+  spawner: {fileID: 0}
+  player: {fileID: 1250236073224036767, guid: 1e95e6502224a1f40bbbb4760bdaf30b, type: 3}
+  currentApple: {fileID: 0}
+  apples: []
+  target: {fileID: 0}
+  targetBuild: {fileID: 0}
+  lastPosition: {fileID: 0}
+  moveSpeed: 3
+  detectRange: 10
+  attackRange: 3
+  appleRange: 2
+  wavepointIndex: 0
+  maxHealth: 16
+  lowHealth: 5
+  start: 0
+--- !u!114 &6922728293990386593
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8975476263627068141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12923484db4c7cc43aeb2236d7c7bda0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxVelocity: 3.5
+  maxAcceleration: 10
+  turnSpeed: 20
+  targetRadius: 0.005
+  slowRadius: 1
+  timeToTarget: 0.1
+  smoothing: 1
+  numSamplesForSmoothing: 5
 --- !u!1 &8975476263708966241
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ public class Heal : BaseNode
 {
     public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
     {
+        Debug.Log("Healing");
         bt.GetComponent<EnemyInfo>().health += (int)Time.deltaTime / 2;
 
         if (bt.GetComponent<EnemyInfo>().health == bt.maxHealth)

@@ -6,6 +6,7 @@ public class CheckApple : BaseNode
 {
     public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
     {
+        Debug.Log("Checking Apples");
         UpdateAppleList(bt);
 
         for (int i = 0; i < bt.apples.Count; i++)
@@ -28,7 +29,7 @@ public class CheckApple : BaseNode
     public void UpdateAppleList(BaseBehaviorTree bt)
     {
         bt.apples.Clear();
-        bt.apples.AddRange(GameObject.FindGameObjectsWithTag("Apple"));
+        bt.apples.AddRange(GameObject.FindGameObjectsWithTag("Apples"));
 
         for (int i = 0; i < bt.apples.Count; i++)
         {

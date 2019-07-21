@@ -6,6 +6,7 @@ public class AttackBuild : BaseNode
 {
     public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
     {
-        return current;
+        Debug.Log("Attacking Build");
+        return RESULTS.SUCCEED;
     }
 }
