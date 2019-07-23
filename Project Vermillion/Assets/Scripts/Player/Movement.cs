@@ -20,6 +20,7 @@ public class Movement : MonoBehaviour
     public float smooth = 0.3f;
     public float detectRange;
     public float cameraHeight;
+    public float cameraDistance;
 
     public bool built = false;
     public bool useController;
@@ -45,26 +46,27 @@ public class Movement : MonoBehaviour
 //<<<<<<< HEAD
         Debug.Log(AppleCurrency.apples);
         realAppleText.text = "x" + AppleCurrency.apples.ToString();
-//=======
+        //=======
+
+    
         Vector3 pos = new Vector3();
         pos.x = transform.position.x;
-        pos.z = transform.position.z;
+        pos.z = transform.position.z + cameraDistance;
         pos.y = transform.position.y + cameraHeight;
         mainCamera.transform.position = Vector3.SmoothDamp(mainCamera.transform.position, pos, ref velocity, smooth);
-//>>>>>>> e809a4457348f87087beec567b707a7f20f0e145
-
-        moveInput = new Vector3(Input.GetAxisRaw("HorizontalLeft"), 0, Input.GetAxisRaw("VerticalLeft"));
-        moveVelocity = moveInput * moveSpeed;
+//s>>>>>>> e809a4457348f87087beec567b707a7f20f0e145      
 
         if (!useController)
         {
             Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
             Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
-            float rayLength;
+            //float rayLength;
 
-            if (groundPlane.Raycast(cameraRay, out rayLength))
+            RaycastHit hit;
+
+            if (Physics.Raycast(cameraRay, out hit))
             {
-                Vector3 pointToLook = cameraRay.GetPoint(rayLength);
+                Vector3 pointToLook = hit.point;
                 Debug.DrawLine(cameraRay.origin, pointToLook, Color.black);
                 transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
             }
@@ -72,12 +74,18 @@ public class Movement : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 crossbow.isFiring = true;
+                Debug.Log("Shooting");
             }
 
             if (Input.GetMouseButtonUp(0))
             {
                 crossbow.isFiring = false;
+                Debug.Log("NotShooting");
             }
+
+            moveInput = new Vector3(Input.GetAxisRaw("HorizontalLeft"), 0, Input.GetAxisRaw("VerticalLeft"));
+            moveVelocity = moveInput * moveSpeed;
+
         }
         else
         {
