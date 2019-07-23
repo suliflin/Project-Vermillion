@@ -47,7 +47,6 @@ public class SteeringBehaviours : MonoBehaviour
 
     public Vector3 Arrive(Vector3 targetPosition)
     {
-        Debug.DrawLine(transform.position, targetPosition, Color.cyan, 0f, false);
 
         targetPosition = ConvertVector(targetPosition);
 
@@ -76,7 +75,7 @@ public class SteeringBehaviours : MonoBehaviour
 
         Vector3 acceleration = targetVelocity - rb.velocity;
 
-        acceleration *= 1 / timeToTarget;
+        //acceleration *= 1 / timeToTarget;
 
         if (acceleration.magnitude > maxAcceleration)
         {

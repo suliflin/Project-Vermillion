@@ -12,11 +12,7 @@ public class ObjectPooler : MonoBehaviour
     private void Awake()
     {
         SharedInstance = this;
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
         pooledObjects = new List<GameObject>();
         foreach (PoolItem item in itemsToPool)
         {
@@ -27,12 +23,6 @@ public class ObjectPooler : MonoBehaviour
                 pooledObjects.Add(obj);
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public GameObject GetPooledObject(string tag)

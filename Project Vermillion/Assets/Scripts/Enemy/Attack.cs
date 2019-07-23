@@ -67,6 +67,8 @@ public class Attack : MonoBehaviour
     public void ActivateFist()
     {
         fist.GetComponent<Collider>().enabled = true;
+        Debug.Log("attacked");
+        HealthController.Instance.LooseHeart();
     }
 
     public void DeactivateFist()

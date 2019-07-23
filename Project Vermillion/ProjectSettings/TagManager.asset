@@ -6,6 +6,13 @@ TagManager:
   tags:
   - Enemy
   - Fist
+  - Apples
+  - Barricade
+  - Turret
+  - Pool
+  - Teleporter
+  - Bolt
+  - AppleSpawnManager
   layers:
   - Default
   - TransparentFX
