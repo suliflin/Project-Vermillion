@@ -21,6 +21,7 @@ public class Movement : MonoBehaviour
     public float smooth = 0.3f;
     public float detectRange;
     public float cameraHeight;
+    public float cameraDistance;
 
     public bool built = false;
     public bool useController;
@@ -43,11 +44,11 @@ public class Movement : MonoBehaviour
     void Update()
     {
         Debug.Log(AppleCurrency.apples);
-        realAppleText.text = "x" + AppleCurrency.apples.ToString();
+      //  realAppleText.text = "x" + AppleCurrency.apples.ToString();
 
         Vector3 pos = new Vector3();
         pos.x = transform.position.x;
-        pos.z = transform.position.z;
+        pos.z = transform.position.z + cameraDistance;
         pos.y = transform.position.y + cameraHeight;
         mainCamera.transform.position = Vector3.SmoothDamp(mainCamera.transform.position, pos, ref velocity, smooth);
 
@@ -59,10 +60,11 @@ public class Movement : MonoBehaviour
             Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
             Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
             float rayLength;
+            RaycastHit hit;
 
-            if (groundPlane.Raycast(cameraRay, out rayLength))
+            if (Physics.Raycast(cameraRay, out hit))
             {
-                Vector3 pointToLook = cameraRay.GetPoint(rayLength);
+                Vector3 pointToLook = hit.point;
                 Debug.DrawLine(cameraRay.origin, pointToLook, Color.black);
                 transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
             }
@@ -115,7 +117,7 @@ public class Movement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.velocity = moveVelocity;
+        rb.AddForce(moveVelocity, ForceMode.Acceleration);
     }
 
     private void OnTriggerEnter(Collider other)
