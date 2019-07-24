@@ -6,8 +6,7 @@ using UnityEngine.UI;
 public class Movement : MonoBehaviour
 {
     public Text appleText;
-
-
+    
     public GameObject teleporterA;
     public GameObject teleporterB;
 
@@ -18,15 +17,7 @@ public class Movement : MonoBehaviour
     public float moveSpeed;
     public float teleporterTimer = 0;
     public float rotatingSpeed = 130;
-<<<<<<< HEAD
-<<<<<<< HEAD
-    // Update is called once per frame
-    void Update()
-    {
-        //Keyboard Controls
-        float moveHorizontalK = Input.GetAxis("HorizontalKeyboard");
-        float moveVerticalK = Input.GetAxis("VerticalKeyboard");
-=======
+
     public float smooth = 0.3f;
     public float detectRange;
     public float cameraHeight;
@@ -49,47 +40,16 @@ public class Movement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    //Update is called once per frame
     void Update()
     {
-//<<<<<<< HEAD
-=======
-    public float smooth = 0.3f;
-    public float detectRange;
-    public float cameraHeight;
-
-    public bool built = false;
-    public bool useController;
-
-    private Rigidbody rb;
-
-    private Vector3 moveInput;
-    private Vector3 moveVelocity;
-    private Vector3 velocity = Vector3.zero;
-
-    public Text realAppleText;
-
-    void Start()
-    {
-        AppleCurrency.apples = 0;
-        AppleCurrency.appleText = realAppleText;
-        rb = GetComponent<Rigidbody>();
-    }
-
-    //Update is called once per frame
-    void Update()
-    {
-        //<<<<<<< HEAD
->>>>>>> 6ac66d5832ba390c19bedf2d6ed074cddad355db
         Debug.Log(AppleCurrency.apples);
         realAppleText.text = "x" + AppleCurrency.apples.ToString();
-//=======
+
         Vector3 pos = new Vector3();
         pos.x = transform.position.x;
         pos.z = transform.position.z;
         pos.y = transform.position.y + cameraHeight;
         mainCamera.transform.position = Vector3.SmoothDamp(mainCamera.transform.position, pos, ref velocity, smooth);
-//>>>>>>> e809a4457348f87087beec567b707a7f20f0e145
 
         moveInput = new Vector3(Input.GetAxisRaw("HorizontalLeft"), 0, Input.GetAxisRaw("VerticalLeft"));
         moveVelocity = moveInput * moveSpeed;
@@ -116,21 +76,11 @@ public class Movement : MonoBehaviour
             {
                 crossbow.isFiring = false;
             }
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 6ac66d5832ba390c19bedf2d6ed074cddad355db
         }
         else
         {
             Vector3 playerDirection = Vector3.right * Input.GetAxisRaw("HorizontalRight") + Vector3.forward * -Input.GetAxisRaw("VerticalRight");
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 6ac66d5832ba390c19bedf2d6ed074cddad355db
             if (playerDirection.sqrMagnitude > 0.0f)
             {
                 transform.rotation = Quaternion.LookRotation(playerDirection, Vector3.up);
@@ -154,18 +104,6 @@ public class Movement : MonoBehaviour
             if (Input.GetButtonDown("Circle"))
             {
                 GameObject teleporter = ObjectPooler.SharedInstance.GetPooledObject("Teleporter");
-<<<<<<< HEAD
-
-                if (CanBuildTeleporter())
-                {
-                    CanBuild(teleporter, 1);
-                }
-            }
-        }
-    }
->>>>>>> parent of 22f6c88... Movement for keyboard and aiming fixed.
-=======
->>>>>>> 6ac66d5832ba390c19bedf2d6ed074cddad355db
 
                 if (CanBuildTeleporter())
                 {
