@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class AppleCurrency : MonoBehaviour
 {
-    public static int apples;
+   /* public static int apples;
     public static Text appleText;
 
     public static void AppleIncrease()
@@ -32,5 +32,5 @@ public class AppleCurrency : MonoBehaviour
     public static void DisplayText()
     {
         appleText.text = apples.ToString();
-    }
+    }*/
 }

@@ -1,12 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Movement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
-    public Text appleText;
-    
+
     public GameObject teleporterA;
     public GameObject teleporterB;
 
@@ -27,24 +27,26 @@ public class Movement : MonoBehaviour
     public bool useController;
 
     private Rigidbody rb;
-
     private Vector3 moveInput;
+
+
     private Vector3 moveVelocity;
     private Vector3 velocity = Vector3.zero;
 
     public Text realAppleText;
 
+    [SerializeField]
+    int apples;
+
     void Start()
     {
-        AppleCurrency.apples = 0;
-        AppleCurrency.appleText = realAppleText;
+        apples = 0;
         rb = GetComponent<Rigidbody>();
     }
 
     void Update()
     {
-        Debug.Log(AppleCurrency.apples);
-      //  realAppleText.text = "x" + AppleCurrency.apples.ToString();
+        //  realAppleText.text = "x" + AppleCurrency.apples.ToString();
 
         Vector3 pos = new Vector3();
         pos.x = transform.position.x;
@@ -59,7 +61,6 @@ public class Movement : MonoBehaviour
         {
             Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
             Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
-            float rayLength;
             RaycastHit hit;
 
             if (Physics.Raycast(cameraRay, out hit))
@@ -96,12 +97,12 @@ public class Movement : MonoBehaviour
             if (Input.GetButtonDown("Square"))
             {
                 GameObject barricade = ObjectPooler.SharedInstance.GetPooledObject("Barricade");
-                CanBuild(barricade, 1);
+                Build(barricade, 1);
             }
             if (Input.GetButtonDown("Triangle"))
             {
                 GameObject turret = ObjectPooler.SharedInstance.GetPooledObject("Turret");
-                CanBuild(turret, 1);
+                Build(turret, 1);
             }
             if (Input.GetButtonDown("Circle"))
             {
@@ -109,7 +110,7 @@ public class Movement : MonoBehaviour
 
                 if (CanBuildTeleporter())
                 {
-                    CanBuild(teleporter, 1);
+                    Build(teleporter, 1);
                 }
             }
         }
@@ -124,66 +125,38 @@ public class Movement : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Apples"))
         {
-            AppleCurrency.AppleIncrease();
-            ApplesCollected();
+            UIManager.UpdateAppleCounterUI(++apples);
             other.gameObject.SetActive(false);
         }
     }
 
-    public void ApplesCollected()
+    public bool AppleCheck(int v)
     {
-        //appleText.text = "Apples: " + AppleCurrency.apples.ToString();
+        return v <= apples;
     }
 
-    public bool CanBuild(GameObject build, int cost)
+
+    public void AppleDecrease(int v)
     {
-        int index = 0;
-        int count = 0;
+        apples -= v;
+    }
+
+    public bool Build(GameObject build, int cost)
+    {
+        if (cost > apples)
+        {
+            Debug.Log("Not enough apples");
+            return false;
+        }
+
         build.transform.position = (transform.position + (transform.forward * 2));
         build.transform.rotation = transform.rotation;
 
-        for (int i = 0; i < ObjectPooler.SharedInstance.pooledObjects.Count; i++)
-        {
-            if (ObjectPooler.SharedInstance.pooledObjects[i].activeInHierarchy && ObjectPooler.SharedInstance.pooledObjects[i].tag != "Enemy")
-            {
-                index++;
-                if (Vector3.Distance(ObjectPooler.SharedInstance.pooledObjects[i].transform.position, build.transform.position) > detectRange)
-                {
-                    count++;
-                }
-                else
-                {
-                    Debug.Log("Too close");
-                }
-            }
-            else if (!built)
-            {
-                if (AppleCurrency.AppleCheck(cost))
-                {
-                    AppleCurrency.AppleDecrease(cost);
-                    build.SetActive(true);
-                    built = true;
-                    return true;
-                }
-                else
-                {
-                    Debug.Log("Not enough apples");
-                    return false;
-                }
-            }
-        }
+        apples -= cost;
+        build.SetActive(true);
+        return true;
 
-        if (AppleCurrency.AppleCheck(cost) && count == index)
-        {
-            AppleCurrency.AppleDecrease(cost);
-            build.SetActive(true);
-            return true;
-        }
-        else
-        {
-            Debug.Log("Not enough apples");
-            return true;
-        }
+
     }
 
     public bool CanBuildTeleporter()
@@ -214,12 +187,10 @@ public class Movement : MonoBehaviour
             if (ObjectPooler.SharedInstance.pooledObjects[i].activeInHierarchy && ObjectPooler.SharedInstance.pooledObjects[i].tag == "Teleporter" && teleporterA == null)
             {
                 teleporterA = ObjectPooler.SharedInstance.pooledObjects[i];
-                teleporterA.GetComponent<Teleporter>().player = gameObject;
             }
             else if (ObjectPooler.SharedInstance.pooledObjects[i].activeInHierarchy && ObjectPooler.SharedInstance.pooledObjects[i].tag == "Teleporter" && teleporterA != null)
             {
                 teleporterB = ObjectPooler.SharedInstance.pooledObjects[i];
-                teleporterB.GetComponent<Teleporter>().player = gameObject;
             }
             else
             {
@@ -231,4 +202,5 @@ public class Movement : MonoBehaviour
         teleporterA.GetComponent<Teleporter>().destination = teleporterB.transform.GetChild(0).transform;
         teleporterB.GetComponent<Teleporter>().destination = teleporterA.transform.GetChild(0).transform;
     }
+
 }

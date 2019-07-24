@@ -6,27 +6,27 @@ public class Teleporter : MonoBehaviour
 {
     public Transform destination;
 
-    public GameObject player;
+    public PlayerController player;
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
     }
 
     void Update()
     {
-        player.GetComponent<Movement>().teleporterTimer -= Time.deltaTime;
+        player.GetComponent<PlayerController>().teleporterTimer -= Time.deltaTime;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" && player.GetComponent<Movement>().teleporterTimer <= 0)
+        if (other.gameObject.tag == "Player" && player.teleporterTimer <= 0)
         {
-            if (AppleCurrency.AppleCheck(1))
+            if (player.AppleCheck(1))
             {
                 other.gameObject.transform.position = destination.position;
-                player.GetComponent<Movement>().teleporterTimer = 10;
-                AppleCurrency.AppleDecrease(1);
+                player.teleporterTimer = 10;
+                player.AppleDecrease(1);
             }
             else
             {
