@@ -43,7 +43,7 @@ public class MeleeTreeManager : BaseBehaviorTree
         root.treeNodes[1].treeNodes[0].treeNodes[1].treeNodes.Add(new Sequence());
         root.treeNodes[1].treeNodes[0].treeNodes[1].treeNodes.Add(new Sequence());
 
-        root.treeNodes[1].treeNodes[0].treeNodes[1].treeNodes[0].treeNodes.Add(new CheckDistance());
+         root.treeNodes[1].treeNodes[0].treeNodes[1].treeNodes[0].treeNodes.Add(new CheckDistance());
         root.treeNodes[1].treeNodes[0].treeNodes[1].treeNodes[0].treeNodes.Add(new Chase());
 
         root.treeNodes[1].treeNodes[0].treeNodes[1].treeNodes[1].treeNodes.Add(new CheckLastPosition());

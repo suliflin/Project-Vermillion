@@ -27,10 +27,12 @@ public class Movement : MonoBehaviour
     private Rigidbody rb;
 
     private Vector3 moveInput;
-    private Vector3 moveVelocity;
+    public Vector3 moveVelocity;
     private Vector3 velocity = Vector3.zero;
 
     public Text realAppleText;
+
+    public float movementSpeed;
 
     void Start()
     {
@@ -42,7 +44,23 @@ public class Movement : MonoBehaviour
     //Update is called once per frame
     void Update()
     {
-//<<<<<<< HEAD
+        float moveHorizontalK = Input.GetAxis("Horizontal");
+        float moveVerticalK = Input.GetAxis("Vertical");
+
+        moveVelocity = new Vector3(moveHorizontalK, 0, moveVerticalK);
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            transform.Rotate(0, rotatingSpeed * Time.deltaTime, 0);
+            Debug.Log("turning right");
+        }
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            transform.Rotate(0, -rotatingSpeed * Time.deltaTime, 0);
+            Debug.Log("turning left");
+        }
+
+        //<<<<<<< HEAD
         Debug.Log(AppleCurrency.apples);
         realAppleText.text = "x" + AppleCurrency.apples.ToString();
 //=======
@@ -53,7 +71,7 @@ public class Movement : MonoBehaviour
         mainCamera.transform.position = Vector3.SmoothDamp(mainCamera.transform.position, pos, ref velocity, smooth);
 //>>>>>>> e809a4457348f87087beec567b707a7f20f0e145
 
-        moveInput = new Vector3(Input.GetAxisRaw("HorizontalLeft"), 0, Input.GetAxisRaw("VerticalLeft"));
+        moveInput = new Vector3(Input.GetAxisRaw("HorizontalLeft") * movementSpeed, 0, Input.GetAxisRaw("VerticalLeft") * movementSpeed);
         moveVelocity = moveInput * moveSpeed;
 
         if (!useController)
@@ -118,6 +136,8 @@ public class Movement : MonoBehaviour
     private void FixedUpdate()
     {
         rb.velocity = moveVelocity;
+
+     
     }
 
     private void OnTriggerEnter(Collider other)

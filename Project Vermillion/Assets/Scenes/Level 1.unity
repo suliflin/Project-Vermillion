@@ -4687,12 +4687,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1250236073224036761, guid: 1e95e6502224a1f40bbbb4760bdaf30b,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1250236073224036761, guid: 1e95e6502224a1f40bbbb4760bdaf30b,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 1250236073224036760, guid: 1e95e6502224a1f40bbbb4760bdaf30b,
         type: 3}
       propertyPath: crossbow
       value: 
       objectReference: {fileID: 1598500191}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1250236073224036760, guid: 1e95e6502224a1f40bbbb4760bdaf30b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1e95e6502224a1f40bbbb4760bdaf30b, type: 3}
 --- !u!1 &520016923
 GameObject:
@@ -9541,13 +9552,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.067575894, y: -0.92211187, z: 0.18807511, w: 0.33131725}
-  m_LocalPosition: {x: 113.38, y: 59.8, z: 4}
-  m_LocalScale: {x: 0.37088722, y: 0.3686801, z: 0.37088734}
+  m_LocalRotation: {x: 0.4024731, y: 0.038491927, z: 0.00046725024, w: 0.9146221}
+  m_LocalPosition: {x: 36.15, y: 38.349045, z: -97.937}
+  m_LocalScale: {x: 0.3708877, y: 0.36868012, z: 0.3708878}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 23.056002, y: -140.473, z: 0}
+  m_LocalEulerAnglesHint: {x: 47.407, y: 6.004, z: 2.696}
 --- !u!1 &975911575
 GameObject:
   m_ObjectHideFlags: 0
@@ -14826,6 +14837,40 @@ Transform:
   m_Father: {fileID: 1027164454}
   m_RootOrder: 62
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1515158364 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1250236073224036767, guid: 1e95e6502224a1f40bbbb4760bdaf30b,
+    type: 3}
+  m_PrefabInstance: {fileID: 510026011}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1515158365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1515158364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7935088814825c418948e38d46c5890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  appleText: {fileID: 0}
+  teleporterA: {fileID: 0}
+  teleporterB: {fileID: 0}
+  mainCamera: {fileID: 0}
+  crossbow: {fileID: 0}
+  moveSpeed: 0
+  teleporterTimer: 0
+  rotatingSpeed: 130
+  smooth: 0.3
+  detectRange: 0
+  cameraHeight: 0
+  built: 0
+  useController: 0
+  moveVelocity: {x: 0, y: 0, z: 0}
+  realAppleText: {fileID: 0}
+  movementSpeed: 0
 --- !u!1 &1515421163
 GameObject:
   m_ObjectHideFlags: 0
