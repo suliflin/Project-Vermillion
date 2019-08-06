@@ -10,6 +10,7 @@ public class CrossbowController : MonoBehaviour
 
     public float boltSpeed;
     public float timeBetweenShots;
+    public float lifeTime;
 
     private float shotCounter;
 
@@ -27,11 +28,9 @@ public class CrossbowController : MonoBehaviour
             if (shotCounter <= 0)
             {
                 shotCounter = timeBetweenShots;
-                GameObject newBolt = ObjectPooler.SharedInstance.GetPooledObject("Bolt");
-                newBolt.GetComponent<BoltController>().transform.position = firePoint.position;
-                newBolt.GetComponent<BoltController>().transform.rotation = firePoint.rotation;
+                GameObject newBolt = ObjectPooler.SharedInstance.SpawnFromPool("Bolt", firePoint.position, firePoint.rotation);
                 newBolt.GetComponent<BoltController>().speed = boltSpeed;
-                newBolt.SetActive(true);
+                newBolt.GetComponent<BoltController>().duration = lifeTime;
             }
         }
         else

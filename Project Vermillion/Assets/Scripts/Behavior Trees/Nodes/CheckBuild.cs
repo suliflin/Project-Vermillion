@@ -9,6 +9,7 @@ public class CheckBuild : BaseNode
         GameObject[] turrets = GameObject.FindGameObjectsWithTag("Turret");
         GameObject[] barricades = GameObject.FindGameObjectsWithTag("Barricade");
         GameObject[] teleporters = GameObject.FindGameObjectsWithTag("Teleporter");
+        GameObject tree = GameObject.FindGameObjectWithTag("Tree");
 
         float shortestDistance = Mathf.Infinity;
         GameObject closestBuild = null;
@@ -46,7 +47,15 @@ public class CheckBuild : BaseNode
             }
         }
 
-        if (closestBuild != null && shortestDistance <= bt.detectRange)
+        float distanceToTree = Vector3.Distance(bt.transform.position, tree.transform.position);
+
+        if (distanceToTree < shortestDistance)
+        {
+            shortestDistance = distanceToTree;
+            closestBuild = tree;
+        }
+        //Debug.Log(shortestDistance);
+        if (shortestDistance < bt.detectRange)
         {
             bt.targetBuild = closestBuild.transform;
             bt.lastPosition = bt.transform;
@@ -56,6 +65,7 @@ public class CheckBuild : BaseNode
         else
         {
             bt.targetBuild = null;
+            bt.anim.SetBool("IsAttacking", false);
             current = RESULTS.FAILED;
             return current;
         }

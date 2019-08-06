@@ -9,26 +9,15 @@ public class Gate : MonoBehaviour
 
     public GameObject[] nodes;
 
-    public IEnumerator SpawnWave(Wave wave)
+    public void SpawnWave(Wave wave)
     {
-        for (int i = 0; i < wave.count; i++)
+        if (wave.count == 0)
         {
-            wave.enemies[0] = ObjectPooler.SharedInstance.GetPooledObject("Enemy");
-            SpawnEnemy(wave.enemies[0]);
-            yield return new WaitForSeconds(1f/wave.rate);
+            return;
         }
 
-        yield break;
+        wave.enemies[0] = ObjectPooler.SharedInstance.SpawnFromPool("Warrior", transform.position, Quaternion.identity);
+        wave.enemies[0].GetComponent<MeleeTreeManager>().spawner = this;
     }
 
-    public void SpawnEnemy(GameObject enemy)
-    {
-        if (enemy != null)
-        {
-            enemy.GetComponent<MeleeTreeManager>().spawner = this;
-            enemy.transform.position = transform.position;
-            enemy.transform.rotation = transform.rotation;
-            enemy.SetActive(true);
-        }
-    }
 }

@@ -61,7 +61,7 @@ public class Turret : MonoBehaviour
 
     void Shoot()
     {
-        GameObject bulletgameObject = Instantiate(bulletPrefab, fireDirection.position, fireDirection.rotation);
+        GameObject bulletgameObject = ObjectPooler.SharedInstance.SpawnFromPool("Bullet", fireDirection.position, fireDirection.rotation);
         BulletController bullet = bulletgameObject.GetComponent<BulletController>();
 
         if (bullet != null)

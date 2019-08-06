@@ -10,11 +10,13 @@ public class CheckDistance : BaseNode
 
         if (distanceToPlayer > bt.attackRange)
         {
+
             bt.lastPosition = bt.transform;
             current = RESULTS.SUCCEED;
             return current;
         }
 
+        bt.anim.SetBool("IsAttacking", false);
         current = RESULTS.FAILED;
         return current;
     }

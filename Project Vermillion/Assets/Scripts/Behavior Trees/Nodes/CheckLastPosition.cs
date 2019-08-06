@@ -14,6 +14,7 @@ public class CheckLastPosition : BaseNode
             return current;
         }
 
+        bt.anim.SetBool("IsAttacking", false);
         current = RESULTS.SUCCEED;
         return current;
     }

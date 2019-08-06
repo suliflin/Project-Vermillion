@@ -6,7 +6,18 @@ public class AttackBuild : BaseNode
 {
     public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
     {
-        Debug.Log("Attacking Build");
-        return RESULTS.SUCCEED;
+        Vector3 dir = bt.player.transform.position - bt.transform.position;
+        dir.y = 0;
+
+        if (dir != Vector3.zero)
+        {
+            bt.transform.rotation = Quaternion.Slerp(bt.transform.rotation, Quaternion.LookRotation(dir), 0.1f);
+        }
+
+        bt.anim.SetBool("IsAttacking", true);
+        bt.anim.SetBool("IsMoving", false);
+
+        current = RESULTS.SUCCEED;
+        return current;
     }
 }

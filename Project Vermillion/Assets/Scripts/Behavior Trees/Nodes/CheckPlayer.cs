@@ -14,6 +14,7 @@ public class CheckPlayer : BaseNode
             return current;
         }
 
+        bt.anim.SetBool("IsAttacking", false);
         current = RESULTS.FAILED;
         return current;
     }

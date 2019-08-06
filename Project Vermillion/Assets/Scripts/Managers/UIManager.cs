@@ -51,9 +51,9 @@ public class UIManager : MonoBehaviour
     {
         Instance.apples -= decrease;
         DisplayText();
-    }*/
+    }
     public static void UpdateAppleCounterUI(int newAppleCount)
     {
         Instance.appleText.text = newAppleCount.ToString();
-    }
+    }*/
 }

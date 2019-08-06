@@ -9,10 +9,19 @@ public class Return : BaseNode
         if (bt.lastPosition != null)
         {
             Vector3 dir = bt.lastPosition.transform.position - bt.transform.position;
-            bt.transform.Translate(dir.normalized * bt.moveSpeed * Time.deltaTime, Space.World);
+            dir.y = 0;
 
-            if (bt.lastPosition.transform.position == bt.transform.position)
+            if (dir != Vector3.zero)
             {
+                bt.transform.rotation = Quaternion.Slerp(bt.transform.rotation, Quaternion.LookRotation(dir), 0.1f);
+            }
+
+            bt.transform.Translate(dir.normalized * bt.moveSpeed * Time.deltaTime, Space.World);
+            bt.anim.SetBool("IsMoving", true);
+
+            if (Vector3.Distance(bt.lastPosition.transform.position, bt.transform.position) <= 3)
+            {
+                bt.anim.SetBool("IsMoving", false);
                 current = RESULTS.SUCCEED;
                 return current;
             }

@@ -7,6 +7,8 @@ public class PoolItem
 {
     public GameObject objectToPool;
 
+    public string tag;
+
     public int amountToPool;
 
     public bool shouldExpand;
