@@ -53,11 +53,6 @@ public class Turret : MonoBehaviour
     {
         FindingEnemy();
     }
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, range);
-    }
 
     void Shoot()
     {
@@ -91,4 +86,4 @@ public class Turret : MonoBehaviour
         }
         fireCountDown -= Time.deltaTime;
     }
-}//
+}
