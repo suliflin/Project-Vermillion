@@ -72,6 +72,7 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetMouseButtonDown(0))
             {
+                Debug.Log("WORK ALREADY!");
                 crossbow.isFiring = true;
             }
 
