@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class Barrage : BaseNode
 {
-    // Start is called before the first frame update
-    void Start()
+   /* public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
     {
-        
-    }
+        Debug.Log("Barrage Works");
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+        return current;
+    }*/
 }

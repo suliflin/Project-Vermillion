@@ -22,17 +22,17 @@ public class RangedTreeManager : BaseBehaviorTree
 
         root.treeNodes[2].treeNodes.Add(new CheckBuild());
         root.treeNodes[2].treeNodes.Add(new Barrage());
-
+        
         root.treeNodes[1].treeNodes[1].treeNodes.Add(new Sequence());
         root.treeNodes[1].treeNodes[1].treeNodes.Add(new AttackPlayer());
        
         root.treeNodes[1].treeNodes[1].treeNodes[0].treeNodes.Add(new CheckBuild());
         root.treeNodes[1].treeNodes[1].treeNodes[0].treeNodes.Add(new Compare());
         root.treeNodes[1].treeNodes[1].treeNodes[0].treeNodes.Add(new ArcShot());
+    }
 
-
-
-
-
+    public override void Update()
+    {
+        root.UpdateBehavior(this);
     }
 }
