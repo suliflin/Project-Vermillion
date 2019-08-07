@@ -7,7 +7,7 @@ public class EatApple : BaseNode
     public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
     {
         bt.currHealth += 1;
-        bt.currentApple.SetActive(false);
+        bt.selectedObject.SetActive(false);
         current = RESULTS.SUCCEED;
         return current;
     }

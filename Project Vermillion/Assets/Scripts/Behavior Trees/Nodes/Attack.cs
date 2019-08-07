@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackBuild : BaseNode
+public class Attack : BaseNode
 {
     public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Return : BaseNode
 {
-    public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
+    /*public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
     {
         if (bt.lastPosition != null)
         {
@@ -31,5 +31,5 @@ public class Return : BaseNode
         }
         current = RESULTS.FAILED;
         return current;
-    }
+    }*/
 }

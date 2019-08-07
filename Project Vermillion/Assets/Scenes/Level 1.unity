@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.5
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.32075927, g: 0.35809335, b: 0.41683048, a: 0.5}
+  m_IndirectSpecularColor: {r: 0.32075888, g: 0.35809293, b: 0.4168299, a: 0.5}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -694,7 +694,7 @@ GameObject:
   - component: {fileID: 105090926}
   m_Layer: 0
   m_Name: Main Tree
-  m_TagString: Tree
+  m_TagString: Build
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8910,7 +8910,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.36647728, y: 0.009740541, z: -0.024719583, w: 0.9300475}
-  m_LocalPosition: {x: -0.39931297, y: 16.939873, z: 0.34699494}
+  m_LocalPosition: {x: -33.96, y: 14.13, z: -2.42}
   m_LocalScale: {x: 0.37088722, y: 0.36868012, z: 0.37088728}
   m_Children: []
   m_Father: {fileID: 0}
@@ -15956,7 +15956,7 @@ MonoBehaviour:
   state: 2
   Act: 0
   timeBetweenWaves: 1
-  appleWait: 20
+  appleWait: 2
   spawnWaitTime: 10
 --- !u!4 &1767914422
 Transform:
@@ -20584,7 +20584,7 @@ PrefabInstance:
     - target: {fileID: 1078809887302736082, guid: 1e95e6502224a1f40bbbb4760bdaf30b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 10.07
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1078809887302736082, guid: 1e95e6502224a1f40bbbb4760bdaf30b,
         type: 3}

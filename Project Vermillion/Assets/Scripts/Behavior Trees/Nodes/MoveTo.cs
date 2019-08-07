@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveToApple : BaseNode
+public class MoveTo : BaseNode
 {
     public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
     {
-        Vector3 dir = bt.currentApple.transform.position - bt.transform.position;
+        Vector3 dir = bt.selectedObject.transform.position - bt.transform.position;
         dir.y = 0;
 
         if (dir != Vector3.zero)
@@ -17,9 +17,9 @@ public class MoveToApple : BaseNode
         bt.transform.Translate(dir.normalized * bt.moveSpeed * Time.deltaTime, Space.World);
         bt.anim.SetBool("IsMoving", true);
 
-        float distanceToApple = Vector3.Distance(bt.transform.position, bt.currentApple.transform.position);
+        float distanceToObject = Vector3.Distance(bt.transform.position, bt.selectedObject.transform.position);
 
-        if (distanceToApple < bt.appleRange)
+        if (distanceToObject < bt.attackRange)
         {
             bt.anim.SetBool("IsMoving", false);
             current = RESULTS.SUCCEED;

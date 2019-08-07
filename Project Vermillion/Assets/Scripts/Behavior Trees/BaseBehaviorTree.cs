@@ -6,23 +6,21 @@ public class BaseBehaviorTree : MonoBehaviour
 {
     public BaseNode root;
     public BaseNode current;
-
+    
     public Animator anim;
 
     public SteeringBehaviours sb;
 
     public Gate spawner;
 
-    public BoxCollider weapon;
-
     public GameObject player;
-    public GameObject currentApple;
+    public GameObject selectedObject;
 
-    public List<GameObject> apples;
+    public List<GameObject> detectedObjects;
+
+    public List<string> detectableTags;
 
     public Transform target;
-    public Transform targetBuild;
-    public Transform lastPosition;
 
     public float moveSpeed;
     public float detectRange;
@@ -38,8 +36,6 @@ public class BaseBehaviorTree : MonoBehaviour
     public int currHealth;
     public int lowHealth;
 
-    public bool start;
-
     public virtual void Start() { }
 
     public virtual void Update()
@@ -53,6 +49,27 @@ public class BaseBehaviorTree : MonoBehaviour
         {
             currHealth -= 1;
             other.gameObject.SetActive(false);
+        }
+
+        for (int i = 0; i < detectableTags.Count; i++)
+        {
+            if (other.CompareTag(detectableTags[i]))
+            {
+                detectedObjects.Add(other.gameObject);
+                break;
+            }
+        }
+    }
+
+    public virtual void OnTriggerExit(Collider other)
+    {
+        for (int i = 0; i < detectableTags.Count; i++)
+        {
+            if (other.CompareTag(detectableTags[i]))
+            {
+                detectedObjects.Remove(other.gameObject);
+                break;
+            }
         }
     }
 }

@@ -1961,10 +1961,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7408635366426645427}
   - component: {fileID: 602006106865483465}
-  - component: {fileID: 2205037695926908493}
   - component: {fileID: -5780579354666040835}
   - component: {fileID: 7133239745475554887}
   - component: {fileID: -138200088971126796}
+  - component: {fileID: 109689832375586347}
+  - component: {fileID: 2311210447923966254}
   m_Layer: 0
   m_Name: Warrior Wolf
   m_TagString: Enemy
@@ -2007,19 +2008,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!65 &2205037695926908493
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5803903261590643104}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2, y: 4, z: 2}
-  m_Center: {x: 0, y: 2, z: 0}
 --- !u!54 &-5780579354666040835
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2051,13 +2039,15 @@ MonoBehaviour:
   anim: {fileID: 0}
   sb: {fileID: 0}
   spawner: {fileID: 0}
-  weapon: {fileID: 0}
   player: {fileID: 0}
   currentApple: {fileID: 0}
-  apples: []
+  selectedObject: {fileID: 0}
+  detectedObjects: []
+  detectableTags:
+  - Build
+  - Apples
+  - Player
   target: {fileID: 0}
-  targetBuild: {fileID: 0}
-  lastPosition: {fileID: 0}
   moveSpeed: 2
   detectRange: 15
   attackRange: 7
@@ -2068,7 +2058,6 @@ MonoBehaviour:
   maxHealth: 16
   currHealth: 0
   lowHealth: 5
-  start: 0
 --- !u!114 &-138200088971126796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2085,6 +2074,33 @@ MonoBehaviour:
   maxAcceleration: 10
   targetRadius: 0.005
   slowRadius: 1
+--- !u!135 &109689832375586347
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5803903261590643104}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 10
+  m_Center: {x: 0, y: 2, z: 0}
+--- !u!136 &2311210447923966254
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5803903261590643104}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 4
+  m_Direction: 1
+  m_Center: {x: 0, y: 2, z: -0.13}
 --- !u!1 &6029624327100185332
 GameObject:
   m_ObjectHideFlags: 0

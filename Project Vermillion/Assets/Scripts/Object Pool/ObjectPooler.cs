@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ObjectPooler : MonoBehaviour
 {
-    //public List<GameObject> pooledObjects;
     public List<PoolItem> pools;
 
     public Dictionary<string, List<GameObject>> poolDictionary;
@@ -37,17 +36,17 @@ public class ObjectPooler : MonoBehaviour
         }
     }
 
-    public GameObject SpawnFromPool (string tag, Vector3 position, Quaternion rotation)
+    public GameObject SpawnFromPool (string key, Vector3 position, Quaternion rotation)
     {
-        if (!poolDictionary.ContainsKey(tag))
+        if (!poolDictionary.ContainsKey(key))
         {
-            Debug.LogWarning("Pool with tag " + tag + " doesn't exist");
+            Debug.LogWarning("Pool with tag " + key + " doesn't exist");
             return null;
         }
 
-        for (int i = 0; i < poolDictionary[tag].Count; i++)
+        for (int i = 0; i < poolDictionary[key].Count; i++)
         {
-            GameObject objectToSpawn = poolDictionary[tag][i];
+            GameObject objectToSpawn = poolDictionary[key][i];
 
             if (!objectToSpawn.activeInHierarchy)
             {
@@ -60,11 +59,11 @@ public class ObjectPooler : MonoBehaviour
         }
         foreach (PoolItem pool in pools)
         {
-            if (pool.shouldExpand && pool.tag == tag)
+            if (pool.shouldExpand && pool.tag == key)
             {
                 GameObject obj = Instantiate(pool.objectToPool);
                 obj.SetActive(false);
-                poolDictionary[tag].Add(obj);
+                poolDictionary[key].Add(obj);
                 return obj;
             }
         }
