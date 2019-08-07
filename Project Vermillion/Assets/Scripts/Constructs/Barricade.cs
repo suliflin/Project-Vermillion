@@ -3,10 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Barricade : MonoBehaviour
-{ 
-    public void CanBuild(GameObject barricade)
+{
+    public int health;
+
+    private void Update()
     {
-        
+        if (health <= 0)
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Sword") || other.gameObject.CompareTag("Shield"))
+        {
+            health -= 1;
+        }
     }
 }
-//

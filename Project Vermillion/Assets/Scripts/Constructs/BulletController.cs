@@ -6,6 +6,8 @@ public class BulletController : MonoBehaviour
 {
     public float speed = 5;
 
+    public float duration;
+
     private Vector3 dir;
 
     private Transform target;
@@ -22,12 +24,11 @@ public class BulletController : MonoBehaviour
         dir = target.position - transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (target == null)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
             return;
         }
 
@@ -41,11 +42,17 @@ public class BulletController : MonoBehaviour
 
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
         transform.LookAt(target);
+
+        duration -= Time.deltaTime;
+
+        if (duration <= 0)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     public void HitTarget()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }
-//

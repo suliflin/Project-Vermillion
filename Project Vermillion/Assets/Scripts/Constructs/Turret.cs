@@ -7,10 +7,12 @@ public class Turret : MonoBehaviour
     private Transform target;
     public Transform partToRotate;
 
+    public int health;
+
     public float range = 15f;
     public float fireRate = 0.5f;
 
-    public string enemyTags = "Enemy";
+    public string enemyTags = "Warrior";
 
     public GameObject bulletPrefab;
     public Transform fireDirection;
@@ -52,6 +54,11 @@ public class Turret : MonoBehaviour
     private void Update()
     {
         FindingEnemy();
+
+        if (health <= 0)
+        {
+            gameObject.SetActive(false);
+        }
     }
     private void OnDrawGizmosSelected()
     {
@@ -91,4 +98,12 @@ public class Turret : MonoBehaviour
         }
         fireCountDown -= Time.deltaTime;
     }
-}//
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Sword") || other.gameObject.CompareTag("Shield"))
+        {
+            health -= 1;
+        }
+    }
+}

@@ -151,4 +151,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destination: {fileID: 0}
   player: {fileID: 0}
-  disableTimer: 0
+  health: 3

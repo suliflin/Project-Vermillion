@@ -47,14 +47,22 @@ public class CheckBuild : BaseNode
             }
         }
 
-        float distanceToTree = Vector3.Distance(bt.transform.position, tree.transform.position);
+        /*float distanceToTree = Vector3.Distance(bt.transform.position, tree.transform.position);
 
         if (distanceToTree < shortestDistance)
         {
             shortestDistance = distanceToTree;
             closestBuild = tree;
         }
-        //Debug.Log(shortestDistance);
+
+        if (closestBuild == tree && shortestDistance < bt.detectRange * 4)
+        {
+            bt.targetBuild = closestBuild.transform;
+            bt.lastPosition = bt.transform;
+            current = RESULTS.SUCCEED;
+            return current;
+        }*/
+
         if (shortestDistance < bt.detectRange)
         {
             bt.targetBuild = closestBuild.transform;

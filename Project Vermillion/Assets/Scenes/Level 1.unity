@@ -765,7 +765,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 105090921}
   m_LocalRotation: {x: 0.5033323, y: -0.4966454, z: -0.4966454, w: 0.5033323}
-  m_LocalPosition: {x: -7.38, y: 3.49, z: 1.791}
+  m_LocalPosition: {x: -7.38, y: 3.49, z: -1.039}
   m_LocalScale: {x: 0.42805314, y: 5.8258047, z: 0.4246535}
   m_Children: []
   m_Father: {fileID: 1027164454}
@@ -15955,7 +15955,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 2
   Act: 0
-  timeBetweenWaves: 180
+  timeBetweenWaves: 1
   appleWait: 20
   spawnWaitTime: 10
 --- !u!4 &1767914422
@@ -20579,12 +20579,12 @@ PrefabInstance:
     - target: {fileID: 1078809887302736082, guid: 1e95e6502224a1f40bbbb4760bdaf30b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.0493145
+      value: -34.03
       objectReference: {fileID: 0}
     - target: {fileID: 1078809887302736082, guid: 1e95e6502224a1f40bbbb4760bdaf30b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.288918
+      value: 10.07
       objectReference: {fileID: 0}
     - target: {fileID: 1078809887302736082, guid: 1e95e6502224a1f40bbbb4760bdaf30b,
         type: 3}

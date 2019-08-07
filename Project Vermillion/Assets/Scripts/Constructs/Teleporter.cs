@@ -8,6 +8,8 @@ public class Teleporter : MonoBehaviour
 
     public PlayerController player;
 
+    public int health;
+
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
@@ -16,6 +18,11 @@ public class Teleporter : MonoBehaviour
     void Update()
     {
         player.GetComponent<PlayerController>().teleporterTimer -= Time.deltaTime;
+
+        if (health <= 0)
+        {
+            gameObject.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -33,6 +40,10 @@ public class Teleporter : MonoBehaviour
                 Debug.Log("Not enough Apples");
             }
         }
+
+        if (other.gameObject.CompareTag("Sword") || other.gameObject.CompareTag("Shield"))
+        {
+            health -= 1;
+        }
     }
 }
-//

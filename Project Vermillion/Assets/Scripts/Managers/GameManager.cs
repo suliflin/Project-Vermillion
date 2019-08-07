@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour
         {
             waveCountdown = timeBetweenWaves;
             spawnCountdown = spawnWaitTime;
+            appleCountdown = appleWait;
             wm.WaveCompleted();
             state = WaveState.Countdown;
         }

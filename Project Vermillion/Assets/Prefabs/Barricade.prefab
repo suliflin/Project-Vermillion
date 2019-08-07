@@ -104,6 +104,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26ccb06e4a9f8f04a8df41ceffcf069a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1250236073224036767, guid: 1e95e6502224a1f40bbbb4760bdaf30b, type: 3}
-  detectRange: 0
-  angleRange: 0
+  health: 10

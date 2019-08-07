@@ -33,14 +33,14 @@ public class MeleeTreeManager : BaseBehaviorTree
 
         root.treeNodes[1].treeNodes[0].treeNodes.Add(new CheckPlayer());
         root.treeNodes[1].treeNodes[0].treeNodes.Add(new Selector());
-
-        root.treeNodes[2].treeNodes[0].treeNodes.Add(new CheckApple());
-        root.treeNodes[2].treeNodes[0].treeNodes.Add(new MoveToApple());
-        root.treeNodes[2].treeNodes[0].treeNodes.Add(new EatApple());
         
-        root.treeNodes[3].treeNodes[0].treeNodes.Add(new CheckBuild());
-        root.treeNodes[3].treeNodes[0].treeNodes.Add(new MoveToBuild());
-        root.treeNodes[3].treeNodes[0].treeNodes.Add(new AttackBuild());
+        root.treeNodes[2].treeNodes[0].treeNodes.Add(new CheckBuild());
+        root.treeNodes[2].treeNodes[0].treeNodes.Add(new MoveToBuild());
+        root.treeNodes[2].treeNodes[0].treeNodes.Add(new AttackBuild());
+
+        root.treeNodes[3].treeNodes[0].treeNodes.Add(new CheckApple());
+        root.treeNodes[3].treeNodes[0].treeNodes.Add(new MoveToApple());
+        root.treeNodes[3].treeNodes[0].treeNodes.Add(new EatApple());
 
         root.treeNodes[1].treeNodes[0].treeNodes[1].treeNodes.Add(new Sequence());
         root.treeNodes[1].treeNodes[0].treeNodes[1].treeNodes.Add(new Sequence());

@@ -28,18 +28,17 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeed;
     public float teleporterTimer = 0;
-    public float rotatingSpeed = 130;
     public float smooth = 0.3f;
-    public float cameraHeight;
-    public float cameraDistance;
 
     public bool built = false;
+    public bool lookAtPlayer = false;
     public bool useController;
 
     private Rigidbody rb;
 
     private Vector3 moveInput;
     private Vector3 moveVelocity;
+    private Vector3 cameraOffset;
     private Vector3 velocity = Vector3.zero;
 
     public Text realAppleText;
@@ -51,6 +50,8 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         pooler = ObjectPooler.SharedInstance;
+
+        cameraOffset = mainCamera.transform.position - transform.position;
     }
 
     void Update()
@@ -64,12 +65,6 @@ public class PlayerController : MonoBehaviour
         }
 
         buildDistance = (transform.position + (transform.forward * 2));
-
-        Vector3 pos = new Vector3();
-        pos.x = transform.position.x;
-        pos.z = transform.position.z + cameraDistance;
-        pos.y = transform.position.y + cameraHeight;
-        mainCamera.transform.position = Vector3.SmoothDamp(mainCamera.transform.position, pos, ref velocity, smooth);
 
         moveInput = new Vector3(Input.GetAxisRaw("HorizontalLeft"), 0, Input.GetAxisRaw("VerticalLeft"));
         moveVelocity = moveInput * moveSpeed;
@@ -132,7 +127,19 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.AddForce(moveVelocity, ForceMode.Acceleration);
+        rb.AddForce(moveVelocity, ForceMode.Force);
+    }
+
+    private void LateUpdate()
+    {
+        Vector3 newPos = transform.position + cameraOffset;
+
+        mainCamera.transform.position = Vector3.Slerp(mainCamera.transform.position, newPos, smooth);
+
+        if (lookAtPlayer)
+        {
+            mainCamera.transform.LookAt(transform);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
