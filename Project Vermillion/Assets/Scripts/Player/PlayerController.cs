@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-
     public GameObject teleporterA;
     public GameObject teleporterB;
 
@@ -16,7 +15,7 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeed;
     public float teleporterTimer = 0;
-    public float rotatingSpeed = 130;
+    public f loat rotatingSpeed = 130;
 
     public float smooth = 0.3f;
     public float detectRange;
