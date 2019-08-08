@@ -107,8 +107,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firePoint: {fileID: 1078809886217630899}
   isFiring: 0
-  boltSpeed: 10
-  timeBetweenShots: 2
+  boltSpeed: 20
+  timeBetweenShots: 1
+  lifeTime: 2
 --- !u!1 &1078809886217630898
 GameObject:
   m_ObjectHideFlags: 0
@@ -268,18 +269,19 @@ MonoBehaviour:
   teleporter: {fileID: 0}
   mainCamera: {fileID: 0}
   crossbow: {fileID: 1078809885535336631}
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
   buildDistance: {x: 0, y: 0, z: 0}
+  health: 0
   barricadeCost: 0
   teleporterCost: 0
   turretCost: 0
   moveSpeed: 30
   teleporterTimer: 0
-  rotatingSpeed: 130
   smooth: 0.3
-  detectRange: 0
-  cameraHeight: 8
-  cameraDistance: -7
   built: 0
+  lookAtPlayer: 0
   useController: 0
   realAppleText: {fileID: 0}
   apples: 0

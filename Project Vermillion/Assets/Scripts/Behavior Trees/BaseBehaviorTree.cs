@@ -35,6 +35,7 @@ public class BaseBehaviorTree : MonoBehaviour
     public int maxHealth;
     public int currHealth;
     public int lowHealth;
+    public int damage;
 
     public virtual void Start() { }
 
@@ -45,10 +46,15 @@ public class BaseBehaviorTree : MonoBehaviour
 
     public virtual void OnTriggerEnter(Collider other)
     {
+        float dis = Vector3.Distance(transform.position, other.transform.position);
+
         if (other.gameObject.tag == "Bolt" || other.gameObject.tag == "Bullet")
         {
-            currHealth -= 1;
-            other.gameObject.SetActive(false);
+            if (dis < 2)
+            {
+                currHealth -= 1;
+                other.gameObject.SetActive(false);
+            }
         }
 
         for (int i = 0; i < detectableTags.Count; i++)
@@ -70,6 +76,15 @@ public class BaseBehaviorTree : MonoBehaviour
                 detectedObjects.Remove(other.gameObject);
                 break;
             }
+        }
+    }
+    public void EndAttack()
+    {
+        float dist = Vector3.Distance(transform.position, selectedObject.transform.position);
+
+        if (dist < attackRange)
+        {
+            GameManager.SharedInstance.SetDamage(damage, selectedObject);
         }
     }
 }

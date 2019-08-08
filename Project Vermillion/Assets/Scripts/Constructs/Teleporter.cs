@@ -40,10 +40,5 @@ public class Teleporter : MonoBehaviour
                 Debug.Log("Not enough Apples");
             }
         }
-
-        if (other.gameObject.CompareTag("Sword") || other.gameObject.CompareTag("Shield"))
-        {
-            health -= 1;
-        }
     }
 }

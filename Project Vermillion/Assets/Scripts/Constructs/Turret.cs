@@ -12,7 +12,7 @@ public class Turret : MonoBehaviour
     public float range = 15f;
     public float fireRate = 0.5f;
 
-    public string enemyTags = "Warrior";
+    public string enemyTags;
 
     public GameObject bulletPrefab;
     public Transform fireDirection;
@@ -57,6 +57,7 @@ public class Turret : MonoBehaviour
 
         if (health <= 0)
         {
+            transform.position = GameManager.SharedInstance.transform.position;
             gameObject.SetActive(false);
         }
     }
@@ -97,13 +98,5 @@ public class Turret : MonoBehaviour
             fireCountDown = 1f / fireRate;
         }
         fireCountDown -= Time.deltaTime;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Sword") || other.gameObject.CompareTag("Shield"))
-        {
-            health -= 1;
-        }
     }
 }

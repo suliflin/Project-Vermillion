@@ -260,7 +260,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partToRotate: {fileID: 6925854114570546920}
   health: 5
-  range: 8
+  range: 10
   fireRate: 1
   enemyTags: Enemy
   bulletPrefab: {fileID: 545650770986895422, guid: 367b0a048c8b59b4f9a2e8b3e75f1483,

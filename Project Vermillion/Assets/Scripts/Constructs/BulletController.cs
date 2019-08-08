@@ -13,6 +13,7 @@ public class BulletController : MonoBehaviour
     private Transform target;
 
     private float distanceThisFrame;
+    private float lifeTime;
 
     public void Chase(Transform _target)
     {
@@ -22,6 +23,7 @@ public class BulletController : MonoBehaviour
     public void Start()
     {
         dir = target.position - transform.position;
+        lifeTime = duration;
     }
 
     void Update()
@@ -43,9 +45,9 @@ public class BulletController : MonoBehaviour
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
         transform.LookAt(target);
 
-        duration -= Time.deltaTime;
+        lifeTime -= Time.deltaTime;
 
-        if (duration <= 0)
+        if (lifeTime <= 0)
         {
             gameObject.SetActive(false);
         }

@@ -6,7 +6,7 @@ public class Attack : BaseNode
 {
     public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
     {
-        Vector3 dir = bt.player.transform.position - bt.transform.position;
+        Vector3 dir = bt.selectedObject.transform.position - bt.transform.position;
         dir.y = 0;
 
         if (dir != Vector3.zero)

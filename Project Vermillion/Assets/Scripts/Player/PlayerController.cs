@@ -119,7 +119,6 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetButtonDown("Circle") && AppleCheck(teleporterCost))
             {
-                AppleDecrease(teleporterCost);
                 BuildTeleporter();
             }
         }
@@ -148,12 +147,8 @@ public class PlayerController : MonoBehaviour
         {
             //UIManager.UpdateAppleCounterUI(++apples);
             apples++;
+            other.transform.position = GameManager.SharedInstance.transform.position;
             other.gameObject.SetActive(false);
-        }
-
-        if (other.gameObject.CompareTag("Sword") || other.gameObject.CompareTag("Shield"))
-        {
-            health -= 1;
         }
     }
 
@@ -186,14 +181,21 @@ public class PlayerController : MonoBehaviour
 
     public void BuildTeleporter()
     {
+        if (tpA != null && tpB != null)
+        {
+            return;
+        }
+
         if (tpA == null)
         {
             tpA = Instantiate(teleporter, buildDistance, transform.rotation);
+            AppleDecrease(teleporterCost);
             return;
         }
         else
         {
             tpB = Instantiate(teleporter, buildDistance, transform.rotation);
+            AppleDecrease(teleporterCost);
             TeleporterLink();
         }
 

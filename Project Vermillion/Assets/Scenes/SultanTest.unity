@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pools:
-  - objectToPool: {fileID: 1019372240981863312, guid: e5c2d142f31c712498fb095e051be782,
+  - objectToPool: {fileID: 7325448533506503470, guid: c7d242bacf3ac1f47b41fa1b1432f940,
       type: 3}
     tag: Apple
     amountToPool: 10
@@ -194,6 +194,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &130242619 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1078809887454052116, guid: 1e95e6502224a1f40bbbb4760bdaf30b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1749978414}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &414320180
 GameObject:
   m_ObjectHideFlags: 0
@@ -313,6 +319,36 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 845433628}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &480615502
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 480615503}
+  m_Layer: 0
+  m_Name: Recall Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &480615503
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480615502}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -22.57, y: 0, z: 38.15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1951815039}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &533123162
@@ -820,7 +856,7 @@ PrefabInstance:
     - target: {fileID: 1078809887454052116, guid: 1e95e6502224a1f40bbbb4760bdaf30b,
         type: 3}
       propertyPath: m_Name
-      value: Player 1
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1078809887302736082, guid: 1e95e6502224a1f40bbbb4760bdaf30b,
         type: 3}
@@ -955,7 +991,7 @@ PrefabInstance:
     - target: {fileID: 1078809887454052074, guid: 1e95e6502224a1f40bbbb4760bdaf30b,
         type: 3}
       propertyPath: moveSpeed
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1078809887454052074, guid: 1e95e6502224a1f40bbbb4760bdaf30b,
         type: 3}
@@ -1060,9 +1096,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 2
   Act: 0
-  timeBetweenWaves: 10
-  appleWait: 0
-  spawnWaitTime: 10
+  player: {fileID: 130242619}
+  recallPoint: {fileID: 480615502}
+  waveWait: 10
+  appleWait: 10
+  spawnWait: 10
+  respawnWait: 5
+  playerHealthMax: 16
+  treeHealth: 30
 --- !u!4 &1951815039
 Transform:
   m_ObjectHideFlags: 0
@@ -1076,6 +1117,7 @@ Transform:
   m_Children:
   - {fileID: 623063190}
   - {fileID: 755285241}
+  - {fileID: 480615503}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -17,7 +17,7 @@ public class WavesManager : MonoBehaviour
     {
         gm = GameManager.SharedInstance;
     }
-
+    
     public void SpawnWaves()
     {
         for (int i = 0; i < gates.Count; i++)

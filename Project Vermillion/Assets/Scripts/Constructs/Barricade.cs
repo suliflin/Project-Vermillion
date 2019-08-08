@@ -10,15 +10,8 @@ public class Barricade : MonoBehaviour
     {
         if (health <= 0)
         {
+            transform.position = GameManager.SharedInstance.transform.position;
             gameObject.SetActive(false);
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("Sword") || other.gameObject.CompareTag("Shield"))
-        {
-            health -= 1;
         }
     }
 }

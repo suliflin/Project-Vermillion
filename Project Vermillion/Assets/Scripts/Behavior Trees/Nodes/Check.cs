@@ -22,16 +22,17 @@ public class Check : BaseNode
         {
             float d = Vector3.Distance(bt.transform.position, bt.detectedObjects[i].transform.position);
 
-            if (d <= distance && d <= shortestDistance && bt.detectedObjects[i].CompareTag(tag))
+            if (d <= shortestDistance && bt.detectedObjects[i].CompareTag(tag))
             {
                 shortestDistance = d;
                 closestDetectable = bt.detectedObjects[i];
             }
         }
 
-        if (shortestDistance <= distance)
+        if (shortestDistance <= distance && closestDetectable.gameObject.activeInHierarchy)
         {
             bt.selectedObject = closestDetectable;
+
             current = RESULTS.SUCCEED;
             return current;
         }

@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager SharedInstance;
-
     public enum GameAct
     {
         One,
@@ -25,9 +23,16 @@ public class GameManager : MonoBehaviour
     public WaveState state;
     public GameAct Act = GameAct.One;
 
-    public float timeBetweenWaves;
+    public GameObject player;
+    public GameObject recallPoint;
+
+    public float waveWait;
     public float appleWait;
-    public float spawnWaitTime;
+    public float spawnWait;
+    public float respawnWait;
+
+    public int playerHealthMax;
+    public int treeHealth;
 
     private WavesManager wm;
     private AppleSpawnManager asm;
@@ -35,11 +40,18 @@ public class GameManager : MonoBehaviour
     private float waveCountdown;
     private float appleCountdown;
     private float spawnCountdown;
+    private float respawnCountdown;
 
-    void Awake()
+    private int playerHealth;
+
+    #region Singleton
+    public static GameManager SharedInstance;
+
+    private void Awake()
     {
         SharedInstance = this;
     }
+    #endregion
 
     void Start()
     {
@@ -49,16 +61,55 @@ public class GameManager : MonoBehaviour
         state = WaveState.Countdown;
 
         waveCountdown = 10;
+
+        playerHealth = playerHealthMax;
         appleCountdown = appleWait;
-        spawnCountdown = spawnWaitTime;
+        spawnCountdown = spawnWait;
+        respawnCountdown = respawnWait;
     }
 
     void Update()
     {
+        if (treeHealth <= 0)
+        {
+            //Application.Quit();
+            UnityEditor.EditorApplication.isPlaying = false;
+        }
+
+        if (playerHealth <= 0)
+        {
+            respawnCountdown -= Time.deltaTime;
+
+            if (respawnCountdown <= 0)
+            {
+                playerHealth = playerHealthMax;
+                player.transform.position = recallPoint.transform.position;
+                respawnCountdown = respawnWait;
+            }
+        }
+
+        if (Act == GameAct.One)
+        {
+            ActOne();
+        }
+
+        if (Act == GameAct.Two)
+        {
+            //ActTwo();
+        }
+
+        if (Act == GameAct.Three)
+        {
+            //ActThree();
+        }
+    }
+
+    public void ActOne()
+    {
         if (state == WaveState.Complete)
         {
-            waveCountdown = timeBetweenWaves;
-            spawnCountdown = spawnWaitTime;
+            waveCountdown = waveWait;
+            spawnCountdown = spawnWait;
             appleCountdown = appleWait;
             wm.WaveCompleted();
             state = WaveState.Countdown;
@@ -97,5 +148,39 @@ public class GameManager : MonoBehaviour
         }
 
         waveCountdown -= Time.deltaTime;
+    }
+
+    public void SetDamage(int dmg, GameObject obj)
+    {
+        switch (obj.name)
+        {
+            case "Player":
+
+                playerHealth -= dmg;
+                break;
+
+            case "Turret(Clone)":
+                Debug.Log("Hello");
+                obj.GetComponent<Turret>().health -= dmg;
+                break;
+
+            case "Barricade(Clone)":
+
+                obj.GetComponent<Barricade>().health -= dmg;
+                break;
+
+            case "Teleporter":
+
+                obj.GetComponent<Teleporter>().health -= dmg;
+                break;
+
+            case "Main Tree":
+
+                treeHealth -= dmg;
+                break;
+
+            default:
+                break;
+        }
     }
 }

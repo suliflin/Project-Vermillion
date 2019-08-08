@@ -27,11 +27,11 @@ public class MeleeTreeManager : BaseBehaviorTree
         root.treeNodes[1].treeNodes.Add(new Attack());
 
         root.treeNodes[2].treeNodes.Add(new Check("Build", detectRange));
-        root.treeNodes[2].treeNodes.Add(new MoveTo());
+        root.treeNodes[2].treeNodes.Add(new MoveTo(attackRange));
         root.treeNodes[2].treeNodes.Add(new Attack());
 
-        root.treeNodes[3].treeNodes.Add(new Check("Apples", appleRange));
-        root.treeNodes[3].treeNodes.Add(new MoveTo());
+        root.treeNodes[3].treeNodes.Add(new Check("Apples", detectRange));
+        root.treeNodes[3].treeNodes.Add(new MoveTo(appleRange));
         root.treeNodes[3].treeNodes.Add(new EatApple());
 
         target = spawner.nodes[0].transform;
@@ -49,8 +49,13 @@ public class MeleeTreeManager : BaseBehaviorTree
 
         if (currHealth <= 0)
         {
+            transform.position = GameManager.SharedInstance.transform.position;
             gameObject.SetActive(false);
         }
+        
+        if (currHealth > maxHealth)
+        {
+            currHealth = maxHealth;
+        }
     }
-
 }

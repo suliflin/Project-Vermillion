@@ -10,21 +10,29 @@ public class Chase : BaseNode
 
         bt.sb.Steer(accel);*/
 
-        bt.anim.SetBool("IsMoving", true);
+        float d = Vector3.Distance(bt.transform.position, bt.selectedObject.transform.position);
 
-        Vector3 dir = bt.player.transform.position - bt.transform.position;
-        dir.y = 0;
-
-        if (dir != Vector3.zero)
+        if (d <= bt.attackRange)
         {
-            bt.transform.rotation = Quaternion.Slerp(bt.transform.rotation, Quaternion.LookRotation(dir), 0.1f);
+            current = RESULTS.SUCCEED;
+            return current;
         }
+        else
+        {
+            bt.anim.SetBool("IsMoving", true);
 
-        //bt.transform.Translate(dir.normalized * bt.moveSpeed * Time.deltaTime, Space.World);
+            Vector3 dir = bt.selectedObject.transform.position - bt.transform.position;
+            dir.y = 0;
 
-        bt.transform.position += bt.transform.forward * (bt.moveSpeed / 10)* Time.deltaTime;
+            if (dir != Vector3.zero)
+            {
+                bt.transform.rotation = Quaternion.Slerp(bt.transform.rotation, Quaternion.LookRotation(dir), 0.1f);
+            }
 
-        current = RESULTS.SUCCEED;
-        return current;
+            bt.transform.position += bt.transform.forward * (bt.moveSpeed / 10) * Time.deltaTime;
+
+            current = RESULTS.RUNNING;
+            return current;
+        }
     }
 }
