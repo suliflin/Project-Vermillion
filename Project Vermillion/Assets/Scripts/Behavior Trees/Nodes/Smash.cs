@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class Smash : BaseNode
 {
-    // Start is called before the first frame update
-    void Start()
+    public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        return base.UpdateBehavior(bt);
     }
 }

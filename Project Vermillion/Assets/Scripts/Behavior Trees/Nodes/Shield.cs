@@ -26,4 +26,3 @@ public class Shield : BaseNode
     }
 
 }
-
