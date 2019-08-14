@@ -6,12 +6,17 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+<<<<<<< HEAD
+    public GameObject teleporterA;
+    public GameObject teleporterB;
+=======
 
     public ObjectPooler pooler;
 
     public GameObject tpA;
     public GameObject tpB;
     public GameObject teleporter;
+>>>>>>> develop
 
     public Camera mainCamera;
 
@@ -28,6 +33,11 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeed;
     public float teleporterTimer = 0;
+<<<<<<< HEAD
+    public f loat rotatingSpeed = 130;
+
+=======
+>>>>>>> develop
     public float smooth = 0.3f;
 
     public bool built = false;
