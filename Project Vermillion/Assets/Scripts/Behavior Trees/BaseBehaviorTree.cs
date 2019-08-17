@@ -78,6 +78,7 @@ public class BaseBehaviorTree : MonoBehaviour
             }
         }
     }
+
     public void EndAttack()
     {
         float dist = Vector3.Distance(transform.position, selectedObject.transform.position);

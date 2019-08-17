@@ -30,17 +30,16 @@ public class GameManager : MonoBehaviour
     public float appleWait;
     public float spawnWait;
     public float respawnWait;
+    public float waveCountdown;
+    public float appleCountdown;
+    public float spawnCountdown;
+    public float respawnCountdown;
 
     public int playerHealthMax;
     public int treeHealth;
 
     private WavesManager wm;
     private AppleSpawnManager asm;
-
-    private float waveCountdown;
-    private float appleCountdown;
-    private float spawnCountdown;
-    private float respawnCountdown;
 
     private int playerHealth;
 
@@ -160,7 +159,7 @@ public class GameManager : MonoBehaviour
                 break;
 
             case "Turret(Clone)":
-                Debug.Log("Hello");
+                
                 obj.GetComponent<Turret>().health -= dmg;
                 break;
 
@@ -169,7 +168,7 @@ public class GameManager : MonoBehaviour
                 obj.GetComponent<Barricade>().health -= dmg;
                 break;
 
-            case "Teleporter":
+            case "Teleporter(Clone)":
 
                 obj.GetComponent<Teleporter>().health -= dmg;
                 break;

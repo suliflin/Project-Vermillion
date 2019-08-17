@@ -8,6 +8,8 @@ public class Turret : MonoBehaviour
     public Transform partToRotate;
 
     public int health;
+    public int upgrade = 0;
+    public int upgradeCost;
 
     public float range = 15f;
     public float fireRate = 0.5f;
@@ -59,6 +61,20 @@ public class Turret : MonoBehaviour
         {
             transform.position = GameManager.SharedInstance.transform.position;
             gameObject.SetActive(false);
+        }
+
+        if (upgrade == 1)
+        {
+            //Change texture
+            upgradeCost = 2;
+            fireRate = 0.5f;
+            range = 15;
+        }
+        else if (upgrade == 2)
+        {
+            //Change texture
+            fireRate = 0.25f;
+            range = 20;
         }
     }
     private void OnDrawGizmosSelected()

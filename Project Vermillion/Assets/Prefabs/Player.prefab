@@ -155,7 +155,7 @@ GameObject:
   - component: {fileID: 9042848056623780861}
   - component: {fileID: 1078809887454052074}
   m_Layer: 0
-  m_Name: Player 1
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -173,6 +173,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1078809885535336630}
+  - {fileID: 8740222675809453061}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -266,22 +267,101 @@ MonoBehaviour:
   pooler: {fileID: 0}
   tpA: {fileID: 0}
   tpB: {fileID: 0}
-  teleporter: {fileID: 0}
+  teleporter: {fileID: 8751131698669905180, guid: 29eb93e3e5c9267489aac18ce03ca122,
+    type: 3}
+  radialMenu: {fileID: 0}
+  minimap: {fileID: 0}
   mainCamera: {fileID: 0}
   crossbow: {fileID: 1078809885535336631}
   layerMask:
     serializedVersion: 2
     m_Bits: 0
   buildDistance: {x: 0, y: 0, z: 0}
-  health: 0
-  barricadeCost: 0
-  teleporterCost: 0
-  turretCost: 0
-  moveSpeed: 30
+  health: 10
+  barricadeCost: 1
+  teleporterCost: 1
+  turretCost: 1
+  moveSpeed: 8
   teleporterTimer: 0
-  smooth: 0.3
-  built: 0
-  lookAtPlayer: 0
-  useController: 0
+  smooth: 1
+  blocked: 0
+  lookAtPlayer: 1
+  useController: 1
+  radial: 0
   realAppleText: {fileID: 0}
-  apples: 0
+  apples: 10
+--- !u!1 &7621533260992424304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8740222675809453061}
+  - component: {fileID: 3958057614868413073}
+  m_Layer: 9
+  m_Name: Build Check
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8740222675809453061
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7621533260992424304}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2926429165020926846}
+  m_Father: {fileID: 1078809887302736082}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &3958057614868413073
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7621533260992424304}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2
+  m_Center: {x: 0, y: 0, z: 3}
+--- !u!1 &8115099826453932667
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2926429165020926846}
+  m_Layer: 9
+  m_Name: Build Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2926429165020926846
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8115099826453932667}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8740222675809453061}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

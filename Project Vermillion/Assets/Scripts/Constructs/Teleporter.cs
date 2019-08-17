@@ -9,6 +9,11 @@ public class Teleporter : MonoBehaviour
     public PlayerController player;
 
     public int health;
+    public int upgrade = 0;
+    public int upgradeCost = 1;
+    public int teleportCost;
+
+    public float teleporterTimer;
 
     void Start()
     {
@@ -21,7 +26,21 @@ public class Teleporter : MonoBehaviour
 
         if (health <= 0)
         {
+            transform.position = GameManager.SharedInstance.transform.position;
             gameObject.SetActive(false);
+        }
+
+        if (upgrade == 1)
+        {
+            //Change texture
+            upgradeCost = 2;
+            teleporterTimer = 8;
+        }
+        else if (upgrade == 2)
+        {
+            //Change texture
+            teleportCost = 0;
+            teleporterTimer = 4;
         }
     }
 
@@ -29,10 +48,10 @@ public class Teleporter : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" && player.teleporterTimer <= 0)
         {
-            if (player.AppleCheck(1))
+            if (player.AppleCheck(teleportCost))
             {
                 other.gameObject.transform.position = destination.position;
-                player.teleporterTimer = 10;
+                player.teleporterTimer = teleporterTimer;
                 player.AppleDecrease(1);
             }
             else
