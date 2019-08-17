@@ -6,11 +6,18 @@ public class Heal : BaseNode
 {
     public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
     {
-        Debug.Log("Healing");
-        bt.GetComponent<EnemyInfo>().health += (int)Time.deltaTime / 2;
+        bt.healthCountdown -= Time.deltaTime;
 
-        if (bt.GetComponent<EnemyInfo>().health == bt.maxHealth)
+        if (bt.healthCountdown <= 0)
         {
+            bt.currHealth++;
+            bt.healthCountdown = bt.healWaitTime;
+        }
+
+        if (bt.currHealth >= bt.maxHealth)
+        {
+            bt.currHealth = bt.maxHealth;
+            bt.moveSpeed = 3;
             current = RESULTS.SUCCEED;
             return current;
         }

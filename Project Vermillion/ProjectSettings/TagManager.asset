@@ -12,7 +12,10 @@ TagManager:
   - Pool
   - Teleporter
   - Bolt
-  - AppleSpawnManager
+  - Tree
+  - Sword
+  - Shield
+  - Build
   layers:
   - Default
   - TransparentFX

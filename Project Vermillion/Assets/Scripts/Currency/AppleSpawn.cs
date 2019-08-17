@@ -8,9 +8,7 @@ public class AppleSpawn : MonoBehaviour
 
     public void Spawn()
     {
-        GameObject apple = ObjectPooler.SharedInstance.GetPooledObject("Apples");
-        apple.transform.position = transform.position;
+        GameObject apple = ObjectPooler.SharedInstance.SpawnFromPool("Apple", transform.position, transform.rotation);
         chosen = true;
-        apple.SetActive(true);
     }
 }

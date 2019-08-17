@@ -4,46 +4,70 @@ using UnityEngine;
 
 public class ObjectPooler : MonoBehaviour
 {
-    public static ObjectPooler SharedInstance;
+    public List<PoolItem> pools;
 
-    public List<GameObject> pooledObjects;
-    public List<PoolItem> itemsToPool;
+    public Dictionary<string, List<GameObject>> poolDictionary;
+
+    #region Singleton
+    public static ObjectPooler SharedInstance;
 
     private void Awake()
     {
         SharedInstance = this;
+    }
+    #endregion
 
-        pooledObjects = new List<GameObject>();
-        foreach (PoolItem item in itemsToPool)
+    void Start()
+    {
+        poolDictionary = new Dictionary<string, List<GameObject>>();
+
+        foreach (PoolItem pool in pools)
         {
-            for (int i = 0; i < item.amountToPool; i++)
+            List<GameObject> objectPool = new List<GameObject>();
+
+            for (int i = 0; i < pool.amountToPool; i++)
             {
-                GameObject obj = (GameObject)Instantiate(item.objectToPool);
+                GameObject obj = Instantiate(pool.objectToPool);
                 obj.SetActive(false);
-                pooledObjects.Add(obj);
+                objectPool.Add(obj);
             }
+
+            poolDictionary.Add(pool.tag, objectPool);
         }
     }
 
-    public GameObject GetPooledObject(string tag)
+    public GameObject SpawnFromPool (string key, Vector3 position, Quaternion rotation)
     {
-        for (int i = 0; i < pooledObjects.Count; i++)
+        if (!poolDictionary.ContainsKey(key))
         {
-            if (!pooledObjects[i].activeInHierarchy && pooledObjects[i].tag == tag)
+            Debug.LogWarning("Pool with tag " + key + " doesn't exist");
+            return null;
+        }
+
+        for (int i = 0; i < poolDictionary[key].Count; i++)
+        {
+            GameObject objectToSpawn = poolDictionary[key][i];
+
+            if (!objectToSpawn.activeInHierarchy)
             {
-                return pooledObjects[i];
+                objectToSpawn.SetActive(true);
+                objectToSpawn.transform.position = position;
+                objectToSpawn.transform.rotation = rotation;
+
+                return objectToSpawn;
             }
         }
-        foreach(PoolItem item in itemsToPool)
+        foreach (PoolItem pool in pools)
         {
-            if (item.objectToPool.tag == tag && item.shouldExpand)
+            if (pool.shouldExpand && pool.tag == key)
             {
-                GameObject obj = (GameObject)Instantiate(item.objectToPool);
+                GameObject obj = Instantiate(pool.objectToPool);
                 obj.SetActive(false);
-                pooledObjects.Add(obj);
+                poolDictionary[key].Add(obj);
                 return obj;
             }
         }
+
         return null;
     }
 }

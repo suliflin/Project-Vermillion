@@ -7,30 +7,38 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
 
-    public GameObject teleporterA;
-    public GameObject teleporterB;
+    public ObjectPooler pooler;
+
+    public GameObject tpA;
+    public GameObject tpB;
+    public GameObject teleporter;
 
     public Camera mainCamera;
 
     public CrossbowController crossbow;
 
+    public LayerMask layerMask;
+
+    public Vector3 buildDistance;
+
+    public int health;
+    public int barricadeCost;
+    public int teleporterCost;
+    public int turretCost;
+
     public float moveSpeed;
     public float teleporterTimer = 0;
-    public float rotatingSpeed = 130;
-
     public float smooth = 0.3f;
-    public float detectRange;
-    public float cameraHeight;
-    public float cameraDistance;
 
     public bool built = false;
+    public bool lookAtPlayer = false;
     public bool useController;
 
     private Rigidbody rb;
+
     private Vector3 moveInput;
-
-
     private Vector3 moveVelocity;
+    private Vector3 cameraOffset;
     private Vector3 velocity = Vector3.zero;
 
     public Text realAppleText;
@@ -40,19 +48,23 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        apples = 0;
         rb = GetComponent<Rigidbody>();
+        pooler = ObjectPooler.SharedInstance;
+
+        cameraOffset = mainCamera.transform.position - transform.position;
     }
 
     void Update()
     {
         //  realAppleText.text = "x" + AppleCurrency.apples.ToString();
 
-        Vector3 pos = new Vector3();
-        pos.x = transform.position.x;
-        pos.z = transform.position.z + cameraDistance;
-        pos.y = transform.position.y + cameraHeight;
-        mainCamera.transform.position = Vector3.SmoothDamp(mainCamera.transform.position, pos, ref velocity, smooth);
+        if (health <= 0)
+        {
+            //Application.Quit();
+            UnityEditor.EditorApplication.isPlaying = false;
+        }
+
+        buildDistance = (transform.position + (transform.forward * 2));
 
         moveInput = new Vector3(Input.GetAxisRaw("HorizontalLeft"), 0, Input.GetAxisRaw("VerticalLeft"));
         moveVelocity = moveInput * moveSpeed;
@@ -66,7 +78,6 @@ public class PlayerController : MonoBehaviour
             if (Physics.Raycast(cameraRay, out hit))
             {
                 Vector3 pointToLook = hit.point;
-                Debug.DrawLine(cameraRay.origin, pointToLook, Color.black);
                 transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
             }
 
@@ -95,38 +106,49 @@ public class PlayerController : MonoBehaviour
                 crossbow.isFiring = false;
             }
 
-            if (Input.GetButtonDown("Square"))
+            if (Input.GetButtonDown("Square") && AppleCheck(barricadeCost))
             {
-                GameObject barricade = ObjectPooler.SharedInstance.GetPooledObject("Barricade");
-                Build(barricade, 1);
+                AppleDecrease(barricadeCost);
+                pooler.SpawnFromPool("Barricade", buildDistance, transform.rotation);
             }
-            if (Input.GetButtonDown("Triangle"))
-            {
-                GameObject turret = ObjectPooler.SharedInstance.GetPooledObject("Turret");
-                Build(turret, 1);
-            }
-            if (Input.GetButtonDown("Circle"))
-            {
-                GameObject teleporter = ObjectPooler.SharedInstance.GetPooledObject("Teleporter");
 
-                if (CanBuildTeleporter())
-                {
-                    Build(teleporter, 1);
-                }
+            if (Input.GetButtonDown("Triangle") && AppleCheck(turretCost))
+            {
+                AppleDecrease(turretCost);
+                pooler.SpawnFromPool("Turret", buildDistance, transform.rotation);
+            }
+
+            if (Input.GetButtonDown("Circle") && AppleCheck(teleporterCost))
+            {
+                BuildTeleporter();
             }
         }
     }
 
     private void FixedUpdate()
     {
-        rb.AddForce(moveVelocity, ForceMode.Acceleration);
+        rb.AddForce(moveVelocity, ForceMode.Force);
+    }
+
+    private void LateUpdate()
+    {
+        Vector3 newPos = transform.position + cameraOffset;
+
+        mainCamera.transform.position = Vector3.Slerp(mainCamera.transform.position, newPos, smooth);
+
+        if (lookAtPlayer)
+        {
+            mainCamera.transform.LookAt(transform);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Apples"))
         {
-            UIManager.UpdateAppleCounterUI(++apples);
+            //UIManager.UpdateAppleCounterUI(++apples);
+            apples++;
+            other.transform.position = GameManager.SharedInstance.transform.position;
             other.gameObject.SetActive(false);
         }
     }
@@ -136,72 +158,62 @@ public class PlayerController : MonoBehaviour
         return v <= apples;
     }
 
-
     public void AppleDecrease(int v)
     {
         apples -= v;
     }
 
-    public bool Build(GameObject build, int cost)
+    public bool CanBuild(int cost)
     {
-        if (cost > apples)
+        if (!AppleCheck(cost))
         {
-            Debug.Log("Not enough apples");
             return false;
         }
 
-        build.transform.position = (transform.position + (transform.forward * 2));
-        build.transform.rotation = transform.rotation;
+        RaycastHit hit;
 
-        apples -= cost;
-        build.SetActive(true);
+        if (Physics.SphereCast(transform.position, 3, transform.forward, out hit, 5, layerMask, QueryTriggerInteraction.UseGlobal))
+        {
+            return false;
+        }
+
         return true;
-
-
     }
 
-    public bool CanBuildTeleporter()
+    public void BuildTeleporter()
     {
-        int count = 0;
-
-        for (int i = 0; i < ObjectPooler.SharedInstance.pooledObjects.Count; i++)
+        if (tpA != null && tpB != null)
         {
-            if (ObjectPooler.SharedInstance.pooledObjects[i].activeInHierarchy && ObjectPooler.SharedInstance.pooledObjects[i].tag == "Teleporter")
-            {
-                count++;
-            }
+            return;
         }
 
-        if (count == 2)
+        if (tpA == null)
         {
+            tpA = Instantiate(teleporter, buildDistance, transform.rotation);
+            AppleDecrease(teleporterCost);
+            return;
+        }
+        else
+        {
+            tpB = Instantiate(teleporter, buildDistance, transform.rotation);
+            AppleDecrease(teleporterCost);
             TeleporterLink();
-            return false;
         }
 
-        return true;
     }
 
     public void TeleporterLink()
     {
-        for (int i = 0; i < ObjectPooler.SharedInstance.pooledObjects.Count; i++)
-        {
-            if (ObjectPooler.SharedInstance.pooledObjects[i].activeInHierarchy && ObjectPooler.SharedInstance.pooledObjects[i].tag == "Teleporter" && teleporterA == null)
-            {
-                teleporterA = ObjectPooler.SharedInstance.pooledObjects[i];
-            }
-            else if (ObjectPooler.SharedInstance.pooledObjects[i].activeInHierarchy && ObjectPooler.SharedInstance.pooledObjects[i].tag == "Teleporter" && teleporterA != null)
-            {
-                teleporterB = ObjectPooler.SharedInstance.pooledObjects[i];
-            }
-            else
-            {
-                Debug.Log("Press Circle again to link");
-            }
-        }
-        teleporterA.GetComponent<BoxCollider>().enabled = true;
-        teleporterB.GetComponent<BoxCollider>().enabled = true;
-        teleporterA.GetComponent<Teleporter>().destination = teleporterB.transform.GetChild(0).transform;
-        teleporterB.GetComponent<Teleporter>().destination = teleporterA.transform.GetChild(0).transform;
+        tpA.GetComponent<BoxCollider>().enabled = true;
+        tpB.GetComponent<BoxCollider>().enabled = true;
+        tpA.GetComponent<Teleporter>().destination = tpB.transform.GetChild(0).transform;
+        tpB.GetComponent<Teleporter>().destination = tpA.transform.GetChild(0).transform;
     }
 
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Debug.DrawLine(transform.position, buildDistance);
+        Gizmos.DrawWireSphere(buildDistance, 3);
+    }
 }

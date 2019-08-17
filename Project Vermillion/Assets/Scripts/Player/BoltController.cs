@@ -6,13 +6,16 @@ public class BoltController : MonoBehaviour
 {
     public float speed;
 
-    void Start()
-    {
-        
-    }
+    public float duration;
 
     void Update()
     {
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
+        duration -= Time.deltaTime;
+
+        if (duration <= 0)
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

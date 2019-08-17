@@ -6,9 +6,10 @@ public class CheckHP : BaseNode
 {
     public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
     {
-        
-        if (bt.GetComponent<EnemyInfo>().health <= bt.lowHealth)
+
+        if (bt.currHealth <= bt.lowHealth)
         {
+            bt.anim.SetBool("IsAttacking", false);
             current = RESULTS.SUCCEED;
             return current;
         }

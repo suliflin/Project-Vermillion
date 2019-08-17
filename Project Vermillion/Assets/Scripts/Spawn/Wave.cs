@@ -8,7 +8,4 @@ public class Wave
     public List<GameObject> enemies;
 
     public int count;
-
-    public float rate;
-
 }
