@@ -405,6 +405,39 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 5.411742
   m_Center: {x: -0.3913021, y: -0.099137306, z: -0.019049644}
+--- !u!114 &4604932719541668126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4604932719541668124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 603650574f45bd542bbcafaa493c02dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  sb: {fileID: 0}
+  spawner: {fileID: 0}
+  player: {fileID: 0}
+  selectedObject: {fileID: 0}
+  detectedObjects: []
+  detectableTags: []
+  target: {fileID: 0}
+  moveSpeed: 0
+  detectRange: 0
+  attackRange: 0
+  appleRange: 0
+  healWaitTime: 0
+  healthCountdown: 0
+  wavepointIndex: 0
+  maxHealth: 0
+  currHealth: 0
+  lowHealth: 0
+  damage: 0
+  maxRange: 0
+  enemyRange: 0
 --- !u!1001 &8942234972115515802
 PrefabInstance:
   m_ObjectHideFlags: 0
