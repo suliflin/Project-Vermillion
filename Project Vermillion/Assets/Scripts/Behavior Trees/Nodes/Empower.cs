@@ -6,7 +6,7 @@ public class Empower : BaseNode
 {
     public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
     {
-        if(Physics.SphereCast(bt.gameObject, bt.detectRange, ))
+       // if(Physics.SphereCast(bt.gameObject, bt.detectRange, ))
         {
 
             current = RESULTS.SUCCEED;
