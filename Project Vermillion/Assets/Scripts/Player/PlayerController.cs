@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     public GameObject minimap;
     public GameObject selectedObj;
 
+    public Animator anim;
+
     public Camera mainCamera;
 
     public CrossbowController crossbow;
@@ -53,6 +55,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        crossbow = GetComponent<CrossbowController>();
         pooler = ObjectPooler.SharedInstance;
 
         cameraOffset = mainCamera.transform.position - transform.position;
@@ -64,14 +67,16 @@ public class PlayerController : MonoBehaviour
 
         if (health <= 0)
         {
-            //Application.Quit();
-            UnityEditor.EditorApplication.isPlaying = false;
+            anim.SetBool("IsDead", true);
+            transform.position = GameManager.SharedInstance.recallPoint.transform.position;
         }
 
         buildDistance = (transform.position + (transform.forward * 2));
 
         moveInput = new Vector3(Input.GetAxisRaw("HorizontalLeft"), 0, Input.GetAxisRaw("VerticalLeft"));
         moveVelocity = moveInput * moveSpeed;
+
+        anim.SetFloat("LeftStick", moveVelocity.normalized.magnitude);
 
         if (!useController)
         {
@@ -88,11 +93,13 @@ public class PlayerController : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && !radial)
             {
                 crossbow.isFiring = true;
+                anim.SetFloat("RightStick", 1);
             }
 
             if (Input.GetMouseButtonUp(0) && !radial)
             {
                 crossbow.isFiring = false;
+                anim.SetFloat("RightStick", 0);
             }
         }
         else
@@ -109,10 +116,12 @@ public class PlayerController : MonoBehaviour
             if (playerDirection.sqrMagnitude > 0.0f && !radial)
             {
                 crossbow.isFiring = true;
+                anim.SetFloat("RightStick", 1);
             }
             else
             {
                 crossbow.isFiring = false;
+                anim.SetFloat("RightStick", 0);
             }
         }
 

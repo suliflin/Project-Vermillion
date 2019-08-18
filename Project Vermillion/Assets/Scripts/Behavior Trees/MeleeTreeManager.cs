@@ -8,6 +8,8 @@ public class MeleeTreeManager : BaseBehaviorTree
     public override void Start()
     {
         anim = GetComponent<Animator>();
+        capsule = GetComponent<CapsuleCollider>();
+        rb = GetComponent<Rigidbody>();
         sb = GetComponent<SteeringBehaviours>();
 
         root = new Selector();
@@ -49,10 +51,28 @@ public class MeleeTreeManager : BaseBehaviorTree
 
         if (currHealth <= 0)
         {
-            transform.position = GameManager.SharedInstance.transform.position;
-            gameObject.SetActive(false);
+            rb.isKinematic = true;
+            capsule.enabled = false;
+            anim.SetBool("IsDead", true);
+            death.Play();
+            isDead = true;
+            currHealth = maxHealth;
         }
         
+        if (isDead)
+        {
+            deathAnimTime -= Time.deltaTime;
+
+            if (deathAnimTime <= 0)
+            {
+                deathAnimTime = 4;
+                rb.isKinematic = false;
+                capsule.enabled = true;
+                transform.position = GameManager.SharedInstance.transform.position;
+                gameObject.SetActive(false);
+            }
+        }
+
         if (currHealth > maxHealth)
         {
             currHealth = maxHealth;

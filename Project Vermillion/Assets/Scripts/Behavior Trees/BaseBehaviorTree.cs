@@ -9,6 +9,12 @@ public class BaseBehaviorTree : MonoBehaviour
     
     public Animator anim;
 
+    public CapsuleCollider capsule;
+
+    public Rigidbody rb;
+
+    public ParticleSystem death;
+
     public SteeringBehaviours sb;
 
     public Gate spawner;
@@ -22,11 +28,14 @@ public class BaseBehaviorTree : MonoBehaviour
 
     public Transform target;
 
+    public bool isDead;
+
     public float moveSpeed;
     public float detectRange;
     public float attackRange;
     public float appleRange;
     public float healWaitTime;
+    public float deathAnimTime;
 
     [HideInInspector]
     public float healthCountdown;
@@ -50,7 +59,7 @@ public class BaseBehaviorTree : MonoBehaviour
 
         if (other.gameObject.tag == "Bolt" || other.gameObject.tag == "Bullet")
         {
-            if (dis < 2)
+            if (dis < 4)
             {
                 currHealth -= 1;
                 other.gameObject.SetActive(false);
