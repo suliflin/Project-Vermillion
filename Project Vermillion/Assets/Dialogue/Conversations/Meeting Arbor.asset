@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a3bec89750c6ee429b6793893afc6d7, type: 3}
+  m_Name: Meeting Arbor
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+  speakerRight: {fileID: 11400000, guid: e95164f4d8f242340aa79681494e1cc6, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+    text: Somebody once told me the world is gonna roll me
+  - character: {fileID: 11400000, guid: e95164f4d8f242340aa79681494e1cc6, type: 2}
+    text: What?
+  - character: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+    text: I ain't the sharpest tool in the shed
+  - character: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+    text: She was looking kind of dumb with her finger and her thumb
+  - character: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+    text: In the shape of an "L" on her forehead
+  - character: {fileID: 11400000, guid: e95164f4d8f242340aa79681494e1cc6, type: 2}
+    text: Red are you Okay????
+  - character: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+    text: Well the years start coming and they don't stop coming
+  - character: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+    text: Fed to the rules and I hit the ground running
+  - character: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+    text: Didn't make sense not to live for fun
+  - character: {fileID: 11400000, guid: e95164f4d8f242340aa79681494e1cc6, type: 2}
+    text: Please Red...
+  - character: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+    text: Your brain gets smart but your head gets dumb
+  - character: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+    text: So much to do, so much to see
+  - character: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+    text: So what's wrong with taking the back streets?
+  - character: {fileID: 11400000, guid: e95164f4d8f242340aa79681494e1cc6, type: 2}
+    text: Red, Lykos is here! We need you!
+  - character: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+    text: You'll never know if you don't go
+  - character: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+    text: You'll never shine if you don't glow
+  - character: {fileID: 11400000, guid: e95164f4d8f242340aa79681494e1cc6, type: 2}
+    text: Red! He is killing me!!!
+  - character: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+    text: Hey now, you're an all-star, get your game on, go play
+  - character: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+    text: Hey now, you're a rock star, get the show on, get paid
+  - character: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+    text: And all that glitters is gold
+  - character: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+    text: Only shooting stars break the mold
+  - character: {fileID: 11400000, guid: e95164f4d8f242340aa79681494e1cc6, type: 2}
+    text: Thanks, you useless bitch...

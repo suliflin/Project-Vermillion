@@ -6,10 +6,18 @@ public class Climb : BaseNode
 {
     public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
     {
-        Vector3 dir = bt.target.position - bt.transform.position;
-        bt.transform.Translate(dir.normalized * bt.moveSpeed * Time.deltaTime, Space.World);
+        Vector3 dir = bt.target.transform.position - bt.transform.position;
+        dir.y = 0;
 
-        if (Vector3.Distance(bt.transform.position, bt.target.position) <= 0.4f)
+        if (dir != Vector3.zero)
+        {
+            bt.transform.rotation = Quaternion.Slerp(bt.transform.rotation, Quaternion.LookRotation(dir), 0.1f);
+        }
+
+        bt.transform.Translate(dir.normalized * bt.moveSpeed * Time.deltaTime, Space.World);
+        bt.anim.SetBool("IsMoving", true);
+
+        if (Vector3.Distance(bt.transform.position, bt.target.position) <= 3f)
         {
             GetNextWaypoint(bt);
         }
@@ -33,5 +41,6 @@ public class Climb : BaseNode
     void EndPath(BaseBehaviorTree bt)
     {
         bt.moveSpeed = 0;
+        bt.anim.SetBool("IsMoving", false);
     }
 }

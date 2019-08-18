@@ -222,9 +222,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6925854114296534478}
   - component: {fileID: 3426727940369750897}
+  - component: {fileID: 7805728393762423744}
   m_Layer: 0
-  m_Name: Turret 1
-  m_TagString: Turret
+  m_Name: Turret
+  m_TagString: Build
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -258,12 +259,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   partToRotate: {fileID: 6925854114570546920}
-  range: 8
+  health: 5
+  range: 10
   fireRate: 1
   enemyTags: Enemy
   bulletPrefab: {fileID: 545650770986895422, guid: 367b0a048c8b59b4f9a2e8b3e75f1483,
     type: 3}
   fireDirection: {fileID: 3757926185611024211}
+--- !u!65 &7805728393762423744
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6925854114296534479}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6925854114570546921
 GameObject:
   m_ObjectHideFlags: 0

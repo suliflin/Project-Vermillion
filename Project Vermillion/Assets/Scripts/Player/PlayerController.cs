@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
     public GameObject tpA;
     public GameObject tpB;
     public GameObject teleporter;
+    public GameObject radialMenu;
+    public GameObject minimap;
+    public GameObject selectedObj;
 
     public Camera mainCamera;
 
@@ -30,9 +33,10 @@ public class PlayerController : MonoBehaviour
     public float teleporterTimer = 0;
     public float smooth = 0.3f;
 
-    public bool built = false;
+    public bool blocked;
     public bool lookAtPlayer = false;
     public bool useController;
+    public bool radial;
 
     private Rigidbody rb;
 
@@ -81,46 +85,99 @@ public class PlayerController : MonoBehaviour
                 transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
             }
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !radial)
             {
                 crossbow.isFiring = true;
             }
 
-            if (Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonUp(0) && !radial)
             {
                 crossbow.isFiring = false;
             }
         }
         else
         {
-            Vector3 playerDirection = Vector3.right * Input.GetAxisRaw("HorizontalRight") + 
-            Vector3.forward * -Input.GetAxisRaw("VerticalRight");
+            Vector3 playerDirection = Vector3.right * Input.GetAxisRaw("HorizontalRight") + Vector3.forward * -Input.GetAxisRaw("VerticalRight");
 
-            if (playerDirection.sqrMagnitude > 0.0f)
+            playerDirection.y = 0;
+
+            if (playerDirection != Vector3.zero)
             {
-                transform.rotation = Quaternion.LookRotation(playerDirection, Vector3.up);
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(playerDirection), 0.1f);
+            }
+
+            if (playerDirection.sqrMagnitude > 0.0f && !radial)
+            {
                 crossbow.isFiring = true;
             }
             else
             {
                 crossbow.isFiring = false;
             }
+        }
 
-            if (Input.GetButtonDown("Square") && AppleCheck(barricadeCost))
+        if (Input.GetButton("R1") && Input.GetButton("L1"))
+        {
+            radial = true;
+            radialMenu.SetActive(true);
+
+            if (Input.GetButtonDown("Square") && CanBuild(barricadeCost))
             {
                 AppleDecrease(barricadeCost);
                 pooler.SpawnFromPool("Barricade", buildDistance, transform.rotation);
             }
 
-            if (Input.GetButtonDown("Triangle") && AppleCheck(turretCost))
+            if (Input.GetButtonDown("Triangle") && CanBuild(turretCost))
             {
                 AppleDecrease(turretCost);
                 pooler.SpawnFromPool("Turret", buildDistance, transform.rotation);
             }
 
-            if (Input.GetButtonDown("Circle") && AppleCheck(teleporterCost))
+            if (Input.GetButtonDown("Circle") && CanBuild(teleporterCost))
             {
                 BuildTeleporter();
+            }
+
+            if (Input.GetButtonDown("X"))
+            {                
+                if (CanUpgrade(selectedObj))
+                {
+                    Upgrade(selectedObj);
+                }
+            }
+        }
+        else
+        {
+            radial = false;
+            radialMenu.SetActive(false);
+
+            if (Input.GetButtonDown("Square"))
+            {
+                //Interact
+            }
+
+            if (Input.GetButtonDown("Triangle"))
+            {
+                if (GameManager.SharedInstance.state == GameManager.WaveState.Countdown)
+                {
+                    apples += (int)GameManager.SharedInstance.waveCountdown / 10;
+
+                    GameManager.SharedInstance.waveCountdown = 0;
+                }
+            }
+
+            if (Input.GetButtonDown("Circle"))
+            {
+                transform.position = GameManager.SharedInstance.recallPoint.transform.position;
+            }
+
+            if (Input.GetButton("X"))
+            {
+                minimap.SetActive(true);
+            }
+            else
+            {
+                minimap.SetActive(false);
             }
         }
     }
@@ -165,19 +222,67 @@ public class PlayerController : MonoBehaviour
 
     public bool CanBuild(int cost)
     {
-        if (!AppleCheck(cost))
+        if (!AppleCheck(cost) || blocked)
         {
             return false;
         }
-
-        RaycastHit hit;
-
-        if (Physics.SphereCast(transform.position, 3, transform.forward, out hit, 5, layerMask, QueryTriggerInteraction.UseGlobal))
+        else
         {
-            return false;
+            return true;
+        }
+    }
+
+    public bool CanUpgrade(GameObject obj)
+    {
+        if (obj.name == "Turret(Clone)" && obj.GetComponent<Turret>().upgrade < 2)
+        {
+            if (!AppleCheck(obj.GetComponent<Turret>().upgradeCost))
+            {
+                return false;
+            }
+
+            return true;
+        }
+        else if (obj.name == "Teleporter(Clone)" && obj.GetComponent<Teleporter>().upgrade < 2)
+        {
+            if (!AppleCheck(obj.GetComponent<Teleporter>().upgradeCost))
+            {
+                return false;
+            }
+
+            return true;
+        }
+        else if (obj.name == "Barricade(Clone)" && obj.GetComponent<Barricade>().upgrade < 2)
+        {
+            if (!AppleCheck(obj.GetComponent<Barricade>().upgradeCost))
+            {
+                return false;
+            }
+            return true;
         }
 
-        return true;
+        return false;
+    }
+
+    public void Upgrade(GameObject obj)
+    {
+        if (obj.name == "Turret(Clone)")
+        {
+            AppleDecrease(obj.GetComponent<Turret>().upgradeCost);
+            obj.GetComponent<Turret>().upgrade += 1;
+        }
+        else if (obj.name == "Teleporter(Clone)")
+        {
+            AppleDecrease(obj.GetComponent<Teleporter>().upgradeCost);
+            tpA.GetComponent<Teleporter>().upgrade += 1;
+            tpB.GetComponent<Teleporter>().upgrade += 1;
+        }
+        else if (obj.name == "Barricade(Clone)")
+        {
+            AppleDecrease(obj.GetComponent<Barricade>().upgradeCost);
+            obj.GetComponent<Barricade>().upgrade += 1;
+            obj.GetComponent<Barricade>().UpgradeBarricade();
+        }
     }
 
     public void BuildTeleporter()
@@ -208,12 +313,5 @@ public class PlayerController : MonoBehaviour
         tpB.GetComponent<BoxCollider>().enabled = true;
         tpA.GetComponent<Teleporter>().destination = tpB.transform.GetChild(0).transform;
         tpB.GetComponent<Teleporter>().destination = tpA.transform.GetChild(0).transform;
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Debug.DrawLine(transform.position, buildDistance);
-        Gizmos.DrawWireSphere(buildDistance, 3);
     }
 }

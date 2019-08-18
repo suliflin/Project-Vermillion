@@ -6,67 +6,86 @@ public class BaseBehaviorTree : MonoBehaviour
 {
     public BaseNode root;
     public BaseNode current;
+    
+    public Animator anim;
 
     public SteeringBehaviours sb;
 
     public Gate spawner;
 
     public GameObject player;
-    public GameObject currentApple;
-    public GameObject[] allyWolves;
+    public GameObject selectedObject;
+
+    public List<GameObject> detectedObjects;
+
+    public List<string> detectableTags;
 
     public Transform target;
-    public Transform targetBuild;
-    public Transform lastPosition;
 
     public float moveSpeed;
     public float detectRange;
     public float attackRange;
     public float appleRange;
-    public float maxDistance;
+    public float healWaitTime;
+
+    [HideInInspector]
+    public float healthCountdown;
 
     public int wavepointIndex;
     public int maxHealth;
+    public int currHealth;
     public int lowHealth;
-    public int shieldGained;
+    public int damage;
 
-    public string[] tags;
-
-    public List<GameObject> detectedObjects;
-
-    public bool start;
-
-    public void OnTriggerEnter(Collider other)
-    {
-        for (int i = 0; i < tags.Length; i++)
-        {
-            if (other.gameObject.CompareTag(tags[i]))
-            {
-                detectedObjects.Add(other.gameObject);
-            }
-        }
-
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        for (int i = 0; i < tags.Length; i++)
-        {
-            if (other.gameObject.CompareTag(tags[i]))
-            {
-                detectedObjects.Remove(other.gameObject);
-            }
-        }
-    }
-
-    public virtual void Start()
-    {
-        
-    }
+    public virtual void Start() { }
 
     public virtual void Update()
     {
         root.UpdateBehavior(this);
     }
 
+    public virtual void OnTriggerEnter(Collider other)
+    {
+        float dis = Vector3.Distance(transform.position, other.transform.position);
+
+        if (other.gameObject.tag == "Bolt" || other.gameObject.tag == "Bullet")
+        {
+            if (dis < 2)
+            {
+                currHealth -= 1;
+                other.gameObject.SetActive(false);
+            }
+        }
+
+        for (int i = 0; i < detectableTags.Count; i++)
+        {
+            if (other.CompareTag(detectableTags[i]))
+            {
+                detectedObjects.Add(other.gameObject);
+                break;
+            }
+        }
+    }
+
+    public virtual void OnTriggerExit(Collider other)
+    {
+        for (int i = 0; i < detectableTags.Count; i++)
+        {
+            if (other.CompareTag(detectableTags[i]))
+            {
+                detectedObjects.Remove(other.gameObject);
+                break;
+            }
+        }
+    }
+
+    public void EndAttack()
+    {
+        float dist = Vector3.Distance(transform.position, selectedObject.transform.position);
+
+        if (dist < attackRange)
+        {
+            GameManager.SharedInstance.SetDamage(damage, selectedObject);
+        }
+    }
 }
