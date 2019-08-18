@@ -6,14 +6,11 @@ public class BulletController : MonoBehaviour
 {
     public float speed = 5;
 
-    public float duration;
-
     private Vector3 dir;
 
     private Transform target;
 
     private float distanceThisFrame;
-    private float lifeTime;
 
     public void Chase(Transform _target)
     {
@@ -23,14 +20,14 @@ public class BulletController : MonoBehaviour
     public void Start()
     {
         dir = target.position - transform.position;
-        lifeTime = duration;
     }
 
+    // Update is called once per frame
     void Update()
     {
         if (target == null)
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
             return;
         }
 
@@ -44,17 +41,10 @@ public class BulletController : MonoBehaviour
 
         transform.Translate(dir.normalized * distanceThisFrame, Space.World);
         transform.LookAt(target);
-
-        lifeTime -= Time.deltaTime;
-
-        if (lifeTime <= 0)
-        {
-            gameObject.SetActive(false);
-        }
     }
 
     public void HitTarget()
     {
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }
