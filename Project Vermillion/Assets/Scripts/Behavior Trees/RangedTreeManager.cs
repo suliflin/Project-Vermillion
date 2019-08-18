@@ -8,7 +8,7 @@ public class RangedTreeManager : BaseBehaviorTree
     
     public override void Start()
     {
-        root = new Selector();
+        root = new Retreat(); //new Selector();
 
         root.treeNodes.Add(new Retreat());
         root.treeNodes.Add(new Sequence());
