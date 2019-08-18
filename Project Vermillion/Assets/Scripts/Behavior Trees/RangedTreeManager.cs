@@ -4,31 +4,29 @@ using UnityEngine;
 
 public class RangedTreeManager : BaseBehaviorTree
 {
+    public float maxRange;
+    
     public override void Start()
     {
         root = new Selector();
 
+        root.treeNodes.Add(new Retreat());
         root.treeNodes.Add(new Sequence());
         root.treeNodes.Add(new Sequence());
-        root.treeNodes.Add(new Sequence());
-        root.treeNodes.Add(new Climb());
 
-        root.treeNodes[0].treeNodes.Add(new CheckHP());
-        root.treeNodes[0].treeNodes.Add(new Retreat());
-        root.treeNodes[0].treeNodes.Add(new Heal());
+        root.treeNodes[2].treeNodes.Add(new Check("Player", maxRange));
+        root.treeNodes[2].treeNodes.Add(new RaycastForward());
+        root.treeNodes[2].treeNodes.Add(new ArcShot());
 
-        root.treeNodes[1].treeNodes.Add(new CheckPlayer());
-        root.treeNodes[1].treeNodes.Add(new Selector());
+        root.treeNodes[3].treeNodes.Add(new Selector());
+        root.treeNodes[3].treeNodes.Add(new Climb());
+        root.treeNodes[3].treeNodes.Add(new AttackRanged());
 
-        root.treeNodes[2].treeNodes.Add(new CheckBuild());
-        root.treeNodes[2].treeNodes.Add(new Barrage());
-        
-        root.treeNodes[1].treeNodes[1].treeNodes.Add(new Sequence());
-        root.treeNodes[1].treeNodes[1].treeNodes.Add(new AttackPlayer());
-       
-        root.treeNodes[1].treeNodes[1].treeNodes[0].treeNodes.Add(new CheckBuild());
-        root.treeNodes[1].treeNodes[1].treeNodes[0].treeNodes.Add(new Compare());
-        root.treeNodes[1].treeNodes[1].treeNodes[0].treeNodes.Add(new ArcShot());
+        root.treeNodes[3].treeNodes[1].treeNodes.Add(new Check("Tree", maxRange));
+        root.treeNodes[3].treeNodes[1].treeNodes.Add(new Check("Player", maxRange));
+        root.treeNodes[3].treeNodes[1].treeNodes.Add(new Check("Turret", maxRange));
+        root.treeNodes[3].treeNodes[1].treeNodes.Add(new Check("Barricade", maxRange));
+
     }
 
     public override void Update()
