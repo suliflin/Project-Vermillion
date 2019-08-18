@@ -6,6 +6,12 @@ public class Retreat : BaseNode
 {
     public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
     {
+        if (bt.currHealth <= bt.lowHealth)
+        {
+            current = RESULTS.FAILED;
+            return current;
+        }
+
         Vector3 dir = bt.target.transform.position - bt.transform.position;
         dir.y = 0;
 

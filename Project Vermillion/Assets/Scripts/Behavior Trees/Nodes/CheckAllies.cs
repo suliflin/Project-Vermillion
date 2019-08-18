@@ -2,22 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyInfo : MonoBehaviour
+public class CheckAllies : BaseNode
 {
-    public int health;
-    public int shieldHealth;
-
-    public bool isShielded;
-
+    // Start is called before the first frame update
     void Start()
-    {
-
-    }
-
-    void Update()
     {
         
     }
 
-
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
 }
