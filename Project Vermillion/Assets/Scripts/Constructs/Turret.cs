@@ -77,11 +77,6 @@ public class Turret : MonoBehaviour
             range = 20;
         }
     }
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(transform.position, range);
-    }
 
     void Shoot()
     {

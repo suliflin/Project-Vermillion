@@ -12,15 +12,11 @@ public class CrossbowController : MonoBehaviour
     public float timeBetweenShots;
     public float lifeTime;
 
-    public List<GameObject> vfx = new List<GameObject>();
-    GameObject particleToSpawn;
-
-
     private float shotCounter;
 
     void Start()
     {
-        particleToSpawn = vfx[0];
+        
     }
 
     void Update()
@@ -40,21 +36,6 @@ public class CrossbowController : MonoBehaviour
         else
         {
             shotCounter = 0;
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            SpawnParticle();
-        }
-    }
-
-     void SpawnParticle()
-    {
-        GameObject vfx;
-
-        if (firePoint != null)
-        {
-            vfx = Instantiate(particleToSpawn, firePoint.transform.position, firePoint.transform.rotation);
         }
     }
 }
