@@ -11,14 +11,14 @@ public class RangedTreeManager : BaseBehaviorTree
         anim = GetComponent<Animator>();
         sb = GetComponent<SteeringBehaviours>();
 
-        root = new Retreat(); //new Selector();
+        root = new Selector();
 
         root.childNodes.Add(new Retreat());
         root.childNodes.Add(new Sequence());
         root.childNodes.Add(new Sequence());
-
+        
         root.childNodes[1].childNodes.Add(new Check("Player", maxRange));
-        root.childNodes[1].childNodes.Add(new RaycastForward());
+        //root.childNodes[1].childNodes.Add(new RaycastForward());
         root.childNodes[1].childNodes.Add(new ArcShot());
 
         root.childNodes[2].childNodes.Add(new Selector());
