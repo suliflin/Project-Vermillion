@@ -36,6 +36,7 @@ public class BaseBehaviorTree : MonoBehaviour
     public int currHealth;
     public int lowHealth;
     public int damage;
+    public int shieldGained;
 
     public virtual void Start() { }
 

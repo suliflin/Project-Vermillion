@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
 
         state = WaveState.Countdown;
 
-        waveCountdown = 10;
+        waveCountdown = waveWait;
 
         playerHealth = playerHealthMax;
         appleCountdown = appleWait;

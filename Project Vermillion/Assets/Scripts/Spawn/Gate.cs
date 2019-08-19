@@ -18,8 +18,11 @@ public class Gate : MonoBehaviour
 
         for (int i = 0; i < wave.count; i++)
         {
-            wave.enemies[0] = ObjectPooler.SharedInstance.SpawnFromPool("Warrior", transform.position, Quaternion.identity);
-            wave.enemies[0].GetComponent<MeleeTreeManager>().spawner = this;
+            //wave.enemies[0] = ObjectPooler.SharedInstance.SpawnFromPool("Warrior", transform.position, Quaternion.identity);
+            //wave.enemies[0].GetComponent<MeleeTreeManager>().spawner = this
+
+            wave.enemies[0] = ObjectPooler.SharedInstance.SpawnFromPool("RangedWolf", transform.position, Quaternion.identity);
+            wave.enemies[0].GetComponent<RangedTreeManager>().spawner = this;
         }
     }
 }

@@ -16,7 +16,7 @@ public abstract class BaseNode
 
     public RESULTS current;
 
-    public List<BaseNode> treeNodes = new List<BaseNode>();
+    public List<BaseNode> childNodes = new List<BaseNode>();
 
     public virtual RESULTS UpdateBehavior(BaseBehaviorTree bt)
     {
