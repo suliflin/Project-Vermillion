@@ -7,7 +7,7 @@ public class EnemyInfo : MonoBehaviour
     public int health;
     public int shieldHealth;
 
-    public bool isShielded;
+
 
     void Start()
     {

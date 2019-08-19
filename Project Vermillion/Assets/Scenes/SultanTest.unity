@@ -2135,11 +2135,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.5
       objectReference: {fileID: 0}
-    - target: {fileID: 9042848056623780861, guid: 1e95e6502224a1f40bbbb4760bdaf30b,
-        type: 3}
-      propertyPath: m_Drag
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1078809887454052074, guid: 1e95e6502224a1f40bbbb4760bdaf30b,
         type: 3}
       propertyPath: mainCamera
@@ -2170,6 +2165,16 @@ PrefabInstance:
       propertyPath: minimap
       value: 
       objectReference: {fileID: 1357198862}
+    - target: {fileID: 9042848056623780861, guid: 1e95e6502224a1f40bbbb4760bdaf30b,
+        type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8740222675809453061, guid: 1e95e6502224a1f40bbbb4760bdaf30b,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1078809885535336631, guid: 1e95e6502224a1f40bbbb4760bdaf30b,
         type: 3}
       propertyPath: lifeTime
@@ -2185,20 +2190,15 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1078809886217630898, guid: 1e95e6502224a1f40bbbb4760bdaf30b,
-        type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8740222675809453061, guid: 1e95e6502224a1f40bbbb4760bdaf30b,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7621533260992424304, guid: 1e95e6502224a1f40bbbb4760bdaf30b,
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1078809886217630898, guid: 1e95e6502224a1f40bbbb4760bdaf30b,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8115099826453932667, guid: 1e95e6502224a1f40bbbb4760bdaf30b,
         type: 3}

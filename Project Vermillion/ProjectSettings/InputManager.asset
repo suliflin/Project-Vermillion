@@ -41,8 +41,8 @@ InputManager:
     m_Name: Square
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: 
-    positiveButton: 
+    negativeButton: o
+    positiveButton: p
     altNegativeButton: 
     altPositiveButton: joystick button 0
     gravity: 1000

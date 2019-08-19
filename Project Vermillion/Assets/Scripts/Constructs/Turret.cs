@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    private Transform target;
+    public Transform target;
     public Transform partToRotate;
 
     public int health;
@@ -17,6 +17,8 @@ public class Turret : MonoBehaviour
     public string enemyTags;
 
     public GameObject bulletPrefab;
+    public GameObject boss;
+
     public Transform fireDirection;
 
     private float fireCountDown = 0f;
@@ -96,6 +98,11 @@ public class Turret : MonoBehaviour
 
     void FindingEnemy()
     {
+        if (boss != null)
+        {
+            target = boss.transform;
+        }
+
         if (target == null)
             return;
 

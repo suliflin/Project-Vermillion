@@ -6,20 +6,17 @@ public class Provoke : BaseNode
 {
     public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
     {
-        for (int i = 0; i < bt.detectedObjects.Count; i++)
+        float d = Vector3.Distance(bt.transform.position, bt.selectedObject.transform.position);
+
+        if (bt.selectedObject.name == "Turret(Clone)")
         {
-            if (bt.detectedObjects[i].CompareTag("Turret"))
-            {
-                bt.detectedObjects[i].GetComponent<Turret>().enemyTags = "Boss";
-                current = RESULTS.SUCCEED;
-                return current;
-            }
-            else
-            {
-                bt.detectedObjects[i].GetComponent<Turret>().enemyTags = "Enemy";
-                current = RESULTS.SUCCEED;
-                return current;
-            }
+            bt.selectedObject.GetComponent<Turret>().boss = bt.gameObject;
+            current = RESULTS.SUCCEED;
+            return current;
+        }
+        else if (bt.selectedObject.name == "Turret(Clone)" && d > ((BossTreeManager)bt).maxRange)
+        {
+            bt.selectedObject.GetComponent<Turret>().boss = null;
         }
         current = RESULTS.FAILED;
         return current;

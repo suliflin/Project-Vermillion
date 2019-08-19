@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
 
         state = WaveState.Countdown;
 
-        waveCountdown = 10;
+        waveCountdown = waveWait;
 
         playerHealth = playerHealthMax;
         appleCountdown = appleWait;
@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
             if (respawnCountdown <= 0)
             {
                 playerHealth = playerHealthMax;
-                player.transform.position = recallPoint.transform.position;
+                //player.transform.position = recallPoint.transform.position;
                 respawnCountdown = respawnWait;
             }
         }
@@ -116,7 +116,7 @@ public class GameManager : MonoBehaviour
 
         if (state == WaveState.SpawnApple)
         {
-            asm.AppleSpawn();
+            //asm.AppleSpawn();
             state = WaveState.SpawnWave;
         }
 

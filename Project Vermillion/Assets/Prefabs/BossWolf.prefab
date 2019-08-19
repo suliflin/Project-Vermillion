@@ -1660,8 +1660,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8478707333206704789}
   - component: {fileID: 1954677292137295855}
+  - component: {fileID: -5881002624702095952}
+  - component: {fileID: 8220119906379843495}
   m_Layer: 0
-  m_Name: Warrior-wolf-walk_size_test
+  m_Name: BossWolf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1703,6 +1705,56 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-5881002624702095952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4895750058632278150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 603650574f45bd542bbcafaa493c02dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  sb: {fileID: 0}
+  spawner: {fileID: 0}
+  player: {fileID: 0}
+  selectedObject: {fileID: 0}
+  detectedObjects: []
+  detectableTags:
+  - Player
+  target: {fileID: 0}
+  moveSpeed: 8
+  detectRange: 10
+  attackRange: 5
+  appleRange: 5
+  healWaitTime: 1
+  healthCountdown: 0
+  wavepointIndex: 0
+  maxHealth: 20
+  currHealth: 0
+  lowHealth: 10
+  damage: 2
+  shieldGained: 0
+  shieldHealth: 0
+  isShielded: 0
+  maxRange: 3
+  enemyRange: 0
+--- !u!135 &8220119906379843495
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4895750058632278150}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 6.8101535
+  m_Center: {x: -0.25115442, y: 0, z: 0}
 --- !u!1 &5047655802232530876
 GameObject:
   m_ObjectHideFlags: 0

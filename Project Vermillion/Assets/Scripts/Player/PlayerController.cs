@@ -149,7 +149,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             radial = false;
-            radialMenu.SetActive(false);
+            //radialMenu.SetActive(false);
 
             if (Input.GetButtonDown("Square"))
             {
@@ -177,7 +177,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                minimap.SetActive(false);
+                //minimap.SetActive(false);
             }
         }
     }

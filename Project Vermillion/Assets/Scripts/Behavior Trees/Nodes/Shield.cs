@@ -6,19 +6,21 @@ public class Shield : BaseNode
 {
     public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
     {
-        for (int i = 0; i < bt.detectedObjects.Count; i++)
-        {
-            if (bt.detectedObjects[i].CompareTag("Wolf"))
-            {
-                bt.detectedObjects[i].GetComponent<EnemyInfo>();
-                if(bt.detectedObjects[i].GetComponent<EnemyInfo>().isShielded == false)
-                {
-                    bt.detectedObjects[i].GetComponent<EnemyInfo>().shieldHealth += bt.shieldGained;
-                }
-                bt.detectedObjects[i].GetComponent<EnemyInfo>().isShielded = true;
+        ((BossTreeManager)bt).shieldCountdown -= Time.deltaTime;
 
-                current = RESULTS.SUCCEED;
-                return current;
+        if(((BossTreeManager)bt).shieldCountdown < 0)
+        { 
+            for (int i = 0; i < bt.detectedObjects.Count; i++)
+            {
+                if (bt.selectedObject.GetComponent<BaseBehaviorTree>().isShielded == false)
+                {
+                    bt.selectedObject.GetComponent<BaseBehaviorTree>().shieldHealth += ((BossTreeManager)bt).shieldGained;
+                    bt.selectedObject.GetComponent<BaseBehaviorTree>().isShielded = true;
+                    ((BossTreeManager)bt).shieldCountdown = ((BossTreeManager)bt).shieldWaitTime;
+                    current = RESULTS.SUCCEED;
+                    return current;
+                }
+
             }
         }
         current = RESULTS.FAILED;

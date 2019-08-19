@@ -36,6 +36,9 @@ public class BaseBehaviorTree : MonoBehaviour
     public int currHealth;
     public int lowHealth;
     public int damage;
+    public int shieldHealth;
+
+    public bool isShielded;
 
     public virtual void Start() { }
 
@@ -52,14 +55,21 @@ public class BaseBehaviorTree : MonoBehaviour
         {
             if (dis < 2)
             {
-                currHealth -= 1;
+                if(isShielded)
+                {
+                    shieldHealth -= 1;
+                }
+                else
+                {
+                    currHealth -= 1;
+                }
                 other.gameObject.SetActive(false);
             }
         }
 
         for (int i = 0; i < detectableTags.Count; i++)
         {
-            if (other.CompareTag(detectableTags[i]))
+            if (other.CompareTag(detectableTags[i]) && !detectedObjects.Contains(other.gameObject))
             {
                 detectedObjects.Add(other.gameObject);
                 break;
