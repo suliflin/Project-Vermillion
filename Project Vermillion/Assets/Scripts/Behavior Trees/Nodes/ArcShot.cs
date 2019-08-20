@@ -4,8 +4,17 @@ using UnityEngine;
 
 public class ArcShot : BaseNode
 {
+    private RaycastForward rf;
+
     public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
     {
-        return RESULTS.SUCCEED;
+        rf = new RaycastForward();
+
+        if (!rf.RaycastFree("Player", bt.selectedObject))
+        {
+            //Arc shot
+        }
+
+        return RESULTS.FAILED;
     }
 }

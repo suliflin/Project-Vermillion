@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RaycastForward : BaseNode
+public class RaycastForward
 {    
     public RaycastHit hit;
-    public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
-    {
-        if(Physics.Raycast(bt.transform.position, bt.target.transform.position, out hit))
-        {
-            Vector3 lookAt = hit.point;
-            bt.transform.LookAt(lookAt);
 
-       
-        }      
-        return current;       
+    public bool RaycastFree(string tag, GameObject target)
+    {      
+        if (Physics.Raycast(transform.position, target.transform.position, out hit) && hit.transform.tag == tag)
+        {
+            return true;
+        }
+
+        return false;  
     }
 }
