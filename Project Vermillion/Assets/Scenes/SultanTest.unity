@@ -616,6 +616,12 @@ Transform:
   m_Father: {fileID: 845433628}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &535939210 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 149257857183795882, guid: e0875531172e65040b1cc0898862dbe2,
+    type: 3}
+  m_PrefabInstance: {fileID: 8157048260548889157}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &553531400
 GameObject:
   m_ObjectHideFlags: 0
@@ -2158,17 +2164,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 2
   Act: 0
-  player: {fileID: 0}
+  player: {fileID: 535939210}
   recallPoint: {fileID: 480615502}
-  waveWait: 10
-  appleWait: 10
-  spawnWait: 10
+  waveWait: 2
+  appleWait: 2
+  spawnWait: 2
   respawnWait: 5
   waveCountdown: 0
   appleCountdown: 0
   spawnCountdown: 0
   respawnCountdown: 0
-  playerHealthMax: 16
+  playerHealthMax: 2
   treeHealth: 30
 --- !u!4 &1951815039
 Transform:
@@ -2474,6 +2480,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Red
       objectReference: {fileID: 0}
+    - target: {fileID: 6540105322091124163, guid: e0875531172e65040b1cc0898862dbe2,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: e1ae2f55f48747e438f6cd8bd05fa607, type: 2}
     - target: {fileID: 3767574320712693945, guid: e0875531172e65040b1cc0898862dbe2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2529,15 +2540,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6540105322091124163, guid: e0875531172e65040b1cc0898862dbe2,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: e1ae2f55f48747e438f6cd8bd05fa607, type: 2}
     - target: {fileID: 8157048259637875628, guid: e0875531172e65040b1cc0898862dbe2,
         type: 3}
       propertyPath: m_IsKinematic
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157048259637875628, guid: e0875531172e65040b1cc0898862dbe2,
+        type: 3}
+      propertyPath: m_Drag
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8157048259637875629, guid: e0875531172e65040b1cc0898862dbe2,
         type: 3}
@@ -2559,6 +2570,11 @@ PrefabInstance:
       propertyPath: anim
       value: 
       objectReference: {fileID: 3166231814794518406}
+    - target: {fileID: 8157048259637875629, guid: e0875531172e65040b1cc0898862dbe2,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 5493230007070455605, guid: e0875531172e65040b1cc0898862dbe2,
         type: 3}
       propertyPath: m_RootOrder

@@ -70,4 +70,19 @@ public class ObjectPooler : MonoBehaviour
 
         return null;
     }
+
+    public void Deactivate(GameObject obj)
+    {
+        StartCoroutine(ReturnToPool(obj.gameObject));
+    }
+
+    public IEnumerator ReturnToPool(GameObject obj)
+    {
+        obj.transform.position = GameManager.SharedInstance.transform.position;
+
+        yield return 0;
+
+        obj.SetActive(false);
+    }
+
 }

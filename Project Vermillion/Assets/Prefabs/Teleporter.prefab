@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 6977625254223013320}
   - component: {fileID: 4076260207593798723}
   - component: {fileID: 1810697599466715798}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Teleporter
   m_TagString: Build
   m_Icon: {fileID: 0}
@@ -152,3 +152,7 @@ MonoBehaviour:
   destination: {fileID: 0}
   player: {fileID: 0}
   health: 3
+  upgrade: 0
+  upgradeCost: 1
+  teleportCost: 0
+  teleporterTimer: 10

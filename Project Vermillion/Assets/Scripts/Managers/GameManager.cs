@@ -153,7 +153,7 @@ public class GameManager : MonoBehaviour
     {
         switch (obj.name)
         {
-            case "Player":
+            case "Red":
 
                 playerHealth -= dmg;
                 break;

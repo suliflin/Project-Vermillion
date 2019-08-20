@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1769635991303537751}
   - component: {fileID: 874917513205810829}
   - component: {fileID: 6408825289282167357}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Turret
   m_TagString: Turret
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3757926185611024211}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 6925854113680598810}
   - component: {fileID: 6925854113680598811}
   - component: {fileID: 6925854113680598812}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TurretPlace
   m_TagString: Turret
   m_Icon: {fileID: 0}
@@ -223,7 +223,7 @@ GameObject:
   - component: {fileID: 6925854114296534478}
   - component: {fileID: 3426727940369750897}
   - component: {fileID: 7805728393762423744}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Turret
   m_TagString: Build
   m_Icon: {fileID: 0}
@@ -260,6 +260,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   partToRotate: {fileID: 6925854114570546920}
   health: 5
+  upgrade: 0
+  upgradeCost: 0
   range: 10
   fireRate: 1
   enemyTags: Enemy
@@ -288,7 +290,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6925854114570546920}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PartToRotate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -324,7 +326,7 @@ GameObject:
   - component: {fileID: 3545047346141321567}
   - component: {fileID: 5605030794281707718}
   - component: {fileID: 3133789152465485853}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TurretShootingArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
