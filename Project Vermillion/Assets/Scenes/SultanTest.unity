@@ -6182,6 +6182,7 @@ MonoBehaviour:
   - {fileID: 553531400}
   - {fileID: 920175235}
   - {fileID: 533123162}
+  count: 0
 --- !u!4 &845433628
 Transform:
   m_ObjectHideFlags: 0
@@ -7414,7 +7415,7 @@ MonoBehaviour:
   particles: {fileID: 2037203402}
   ray: {fileID: 1974887252}
   burst: {fileID: 272078028}
-  waveWait: 2
+  waveWait: 180
   appleWait: 2
   spawnWait: 2
   respawnWait: 10
@@ -12659,6 +12660,11 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8157048259637875628, guid: e0875531172e65040b1cc0898862dbe2,
+        type: 3}
+      propertyPath: m_Drag
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8157048259637875629, guid: e0875531172e65040b1cc0898862dbe2,
         type: 3}
       propertyPath: mainCamera
@@ -12679,6 +12685,16 @@ PrefabInstance:
       propertyPath: anim
       value: 
       objectReference: {fileID: 3166231814794518406}
+    - target: {fileID: 8157048259637875629, guid: e0875531172e65040b1cc0898862dbe2,
+        type: 3}
+      propertyPath: useController
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8157048259637875629, guid: e0875531172e65040b1cc0898862dbe2,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 5493230007070455605, guid: e0875531172e65040b1cc0898862dbe2,
         type: 3}
       propertyPath: m_RootOrder

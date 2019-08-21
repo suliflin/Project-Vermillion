@@ -71,8 +71,15 @@ public class PlayerController : MonoBehaviour
 
         moveInput = new Vector3(Input.GetAxis("HorizontalLeft"), 0, Input.GetAxis("VerticalLeft"));
         moveVelocity = moveInput * moveSpeed;
-
-        anim.SetFloat("LeftStick", moveVelocity.normalized.magnitude);
+        
+        if (moveInput.magnitude != 0)
+        {
+            anim.SetFloat("LeftStick", 1);
+        }
+        else
+        {
+            anim.SetFloat("LeftStick", 0);
+        }
 
         if (!useController)
         {
@@ -89,13 +96,13 @@ public class PlayerController : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && !radial)
             {
                 crossbow.isFiring = true;
-                anim.SetFloat("RightStick", 1);
+                anim.SetLayerWeight(1, 1);
             }
 
             if (Input.GetMouseButtonUp(0) && !radial)
             {
                 crossbow.isFiring = false;
-                anim.SetFloat("RightStick", 0);
+                anim.SetLayerWeight(1, 0);
             }
         }
         else
@@ -112,12 +119,12 @@ public class PlayerController : MonoBehaviour
             if (playerDirection.sqrMagnitude > 0.0f && !radial)
             {
                 crossbow.isFiring = true;
-                anim.SetFloat("RightStick", 1);
+                anim.SetLayerWeight(1, 1);
             }
             else
             {
                 crossbow.isFiring = false;
-                anim.SetFloat("RightStick", 0);
+                anim.SetLayerWeight(1, 0);
             }
         }
 
@@ -165,6 +172,7 @@ public class PlayerController : MonoBehaviour
             {
                 if (GameManager.SharedInstance.state == GameManager.WaveState.Countdown)
                 {
+                    Debug.Log("Apples +" + (int)GameManager.SharedInstance.waveCountdown / 10);
                     apples += (int)GameManager.SharedInstance.waveCountdown / 10;
 
                     GameManager.SharedInstance.waveCountdown = 0;

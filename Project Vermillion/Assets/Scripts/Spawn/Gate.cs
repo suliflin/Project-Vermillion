@@ -9,33 +9,33 @@ public class Gate : MonoBehaviour
 
     public GameObject[] nodes;
 
+    public int count;
+
     public void SpawnWave(Wave wave, string index)
     {
         switch (index)
         {
             case "Warrior":
 
-<<<<<<< HEAD
                 if (wave.meleeCount == 0)
                 {
                     return;
                 }
 
-                for (int i = 0; i < wave.meleeCount; i++)
-                {
-                    wave.enemy = ObjectPooler.SharedInstance.SpawnFromPool("Warrior", transform.position, Quaternion.identity);
-                    wave.enemy.GetComponent<MeleeTreeManager>().spawner = this;
-                }
+                StartCoroutine(Spawn(wave, "Warrior"));
+                count = wave.meleeCount;
+
                 break;
 
-            case "Ranged":
+            case "Ranger":
 
                 if (wave.rangedCount == 0)
                 {
-                    wave.enemy = ObjectPooler.SharedInstance.SpawnFromPool("Warrior", transform.position, Quaternion.identity);
-                    wave.enemy.GetComponent<MeleeTreeManager>().spawner = this;
                     return;
                 }
+
+                StartCoroutine(Spawn(wave, "Ranger"));
+                count = wave.meleeCount;
 
                 break;
 
@@ -43,27 +43,27 @@ public class Gate : MonoBehaviour
 
                 if (wave.bossCount == 0)
                 {
-                    wave.enemy = ObjectPooler.SharedInstance.SpawnFromPool("Warrior", transform.position, Quaternion.identity);
-                    wave.enemy.GetComponent<MeleeTreeManager>().spawner = this;
                     return;
                 }
+
+                StartCoroutine(Spawn(wave, "Boss"));
+                count = wave.meleeCount;
 
                 break;
 
             default:
                 break;
-=======
-        StartCoroutine(Spawn(wave));
-    }
-
-    public IEnumerator Spawn(Wave wave)
-    {
-        for (int i = 0; i < wave.count; i++)
-        {
-            wave.enemies[0] = ObjectPooler.SharedInstance.SpawnFromPool("Warrior", transform.position, Quaternion.identity);
-            wave.enemies[0].GetComponent<MeleeTreeManager>().spawner = this;
-            yield return new WaitForSeconds(3);
->>>>>>> origin/Sultan_Test_2
         }
     }
+
+    public IEnumerator Spawn(Wave wave, string name)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            wave.enemy = ObjectPooler.SharedInstance.SpawnFromPool(name, transform.position, Quaternion.identity);
+            wave.enemy.GetComponent<BaseBehaviorTree>().spawner = this;
+            yield return new WaitForSeconds(3);
+        } 
+    }
+
 }
