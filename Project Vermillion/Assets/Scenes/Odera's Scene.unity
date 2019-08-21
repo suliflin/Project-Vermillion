@@ -764,6 +764,7 @@ GameObject:
   - component: {fileID: 415378797}
   - component: {fileID: 415378802}
   - component: {fileID: 415378804}
+  - component: {fileID: 415378803}
   m_Layer: 0
   m_Name: TestRangedWolf
   m_TagString: Untagged
@@ -878,6 +879,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!135 &415378803
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415378796}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &415378804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -896,11 +910,12 @@ MonoBehaviour:
   player: {fileID: 999338154}
   selectedObject: {fileID: 999338154}
   detectedObjects: []
-  detectableTags: []
+  detectableTags:
+  - Player
   target: {fileID: 0}
   moveSpeed: 1
   detectRange: 0
-  attackRange: 0
+  attackRange: 2
   appleRange: 0
   healWaitTime: 0
   arcBall: {fileID: 5492744820529933733, guid: 0660b70045e581a4091be3e89253ad83, type: 3}
@@ -918,7 +933,7 @@ MonoBehaviour:
   lowHealth: 1
   damage: 1
   shieldGained: 1
-  maxRange: 1
+  maxRange: 10
   testarcball: {fileID: 5492744820529933733, guid: 0660b70045e581a4091be3e89253ad83,
     type: 3}
 --- !u!1 &544199113
