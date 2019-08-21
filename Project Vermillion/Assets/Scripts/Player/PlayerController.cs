@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
 
     public Vector3 buildDistance;
 
+    public List<GameObject> detectedObjects;
+
     public int health;
     public int barricadeCost;
     public int teleporterCost;
@@ -67,7 +69,7 @@ public class PlayerController : MonoBehaviour
 
         buildDistance = (transform.position + (transform.forward * 2));
 
-        moveInput = new Vector3(Input.GetAxisRaw("HorizontalLeft"), 0, Input.GetAxisRaw("VerticalLeft"));
+        moveInput = new Vector3(Input.GetAxis("HorizontalLeft"), 0, Input.GetAxis("VerticalLeft"));
         moveVelocity = moveInput * moveSpeed;
 
         anim.SetFloat("LeftStick", moveVelocity.normalized.magnitude);
@@ -208,9 +210,15 @@ public class PlayerController : MonoBehaviour
         {
             //UIManager.UpdateAppleCounterUI(++apples);
             apples++;
-            other.transform.position = GameManager.SharedInstance.transform.position;
-            other.gameObject.SetActive(false);
+            ObjectPooler.SharedInstance.Deactivate(other.gameObject);
         }
+
+        selectedObj = other.gameObject;
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        selectedObj = null;
     }
 
     public bool AppleCheck(int v)

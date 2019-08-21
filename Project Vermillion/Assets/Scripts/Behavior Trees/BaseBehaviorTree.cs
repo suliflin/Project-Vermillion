@@ -62,7 +62,7 @@ public class BaseBehaviorTree : MonoBehaviour
             if (dis < 4)
             {
                 currHealth -= 1;
-                other.gameObject.SetActive(false);
+                ObjectPooler.SharedInstance.Deactivate(other.gameObject);
             }
         }
 
@@ -82,6 +82,7 @@ public class BaseBehaviorTree : MonoBehaviour
         {
             if (other.CompareTag(detectableTags[i]))
             {
+                Debug.Log("ahmad");
                 detectedObjects.Remove(other.gameObject);
                 break;
             }
