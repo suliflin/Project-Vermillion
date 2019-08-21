@@ -5,7 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class Wave
 {
-    public List<GameObject> enemies;
+    public GameObject enemy;
 
-    public int count;
+    public int meleeCount;
+    public int rangedCount;
+    public int bossCount;
 }

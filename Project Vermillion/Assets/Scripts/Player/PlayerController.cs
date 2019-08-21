@@ -65,12 +65,6 @@ public class PlayerController : MonoBehaviour
     {
         //  realAppleText.text = "x" + AppleCurrency.apples.ToString();
 
-        if (health <= 0)
-        {
-            anim.SetBool("IsDead", true);
-            transform.position = GameManager.SharedInstance.recallPoint.transform.position;
-        }
-
         buildDistance = (transform.position + (transform.forward * 2));
 
         moveInput = new Vector3(Input.GetAxisRaw("HorizontalLeft"), 0, Input.GetAxisRaw("VerticalLeft"));

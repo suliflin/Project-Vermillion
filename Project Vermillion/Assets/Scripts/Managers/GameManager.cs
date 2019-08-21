@@ -25,6 +25,12 @@ public class GameManager : MonoBehaviour
 
     public GameObject player;
     public GameObject recallPoint;
+    public GameObject main;
+    public GameObject death;
+    public GameObject particles;
+
+    public ParticleSystem ray;
+    public ParticleSystem burst;
 
     public float waveWait;
     public float appleWait;
@@ -77,13 +83,29 @@ public class GameManager : MonoBehaviour
 
         if (playerHealth <= 0)
         {
-            respawnCountdown -= Time.deltaTime;
+            player.GetComponent<PlayerController>().anim.SetBool("IsDead", true);
+            particles.transform.position = player.transform.position;
 
+            if (!ray.isPlaying && !burst.isPlaying)
+            {
+                ray.Play();
+                burst.Play();
+            }
+
+            if (!ray.gameObject.activeInHierarchy)
+            {
+                respawnCountdown -= Time.deltaTime;
+                main.SetActive(false);
+                death.SetActive(true);
+            }
+            
             if (respawnCountdown <= 0)
             {
                 playerHealth = playerHealthMax;
                 player.transform.position = recallPoint.transform.position;
                 respawnCountdown = respawnWait;
+                main.SetActive(true);
+                death.SetActive(false);
             }
         }
 
@@ -94,12 +116,12 @@ public class GameManager : MonoBehaviour
 
         if (Act == GameAct.Two)
         {
-            //ActTwo();
+            ActTwo();
         }
 
         if (Act == GameAct.Three)
         {
-            //ActThree();
+            ActThree();
         }
     }
 
@@ -149,11 +171,103 @@ public class GameManager : MonoBehaviour
         waveCountdown -= Time.deltaTime;
     }
 
+    public void ActTwo()
+    {
+        if (state == WaveState.Complete)
+        {
+            waveCountdown = waveWait;
+            spawnCountdown = spawnWait;
+            appleCountdown = appleWait;
+            wm.WaveCompleted();
+            state = WaveState.Countdown;
+        }
+
+        if (state == WaveState.SpawnApple)
+        {
+            asm.AppleSpawn();
+            state = WaveState.SpawnWave;
+        }
+
+        if (state == WaveState.SpawnWave)
+        {
+            appleCountdown -= Time.deltaTime;
+
+            if (appleCountdown <= 0)
+            {
+                wm.SpawnWaves();
+                state = WaveState.Wait;
+            }
+        }
+
+        if (state == WaveState.Wait)
+        {
+            spawnCountdown -= Time.deltaTime;
+
+            if (spawnCountdown <= 0)
+            {
+                state = WaveState.Complete;
+            }
+        }
+
+        if (state == WaveState.Countdown && waveCountdown <= 0)
+        {
+            state = WaveState.SpawnApple;
+        }
+
+        waveCountdown -= Time.deltaTime;
+    }
+
+    public void ActThree()
+    {
+        if (state == WaveState.Complete)
+        {
+            waveCountdown = waveWait;
+            spawnCountdown = spawnWait;
+            appleCountdown = appleWait;
+            wm.WaveCompleted();
+            state = WaveState.Countdown;
+        }
+
+        if (state == WaveState.SpawnApple)
+        {
+            asm.AppleSpawn();
+            state = WaveState.SpawnWave;
+        }
+
+        if (state == WaveState.SpawnWave)
+        {
+            appleCountdown -= Time.deltaTime;
+
+            if (appleCountdown <= 0)
+            {
+                wm.SpawnWaves();
+                state = WaveState.Wait;
+            }
+        }
+
+        if (state == WaveState.Wait)
+        {
+            spawnCountdown -= Time.deltaTime;
+
+            if (spawnCountdown <= 0)
+            {
+                state = WaveState.Complete;
+            }
+        }
+
+        if (state == WaveState.Countdown && waveCountdown <= 0)
+        {
+            state = WaveState.SpawnApple;
+        }
+
+        waveCountdown -= Time.deltaTime;
+    }
+
     public void SetDamage(int dmg, GameObject obj)
     {
         switch (obj.name)
         {
-            case "Player":
+            case "Red":
 
                 playerHealth -= dmg;
                 break;

@@ -22,7 +22,10 @@ public class WavesManager : MonoBehaviour
     {
         for (int i = 0; i < gates.Count; i++)
         {
-            gates[i].SpawnWave(gates[i].waves[nextWave]);
+            for (int k = 0; k < enemies.Count; k++)
+            {
+                gates[i].SpawnWave(gates[i].waves[nextWave], enemies[k]);
+            }
         }
     }
 
