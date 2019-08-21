@@ -17,6 +17,7 @@ TagManager:
   - Shield
   - Build
   - TestPlayer
+  - ArcBullet
   layers:
   - Default
   - TransparentFX

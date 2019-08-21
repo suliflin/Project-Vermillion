@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RaycastForward
-{    
-    public RaycastHit hit;
-    public Transform transform;
+public class RaycastForward : BaseNode
+{
+    
+    public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
+    {
+        RaycastHit hit;
+        Debug.Log(bt.myTarget);
 
-    public bool RaycastFree(string tag, GameObject target)
-    {      
-        if (Physics.Raycast(transform.position, target.transform.position, out hit) && hit.transform.tag == tag)
-        {
-            return true;
-        }
+            if (Physics.Raycast(bt.transform.position, bt.myTarget.transform.position - bt.transform.position, out hit) && hit.transform.CompareTag("Barricade"))
+            {
+                current = RESULTS.SUCCEED;
+            }
+       
+        else current = RESULTS.FAILED;     
 
-        return false;  
-    }
+       return current;
+    }   
 }

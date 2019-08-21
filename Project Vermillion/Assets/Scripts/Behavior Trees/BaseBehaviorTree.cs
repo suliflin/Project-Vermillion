@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class BaseBehaviorTree : MonoBehaviour
 {
+    //try out
+
+   
+
     public BaseNode root;
     public BaseNode current;
     
@@ -28,8 +32,10 @@ public class BaseBehaviorTree : MonoBehaviour
     public float appleRange;
     public float healWaitTime;
 
+
+
     public GameObject arcBall;
-    public Transform myTarget;
+    public GameObject myTarget;
     public GameObject cannonball;
     public float shootAngleElevation = 30;
     public bool isArcShooting;
@@ -75,7 +81,7 @@ public class BaseBehaviorTree : MonoBehaviour
             }
         }
 
-        if (other.gameObject.CompareTag("TestPlayer"))
+        if (other.gameObject.CompareTag("Player"))
         {
             waitingTime = true;
         }
@@ -104,7 +110,7 @@ public class BaseBehaviorTree : MonoBehaviour
             }
         }
 
-        if (other.gameObject.CompareTag("TestPlayer"))
+        if (other.gameObject.CompareTag("Player"))
         {
             waitingTime = false;
             timeToWait = 1.5f;

@@ -3,14 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ArcShot : BaseNode
-{
-    private RaycastForward rf;
-
+{    
     public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
     {
-        rf = new RaycastForward();
+        Debug.Log("Working");
+        GameObject ball = GameObject.Instantiate(((RangedTreeManager)bt).testarcball, bt.transform.position, bt.transform.rotation);
+        //GameObject ball = ObjectPooler.SharedInstance.SpawnFromPool("ArcBullet", bt.transform.position, bt.transform.rotation);
+        Vector3 d = bt.myTarget.transform.position - bt.transform.position;
 
-        if (!rf.RaycastFree("Player", bt.selectedObject))
+        d.y += 5;
+
+        ball.GetComponent<Rigidbody>().AddForce(d * 50);
+
+        return current = RESULTS.SUCCEED;
+        
+
+       /* if (!RaycastFree("Player", bt))
         {
             if (bt.waitingTime == true)
             {
@@ -29,16 +37,19 @@ public class ArcShot : BaseNode
 
             if (bt.isArcShooting == true)
             {
-               // GameObject ball = bt.Instantiate(bt.cannonball, bt.transform.position, bt.transform.rotation);
-
-               // ball.GetComponent<Rigidbody>().velocity = bt.Arc(bt.myTarget, bt.shootAngleElevation);
-
                 bt.timeToWait = 1.5f;
+
+               
+                ball.GetComponent<Rigidbody>().velocity = bt.Arc(bt.myTarget, bt.shootAngleElevation);
+
+                return RESULTS.SUCCEED;
             }
 
             bt.transform.LookAt(bt.myTarget);
-        }
+        }*/
 
-        return RESULTS.FAILED;
+        
+        //return RESULTS.FAILED;
     }
+
 }

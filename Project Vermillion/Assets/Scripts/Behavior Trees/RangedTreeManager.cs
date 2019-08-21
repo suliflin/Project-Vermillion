@@ -5,21 +5,25 @@ using UnityEngine;
 public class RangedTreeManager : BaseBehaviorTree
 {
     public float maxRange;
- 
+    public GameObject testarcball;
+
     public override void Start()
     {
         anim = GetComponent<Animator>();
         sb = GetComponent<SteeringBehaviours>();
 
-        root = new Selector();
+        //Start Tree Skeleton
 
-        root.childNodes.Add(new Retreat());
-        root.childNodes.Add(new Sequence());
-        root.childNodes.Add(new Sequence());
+        root = new Sequence();
+        root.childNodes.Add(new Check("Player", maxRange));
+        root.childNodes.Add(new RaycastForward());
+        root.childNodes.Add(new ArcShot());
+       // root.childNodes.Add(new Sequence());
         
         root.childNodes[1].childNodes.Add(new Check("Player", maxRange));
-        //root.childNodes[1].childNodes.Add(new RaycastForward());
+        root.childNodes[1].childNodes.Add(new RaycastForward());
         root.childNodes[1].childNodes.Add(new ArcShot());
+
 
         root.childNodes[2].childNodes.Add(new Selector());
         root.childNodes[2].childNodes.Add(new Climb());
@@ -29,6 +33,8 @@ public class RangedTreeManager : BaseBehaviorTree
         root.childNodes[2].childNodes[0].childNodes.Add(new Check("Player", maxRange));
         root.childNodes[2].childNodes[0].childNodes.Add(new Check("Turret", maxRange));
         root.childNodes[2].childNodes[0].childNodes.Add(new Check("Barricade", maxRange));
+
+        //End Tree Skeleton
 
         target = spawner.nodes[0].transform;
 
@@ -53,6 +59,8 @@ public class RangedTreeManager : BaseBehaviorTree
         {
             currHealth = maxHealth;
         }
+
+        Debug.Log(root.current);
     }
 
 }
