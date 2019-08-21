@@ -5,6 +5,7 @@ using UnityEngine;
 public class RaycastForward
 {    
     public RaycastHit hit;
+    public Transform transform;
 
     public bool RaycastFree(string tag, GameObject target)
     {      

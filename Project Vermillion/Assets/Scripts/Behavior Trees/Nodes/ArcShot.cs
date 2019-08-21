@@ -12,7 +12,31 @@ public class ArcShot : BaseNode
 
         if (!rf.RaycastFree("Player", bt.selectedObject))
         {
-            //Arc shot
+            if (bt.waitingTime == true)
+            {
+                bt.timeToWait -= Time.deltaTime;
+            }
+
+            if (bt.timeToWait <= 0)
+            {
+                bt.isArcShooting = true;
+
+            }
+            if (bt.timeToWait >= 1f)
+            {
+                bt.isArcShooting = false;
+            }
+
+            if (bt.isArcShooting == true)
+            {
+               // GameObject ball = bt.Instantiate(bt.cannonball, bt.transform.position, bt.transform.rotation);
+
+               // ball.GetComponent<Rigidbody>().velocity = bt.Arc(bt.myTarget, bt.shootAngleElevation);
+
+                bt.timeToWait = 1.5f;
+            }
+
+            bt.transform.LookAt(bt.myTarget);
         }
 
         return RESULTS.FAILED;
