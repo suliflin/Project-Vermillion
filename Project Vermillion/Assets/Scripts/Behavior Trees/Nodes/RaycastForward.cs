@@ -10,12 +10,23 @@ public class RaycastForward : BaseNode
         RaycastHit hit;
         Debug.Log(bt.myTarget);
 
-            if (Physics.Raycast(bt.transform.position, bt.myTarget.transform.position - bt.transform.position, out hit) && hit.transform.CompareTag("Barricade"))
+        if (Physics.Raycast(bt.transform.position, bt.myTarget.transform.position - bt.transform.position, out hit))
+        {
+
+            if (hit.transform.CompareTag("Build"))
             {
                 current = RESULTS.SUCCEED;
             }
+
+            if (hit.transform.CompareTag("Player"))
+            {
+                current = RESULTS.FAILED;
+            }
+
+
+        }
        
-        else current = RESULTS.FAILED;     
+       // else current = RESULTS.FAILED;     
 
        return current;
     }   

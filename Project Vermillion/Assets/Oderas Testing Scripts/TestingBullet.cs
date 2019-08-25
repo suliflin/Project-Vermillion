@@ -8,6 +8,7 @@ public class TestingBullet : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
+           
             Destroy(gameObject);
         }
     }

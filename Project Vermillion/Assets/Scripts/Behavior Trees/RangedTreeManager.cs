@@ -6,6 +6,7 @@ public class RangedTreeManager : BaseBehaviorTree
 {
     public float maxRange;
     public GameObject testarcball;
+    public GameObject testball;
 
     public override void Start()
     {
@@ -16,10 +17,12 @@ public class RangedTreeManager : BaseBehaviorTree
 
         root = new Sequence();
         root.childNodes.Add(new Check("Player", maxRange));
+       // 
+        root.childNodes.Add(new AttackRanged());
         root.childNodes.Add(new RaycastForward());
         root.childNodes.Add(new ArcShot());
-       // root.childNodes.Add(new Sequence());
-        
+        // root.childNodes.Add(new Sequence());
+
         root.childNodes[1].childNodes.Add(new Check("Player", maxRange));
         root.childNodes[1].childNodes.Add(new RaycastForward());
         root.childNodes[1].childNodes.Add(new ArcShot());
