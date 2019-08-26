@@ -8,10 +8,9 @@ public class WavesManager : MonoBehaviour
     public List<string> enemies;
 
     public int numberOfWaves;
+    public int nextWave = 0;
 
     private GameManager gm;
-
-    private int nextWave = 0;
 
     private void Awake()
     {

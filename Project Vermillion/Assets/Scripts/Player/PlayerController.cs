@@ -2,10 +2,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
+
+    public LayerMask layerMask;
 
     public ObjectPooler pooler;
 
@@ -22,16 +23,10 @@ public class PlayerController : MonoBehaviour
 
     public CrossbowController crossbow;
 
-    public LayerMask layerMask;
-
-    public Vector3 buildDistance;
-
-    public List<GameObject> detectedObjects;
-
-    public int health;
     public int barricadeCost;
     public int teleporterCost;
     public int turretCost;
+    public int apples;
 
     public float moveSpeed;
     public float teleporterTimer = 0;
@@ -48,11 +43,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveVelocity;
     private Vector3 cameraOffset;
     private Vector3 velocity = Vector3.zero;
-
-    public Text realAppleText;
-
-    [SerializeField]
-    int apples;
+    private Vector3 buildDistance;
 
     void Start()
     {
@@ -65,8 +56,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        //  realAppleText.text = "x" + AppleCurrency.apples.ToString();
-
         buildDistance = (transform.position + (transform.forward * 2));
 
         moveInput = new Vector3(Input.GetAxis("HorizontalLeft"), 0, Input.GetAxis("VerticalLeft"));
@@ -163,25 +152,17 @@ public class PlayerController : MonoBehaviour
             radial = false;
             radialMenu.SetActive(false);
 
-            if (Input.GetButtonDown("Square"))
+            if (Input.GetButtonDown("Triangle") && GameManager.SharedInstance.state == GameManager.WaveState.Countdown)
             {
-                //Interact
+                apples += (int)GameManager.SharedInstance.waveCountdown / 10;
+
+                GameManager.SharedInstance.waveCountdown = 0;
             }
 
-            if (Input.GetButtonDown("Triangle"))
-            {
-                if (GameManager.SharedInstance.state == GameManager.WaveState.Countdown)
-                {
-                    Debug.Log("Apples +" + (int)GameManager.SharedInstance.waveCountdown / 10);
-                    apples += (int)GameManager.SharedInstance.waveCountdown / 10;
-
-                    GameManager.SharedInstance.waveCountdown = 0;
-                }
-            }
-
-            if (Input.GetButtonDown("Circle"))
+            if (Input.GetButtonDown("Circle") && AppleCheck(1))
             {
                 transform.position = GameManager.SharedInstance.recallPoint.transform.position;
+                AppleDecrease(1);
             }
 
             if (Input.GetButton("X"))
@@ -216,7 +197,6 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Apples"))
         {
-            //UIManager.UpdateAppleCounterUI(++apples);
             apples++;
             ObjectPooler.SharedInstance.Deactivate(other.gameObject);
         }

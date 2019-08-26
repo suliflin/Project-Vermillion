@@ -55,21 +55,21 @@ public class MeleeTreeManager : BaseBehaviorTree
             capsule.enabled = false;
             anim.SetBool("IsDead", true);
             death.Play();
-            isDead = true;
-            currHealth = maxHealth;
         }
-        
-        if (isDead)
-        {
-            deathAnimTime -= Time.deltaTime;
 
-            if (deathAnimTime <= 0)
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Death"))
+        {
+            transform.GetChild(1).GetComponent<SkinnedMeshRenderer>().enabled = false;
+            death.Stop();
+
+            if (death.isStopped)
             {
-                deathAnimTime = 4;
                 rb.isKinematic = false;
                 capsule.enabled = true;
-                transform.position = GameManager.SharedInstance.transform.position;
-                gameObject.SetActive(false);
+                currHealth = maxHealth;
+                anim.SetBool("IsDead", false);
+                ObjectPooler.SharedInstance.Deactivate(gameObject);
+                transform.GetChild(1).GetComponent<SkinnedMeshRenderer>().enabled = true;
             }
         }
 

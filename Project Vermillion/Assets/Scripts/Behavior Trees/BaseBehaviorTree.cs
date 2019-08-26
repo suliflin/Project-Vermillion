@@ -82,7 +82,6 @@ public class BaseBehaviorTree : MonoBehaviour
         {
             if (other.CompareTag(detectableTags[i]))
             {
-                Debug.Log("ahmad");
                 detectedObjects.Remove(other.gameObject);
                 break;
             }

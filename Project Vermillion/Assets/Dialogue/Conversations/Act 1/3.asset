@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a3bec89750c6ee429b6793893afc6d7, type: 3}
+  m_Name: 3
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+  speakerRight: {fileID: 11400000, guid: e95164f4d8f242340aa79681494e1cc6, type: 2}
+  speakerExtra: {fileID: 0}
+  lines:
+  - character: {fileID: 11400000, guid: e95164f4d8f242340aa79681494e1cc6, type: 2}
+    text: I hope you've been collecting the apples that have been appearing around
+      as you will need them later.
+  - character: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+    text: If you say so. I'll try to collect more of them.

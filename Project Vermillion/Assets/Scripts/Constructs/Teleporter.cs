@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Teleporter : MonoBehaviour
 {
+    public List<ParticleSystem> teleportEffect;
+
     public Transform destination;
 
     public PlayerController player;
@@ -23,6 +25,15 @@ public class Teleporter : MonoBehaviour
     void Update()
     {
         player.GetComponent<PlayerController>().teleporterTimer -= Time.deltaTime;
+
+        if (player.teleporterTimer <= 0)
+        {
+            for (int i = 0; i < teleportEffect.Count; i++)
+            {
+                teleportEffect[i].Play();
+                destination.parent.GetComponent<Teleporter>().teleportEffect[i].Play();
+            }
+        }
 
         if (health <= 0)
         {
@@ -53,6 +64,12 @@ public class Teleporter : MonoBehaviour
                 other.gameObject.transform.position = destination.position;
                 player.teleporterTimer = teleporterTimer;
                 player.AppleDecrease(1);
+
+                for (int i = 0; i < teleportEffect.Count; i++)
+                {
+                    teleportEffect[i].Stop();
+                    destination.parent.GetComponent<Teleporter>().teleportEffect[i].Stop();
+                }
             }
             else
             {

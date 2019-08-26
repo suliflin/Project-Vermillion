@@ -18,6 +18,7 @@ public class Conversation : ScriptableObject
 {
     public Character speakerLeft;
     public Character speakerRight;
+    public Character speakerRightTwo;
 
     public Line[] lines;
 }
