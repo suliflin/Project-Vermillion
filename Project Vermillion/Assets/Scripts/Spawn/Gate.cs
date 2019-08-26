@@ -22,8 +22,8 @@ public class Gate : MonoBehaviour
                     return;
                 }
 
-                StartCoroutine(Spawn(wave, "Warrior"));
                 count = wave.meleeCount;
+                StartCoroutine(Spawn(wave, index));
 
                 break;
 
@@ -34,8 +34,8 @@ public class Gate : MonoBehaviour
                     return;
                 }
 
-                StartCoroutine(Spawn(wave, "Ranger"));
-                count = wave.meleeCount;
+                count = wave.rangedCount;
+                StartCoroutine(Spawn(wave, index));
 
                 break;
 
@@ -46,8 +46,8 @@ public class Gate : MonoBehaviour
                     return;
                 }
 
-                StartCoroutine(Spawn(wave, "Boss"));
-                count = wave.meleeCount;
+                count = wave.bossCount;
+                StartCoroutine(Spawn(wave, index));
 
                 break;
 
