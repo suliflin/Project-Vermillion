@@ -17,9 +17,8 @@ MonoBehaviour:
   speakerRightTwo: {fileID: 11400000, guid: 13c8d93a75e4cd243be7990466a0d1be, type: 2}
   lines:
   - character: {fileID: 11400000, guid: 13c8d93a75e4cd243be7990466a0d1be, type: 2}
-    text: Is this the best your new Guardian can do!? Laughable, old man!~
+    text: Test
   - character: {fileID: 11400000, guid: e95164f4d8f242340aa79681494e1cc6, type: 2}
-    text: Laughable? I suppose I haven't told you that she only has a portion of the
-      actual guradian!
+    text: Test
   - character: {fileID: 11400000, guid: 13c8d93a75e4cd243be7990466a0d1be, type: 2}
-    text: Hmph! We'll See about that!!
+    text: Test

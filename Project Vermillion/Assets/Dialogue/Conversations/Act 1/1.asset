@@ -17,5 +17,4 @@ MonoBehaviour:
   speakerRightTwo: {fileID: 0}
   lines:
   - character: {fileID: 11400000, guid: e95164f4d8f242340aa79681494e1cc6, type: 2}
-    text: It seems you are ready. my Guardian... Hmm.. Here they come, young lass.
-      Push. Them. Back!
+    text: Test
