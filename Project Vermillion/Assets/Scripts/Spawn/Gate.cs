@@ -22,7 +22,7 @@ public class Gate : MonoBehaviour
             //wave.enemies[0].GetComponent<MeleeTreeManager>().spawner = this;
 
             wave.enemies[0] = ObjectPooler.SharedInstance.SpawnFromPool("BossWolf", transform.position, Quaternion.identity);
-            wave.enemies[0].GetComponent<BossTreeManager>().spawner = this;
+            wave.enemies[0].GetComponent<BaseBehaviorTree>().spawner = this;
         }
     }
 }

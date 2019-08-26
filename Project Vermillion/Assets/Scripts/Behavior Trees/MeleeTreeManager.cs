@@ -57,5 +57,5 @@ public class MeleeTreeManager : BaseBehaviorTree
         {
             currHealth = maxHealth;
         }
-    }
+    } 
 }

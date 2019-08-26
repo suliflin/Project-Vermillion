@@ -17,13 +17,10 @@ public class Shield : BaseNode
                     bt.selectedObject.GetComponent<BaseBehaviorTree>().shieldHealth += ((BossTreeManager)bt).shieldGained;
                     bt.selectedObject.GetComponent<BaseBehaviorTree>().isShielded = true;
                     ((BossTreeManager)bt).shieldCountdown = ((BossTreeManager)bt).shieldWaitTime;
-                    current = RESULTS.SUCCEED;
-                    return current;
                 }
-
             }
         }
-        current = RESULTS.FAILED;
+        current = RESULTS.SUCCEED;
         return current;
     }
 

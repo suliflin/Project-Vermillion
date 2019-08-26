@@ -7,11 +7,20 @@ public class BossTreeManager : BaseBehaviorTree
     public float maxRange;
     public float enemyRange;
     public float shieldWaitTime;
+    public float empowerWaitTime;
 
     [HideInInspector]
     public float shieldCountdown;
+    public float smashCountdown;
+    public float empowerCountdown;
+    public float smashChannelingTime;
+
+    public bool isSmashReady = true;
 
     public int shieldGained;
+    public int empowerHealthIncrease;
+    public int empowerMaxHealthIncrease;
+    public int empowerDamageIncrease;
 
     public override void Start()
     {
@@ -20,8 +29,8 @@ public class BossTreeManager : BaseBehaviorTree
 
         root = new Sequence();
 
-        root.treeNodes.Add(new Check("Build", maxRange));
-        root.treeNodes.Add(new Provoke());
+        root.treeNodes.Add(new Check("Player", maxRange));
+        root.treeNodes.Add(new Smash());
         //root.treeNodes.Add(new Sequence());
         //root.treeNodes.Add(new Sequence());
 

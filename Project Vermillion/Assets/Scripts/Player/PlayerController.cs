@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour
 
     public ObjectPooler pooler;
 
+    [SerializeField]
+    public Collider smashColliderBoss;
     public GameObject tpA;
     public GameObject tpB;
     public GameObject teleporter;
@@ -207,6 +209,12 @@ public class PlayerController : MonoBehaviour
             apples++;
             other.transform.position = GameManager.SharedInstance.transform.position;
             other.gameObject.SetActive(false);
+        }
+
+        if (other.gameObject.CompareTag("Smash"))
+        {
+            health -= 5;
+            smashColliderBoss.enabled = false;
         }
     }
 

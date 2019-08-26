@@ -59,5 +59,10 @@ public class Teleporter : MonoBehaviour
                 Debug.Log("Not enough Apples");
             }
         }
+
+        if (other.gameObject.CompareTag("Smash"))
+        {
+            GameManager.SharedInstance.SetDamage(1, this.gameObject);
+        }
     }
 }

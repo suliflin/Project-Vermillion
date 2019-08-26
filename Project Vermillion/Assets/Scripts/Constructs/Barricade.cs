@@ -31,4 +31,12 @@ public class Barricade : MonoBehaviour
             health = 20;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Smash"))
+        {
+            GameManager.SharedInstance.SetDamage(1, this.gameObject);
+        }
+    }
 }

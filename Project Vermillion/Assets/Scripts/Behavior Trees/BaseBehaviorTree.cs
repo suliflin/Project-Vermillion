@@ -5,8 +5,7 @@ using UnityEngine;
 public class BaseBehaviorTree : MonoBehaviour
 {
     public BaseNode root;
-    public BaseNode current;
-    
+
     public Animator anim;
 
     public SteeringBehaviours sb;
@@ -30,6 +29,9 @@ public class BaseBehaviorTree : MonoBehaviour
 
     [HideInInspector]
     public float healthCountdown;
+
+    [HideInInspector]
+    public Collider smashCollider;
 
     public int wavepointIndex;
     public int maxHealth;
@@ -91,11 +93,11 @@ public class BaseBehaviorTree : MonoBehaviour
 
     public void EndAttack()
     {
-        float dist = Vector3.Distance(transform.position, selectedObject.transform.position);
+        GameManager.SharedInstance.SetDamage(damage, selectedObject);
+    }
 
-        if (dist < attackRange)
-        {
-            GameManager.SharedInstance.SetDamage(damage, selectedObject);
-        }
+    public void SmashAttacking()
+    {
+        smashCollider.enabled = true;
     }
 }
