@@ -7,6 +7,7 @@ public class RangedTreeManager : BaseBehaviorTree
     public float maxRange;
     public GameObject testarcball;
     public GameObject testball;
+    public GameObject firePoint;
 
     public override void Start()
     {

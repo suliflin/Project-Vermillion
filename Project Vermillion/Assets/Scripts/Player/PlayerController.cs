@@ -208,6 +208,11 @@ public class PlayerController : MonoBehaviour
             other.transform.position = GameManager.SharedInstance.transform.position;
             other.gameObject.SetActive(false);
         }
+
+        if (other.gameObject.CompareTag("ArcBullet"))
+        {
+            health -= 5;
+        }
     }
 
     public bool AppleCheck(int v)

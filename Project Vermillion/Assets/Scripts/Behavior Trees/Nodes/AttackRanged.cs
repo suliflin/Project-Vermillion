@@ -8,7 +8,16 @@ public class AttackRanged : BaseNode
     {
         RaycastHit hit;
 
-        Vector3 a = bt.myTarget.transform.position - bt.transform.position;       
+        Vector3 a = bt.myTarget.transform.position - bt.transform.position;
+
+        Vector3 dir = bt.selectedObject.transform.position - bt.transform.position;
+        dir.y = 0;
+
+        if (dir != Vector3.zero)
+        {
+            bt.transform.rotation = Quaternion.Slerp(bt.transform.rotation, Quaternion.LookRotation(dir), 0.1f);
+        }
+
 
         if (bt.waitingTime == true)
         {
@@ -18,16 +27,18 @@ public class AttackRanged : BaseNode
         if (bt.timeToWait <= 0)
         {
             bt.isArcShooting = true;
+            bt.anim.SetBool("IsAttacking", true);
 
         }
         if (bt.timeToWait >= 1f)
         {
             bt.isArcShooting = false;
+           // bt.anim.SetBool("IsAttacking", false);
         }
 
         if (bt.isArcShooting == true)
         {
-            bt.timeToWait = 1.5f;
+            bt.timeToWait = 4f;
 
             if (Physics.Raycast(bt.transform.position, bt.myTarget.transform.position - bt.transform.position, out hit))
             {
@@ -38,9 +49,10 @@ public class AttackRanged : BaseNode
 
                 if (hit.transform.tag == "Player")
                 {               
-                    GameObject ball = GameObject.Instantiate(((RangedTreeManager)bt).testball, bt.transform.position, bt.transform.rotation);
+                    GameObject ball = GameObject.Instantiate(((RangedTreeManager)bt).testball, ((RangedTreeManager)bt).firePoint.transform.position, bt.transform.rotation);             
+                    ball.GetComponent<Rigidbody>().AddForce(a * 100);
                     ball.GetComponent<Rigidbody>().useGravity = false;
-                    ball.GetComponent<Rigidbody>().AddForce(a * 100);              
+
                 }
             }
             return current = RESULTS.SUCCEED;

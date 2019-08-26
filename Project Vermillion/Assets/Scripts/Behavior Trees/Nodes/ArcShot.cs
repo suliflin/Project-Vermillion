@@ -9,7 +9,7 @@ public class ArcShot : BaseNode
         //GameObject ball = ObjectPooler.SharedInstance.SpawnFromPool("ArcBullet", bt.transform.position, bt.transform.rotation);
         Vector3 d = bt.myTarget.transform.position - bt.transform.position;
 
-        d.y += 10;    
+        d.y += 6;    
 
        
         if (bt.waitingTime == true)
@@ -31,7 +31,7 @@ public class ArcShot : BaseNode
         {
             bt.timeToWait = 1.5f;           
 
-            GameObject ball = GameObject.Instantiate(((RangedTreeManager)bt).testarcball, bt.transform.position, bt.transform.rotation);
+            GameObject ball = GameObject.Instantiate(((RangedTreeManager)bt).testarcball, ((RangedTreeManager)bt).firePoint.transform.position, bt.transform.rotation);
             
             ball.GetComponent<Rigidbody>().useGravity = true;           
 

@@ -5,9 +5,6 @@ using UnityEngine;
 public class BaseBehaviorTree : MonoBehaviour
 {
     //try out
-
-   
-
     public BaseNode root;
     public BaseNode current;
     
@@ -36,7 +33,7 @@ public class BaseBehaviorTree : MonoBehaviour
     //public GameObject theBuild;
     //public List<BaseBehaviorTree> Builds = new List<BaseBehaviorTree>();
     public bool isArcShooting;
-    public float timeToWait = 1.5f;
+    public float timeToWait = 4f;
     public bool waitingTime;
 
     [HideInInspector]
@@ -98,7 +95,7 @@ public class BaseBehaviorTree : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             waitingTime = false;
-            timeToWait = 1.5f;
+            timeToWait = 4f;
         }
     }
 
