@@ -67,4 +67,26 @@ public class RangedTreeManager : BaseBehaviorTree
         Debug.Log(root.current);
     }
 
+    public void ArcAttack()
+    {
+        Vector3 d = myTarget.transform.position - transform.position;
+
+        d.y += 6;
+
+        GameObject ball = GameObject.Instantiate(testarcball, firePoint.transform.position, transform.rotation);
+
+        ball.GetComponent<Rigidbody>().useGravity = true;
+
+        ball.GetComponent<Rigidbody>().AddForce(d * 37);
+    }
+
+    public void RangedAttack()
+    {
+        Vector3 a = myTarget.transform.position - transform.position;
+
+        GameObject ball = GameObject.Instantiate(testball, firePoint.transform.position, transform.rotation);
+
+        ball.GetComponent<Rigidbody>().AddForce(a * 100);
+        ball.GetComponent<Rigidbody>().useGravity = false;
+    }
 }

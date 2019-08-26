@@ -108,4 +108,5 @@ public class BaseBehaviorTree : MonoBehaviour
             GameManager.SharedInstance.SetDamage(damage, selectedObject);
         }
     }
+
 }
