@@ -36,9 +36,11 @@ public class BaseBehaviorTree : MonoBehaviour
     public float appleRange;
     public float healWaitTime;
     public float deathAnimTime;
+    public float attackWaitTime;
 
     [HideInInspector]
     public float healthCountdown;
+    public float attackCountdown;
 
     public int wavepointIndex;
     public int maxHealth;

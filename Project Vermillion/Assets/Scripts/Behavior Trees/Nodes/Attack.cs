@@ -14,8 +14,19 @@ public class Attack : BaseNode
             bt.transform.rotation = Quaternion.Slerp(bt.transform.rotation, Quaternion.LookRotation(dir), 0.1f);
         }
 
-        bt.anim.SetBool("IsAttacking", true);
-        bt.anim.SetBool("IsMoving", false);
+        bt.attackCountdown -= Time.deltaTime;
+        Debug.Log(bt.attackCountdown);
+        if (bt.attackCountdown <= 0)
+        {
+            int random = Random.Range(0, 3);
+
+            bt.anim.SetInteger("AttackIndex", random);
+
+            bt.anim.SetBool("IsAttacking", true);
+            bt.anim.SetBool("IsMoving", false);
+
+            bt.attackCountdown = bt.attackWaitTime;
+        }
 
         current = RESULTS.SUCCEED;
         return current;

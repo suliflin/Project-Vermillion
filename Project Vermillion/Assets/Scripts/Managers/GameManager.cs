@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    #region Variables
     public enum GameAct
     {
         One,
@@ -53,6 +54,7 @@ public class GameManager : MonoBehaviour
     private WavesManager wm;
     private AppleSpawnManager asm;
     private DialogueManager dm;
+    #endregion
 
     #region Singleton
     public static GameManager SharedInstance;
@@ -63,6 +65,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
+    #region Unity Functions
     void Start()
     {
         wm = GetComponentInChildren<WavesManager>();
@@ -126,7 +129,9 @@ public class GameManager : MonoBehaviour
             ActThree();
         }
     }
+    #endregion
 
+    #region Helper Functions
     public void ActOne()
     {
         if (state == WaveState.Complete)
@@ -301,4 +306,5 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
+    #endregion
 }

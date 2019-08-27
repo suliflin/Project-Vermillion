@@ -2058,7 +2058,9 @@ MonoBehaviour:
   appleRange: 2
   healWaitTime: 1
   deathAnimTime: 4
+  attackWaitTime: 3
   healthCountdown: 0
+  attackCountdown: 0
   wavepointIndex: 0
   maxHealth: 16
   currHealth: 0

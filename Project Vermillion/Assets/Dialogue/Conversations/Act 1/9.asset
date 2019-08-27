@@ -17,8 +17,18 @@ MonoBehaviour:
   speakerRightTwo: {fileID: 11400000, guid: 13c8d93a75e4cd243be7990466a0d1be, type: 2}
   lines:
   - character: {fileID: 11400000, guid: 13c8d93a75e4cd243be7990466a0d1be, type: 2}
-    text: Test
+    text: Is this the best your new Guardian can do!? Laughable, old man!~
   - character: {fileID: 11400000, guid: e95164f4d8f242340aa79681494e1cc6, type: 2}
-    text: Test
+    text: "Laughable? I suppose I haven\u2019t told you that she only has a portion
+      of the\r actual guardian!"
   - character: {fileID: 11400000, guid: 13c8d93a75e4cd243be7990466a0d1be, type: 2}
-    text: Test
+    text: "Hmph! We\u2019ll see about that!!"
+  - character: {fileID: 11400000, guid: 13c8d93a75e4cd243be7990466a0d1be, type: 2}
+    text: "Seems Lykos picked up a few tricks of his own\u2026 These wolves are\r\nendless."
+  - character: {fileID: 11400000, guid: 13c8d93a75e4cd243be7990466a0d1be, type: 2}
+    text: "You\u2019re right\u2026 Most of his army should\u2019ve dwindled by now."
+  - character: {fileID: 11400000, guid: 13c8d93a75e4cd243be7990466a0d1be, type: 2}
+    text: So how are we going to do this Arbos?
+  - character: {fileID: 11400000, guid: 13c8d93a75e4cd243be7990466a0d1be, type: 2}
+    text: "My power is slowly fading around this part of the woods. You must retreat\r
+      soon, lass."

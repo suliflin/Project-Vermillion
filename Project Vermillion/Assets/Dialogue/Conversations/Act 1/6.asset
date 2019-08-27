@@ -17,8 +17,9 @@ MonoBehaviour:
   speakerRightTwo: {fileID: 0}
   lines:
   - character: {fileID: 11400000, guid: 13c8d93a75e4cd243be7990466a0d1be, type: 2}
-    text: Test
+    text: ENOUGH!! Brothers! Attack them from all sides!!
   - character: {fileID: 11400000, guid: e95164f4d8f242340aa79681494e1cc6, type: 2}
-    text: Test
+    text: Here he comes, young lass. I apologize for dragging you into my war.
   - character: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
-    text: Test
+    text: "Don\u2019t! I chose this! If there is a curse, then I\u2019ll bear it but
+      your gonna\r\nneed some explaining to do."

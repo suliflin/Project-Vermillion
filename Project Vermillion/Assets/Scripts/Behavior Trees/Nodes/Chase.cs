@@ -6,33 +6,58 @@ public class Chase : BaseNode
 {
     public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
     {
-        /*Vector3 accel = bt.sb.Arrive(bt.player.transform.position);
 
-        bt.sb.Steer(accel);*/
+        Vector3 targetVelocity = bt.selectedObject.transform.position - bt.transform.position;
 
-        float d = Vector3.Distance(bt.transform.position, bt.selectedObject.transform.position);
+        targetVelocity.y = 0;
 
-        if (d <= bt.attackRange)
+        if (targetVelocity != Vector3.zero)
+        {
+            bt.transform.rotation = Quaternion.Slerp(bt.transform.rotation, Quaternion.LookRotation(targetVelocity), 0.1f);
+        }
+
+        float dist = targetVelocity.magnitude;
+
+        if (dist < bt.attackRange)
         {
             current = RESULTS.SUCCEED;
             return current;
         }
+
+        bt.anim.SetBool("IsAttacking", false);
+
+        float targetSpeed;
+
+        if (dist > ((MeleeTreeManager)bt).slowRadius)
+        {
+            targetSpeed = ((MeleeTreeManager)bt).maxVelocity;
+        }
         else
         {
-            bt.anim.SetBool("IsMoving", true);
-
-            Vector3 dir = bt.selectedObject.transform.position - bt.transform.position;
-            dir.y = 0;
-
-            if (dir != Vector3.zero)
-            {
-                bt.transform.rotation = Quaternion.Slerp(bt.transform.rotation, Quaternion.LookRotation(dir), 0.1f);
-            }
-
-            bt.transform.position += bt.transform.forward * (bt.moveSpeed / 10) * Time.deltaTime;
-
-            current = RESULTS.RUNNING;
-            return current;
+            targetSpeed = ((MeleeTreeManager)bt).maxVelocity * (dist / ((MeleeTreeManager)bt).slowRadius);
         }
+
+        targetVelocity.Normalize();
+        targetVelocity *= targetSpeed;
+
+        Vector3 acceleration = targetVelocity - bt.rb.velocity;
+
+        if (acceleration.magnitude > ((MeleeTreeManager)bt).maxAcceleration)
+        {
+            acceleration.Normalize();
+            acceleration *= ((MeleeTreeManager)bt).maxAcceleration;
+        }
+
+        bt.anim.SetBool("IsMoving", true);
+
+        bt.rb.velocity += acceleration * Time.deltaTime;
+
+        if (bt.rb.velocity.magnitude > ((MeleeTreeManager)bt).maxVelocity)
+        {
+            bt.rb.velocity = bt.rb.velocity.normalized * ((MeleeTreeManager)bt).maxVelocity;
+        }
+
+        current = RESULTS.RUNNING;
+        return current;
     }
 }

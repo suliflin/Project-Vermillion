@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class MeleeTreeManager : BaseBehaviorTree
 {
+    public float maxVelocity = 3.5f;
+    public float maxAcceleration = 10f;
+    public float targetRadius = 0.005f;
+    public float slowRadius = 1f;
 
     public override void Start()
     {

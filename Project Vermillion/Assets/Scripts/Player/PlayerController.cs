@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
+    #region Variables
     public LayerMask layerMask;
 
     public ObjectPooler pooler;
@@ -44,7 +44,9 @@ public class PlayerController : MonoBehaviour
     private Vector3 cameraOffset;
     private Vector3 velocity = Vector3.zero;
     private Vector3 buildDistance;
+    #endregion
 
+    #region Unity Functions
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -176,12 +178,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         rb.AddForce(moveVelocity, ForceMode.Force);
     }
 
-    private void LateUpdate()
+    void LateUpdate()
     {
         Vector3 newPos = transform.position + cameraOffset;
 
@@ -193,7 +195,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Apples"))
         {
@@ -204,11 +206,13 @@ public class PlayerController : MonoBehaviour
         selectedObj = other.gameObject;
     }
 
-    public void OnTriggerExit(Collider other)
+    void OnTriggerExit(Collider other)
     {
         selectedObj = null;
     }
+    #endregion
 
+    #region Helper Functions
     public bool AppleCheck(int v)
     {
         return v <= apples;
@@ -313,4 +317,5 @@ public class PlayerController : MonoBehaviour
         tpA.GetComponent<Teleporter>().destination = tpB.transform.GetChild(0).transform;
         tpB.GetComponent<Teleporter>().destination = tpA.transform.GetChild(0).transform;
     }
+    #endregion
 }

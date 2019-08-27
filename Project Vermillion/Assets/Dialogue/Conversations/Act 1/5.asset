@@ -17,10 +17,11 @@ MonoBehaviour:
   speakerRightTwo: {fileID: 0}
   lines:
   - character: {fileID: 11400000, guid: 13c8d93a75e4cd243be7990466a0d1be, type: 2}
-    text: Test
+    text: " Looks like you still hide behind your guardians, Oh high n\u2019 mighty
+      Arbos."
   - character: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
-    text: Test
+    text: "Hide!? He\u2019s weakened! What can you expect from him?"
   - character: {fileID: 11400000, guid: 13c8d93a75e4cd243be7990466a0d1be, type: 2}
-    text: Test
+    text: "Hah! You really haven\u2019t told her, have you? The Curse of being a\r\nGuardian."
   - character: {fileID: 11400000, guid: e95164f4d8f242340aa79681494e1cc6, type: 2}
-    text: Test
+    text: '....'
