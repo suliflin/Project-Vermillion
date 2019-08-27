@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class BossTreeManager : BaseBehaviorTree
 {
+    public Collider smashCollider;
+
     public float maxRange;
+    public float treeRange;
     public float enemyRange;
     public float shieldWaitTime;
     public float empowerWaitTime;
