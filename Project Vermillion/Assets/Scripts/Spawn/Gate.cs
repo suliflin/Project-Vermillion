@@ -9,20 +9,61 @@ public class Gate : MonoBehaviour
 
     public GameObject[] nodes;
 
-    public void SpawnWave(Wave wave)
+    public int count;
+
+    public void SpawnWave(Wave wave, string index)
     {
-        if (wave.count == 0)
+        switch (index)
         {
-            return;
-        }
+            case "Warrior":
 
-        for (int i = 0; i < wave.count; i++)
-        {
-            //wave.enemies[0] = ObjectPooler.SharedInstance.SpawnFromPool("Warrior", transform.position, Quaternion.identity);
-            //wave.enemies[0].GetComponent<MeleeTreeManager>().spawner = this;
+                if (wave.meleeCount == 0)
+                {
+                    return;
+                }
 
-            wave.enemies[0] = ObjectPooler.SharedInstance.SpawnFromPool("BossWolf", transform.position, Quaternion.identity);
-            wave.enemies[0].GetComponent<BaseBehaviorTree>().spawner = this;
+                count = wave.meleeCount;
+                StartCoroutine(Spawn(wave, index));
+
+                break;
+
+            case "Ranger":
+
+                if (wave.rangedCount == 0)
+                {
+                    return;
+                }
+
+                count = wave.rangedCount;
+                StartCoroutine(Spawn(wave, index));
+
+                break;
+
+            case "Boss":
+
+                if (wave.bossCount == 0)
+                {
+                    return;
+                }
+
+                count = wave.bossCount;
+                StartCoroutine(Spawn(wave, index));
+
+                break;
+
+            default:
+                break;
         }
     }
+
+    public IEnumerator Spawn(Wave wave, string name)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            wave.enemy = ObjectPooler.SharedInstance.SpawnFromPool(name, transform.position, Quaternion.identity);
+            wave.enemy.GetComponent<BaseBehaviorTree>().spawner = this;
+            yield return new WaitForSeconds(3);
+        } 
+    }
+
 }

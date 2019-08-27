@@ -23,8 +23,17 @@ public class GameManager : MonoBehaviour
     public WaveState state;
     public GameAct Act = GameAct.One;
 
+    public List<ParticleSystem> DeathEffect;
+
+    public List<Conversation> conversationsActOne;
+    public List<Conversation> conversationsActTwo;
+    public List<Conversation> conversationsActThree;
+
     public GameObject player;
     public GameObject recallPoint;
+    public GameObject main;
+    public GameObject death;
+    public GameObject particles;
 
     public float waveWait;
     public float appleWait;
@@ -36,12 +45,14 @@ public class GameManager : MonoBehaviour
     public float respawnCountdown;
 
     public int playerHealthMax;
+    public int playerHealth;
     public int treeHealth;
+
+    public bool completed;
 
     private WavesManager wm;
     private AppleSpawnManager asm;
-
-    private int playerHealth;
+    private DialogueManager dm;
 
     #region Singleton
     public static GameManager SharedInstance;
@@ -56,6 +67,7 @@ public class GameManager : MonoBehaviour
     {
         wm = GetComponentInChildren<WavesManager>();
         asm = GetComponentInChildren<AppleSpawnManager>();
+        dm = GetComponentInChildren<DialogueManager>();
 
         state = WaveState.Countdown;
 
@@ -77,14 +89,26 @@ public class GameManager : MonoBehaviour
 
         if (playerHealth <= 0)
         {
+            player.GetComponent<PlayerController>().anim.SetBool("IsDead", true);
+            particles.transform.position = player.transform.position;
+
             respawnCountdown -= Time.deltaTime;
+            main.SetActive(false);
+            death.SetActive(true);
 
             if (respawnCountdown <= 0)
             {
                 playerHealth = playerHealthMax;
                 //player.transform.position = recallPoint.transform.position;
                 respawnCountdown = respawnWait;
+                main.SetActive(true);
+                death.SetActive(false);
             }
+        }
+
+        if (waveCountdown <= 0)
+        {
+            waveCountdown = 0;
         }
 
         if (Act == GameAct.One)
@@ -94,16 +118,111 @@ public class GameManager : MonoBehaviour
 
         if (Act == GameAct.Two)
         {
-            //ActTwo();
+            ActTwo();
         }
 
         if (Act == GameAct.Three)
         {
-            //ActThree();
+            ActThree();
         }
     }
 
     public void ActOne()
+    {
+        if (state == WaveState.Complete)
+        {
+            waveCountdown = waveWait;
+            spawnCountdown = spawnWait;
+            appleCountdown = appleWait;
+
+            wm.WaveCompleted();
+
+            state = WaveState.Countdown;
+        }
+
+        if (state == WaveState.SpawnApple)
+        {
+            asm.AppleSpawn();
+            state = WaveState.SpawnWave;
+        }
+
+        if (state == WaveState.SpawnWave)
+        {
+            appleCountdown -= Time.deltaTime;
+
+            if (appleCountdown <= 0)
+            {
+                wm.SpawnWaves();
+                state = WaveState.Wait;
+            }
+        }
+
+        if (state == WaveState.Wait)
+        {
+            spawnCountdown -= Time.deltaTime;
+
+            if (spawnCountdown <= 0)
+            {
+                state = WaveState.Complete;
+            }
+        }
+
+        if (state == WaveState.Countdown && waveCountdown <= 0)
+        {
+            dm.AdvanceConversation();
+            state = WaveState.SpawnApple;
+        }
+
+        waveCountdown -= Time.deltaTime;
+    }
+
+    public void ActTwo()
+    {
+        if (state == WaveState.Complete)
+        {
+            waveCountdown = waveWait;
+            spawnCountdown = spawnWait;
+            appleCountdown = appleWait;
+            wm.WaveCompleted();
+            state = WaveState.Countdown;
+        }
+
+        if (state == WaveState.SpawnApple)
+        {
+            asm.AppleSpawn();
+            state = WaveState.SpawnWave;
+        }
+
+        if (state == WaveState.SpawnWave)
+        {
+            appleCountdown -= Time.deltaTime;
+
+            if (appleCountdown <= 0)
+            {
+                wm.SpawnWaves();
+                state = WaveState.Wait;
+            }
+        }
+
+        if (state == WaveState.Wait)
+        {
+            spawnCountdown -= Time.deltaTime;
+
+            if (spawnCountdown <= 0)
+            {
+                state = WaveState.Complete;
+            }
+        }
+
+        if (state == WaveState.Countdown && waveCountdown <= 0)
+        {
+            state = WaveState.SpawnApple;
+        }
+
+        waveCountdown -= Time.deltaTime;
+    }
+
+    public void ActThree()
     {
         if (state == WaveState.Complete)
         {
@@ -153,7 +272,7 @@ public class GameManager : MonoBehaviour
     {
         switch (obj.name)
         {
-            case "Player":
+            case "Red":
 
                 playerHealth -= dmg;
                 break;

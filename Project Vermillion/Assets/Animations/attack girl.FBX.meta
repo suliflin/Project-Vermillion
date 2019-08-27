@@ -1,0 +1,1196 @@
+fileFormatVersion: 2
+guid: bf62946e5037d654084354e2f2b3ab5a
+ModelImporter:
+  serializedVersion: 25
+  internalIDToNameTable:
+  - first:
+      74: 1827226128182048838
+    second: Shoot
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Shoot
+      takeName: Take 001
+      internalID: 1827226128182048838
+      firstFrame: 0
+      lastFrame: 41
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: body
+        weight: 1
+      - path: Circle031
+        weight: 1
+      - path: Circle031/Circle030
+        weight: 1
+      - path: Circle034
+        weight: 1
+      - path: Circle034/Circle033
+        weight: 1
+      - path: Circle037
+        weight: 1
+      - path: Circle037/Circle036
+        weight: 1
+      - path: Circle040
+        weight: 1
+      - path: Circle040/Circle039
+        weight: 1
+      - path: Circle043
+        weight: 1
+      - path: Circle043/Circle042
+        weight: 1
+      - path: hoodie
+        weight: 1
+      - path: IK Chain007
+        weight: 1
+      - path: IK Chain008
+        weight: 1
+      - path: Star001
+        weight: 1
+      - path: Star001/Circle007
+        weight: 1
+      - path: Star001/Circle007/Circle008
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle001
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/arrow001
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Box004
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Box005
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Box006
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Circle013
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Circle013/Circle014
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Circle013/Circle014/Circle015
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Circle016
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Circle016/Circle017
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Circle016/Circle017/Circle018
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Circle019
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Circle019/Circle020
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Circle019/Circle020/Circle021
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Circle022
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Circle022/Circle023
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Circle022/Circle023/Circle024
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Circle025
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Circle025/Circle026
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Circle025/Circle026/Circle027
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/crossbow001
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Cylinder002
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle001/Point012
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle002
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle002/Circle004
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle002/Circle004/Circle006
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle002/Circle004/Circle006/arrow
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle002/Circle004/Circle006/Box001
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle002/Circle004/Circle006/Box002
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle002/Circle004/Circle006/Box003
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle002/Circle004/Circle006/crossbow
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle002/Circle004/Circle006/Cylinder001
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle002/Point011
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle010
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle010/Circle012
+        weight: 1
+      - path: Star001/Circle007/Circle008/Circle009/Circle010/Circle012/Point013
+        weight: 1
+      - path: Star001/Circle007/COG
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+          elbow
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+          elbow/left wrist
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+          elbow/left wrist/left wrist END
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+          elbow/left wrist/left_index 1
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+          elbow/left wrist/left_index 1/left_index 2
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+          elbow/left wrist/left_index 1/left_index 2/left_index 3
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+          elbow/left wrist/left_index 1/left_index 2/left_index 3/left_index END
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+          elbow/left wrist/Left_middle 1
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+          elbow/left wrist/Left_middle 1/left_middle 2
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+          elbow/left wrist/Left_middle 1/left_middle 2/left_middle 3
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+          elbow/left wrist/Left_middle 1/left_middle 2/left_middle 3/left_midddle
+          END
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+          elbow/left wrist/left_pinkie 1
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+          elbow/left wrist/left_pinkie 1/left_pinkie 2
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+          elbow/left wrist/left_pinkie 1/left_pinkie 2/left_pinkie 3
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+          elbow/left wrist/left_pinkie 1/left_pinkie 2/left_pinkie 3/left_pinkie END
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+          elbow/left wrist/left_ring 1
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+          elbow/left wrist/left_ring 1/left_ring 2
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+          elbow/left wrist/left_ring 1/left_ring 2/left_ring 3
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+          elbow/left wrist/left_ring 1/left_ring 2/left_ring 3/left_ring END
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+          elbow/left wrist/left_thumb 1
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+          elbow/left wrist/left_thumb 1/left_thumb 2
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+          elbow/left wrist/left_thumb 1/left_thumb 2/left_thumb 3
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+          elbow/left wrist/left_thumb 1/left_thumb 2/left_thumb 3/left_thumb END
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/neck bone
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/neck bone/head bone
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/neck bone/head bone/end head
+          bone
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/neck bone/head bone/eye 1
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/neck bone/head bone/eye 003
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/neck bone/head bone/jaw
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/neck bone/head bone/jaw/jaw
+          end
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+          elbow
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+          elbow/right wrist
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+          elbow/right wrist/right wrist end
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+          elbow/right wrist/right_index 1
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+          elbow/right wrist/right_index 1/right_index 2
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+          elbow/right wrist/right_index 1/right_index 2/right_index 3
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+          elbow/right wrist/right_index 1/right_index 2/right_index 3/right_index
+          END
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+          elbow/right wrist/right_middle 1
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+          elbow/right wrist/right_middle 1/right_middle 2
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+          elbow/right wrist/right_middle 1/right_middle 2/right_middle 3
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+          elbow/right wrist/right_middle 1/right_middle 2/right_middle 3/right_midddle
+          END
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+          elbow/right wrist/right_pinkie 1
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+          elbow/right wrist/right_pinkie 1/right_pinkie 2
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+          elbow/right wrist/right_pinkie 1/right_pinkie 2/right_pinkie 3
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+          elbow/right wrist/right_pinkie 1/right_pinkie 2/right_pinkie 3/right_pinkie
+          END
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+          elbow/right wrist/right_ring 1
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+          elbow/right wrist/right_ring 1/right_ring 2
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+          elbow/right wrist/right_ring 1/right_ring 2/right_ring 3
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+          elbow/right wrist/right_ring 1/right_ring 2/right_ring 3/right_ring END
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+          elbow/right wrist/right_thumb 1
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+          elbow/right wrist/right_thumb 1/right_thumb 2
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+          elbow/right wrist/right_thumb 1/right_thumb 2/right_thumb 3
+        weight: 1
+      - path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+          elbow/right wrist/right_thumb 1/right_thumb 2/right_thumb 3/right_thumb
+          ENDff
+        weight: 1
+      - path: Star001/Circle007/COG/Left_thigh
+        weight: 1
+      - path: Star001/Circle007/COG/Left_thigh/left_ Knee
+        weight: 1
+      - path: Star001/Circle007/COG/Left_thigh/left_ Knee/left_feet 1
+        weight: 1
+      - path: Star001/Circle007/COG/Left_thigh/left_ Knee/left_feet 1/left_feet 2
+        weight: 1
+      - path: Star001/Circle007/COG/Left_thigh/left_ Knee/left_feet 1/left_feet 2/Bone002
+        weight: 1
+      - path: Star001/Circle007/COG/right_thigh
+        weight: 1
+      - path: Star001/Circle007/COG/right_thigh/right_ Knee
+        weight: 1
+      - path: Star001/Circle007/COG/right_thigh/right_ Knee/right_feet 1
+        weight: 1
+      - path: Star001/Circle007/COG/right_thigh/right_ Knee/right_feet 1/right_feet
+          2
+        weight: 1
+      - path: Star001/Circle007/COG/right_thigh/right_ Knee/right_feet 1/right_feet
+          2/Bone001
+        weight: 1
+      - path: Star001/Circle007/Point009
+        weight: 1
+      - path: Star001/Circle007/Point010
+        weight: 1
+      - path: Star001/Rectangle001
+        weight: 1
+      - path: Star001/Rectangle001/Point005
+        weight: 1
+      - path: Star001/Rectangle001/Point005/Point008
+        weight: 1
+      - path: Star001/Rectangle001/Point005/Point008/Point006
+        weight: 1
+      - path: Star001/Rectangle001/Point005/Point008/Point006/IK Chain013
+        weight: 1
+      - path: Star001/Rectangle001/Point005/Point008/Point006/IK Chain014
+        weight: 1
+      - path: Star001/Rectangle001/Point005/Point008/Point007
+        weight: 1
+      - path: Star001/Rectangle001/Point005/Point008/Point007/IK Chain012
+        weight: 1
+      - path: Star001/Rectangle002
+        weight: 1
+      - path: Star001/Rectangle002/Point004
+        weight: 1
+      - path: Star001/Rectangle002/Point004/Point001
+        weight: 1
+      - path: Star001/Rectangle002/Point004/Point001/Point002
+        weight: 1
+      - path: Star001/Rectangle002/Point004/Point001/Point002/IK Chain009
+        weight: 1
+      - path: Star001/Rectangle002/Point004/Point001/Point003
+        weight: 1
+      - path: Star001/Rectangle002/Point004/Point001/Point003/IK Chain010
+        weight: 1
+      - path: Star001/Rectangle002/Point004/Point001/Point003/IK Chain011
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: attack girl(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: body
+      parentName: attack girl(Clone)
+      position: {x: -0.00009004028, y: 1.4682138, z: 0.019037921}
+      rotation: {x: 0.00000008146034, y: -0, z: -0, w: 1}
+      scale: {x: 1.5999999, y: 1.5999999, z: 1.5999999}
+    - name: Circle031
+      parentName: attack girl(Clone)
+      position: {x: 0.39114508, y: 2.2004507, z: 0.74497527}
+      rotation: {x: 0.059958763, y: -0.539217, z: -0.07197807, w: 0.83694035}
+      scale: {x: 1.5999997, y: 1.6000004, z: 1.5999998}
+    - name: Circle030
+      parentName: Circle031
+      position: {x: -0.024574589, y: 0.00000029067994, z: -0.00000048446657}
+      rotation: {x: -0.15808868, y: -0.6419997, z: -0.0703284, w: 0.74692583}
+      scale: {x: 1, y: 0.9999998, z: 1}
+    - name: Circle034
+      parentName: attack girl(Clone)
+      position: {x: 0.37424517, y: 2.2308164, z: 0.761472}
+      rotation: {x: 0.063120514, y: -0.53832614, z: -0.08381822, w: 0.83617896}
+      scale: {x: 1.5999998, y: 1.6000006, z: 1.5999997}
+    - name: Circle033
+      parentName: Circle034
+      position: {x: -0.02446917, y: 0.00000019378662, z: -0.00000009689331}
+      rotation: {x: -0.13647848, y: -0.63511443, z: -0.078754194, w: 0.7561753}
+      scale: {x: 1, y: 0.99999994, z: 0.99999994}
+    - name: Circle037
+      parentName: attack girl(Clone)
+      position: {x: 0.37143967, y: 2.2603061, z: 0.7716153}
+      rotation: {x: 0.06297939, y: -0.53873223, z: -0.083896, w: 0.8359203}
+      scale: {x: 1.6000001, y: 1.600001, z: 1.5999997}
+    - name: Circle036
+      parentName: Circle037
+      position: {x: -0.024468929, y: 0.00000029067994, z: -0.00000021498202}
+      rotation: {x: -0.14444245, y: -0.63309085, z: -0.06838163, w: 0.75740105}
+      scale: {x: 0.9999999, y: 1, z: 0.9999999}
+    - name: Circle040
+      parentName: attack girl(Clone)
+      position: {x: 0.41297272, y: 2.3078609, z: 0.81505567}
+      rotation: {x: -0.0029231876, y: 0.2588923, z: 0.012044153, w: 0.9658267}
+      scale: {x: 1.5999994, y: 1.6000001, z: 1.6}
+    - name: Circle039
+      parentName: Circle040
+      position: {x: -0.017914921, y: -0.00000019378662, z: -0.00000019378662}
+      rotation: {x: -0.008769834, y: -0.8570167, z: -0.005188452, w: 0.515188}
+      scale: {x: 1.0000002, y: 0.9999999, z: 1.0000002}
+    - name: Circle043
+      parentName: attack girl(Clone)
+      position: {x: 0.4424105, y: 2.3430102, z: 0.70525235}
+      rotation: {x: -0.43081442, y: 0.5305677, z: -0.011848726, w: 0.7299017}
+      scale: {x: 1.5999997, y: 1.6, z: 1.6}
+    - name: Circle042
+      parentName: Circle043
+      position: {x: -0.024388144, y: -0.000002373886, z: -0.00000048446657}
+      rotation: {x: -0.026263423, y: -0.3310159, z: 0.29592112, w: 0.8956391}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1.0000001}
+    - name: hoodie
+      parentName: attack girl(Clone)
+      position: {x: 0.009105132, y: 2.719284, z: -0.04146638}
+      rotation: {x: 0.00000006657903, y: -0, z: -0, w: 1}
+      scale: {x: 1.5999998, y: 1.5999998, z: 1.5999998}
+    - name: IK Chain007
+      parentName: attack girl(Clone)
+      position: {x: -0.44272453, y: 2.2393582, z: 0.5904734}
+      rotation: {x: -0.7064338, y: 0.030843562, z: -0.030843562, w: 0.7064338}
+      scale: {x: 0.96091586, y: 1.5999998, z: 0.96091586}
+    - name: IK Chain008
+      parentName: attack girl(Clone)
+      position: {x: 0.46039432, y: 2.2393436, z: 0.5850321}
+      rotation: {x: -0.7064338, y: 0.030843562, z: -0.030843562, w: 0.7064338}
+      scale: {x: 0.915773, y: 1.5999998, z: 0.915773}
+    - name: Star001
+      parentName: attack girl(Clone)
+      position: {x: -0, y: 0, z: 0}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+      scale: {x: 1.1376967, y: 1.1376967, z: 1.1376967}
+    - name: Circle007
+      parentName: Star001
+      position: {x: 0.00041649674, y: 0.02105003, z: 1.4274156}
+      rotation: {x: 0.5623329, y: 0.57192653, z: -0.41580984, w: 0.4287002}
+      scale: {x: 1.4063503, y: 1.4063505, z: 1.4063503}
+    - name: Circle008
+      parentName: Circle007
+      position: {x: -0.17308459, y: 0.000000027251243, z: -0.00000009689331}
+      rotation: {x: 0.01082108, y: -0.2466517, z: -0.0058526485, w: 0.9690261}
+      scale: {x: 1.3192749, y: 1.3192754, z: 1.3192748}
+    - name: Circle009
+      parentName: Circle008
+      position: {x: -0.10647601, y: 0.000000046932698, z: -0.00000037546158}
+      rotation: {x: 0.0013794379, y: -0.055753443, z: 0.006620982, w: 0.99842167}
+      scale: {x: 1.0000002, y: 1, z: 1.0000004}
+    - name: Circle001
+      parentName: Circle009
+      position: {x: -0.15338734, y: -0.0052906894, z: 0.045140922}
+      rotation: {x: 0.3251866, y: -0.092138894, z: 0.6357444, w: 0.69396913}
+      scale: {x: 0.7579919, y: 0.75799215, z: 0.7579921}
+    - name: Circle003
+      parentName: Circle001
+      position: {x: -0.0118548665, y: -0.026284635, z: 0.45885652}
+      rotation: {x: -0.33063513, y: 0.6381769, z: 0.6140395, w: 0.32613832}
+      scale: {x: 1.0000001, y: 0.99999994, z: 0.99999994}
+    - name: Circle005
+      parentName: Circle003
+      position: {x: -0.00000009689331, y: -0.000000024223327, z: 0.00000029067994}
+      rotation: {x: -0.00577266, y: -0.0054690656, z: 0.009738303, w: 0.99992096}
+      scale: {x: 1, y: 0.9999998, z: 0.9999999}
+    - name: arrow001
+      parentName: Circle005
+      position: {x: -0.3018867, y: -0.025956457, z: 0.06369475}
+      rotation: {x: -0.4949382, y: 0.49950516, z: 0.51073796, w: -0.49464887}
+      scale: {x: 1.3062496, y: 1.3062495, z: 1.3062494}
+    - name: Box004
+      parentName: Circle005
+      position: {x: -0.18545014, y: -0.028364433, z: 0.06712169}
+      rotation: {x: 0.00019377151, y: 0.007936196, z: -0.7142998, w: 0.6997948}
+      scale: {x: 0.7833233, y: 0.7251234, z: 0.849502}
+    - name: Box005
+      parentName: Circle005
+      position: {x: -0.29770997, y: -0.2079062, z: 0.06624751}
+      rotation: {x: 0.00020435738, y: 0.007942992, z: -0.7143498, w: 0.69974375}
+      scale: {x: 0.7833228, y: 0.78332263, z: 0.7833228}
+    - name: Box006
+      parentName: Circle005
+      position: {x: -0.29012707, y: 0.15800315, z: 0.07042303}
+      rotation: {x: 0.00020435738, y: 0.007942992, z: -0.7143498, w: 0.69974375}
+      scale: {x: 0.7833228, y: 0.78332263, z: 0.7833228}
+    - name: Circle013
+      parentName: Circle005
+      position: {x: -0.10108346, y: -0.0060571884, z: 0.026348973}
+      rotation: {x: -0.69665337, y: -0.090921536, z: 0.09408715, w: 0.7053758}
+      scale: {x: 0.99999934, y: 0.9999999, z: 0.99999946}
+    - name: Circle014
+      parentName: Circle013
+      position: {x: -0.049042184, y: -0.00000048446657, z: -0.00000019378662}
+      rotation: {x: 0.0004323544, y: -0.12112948, z: -0.012617105, w: 0.99255645}
+      scale: {x: 0.99999994, y: 0.9999999, z: 1}
+    - name: Circle015
+      parentName: Circle014
+      position: {x: -0.017914943, y: 0.00000029067994, z: -0.000000048446655}
+      rotation: {x: 0.011528219, y: -0.48451722, z: 0.0036462806, w: 0.87469816}
+      scale: {x: 0.99999994, y: 0.9999998, z: 1}
+    - name: Circle016
+      parentName: Circle005
+      position: {x: -0.10349107, y: -0.005750376, z: 0.0036528779}
+      rotation: {x: -0.7630651, y: -0.2207379, z: 0.13614354, w: 0.59200627}
+      scale: {x: 0.9999994, y: 0.9999999, z: 0.9999996}
+    - name: Circle017
+      parentName: Circle016
+      position: {x: -0.05037977, y: 0.00000029067994, z: 0.0000002664566}
+      rotation: {x: 0.042730752, y: -0.68379843, z: 0.12902322, w: 0.7169008}
+      scale: {x: 1, y: 1.0000001, z: 0.99999994}
+    - name: Circle018
+      parentName: Circle017
+      position: {x: -0.024468953, y: -0.00000019378662, z: -0.0000003391266}
+      rotation: {x: 0.18800011, y: -0.6487147, z: 0.01087484, w: 0.7373649}
+      scale: {x: 0.9999999, y: 1, z: 1}
+    - name: Circle019
+      parentName: Circle005
+      position: {x: -0.09644702, y: -0.004727158, z: -0.015413206}
+      rotation: {x: -0.7162514, y: -0.26617813, z: 0.23855874, w: 0.59935206}
+      scale: {x: 0.9999995, y: 1.0000001, z: 0.9999997}
+    - name: Circle020
+      parentName: Circle019
+      position: {x: -0.05092344, y: 0.00000048446657, z: 0.0000002664566}
+      rotation: {x: 0.09494834, y: -0.672059, z: 0.12350018, w: 0.72392625}
+      scale: {x: 1.0000001, y: 1.0000002, z: 1}
+    - name: Circle021
+      parentName: Circle020
+      position: {x: -0.024469001, y: -0.00000009689331, z: -0.00000048446657}
+      rotation: {x: 0.23339213, y: -0.633494, z: 0.015517758, w: 0.737545}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1.0000001}
+    - name: Circle022
+      parentName: Circle005
+      position: {x: -0.08939512, y: -0.009050828, z: -0.03312385}
+      rotation: {x: -0.709204, y: -0.28044206, z: 0.20022647, w: 0.6150539}
+      scale: {x: 0.9999994, y: 0.99999994, z: 0.9999996}
+    - name: Circle023
+      parentName: Circle022
+      position: {x: -0.036339097, y: 0.00000038757324, z: 0.00000012111664}
+      rotation: {x: 0.122274384, y: -0.6820318, z: 0.1439458, w: 0.7065134}
+      scale: {x: 0.99999994, y: 0.9999999, z: 1}
+    - name: Circle024
+      parentName: Circle023
+      position: {x: -0.024574686, y: -0.00000019378662, z: -0.00000024223328}
+      rotation: {x: 0.2639793, y: -0.6423883, z: -0.008856646, w: 0.71942604}
+      scale: {x: 1, y: 0.9999998, z: 1.0000001}
+    - name: Circle025
+      parentName: Circle005
+      position: {x: -0.06263232, y: -0.007911605, z: 0.0284066}
+      rotation: {x: -0.6781058, y: 0.07796496, z: 0.454482, w: 0.5723113}
+      scale: {x: 0.9999994, y: 0.9999999, z: 0.9999997}
+    - name: Circle026
+      parentName: Circle025
+      position: {x: -0.024624465, y: 0.00000009689331, z: -0.00000009689331}
+      rotation: {x: 0.009757784, y: -0.025942303, z: -0.26352677, w: 0.96425384}
+      scale: {x: 1, y: 1.0000001, z: 0.99999994}
+    - name: Circle027
+      parentName: Circle026
+      position: {x: -0.024388338, y: 0.0000024223327, z: 0.000000048446655}
+      rotation: {x: -0.11668816, y: -0.03549496, z: -0.18259373, w: 0.975594}
+      scale: {x: 0.99999976, y: 0.9999998, z: 1.0000001}
+    - name: crossbow001
+      parentName: Circle005
+      position: {x: -0.1437778, y: -0.03448932, z: 0.13033196}
+      rotation: {x: -0.4949382, y: 0.49950516, z: 0.51073796, w: -0.49464887}
+      scale: {x: 1.3062496, y: 1.3062495, z: 1.3062494}
+    - name: Cylinder002
+      parentName: Circle005
+      position: {x: -0.29855633, y: -0.21741123, z: 0.06497937}
+      rotation: {x: 0.465778, y: 0.52630633, z: 0.5422818, w: -0.46041605}
+      scale: {x: 1.3062496, y: 1.3062489, z: 1.3062497}
+    - name: Point012
+      parentName: Circle001
+      position: {x: -0.3624615, y: -0.7680412, z: 0.18098712}
+      rotation: {x: 0.0051701562, y: 0.30072692, z: -0.025208926, w: 0.95336306}
+      scale: {x: 0.99999934, y: 0.9999995, z: 0.99999994}
+    - name: Circle002
+      parentName: Circle009
+      position: {x: -0.15330072, y: 0.006810804, z: 0.045115437}
+      rotation: {x: -0.32730174, y: -0.09115622, z: -0.64048964, w: 0.6887214}
+      scale: {x: 0.75799197, y: 0.757992, z: 0.75799215}
+    - name: Circle004
+      parentName: Circle002
+      position: {x: -0.020892343, y: 0.02609492, z: 0.46177515}
+      rotation: {x: 0.017067367, y: -0.46440873, z: -0.0031797925, w: 0.8854508}
+      scale: {x: 0.99999994, y: 0.99999994, z: 1}
+    - name: Circle006
+      parentName: Circle004
+      position: {x: -0.00000009689331, y: 0, z: 0.0000001695633}
+      rotation: {x: 0.006885874, y: -0.7070731, z: 0.70707345, w: 0.0068858704}
+      scale: {x: 1.0000001, y: 1, z: 1.0000002}
+    - name: arrow
+      parentName: Circle006
+      position: {x: -0.30718628, y: 0.011027815, z: 0.06072924}
+      rotation: {x: 0.5045492, y: -0.49540964, z: -0.4954005, w: 0.50455713}
+      scale: {x: 1.3062493, y: 1.306249, z: 1.3062496}
+    - name: Box001
+      parentName: Circle006
+      position: {x: -0.19638795, y: 0.013135026, z: 0.06544399}
+      rotation: {x: -0.00001651429, y: -0.000013418387, z: -0.70055723, w: 0.7135962}
+      scale: {x: 0.7833221, y: 0.7833228, z: 0.7833224}
+    - name: Box002
+      parentName: Circle006
+      position: {x: -0.29596773, y: -0.17058009, z: 0.065447554}
+      rotation: {x: -0.0000057072707, y: -0.0000063423026, z: -0.70060843, w: 0.713546}
+      scale: {x: 0.7833229, y: 0.7833224, z: 0.78332275}
+    - name: Box003
+      parentName: Circle006
+      position: {x: -0.30266425, y: 0.19537044, z: 0.065441355}
+      rotation: {x: -0.0000057072707, y: -0.0000063423026, z: -0.70060843, w: 0.713546}
+      scale: {x: 0.7833229, y: 0.7833224, z: 0.78332275}
+    - name: crossbow
+      parentName: Circle006
+      position: {x: -0.14962628, y: 0.009417545, z: 0.12916943}
+      rotation: {x: 0.5045492, y: -0.49540964, z: -0.4954005, w: 0.50455713}
+      scale: {x: 1.3062493, y: 1.306249, z: 1.3062496}
+    - name: Cylinder001
+      parentName: Circle006
+      position: {x: -0.29642943, y: -0.18012437, z: 0.06428076}
+      rotation: {x: 0.45506215, y: 0.54090613, z: 0.53275853, w: -0.46530363}
+      scale: {x: 1.3062494, y: 1.3062488, z: 1.3062493}
+    - name: Point011
+      parentName: Circle002
+      position: {x: -0.36246097, y: 0.7680415, z: 0.18098658}
+      rotation: {x: -0.005169733, y: 0.3007273, z: 0.025208345, w: 0.95336294}
+      scale: {x: 0.99999964, y: 0.9999997, z: 1}
+    - name: Circle010
+      parentName: Circle009
+      position: {x: -0.18544595, y: -0.00000006055832, z: -0.000000048446655}
+      rotation: {x: 0.0017852489, y: 0.26449546, z: -0.0036321327, w: 0.9643785}
+      scale: {x: 0.9999999, y: 0.9999999, z: 0.9999998}
+    - name: Circle012
+      parentName: Circle010
+      position: {x: -0.07901901, y: 0.00000008780956, z: 0}
+      rotation: {x: -0.0030430001, y: -0.07408872, z: 0.0022041812, w: 0.9972446}
+      scale: {x: 1, y: 1, z: 1.0000001}
+    - name: Point013
+      parentName: Circle012
+      position: {x: 0.00019960021, y: 0.00054427964, z: 0.006443599}
+      rotation: {x: -0.42709988, y: 0.562627, z: 0.5614438, w: 0.43106556}
+      scale: {x: 0.7579918, y: 0.7579919, z: 0.75799185}
+    - name: COG
+      parentName: Circle007
+      position: {x: -0.00000009689331, y: 0.000000056016443, z: 0.00000031490325}
+      rotation: {x: -0, y: 0.000000059604645, z: 0.00000020861626, w: 1}
+      scale: {x: 1.0000004, y: 1.0000005, z: 1.0000001}
+    - name: Abs bone
+      parentName: COG
+      position: {x: -0.17308459, y: 0.00000005223155, z: 0.000000024223327}
+      rotation: {x: 0.011066066, y: -0.20414867, z: -0.005375261, w: 0.97886264}
+      scale: {x: 1.0000005, y: 1.0000007, z: 1}
+    - name: chest bone
+      parentName: Abs bone
+      position: {x: -0.14047126, y: 7.56979e-10, z: 0.000000024223327}
+      rotation: {x: 0.0016670169, y: -0.099251, z: 0.0065544983, w: 0.99503946}
+      scale: {x: 1.0000008, y: 1.0000014, z: 1.0000007}
+    - name: left Shoulder
+      parentName: chest bone
+      position: {x: -0.20236003, y: -0.006979829, z: 0.05955322}
+      rotation: {x: 0.23199493, y: 0.00981139, z: 0.6707984, w: 0.70435196}
+      scale: {x: 1.0000001, y: 1.0000004, z: 1.0000001}
+    - name: left arm
+      parentName: left Shoulder
+      position: {x: -0.12429032, y: -0.0000038757325, z: 0}
+      rotation: {x: -0.023219217, y: 0.18646204, z: 0.017374512, w: 0.9820341}
+      scale: {x: 0.9999996, y: 1.0000001, z: 1.000001}
+    - name: left elbow
+      parentName: left arm
+      position: {x: -0.28374696, y: 0.00000009689331, z: 0}
+      rotation: {x: 0.04823761, y: -0.013586651, z: -0.055993576, w: 0.9971727}
+      scale: {x: 0.99999964, y: 1.0000002, z: 0.99999976}
+    - name: left wrist
+      parentName: left elbow
+      position: {x: -0.20188022, y: 0.0000035850524, z: -0.000000048446655}
+      rotation: {x: -0.028892154, y: -0.008910445, z: 0.018694608, w: 0.999368}
+      scale: {x: 1.0000005, y: 1.0000005, z: 1.0000004}
+    - name: left wrist END
+      parentName: left wrist
+      position: {x: -0.06875336, y: 0.000000024223327, z: -0.00000019378662}
+      rotation: {x: 0.00017756407, y: -0.012957081, z: -0.0030051114, w: 0.99991155}
+      scale: {x: 1.0000007, y: 1.0000006, z: 1.0000008}
+    - name: left_index 1
+      parentName: left wrist
+      position: {x: -0.1010837, y: -0.0060571884, z: 0.026348585}
+      rotation: {x: -0.7024077, y: 0.032946847, z: -0.02831486, w: 0.71044797}
+      scale: {x: 1.0000006, y: 1.0000011, z: 1.0000007}
+    - name: left_index 2
+      parentName: left_index 1
+      position: {x: -0.04904221, y: -0.00000038757324, z: 0.000000024223327}
+      rotation: {x: -0.00051772554, y: -0.039145242, z: -0.006522567, w: 0.99921215}
+      scale: {x: 1.0000005, y: 1.000001, z: 1.0000001}
+    - name: left_index 3
+      parentName: left_index 2
+      position: {x: -0.01791487, y: 0.00000019378662, z: 0.000000048446655}
+      rotation: {x: 0.0010760768, y: -0.025985645, z: 0.006297664, w: 0.99964195}
+      scale: {x: 1.0000001, y: 1.0000006, z: 1.0000005}
+    - name: left_index END
+      parentName: left_index 3
+      position: {x: -0.022687763, y: -0.00000009689331, z: 0}
+      rotation: {x: -0.000000103726016, y: 0.00000069662906, z: -0.000004402588, w: 1}
+      scale: {x: 1, y: 1.0000002, z: 1.0000001}
+    - name: Left_middle 1
+      parentName: left wrist
+      position: {x: -0.10349131, y: -0.005750521, z: 0.0036522965}
+      rotation: {x: -0.7013957, y: 0.0048406124, z: -0.04989069, w: 0.7110075}
+      scale: {x: 1.0000013, y: 1.0000013, z: 1.0000005}
+    - name: left_middle 2
+      parentName: Left_middle 1
+      position: {x: -0.05037982, y: 0.00000038757324, z: 0.00000012111664}
+      rotation: {x: 0.001116454, y: -0.040328383, z: -0.0017198484, w: 0.99918437}
+      scale: {x: 1.0000004, y: 1.0000006, z: 1.0000007}
+    - name: left_middle 3
+      parentName: left_middle 2
+      position: {x: -0.024468953, y: -0.00000019378662, z: -0.00000038757324}
+      rotation: {x: -0.00023800877, y: -0.017563572, z: -0.0040821075, w: 0.9998374}
+      scale: {x: 1.0000007, y: 1.000001, z: 1.0000007}
+    - name: left_midddle END
+      parentName: left_middle 3
+      position: {x: -0.02354631, y: 0.00000009689331, z: 0.00000019378662}
+      rotation: {x: 0.0000001947337, y: -0.00000086054195, z: 0.000052517025, w: 1}
+      scale: {x: 1.0000002, y: 0.9999999, z: 1}
+    - name: left_pinkie 1
+      parentName: left wrist
+      position: {x: -0.08939551, y: -0.0090509495, z: -0.03312424}
+      rotation: {x: -0.70026684, y: -0.02366938, z: -0.0456666, w: 0.7120258}
+      scale: {x: 1.0000007, y: 1.0000002, z: 1.0000002}
+    - name: left_pinkie 2
+      parentName: left_pinkie 1
+      position: {x: -0.03633902, y: 0.00000038757324, z: 0.000000048446655}
+      rotation: {x: -0.0015079372, y: -0.03861886, z: 0.008895158, w: 0.99921334}
+      scale: {x: 0.9999997, y: 1.0000006, z: 1.0000005}
+    - name: left_pinkie 3
+      parentName: left_pinkie 2
+      position: {x: -0.024574613, y: -0.00000009689331, z: -0.0000003391266}
+      rotation: {x: 0.005016822, y: -0.039189264, z: -0.009891556, w: 0.9991703}
+      scale: {x: 1.000001, y: 1.0000006, z: 1.0000008}
+    - name: left_pinkie END
+      parentName: left_pinkie 3
+      position: {x: -0.016648984, y: 0, z: 0.00000009689331}
+      rotation: {x: -0.0047053727, y: -0.093091324, z: -0.014406631, w: 0.9955423}
+      scale: {x: 1.0000004, y: 1.0000008, z: 1.0000013}
+    - name: left_ring 1
+      parentName: left wrist
+      position: {x: -0.09644731, y: -0.0047272793, z: -0.0154135935}
+      rotation: {x: -0.7012517, y: -0.021989416, z: -0.048292752, w: 0.71093625}
+      scale: {x: 1.0000013, y: 1.0000015, z: 1.0000008}
+    - name: left_ring 2
+      parentName: left_ring 1
+      position: {x: -0.05092343, y: 0.00000048446657, z: 0.00000009689331}
+      rotation: {x: 0.0008214112, y: -0.04026034, z: -0.0064938036, w: 0.9991678}
+      scale: {x: 1.0000001, y: 1.0000013, z: 1.0000008}
+    - name: left_ring 3
+      parentName: left_ring 2
+      position: {x: -0.024468977, y: -0.00000029067994, z: -0.0000003391266}
+      rotation: {x: -0.00029718885, y: -0.0353717, z: 0.0050576217, w: 0.99936146}
+      scale: {x: 1.0000006, y: 1.000001, z: 1.000001}
+    - name: left_ring END
+      parentName: left_ring 3
+      position: {x: -0.023570655, y: 0, z: 0.00000019378662}
+      rotation: {x: -0.00044045656, y: 0.018198144, z: 0.000098969576, w: 0.99983436}
+      scale: {x: 1.0000011, y: 1.0000004, z: 1.0000011}
+    - name: left_thumb 1
+      parentName: left wrist
+      position: {x: -0.06263266, y: -0.007911774, z: 0.028406212}
+      rotation: {x: -0.6350564, y: 0.25379208, z: 0.29271594, w: 0.6682892}
+      scale: {x: 1.0000011, y: 1.0000021, z: 1.0000008}
+    - name: left_thumb 2
+      parentName: left_thumb 1
+      position: {x: -0.024624562, y: 0, z: 0}
+      rotation: {x: -0.016017605, y: -0.0006584968, z: -0.036761526, w: 0.9991955}
+      scale: {x: 1, y: 0.9999995, z: 0.99999994}
+    - name: left_thumb 3
+      parentName: left_thumb 2
+      position: {x: -0.02438824, y: 0.000002228546, z: -0.000000048446655}
+      rotation: {x: -0.0102529, y: -0.027801668, z: -0.029386196, w: 0.9991288}
+      scale: {x: 1.0000002, y: 1.0000006, z: 1.0000002}
+    - name: left_thumb END
+      parentName: left_thumb 3
+      position: {x: -0.02248597, y: 0, z: 0.000000024223327}
+      rotation: {x: -0.005601937, y: -0.02095265, z: -0.0025529633, w: 0.9997615}
+      scale: {x: 1, y: 0.99999994, z: 0.9999995}
+    - name: neck bone
+      parentName: chest bone
+      position: {x: -0.24465415, y: 0.000000010597706, z: -0.000000048446655}
+      rotation: {x: 0.0017848089, y: 0.2644956, z: -0.0036321804, w: 0.9643785}
+      scale: {x: 1.0000025, y: 1.0000017, z: 1.0000002}
+    - name: head bone
+      parentName: neck bone
+      position: {x: -0.10424761, y: -0.000000014571845, z: -0.000000024223327}
+      rotation: {x: -0.0030435296, y: -0.074088775, z: 0.0022041837, w: 0.9972446}
+      scale: {x: 1.0000017, y: 1.0000015, z: 1.0000001}
+    - name: end head bone
+      parentName: head bone
+      position: {x: -0.1763245, y: -0.000000021195412, z: -0.00000019378662}
+      rotation: {x: 0.000027631168, y: 0.0024593836, z: -0.00003481041, w: 0.999997}
+      scale: {x: 1.0000007, y: 1.0000006, z: 1}
+    - name: eye 1
+      parentName: head bone
+      position: {x: -0.078588806, y: 0.030579632, z: 0.07426756}
+      rotation: {x: -0.022857895, y: -0.025025323, z: 0.7047595, w: 0.7086363}
+      scale: {x: 0.20045826, y: 0.20045832, z: 0.20045839}
+    - name: eye 003
+      parentName: head bone
+      position: {x: -0.078904875, y: -0.028165625, z: 0.07407649}
+      rotation: {x: 0.06932718, y: -0.1173068, z: 0.70171356, w: 0.6993075}
+      scale: {x: 0.20045826, y: 0.20045832, z: 0.20045839}
+    - name: jaw
+      parentName: head bone
+      position: {x: 0.00026296845, y: 0.00071807555, z: 0.00850085}
+      rotation: {x: -0.4271, y: 0.562627, z: 0.5614437, w: 0.43106547}
+      scale: {x: 1.0000005, y: 0.9999994, z: 1.0000004}
+    - name: jaw end
+      parentName: jaw
+      position: {x: -0.10614759, y: 0, z: -1.18277966e-11}
+      rotation: {x: -0.00000019371505, y: -0.00000013411042, z: -0.019869441, w: 0.9998026}
+      scale: {x: 1.0000006, y: 1.0000002, z: 0.9999999}
+    - name: right Shoulder
+      parentName: chest bone
+      position: {x: -0.20224589, y: 0.00898537, z: 0.0595195}
+      rotation: {x: 0.23340593, y: -0.010051173, z: 0.6758321, w: -0.69905055}
+      scale: {x: 1.0000017, y: 1.0000021, z: 1.0000002}
+    - name: right arm
+      parentName: right Shoulder
+      position: {x: -0.12429034, y: 0.000004069519, z: -0.000000102949144}
+      rotation: {x: 0.023219233, y: 0.18646175, z: -0.017375454, w: 0.98203415}
+      scale: {x: 0.99999875, y: 0.9999997, z: 1.000001}
+    - name: right elbow
+      parentName: right arm
+      position: {x: -0.28374693, y: 0, z: 0.00000019378662}
+      rotation: {x: -0.048237216, y: -0.013586965, z: 0.055992544, w: 0.9971728}
+      scale: {x: 0.99999964, y: 0.9999995, z: 1.0000005}
+    - name: right wrist
+      parentName: right elbow
+      position: {x: -0.20188017, y: -0.000003778839, z: 0}
+      rotation: {x: 0.023170145, y: -0.0033921485, z: -0.018589294, w: 0.999553}
+      scale: {x: 1.000001, y: 1.0000021, z: 0.9999992}
+    - name: right wrist end
+      parentName: right wrist
+      position: {x: -0.06875346, y: -0.000000072669984, z: -0.00000009689331}
+      rotation: {x: -0.00017773727, y: -0.012956865, z: 0.0030059451, w: 0.99991155}
+      scale: {x: 1.0000012, y: 1.0000012, z: 1.0000011}
+    - name: right_index 1
+      parentName: right wrist
+      position: {x: -0.09986716, y: 0.0060739266, z: 0.025712384}
+      rotation: {x: 0.7065232, y: 0.032839388, z: 0.028402606, w: 0.7063568}
+      scale: {x: 0.9999998, y: 1.0000006, z: 1.0000008}
+    - name: right_index 2
+      parentName: right_index 1
+      position: {x: -0.04904216, y: 0.00000038757324, z: -0.00000019378662}
+      rotation: {x: -0.0052998327, y: -0.039137915, z: 0.006555459, w: 0.9991983}
+      scale: {x: 1.0000023, y: 1.0000001, z: 0.999999}
+    - name: right_index 3
+      parentName: right_index 2
+      position: {x: -0.0179148, y: -0.00000029067994, z: 0}
+      rotation: {x: -0.001075836, y: -0.025983397, z: -0.006298075, w: 0.999642}
+      scale: {x: 0.9999994, y: 0.9999998, z: 1.0000012}
+    - name: right_index END
+      parentName: right_index 3
+      position: {x: -0.022687811, y: 0.00000009689331, z: 0.00000041179658}
+      rotation: {x: -0.00000054924715, y: 0.0000020656723, z: 0.0000046520827, w: 1}
+      scale: {x: 1.000001, y: 0.99999976, z: 1.0000008}
+    - name: right_middle 1
+      parentName: right wrist
+      position: {x: -0.10227486, y: 0.005767235, z: 0.0030161918}
+      rotation: {x: 0.7056203, y: 0.00518295, z: 0.051259894, w: 0.7067147}
+      scale: {x: 1.0000007, y: 1.0000006, z: 1.0000011}
+    - name: right_middle 2
+      parentName: right_middle 1
+      position: {x: -0.05037977, y: -0.00000038757324, z: 0}
+      rotation: {x: -0.0071632215, y: -0.04031198, z: 0.0017022274, w: 0.99916005}
+      scale: {x: 1.0000002, y: 1.0000001, z: 0.9999998}
+    - name: right_middle 3
+      parentName: right_middle 2
+      position: {x: -0.024468977, y: 0.00000029067994, z: -0.00000018773079}
+      rotation: {x: 0.00047555452, y: -0.035121012, z: 0.008162832, w: 0.99934965}
+      scale: {x: 1.0000021, y: 0.9999999, z: 0.9999997}
+    - name: right_midddle END
+      parentName: right_middle 3
+      position: {x: -0.023546262, y: 0, z: 0.00000014533997}
+      rotation: {x: -0.00000028387862, y: -0.00000023469318, z: -0.000052386215, w: 1}
+      scale: {x: 0.9999996, y: 1.0000007, z: 0.9999997}
+    - name: right_pinkie 1
+      parentName: right wrist
+      position: {x: -0.089709975, y: 0.009037821, z: -0.033743676}
+      rotation: {x: 0.7003541, y: -0.025571495, z: 0.047337446, w: 0.711765}
+      scale: {x: 1.0000004, y: 1.0000006, z: 1.0000006}
+    - name: right_pinkie 2
+      parentName: right_pinkie 1
+      position: {x: -0.034857415, y: -0.00000029067994, z: 0.00000029067994}
+      rotation: {x: 0.0011484615, y: -0.037921626, z: -0.010936774, w: 0.99922025}
+      scale: {x: 1, y: 0.9999995, z: 0.99999976}
+    - name: right_pinkie 3
+      parentName: right_pinkie 2
+      position: {x: -0.024574565, y: 0.00000029067994, z: -0.0000005934715}
+      rotation: {x: -0.004234707, y: -0.041164648, z: 0.000022790073, w: 0.9991435}
+      scale: {x: 1.000002, y: 1.0000002, z: 0.9999994}
+    - name: right_pinkie END
+      parentName: right_pinkie 3
+      position: {x: -0.019222997, y: 0, z: 0.00000029067994}
+      rotation: {x: 0.00000005075705, y: 0.0000000633299, z: -0.000000058265833, w: 1}
+      scale: {x: 1.000001, y: 1.0000004, z: 1.0000007}
+    - name: right_ring 1
+      parentName: right wrist
+      position: {x: -0.09659493, y: 0.004704921, z: -0.017130446}
+      rotation: {x: 0.70524764, y: -0.013221635, z: 0.051548414, w: 0.7069609}
+      scale: {x: 1.0000002, y: 1.0000004, z: 1.0000006}
+    - name: right_ring 2
+      parentName: right_ring 1
+      position: {x: -0.049426876, y: -0.00000038757324, z: -0.00000009689331}
+      rotation: {x: -0.007087137, y: -0.03882186, z: 0.010641531, w: 0.9991644}
+      scale: {x: 1.0000008, y: 0.99999905, z: 0.9999998}
+    - name: right_ring 3
+      parentName: right_ring 2
+      position: {x: -0.024469025, y: 0.00000029067994, z: -0.00000019378662}
+      rotation: {x: 0.00029692415, y: -0.035373915, z: -0.005057399, w: 0.99936134}
+      scale: {x: 1.0000017, y: 1.0000008, z: 1.0000007}
+    - name: right_ring END
+      parentName: right_ring 3
+      position: {x: -0.023570636, y: 0, z: 0.00000009689331}
+      rotation: {x: 0.00044040862, y: 0.01819866, z: -0.00009924368, w: 0.9998343}
+      scale: {x: 1.0000006, y: 1.0000004, z: 1.0000013}
+    - name: right_thumb 1
+      parentName: right wrist
+      position: {x: -0.061416067, y: 0.007928561, z: 0.027769817}
+      rotation: {x: 0.6350566, y: 0.2537924, z: -0.29271597, w: 0.6682888}
+      scale: {x: 1.0000005, y: 1.0000001, z: 1.0000005}
+    - name: right_thumb 2
+      parentName: right_thumb 1
+      position: {x: -0.024624562, y: 0.000000048446655, z: 0.00000019378662}
+      rotation: {x: 0.01601704, y: -0.0006520297, z: 0.03675685, w: 0.9991957}
+      scale: {x: 1.0000002, y: 1.0000006, z: 0.99999934}
+    - name: right_thumb 3
+      parentName: right_thumb 2
+      position: {x: -0.02438824, y: -0.0000024707795, z: -0.00000029067994}
+      rotation: {x: 0.010252929, y: -0.02780676, z: 0.029389055, w: 0.99912864}
+      scale: {x: 1.0000007, y: 1.0000002, z: 1.0000006}
+    - name: right_thumb ENDff
+      parentName: right_thumb 3
+      position: {x: -0.02248608, y: -0.00000009689331, z: 0.00000009689331}
+      rotation: {x: 0.0056017754, y: -0.02095295, z: 0.002553277, w: 0.9997616}
+      scale: {x: 0.9999993, y: 1, z: 1.0000001}
+    - name: Left_thigh
+      parentName: COG
+      position: {x: 0.011082172, y: -0.05096876, z: -0.003682624}
+      rotation: {x: -0.1398691, y: -0.7093937, z: 0.6851521, w: -0.08811332}
+      scale: {x: 1.0000006, y: 1.0000007, z: 1.0000012}
+    - name: left_ Knee
+      parentName: Left_thigh
+      position: {x: -0.4373721, y: -0.00000009689331, z: -0.000000072669984}
+      rotation: {x: 0.0030424634, y: -0.03360236, z: -0.06934712, w: 0.9970219}
+      scale: {x: 1.0000004, y: 1.0000004, z: 1}
+    - name: left_feet 1
+      parentName: left_ Knee
+      position: {x: -0.52826256, y: -0.0000003996849, z: 0.000000012111664}
+      rotation: {x: -0.0032326323, y: -0.004207831, z: 0.68075454, w: 0.7324925}
+      scale: {x: 1.0000004, y: 1.0000014, z: 1}
+    - name: left_feet 2
+      parentName: left_feet 1
+      position: {x: -0.09366839, y: -0.00000019984245, z: -0.000000036334992}
+      rotation: {x: 0.00004822504, y: -0.001506449, z: -0.10265736, w: -0.9947157}
+      scale: {x: 0.9999995, y: 0.9999992, z: 0.9999995}
+    - name: Bone002
+      parentName: left_feet 2
+      position: {x: -0.07799122, y: -0.000000002270937, z: 0}
+      rotation: {x: 0.00000033787356, y: -0.00012422862, z: -0.0000021908345, w: 1}
+      scale: {x: 1.0000005, y: 1.0000011, z: 1.0000007}
+    - name: right_thigh
+      parentName: COG
+      position: {x: 0.011082657, y: 0.05043709, z: -0.0013777502}
+      rotation: {x: -0.13756151, y: 0.6935297, z: 0.7012626, w: 0.09123726}
+      scale: {x: 1.0000011, y: 1.000001, z: 1.0000006}
+    - name: right_ Knee
+      parentName: right_thigh
+      position: {x: -0.43736458, y: 0.00000012111664, z: 0}
+      rotation: {x: -0.003031029, y: -0.033521507, z: 0.06935136, w: 0.99702436}
+      scale: {x: 0.9999996, y: 0.99999994, z: 1.0000002}
+    - name: right_feet 1
+      parentName: right_ Knee
+      position: {x: -0.5282592, y: 0.0000004360199, z: 0.000000012111664}
+      rotation: {x: 0.0039549465, y: -0.0034339665, z: -0.68156636, w: 0.7317377}
+      scale: {x: 1, y: 1.0000005, z: 0.99999934}
+    - name: right_feet 2
+      parentName: right_feet 1
+      position: {x: -0.09365614, y: 0.0000001044631, z: 0}
+      rotation: {x: 0.000033976507, y: 0.00035398887, z: -0.100818224, w: 0.9949048}
+      scale: {x: 1.0000007, y: 1.0000001, z: 1.0000006}
+    - name: Bone001
+      parentName: right_feet 2
+      position: {x: -0.07799098, y: -0.000000025737286, z: 0.000000024223327}
+      rotation: {x: 0.000000015130352, y: -0.0000003171153, z: 0.0000024019714, w: 1}
+      scale: {x: 1.0000005, y: 1.0000001, z: 1.0000001}
+    - name: Point009
+      parentName: Circle007
+      position: {x: 0.33554134, y: -0.15387446, z: 0.4307462}
+      rotation: {x: 0.06750334, y: 0.7119354, z: -0.69607997, w: 0.06374943}
+      scale: {x: 0.21644217, y: 0.21644212, z: 0.2164421}
+    - name: Point010
+      parentName: Circle007
+      position: {x: 0.42461434, y: 0.107247874, z: 0.1390149}
+      rotation: {x: -0.06580884, y: 0.69594336, z: 0.7120975, w: 0.065185994}
+      scale: {x: 0.21644208, y: 0.21644211, z: 0.2164421}
+    - name: Rectangle001
+      parentName: Star001
+      position: {x: -0.17517489, y: -0.4052516, z: -0.000000010531259}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.4063503, y: 1.4063503, z: 1.4063503}
+    - name: Point005
+      parentName: Rectangle001
+      position: {x: 0.0008894806, y: 0.08950006, z: 0.003795323}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.1852668, y: 0.1852668, z: 0.1852668}
+    - name: Point008
+      parentName: Point005
+      position: {x: -0.000028680419, y: -0.9183982, z: 0.09662073}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
+    - name: Point006
+      parentName: Point008
+      position: {x: 0.0010550712, y: 0.4208053, z: -0.011621711}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.81155646, y: 0.81155646, z: 0.81155646}
+    - name: IK Chain013
+      parentName: Point006
+      position: {x: -0, y: 0, z: 0.000000012111664}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 2.3353667, y: 2.3353667, z: 2.3353667}
+    - name: IK Chain014
+      parentName: Point006
+      position: {x: -0.0012998238, y: -0.5185162, z: 0.014320225}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 2.561629, y: 2.561629, z: 2.561629}
+    - name: Point007
+      parentName: Point008
+      position: {x: 0.001054926, y: 0.4208053, z: -0.011621711}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.9999998, y: 0.9999998, z: 0.9999998}
+    - name: IK Chain012
+      parentName: Point007
+      position: {x: -0.0010260033, y: 0.49759278, z: 0.08953739}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 2.4430537, y: 2.4430537, z: 2.4430537}
+    - name: Rectangle002
+      parentName: Star001
+      position: {x: 0.20767747, y: 0.12168616, z: 0.0000000070710198}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 1.4063503, y: 1.4063503, z: 1.4063503}
+    - name: Point004
+      parentName: Rectangle002
+      position: {x: 0.00230078, y: 0.08991701, z: 0.0038124735}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.1852668, y: 0.1852668, z: 0.1852668}
+    - name: Point001
+      parentName: Point004
+      position: {x: 0.0006751526, y: -0.9185145, z: 0.0967022}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+    - name: Point002
+      parentName: Point001
+      position: {x: -0.00063373067, y: 0.42082664, z: -0.010809176}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+    - name: IK Chain009
+      parentName: Point002
+      position: {x: -0.00004142189, y: 0.49768788, z: 0.0886434}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 2.5089753, y: 2.5089753, z: 2.5089753}
+    - name: Point003
+      parentName: Point001
+      position: {x: -0.00063373067, y: 0.42082664, z: -0.010809176}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 0.7990092, y: 0.7990092, z: 0.7990092}
+    - name: IK Chain010
+      parentName: Point003
+      position: {x: -0, y: 0, z: 0.000000024223327}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 2.481639, y: 2.481639, z: 2.481639}
+    - name: IK Chain011
+      parentName: Point003
+      position: {x: 0.00079297484, y: -0.52668554, z: 0.013528219}
+      rotation: {x: 0, y: -0, z: -0, w: 1}
+      scale: {x: 2.6312706, y: 2.6312706, z: 2.6312706}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 3
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

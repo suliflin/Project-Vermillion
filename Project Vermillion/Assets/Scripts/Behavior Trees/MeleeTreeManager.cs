@@ -8,12 +8,14 @@ public class MeleeTreeManager : BaseBehaviorTree
     public override void Start()
     {
         anim = GetComponent<Animator>();
+        capsule = GetComponent<CapsuleCollider>();
+        rb = GetComponent<Rigidbody>();
         sb = GetComponent<SteeringBehaviours>();
 
-        root = new Sequence();
+        root = new Selector();
 
-        root.treeNodes.Add(new Check("Player", detectRange));
-        root.treeNodes.Add(new Attack());
+        root.treeNodes.Add(new Sequence());
+        root.treeNodes.Add(new Sequence());
         root.treeNodes.Add(new Sequence());
         root.treeNodes.Add(new Sequence());
         root.treeNodes.Add(new Climb());
@@ -49,13 +51,31 @@ public class MeleeTreeManager : BaseBehaviorTree
 
         if (currHealth <= 0)
         {
-            transform.position = GameManager.SharedInstance.transform.position;
-            gameObject.SetActive(false);
+            rb.isKinematic = true;
+            capsule.enabled = false;
+            anim.SetBool("IsDead", true);
+            death.Play();
         }
-        
+
+        if (anim.GetCurrentAnimatorStateInfo(0).IsName("Death"))
+        {
+            transform.GetChild(1).GetComponent<SkinnedMeshRenderer>().enabled = false;
+            death.Stop();
+
+            if (death.isStopped)
+            {
+                rb.isKinematic = false;
+                capsule.enabled = true;
+                currHealth = maxHealth;
+                anim.SetBool("IsDead", false);
+                ObjectPooler.SharedInstance.Deactivate(gameObject);
+                transform.GetChild(1).GetComponent<SkinnedMeshRenderer>().enabled = true;
+            }
+        }
+
         if (currHealth > maxHealth)
         {
             currHealth = maxHealth;
         }
-    } 
+    }
 }

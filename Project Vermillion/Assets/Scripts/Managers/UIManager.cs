@@ -2,58 +2,62 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class UIManager : MonoBehaviour
 {
-    public static UIManager Instance;
+    public PlayerController player;
 
-    [SerializeField]
-    Text appleText;
-    private void Awake()
-    {
-        if(Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(this.gameObject);
-            Debug.Log("Instance = this");
-        }
-    }
+    public WavesManager wm;
 
-    // Start is called before the first frame update
+    public Text appleCount;
+    public Text waveCount;
+    public Text waveTimer;
+
+    public Image[] hearts;
+
+    public Sprite emptyHearts;
+    public Sprite fullHeart;
+
+    public int health;
+    public int numOfHearts;
+    public int currentWave;
+    public int timer;
+
     void Start()
     {
-        
+        numOfHearts = GameManager.SharedInstance.playerHealthMax;
     }
 
-    // Update is called once per frame
-    /*void Update()
+    void Update()
     {
-        
-    }
-    public static void AppleIncrease()
-    {
-        Instance.apples += 1;
-        DisplayText();
-    }
+        currentWave = wm.nextWave + 1;
+        timer = (int)GameManager.SharedInstance.waveCountdown;
 
-    public static bool AppleCheck(int amount)
-    {
-        if (Instance.apples < amount)
+        appleCount.text = player.apples.ToString();
+        waveCount.text = currentWave.ToString() + "/10";
+        waveTimer.text = timer.ToString();
+
+        health = GameManager.SharedInstance.playerHealth;
+
+        for (int i = 0; i < hearts.Length; i++)
         {
-            return false;
-        }
-        return true;
-    }
+            if (i < health)
+            {
+                hearts[i].sprite = fullHeart;
+            }
+            else
+            {
+                hearts[i].sprite = emptyHearts;
+            }
 
-    public static void AppleDecrease(int decrease)
-    {
-        Instance.apples -= decrease;
-        DisplayText();
+            if (i < numOfHearts)
+            {
+                hearts[i].enabled = true;
+            }
+            else
+            {
+                hearts[i].enabled = false;
+            }
+        }
     }
-    public static void UpdateAppleCounterUI(int newAppleCount)
-    {
-        Instance.appleText.text = newAppleCount.ToString();
-    }*/
 }

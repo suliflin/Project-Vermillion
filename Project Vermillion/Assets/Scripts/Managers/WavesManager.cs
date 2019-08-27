@@ -8,10 +8,9 @@ public class WavesManager : MonoBehaviour
     public List<string> enemies;
 
     public int numberOfWaves;
+    public int nextWave = 0;
 
     private GameManager gm;
-
-    private int nextWave = 0;
 
     private void Awake()
     {
@@ -22,7 +21,10 @@ public class WavesManager : MonoBehaviour
     {
         for (int i = 0; i < gates.Count; i++)
         {
-            gates[i].SpawnWave(gates[i].waves[nextWave]);
+            for (int k = 0; k < enemies.Count; k++)
+            {
+                gates[i].SpawnWave(gates[i].waves[nextWave], enemies[k]);
+            }
         }
     }
 

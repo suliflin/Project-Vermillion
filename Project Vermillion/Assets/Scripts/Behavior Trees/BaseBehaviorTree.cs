@@ -5,8 +5,15 @@ using UnityEngine;
 public class BaseBehaviorTree : MonoBehaviour
 {
     public BaseNode root;
-
+    public BaseNode current;
+    
     public Animator anim;
+
+    public CapsuleCollider capsule;
+
+    public Rigidbody rb;
+
+    public ParticleSystem death;
 
     public SteeringBehaviours sb;
 
@@ -21,27 +28,23 @@ public class BaseBehaviorTree : MonoBehaviour
 
     public Transform target;
 
+    public bool isDead;
+
     public float moveSpeed;
     public float detectRange;
     public float attackRange;
     public float appleRange;
-    public float treeRange;
     public float healWaitTime;
+    public float deathAnimTime;
 
     [HideInInspector]
     public float healthCountdown;
-
-    [HideInInspector]
-    public Collider smashCollider;
 
     public int wavepointIndex;
     public int maxHealth;
     public int currHealth;
     public int lowHealth;
     public int damage;
-    public int shieldHealth;
-
-    public bool isShielded;
 
     public virtual void Start() { }
 
@@ -56,23 +59,16 @@ public class BaseBehaviorTree : MonoBehaviour
 
         if (other.gameObject.tag == "Bolt" || other.gameObject.tag == "Bullet")
         {
-            if (dis < 2)
+            if (dis < 4)
             {
-                if(isShielded)
-                {
-                    shieldHealth -= 1;
-                }
-                else
-                {
-                    currHealth -= 1;
-                }
-                other.gameObject.SetActive(false);
+                currHealth -= 1;
+                ObjectPooler.SharedInstance.Deactivate(other.gameObject);
             }
         }
 
         for (int i = 0; i < detectableTags.Count; i++)
         {
-            if (other.CompareTag(detectableTags[i]) && !detectedObjects.Contains(other.gameObject))
+            if (other.CompareTag(detectableTags[i]))
             {
                 detectedObjects.Add(other.gameObject);
                 break;
@@ -94,6 +90,11 @@ public class BaseBehaviorTree : MonoBehaviour
 
     public void EndAttack()
     {
-        GameManager.SharedInstance.SetDamage(damage, selectedObject);
+        float dist = Vector3.Distance(transform.position, selectedObject.transform.position);
+
+        if (dist < attackRange)
+        {
+            GameManager.SharedInstance.SetDamage(damage, selectedObject);
+        }
     }
 }

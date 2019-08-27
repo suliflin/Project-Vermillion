@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CrossbowController : MonoBehaviour
 {
-    public Transform firePoint;
+    public Transform firePointA;
+    public Transform firePointB;
 
     public bool isFiring;
 
@@ -12,12 +13,9 @@ public class CrossbowController : MonoBehaviour
     public float timeBetweenShots;
     public float lifeTime;
 
-    private float shotCounter;
+    private int crossbow;
 
-    void Start()
-    {
-        
-    }
+    private float shotCounter;
 
     void Update()
     {
@@ -28,7 +26,7 @@ public class CrossbowController : MonoBehaviour
             if (shotCounter <= 0)
             {
                 shotCounter = timeBetweenShots;
-                GameObject newBolt = ObjectPooler.SharedInstance.SpawnFromPool("Bolt", firePoint.position, firePoint.rotation);
+                GameObject newBolt = ObjectPooler.SharedInstance.SpawnFromPool("Bolt", AlternateShot().position, AlternateShot().rotation);
                 newBolt.GetComponent<BoltController>().speed = boltSpeed;
                 newBolt.GetComponent<BoltController>().duration = lifeTime;
             }
@@ -36,6 +34,20 @@ public class CrossbowController : MonoBehaviour
         else
         {
             shotCounter = 0;
+        }
+    }
+
+    Transform AlternateShot()
+    {
+        if (crossbow == 0)
+        {
+            crossbow = 1;
+            return firePointA;
+        }
+        else
+        {
+            crossbow = 0;
+            return firePointB;
         }
     }
 }

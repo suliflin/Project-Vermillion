@@ -7,8 +7,7 @@ public class EatApple : BaseNode
     public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
     {
         bt.currHealth += 1;
-        bt.selectedObject.transform.position = GameManager.SharedInstance.transform.position;
-        bt.selectedObject.SetActive(false);
+        ObjectPooler.SharedInstance.Deactivate(bt.selectedObject.gameObject);
         current = RESULTS.SUCCEED;
         return current;
     }

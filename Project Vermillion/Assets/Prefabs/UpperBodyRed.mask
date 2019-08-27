@@ -1,0 +1,353 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UpperBodyRed
+  m_Mask: 00000000010000000100000000000000000000000100000001000000010000000100000000000000000000000000000000000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: body
+    m_Weight: 1
+  - m_Path: Circle031
+    m_Weight: 1
+  - m_Path: Circle031/Circle030
+    m_Weight: 1
+  - m_Path: Circle034
+    m_Weight: 1
+  - m_Path: Circle034/Circle033
+    m_Weight: 1
+  - m_Path: Circle037
+    m_Weight: 1
+  - m_Path: Circle037/Circle036
+    m_Weight: 1
+  - m_Path: Circle040
+    m_Weight: 1
+  - m_Path: Circle040/Circle039
+    m_Weight: 1
+  - m_Path: Circle043
+    m_Weight: 1
+  - m_Path: Circle043/Circle042
+    m_Weight: 1
+  - m_Path: hoodie
+    m_Weight: 1
+  - m_Path: IK Chain007
+    m_Weight: 1
+  - m_Path: IK Chain008
+    m_Weight: 1
+  - m_Path: Star001
+    m_Weight: 1
+  - m_Path: Star001/Circle007
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle001
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/arrow001
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Box004
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Box005
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Box006
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Circle013
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Circle013/Circle014
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Circle013/Circle014/Circle015
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Circle016
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Circle016/Circle017
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Circle016/Circle017/Circle018
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Circle019
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Circle019/Circle020
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Circle019/Circle020/Circle021
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Circle022
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Circle022/Circle023
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Circle022/Circle023/Circle024
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Circle025
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Circle025/Circle026
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Circle025/Circle026/Circle027
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/crossbow001
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle001/Circle003/Circle005/Cylinder002
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle001/Point012
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle002
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle002/Circle004
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle002/Circle004/Circle006
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle002/Circle004/Circle006/arrow
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle002/Circle004/Circle006/Box001
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle002/Circle004/Circle006/Box002
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle002/Circle004/Circle006/Box003
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle002/Circle004/Circle006/crossbow
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle002/Circle004/Circle006/Cylinder001
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle002/Point011
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle010
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle010/Circle012
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Circle008/Circle009/Circle010/Circle012/Point013
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+      elbow
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+      elbow/left wrist
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+      elbow/left wrist/left wrist END
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+      elbow/left wrist/left_index 1
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+      elbow/left wrist/left_index 1/left_index 2
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+      elbow/left wrist/left_index 1/left_index 2/left_index 3
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+      elbow/left wrist/left_index 1/left_index 2/left_index 3/left_index END
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+      elbow/left wrist/Left_middle 1
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+      elbow/left wrist/Left_middle 1/left_middle 2
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+      elbow/left wrist/Left_middle 1/left_middle 2/left_middle 3
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+      elbow/left wrist/Left_middle 1/left_middle 2/left_middle 3/left_midddle END
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+      elbow/left wrist/left_pinkie 1
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+      elbow/left wrist/left_pinkie 1/left_pinkie 2
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+      elbow/left wrist/left_pinkie 1/left_pinkie 2/left_pinkie 3
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+      elbow/left wrist/left_pinkie 1/left_pinkie 2/left_pinkie 3/left_pinkie END
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+      elbow/left wrist/left_ring 1
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+      elbow/left wrist/left_ring 1/left_ring 2
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+      elbow/left wrist/left_ring 1/left_ring 2/left_ring 3
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+      elbow/left wrist/left_ring 1/left_ring 2/left_ring 3/left_ring END
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+      elbow/left wrist/left_thumb 1
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+      elbow/left wrist/left_thumb 1/left_thumb 2
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+      elbow/left wrist/left_thumb 1/left_thumb 2/left_thumb 3
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/left Shoulder/left arm/left
+      elbow/left wrist/left_thumb 1/left_thumb 2/left_thumb 3/left_thumb END
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/neck bone
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/neck bone/head bone
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/neck bone/head bone/end head
+      bone
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/neck bone/head bone/eye 1
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/neck bone/head bone/eye 003
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/neck bone/head bone/jaw
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/neck bone/head bone/jaw/jaw
+      end
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+      elbow
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+      elbow/right wrist
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+      elbow/right wrist/right wrist end
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+      elbow/right wrist/right_index 1
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+      elbow/right wrist/right_index 1/right_index 2
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+      elbow/right wrist/right_index 1/right_index 2/right_index 3
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+      elbow/right wrist/right_index 1/right_index 2/right_index 3/right_index END
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+      elbow/right wrist/right_middle 1
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+      elbow/right wrist/right_middle 1/right_middle 2
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+      elbow/right wrist/right_middle 1/right_middle 2/right_middle 3
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+      elbow/right wrist/right_middle 1/right_middle 2/right_middle 3/right_midddle
+      END
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+      elbow/right wrist/right_pinkie 1
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+      elbow/right wrist/right_pinkie 1/right_pinkie 2
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+      elbow/right wrist/right_pinkie 1/right_pinkie 2/right_pinkie 3
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+      elbow/right wrist/right_pinkie 1/right_pinkie 2/right_pinkie 3/right_pinkie
+      END
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+      elbow/right wrist/right_ring 1
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+      elbow/right wrist/right_ring 1/right_ring 2
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+      elbow/right wrist/right_ring 1/right_ring 2/right_ring 3
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+      elbow/right wrist/right_ring 1/right_ring 2/right_ring 3/right_ring END
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+      elbow/right wrist/right_thumb 1
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+      elbow/right wrist/right_thumb 1/right_thumb 2
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+      elbow/right wrist/right_thumb 1/right_thumb 2/right_thumb 3
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Abs bone/chest bone/right Shoulder/right arm/right
+      elbow/right wrist/right_thumb 1/right_thumb 2/right_thumb 3/right_thumb ENDff
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Left_thigh
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Left_thigh/left_ Knee
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Left_thigh/left_ Knee/left_feet 1
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Left_thigh/left_ Knee/left_feet 1/left_feet 2
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/Left_thigh/left_ Knee/left_feet 1/left_feet 2/Bone002
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/right_thigh
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/right_thigh/right_ Knee
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/right_thigh/right_ Knee/right_feet 1
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/right_thigh/right_ Knee/right_feet 1/right_feet
+      2
+    m_Weight: 1
+  - m_Path: Star001/Circle007/COG/right_thigh/right_ Knee/right_feet 1/right_feet
+      2/Bone001
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Point009
+    m_Weight: 1
+  - m_Path: Star001/Circle007/Point010
+    m_Weight: 1
+  - m_Path: Star001/Rectangle001
+    m_Weight: 1
+  - m_Path: Star001/Rectangle001/Point005
+    m_Weight: 1
+  - m_Path: Star001/Rectangle001/Point005/Point008
+    m_Weight: 1
+  - m_Path: Star001/Rectangle001/Point005/Point008/Point006
+    m_Weight: 1
+  - m_Path: Star001/Rectangle001/Point005/Point008/Point006/IK Chain013
+    m_Weight: 1
+  - m_Path: Star001/Rectangle001/Point005/Point008/Point006/IK Chain014
+    m_Weight: 1
+  - m_Path: Star001/Rectangle001/Point005/Point008/Point007
+    m_Weight: 1
+  - m_Path: Star001/Rectangle001/Point005/Point008/Point007/IK Chain012
+    m_Weight: 1
+  - m_Path: Star001/Rectangle002
+    m_Weight: 1
+  - m_Path: Star001/Rectangle002/Point004
+    m_Weight: 1
+  - m_Path: Star001/Rectangle002/Point004/Point001
+    m_Weight: 1
+  - m_Path: Star001/Rectangle002/Point004/Point001/Point002
+    m_Weight: 1
+  - m_Path: Star001/Rectangle002/Point004/Point001/Point002/IK Chain009
+    m_Weight: 1
+  - m_Path: Star001/Rectangle002/Point004/Point001/Point003
+    m_Weight: 1
+  - m_Path: Star001/Rectangle002/Point004/Point001/Point003/IK Chain010
+    m_Weight: 1
+  - m_Path: Star001/Rectangle002/Point004/Point001/Point003/IK Chain011
+    m_Weight: 1

@@ -2,15 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
 
+    public LayerMask layerMask;
+
     public ObjectPooler pooler;
 
-    [SerializeField]
-    public Collider smashColliderBoss;
     public GameObject tpA;
     public GameObject tpB;
     public GameObject teleporter;
@@ -18,18 +17,16 @@ public class PlayerController : MonoBehaviour
     public GameObject minimap;
     public GameObject selectedObj;
 
+    public Animator anim;
+
     public Camera mainCamera;
 
     public CrossbowController crossbow;
 
-    public LayerMask layerMask;
-
-    public Vector3 buildDistance;
-
-    public int health;
     public int barricadeCost;
     public int teleporterCost;
     public int turretCost;
+    public int apples;
 
     public float moveSpeed;
     public float teleporterTimer = 0;
@@ -46,15 +43,12 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveVelocity;
     private Vector3 cameraOffset;
     private Vector3 velocity = Vector3.zero;
-
-    public Text realAppleText;
-
-    [SerializeField]
-    int apples;
+    private Vector3 buildDistance;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        crossbow = GetComponent<CrossbowController>();
         pooler = ObjectPooler.SharedInstance;
 
         cameraOffset = mainCamera.transform.position - transform.position;
@@ -62,18 +56,19 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        //  realAppleText.text = "x" + AppleCurrency.apples.ToString();
-
-        if (health <= 0)
-        {
-            //Application.Quit();
-            UnityEditor.EditorApplication.isPlaying = false;
-        }
-
         buildDistance = (transform.position + (transform.forward * 2));
 
-        moveInput = new Vector3(Input.GetAxisRaw("HorizontalLeft"), 0, Input.GetAxisRaw("VerticalLeft"));
+        moveInput = new Vector3(Input.GetAxis("HorizontalLeft"), 0, Input.GetAxis("VerticalLeft"));
         moveVelocity = moveInput * moveSpeed;
+        
+        if (moveInput.magnitude != 0)
+        {
+            anim.SetFloat("LeftStick", 1);
+        }
+        else
+        {
+            anim.SetFloat("LeftStick", 0);
+        }
 
         if (!useController)
         {
@@ -90,11 +85,13 @@ public class PlayerController : MonoBehaviour
             if (Input.GetMouseButtonDown(0) && !radial)
             {
                 crossbow.isFiring = true;
+                anim.SetLayerWeight(1, 1);
             }
 
             if (Input.GetMouseButtonUp(0) && !radial)
             {
                 crossbow.isFiring = false;
+                anim.SetLayerWeight(1, 0);
             }
         }
         else
@@ -111,10 +108,12 @@ public class PlayerController : MonoBehaviour
             if (playerDirection.sqrMagnitude > 0.0f && !radial)
             {
                 crossbow.isFiring = true;
+                anim.SetLayerWeight(1, 1);
             }
             else
             {
                 crossbow.isFiring = false;
+                anim.SetLayerWeight(1, 0);
             }
         }
 
@@ -151,26 +150,19 @@ public class PlayerController : MonoBehaviour
         else
         {
             radial = false;
-            //radialMenu.SetActive(false);
+            radialMenu.SetActive(false);
 
-            if (Input.GetButtonDown("Square"))
+            if (Input.GetButtonDown("Triangle") && GameManager.SharedInstance.state == GameManager.WaveState.Countdown)
             {
-                //Interact
+                apples += (int)GameManager.SharedInstance.waveCountdown / 10;
+
+                GameManager.SharedInstance.waveCountdown = 0;
             }
 
-            if (Input.GetButtonDown("Triangle"))
-            {
-                if (GameManager.SharedInstance.state == GameManager.WaveState.Countdown)
-                {
-                    apples += (int)GameManager.SharedInstance.waveCountdown / 10;
-
-                    GameManager.SharedInstance.waveCountdown = 0;
-                }
-            }
-
-            if (Input.GetButtonDown("Circle"))
+            if (Input.GetButtonDown("Circle") && AppleCheck(1))
             {
                 transform.position = GameManager.SharedInstance.recallPoint.transform.position;
+                AppleDecrease(1);
             }
 
             if (Input.GetButton("X"))
@@ -179,7 +171,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                //minimap.SetActive(false);
+                minimap.SetActive(false);
             }
         }
     }
@@ -205,17 +197,16 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Apples"))
         {
-            //UIManager.UpdateAppleCounterUI(++apples);
             apples++;
-            other.transform.position = GameManager.SharedInstance.transform.position;
-            other.gameObject.SetActive(false);
+            ObjectPooler.SharedInstance.Deactivate(other.gameObject);
         }
 
-        if (other.gameObject.CompareTag("Smash"))
-        {
-            health -= 5;
-            smashColliderBoss.enabled = false;
-        }
+        selectedObj = other.gameObject;
+    }
+
+    public void OnTriggerExit(Collider other)
+    {
+        selectedObj = null;
     }
 
     public bool AppleCheck(int v)
