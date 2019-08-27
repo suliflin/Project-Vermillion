@@ -25,6 +25,7 @@ public class BaseBehaviorTree : MonoBehaviour
     public float detectRange;
     public float attackRange;
     public float appleRange;
+    public float treeRange;
     public float healWaitTime;
 
     [HideInInspector]
@@ -94,10 +95,5 @@ public class BaseBehaviorTree : MonoBehaviour
     public void EndAttack()
     {
         GameManager.SharedInstance.SetDamage(damage, selectedObject);
-    }
-
-    public void SmashAttacking()
-    {
-        smashCollider.enabled = true;
     }
 }

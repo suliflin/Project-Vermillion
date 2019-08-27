@@ -10,10 +10,10 @@ public class MeleeTreeManager : BaseBehaviorTree
         anim = GetComponent<Animator>();
         sb = GetComponent<SteeringBehaviours>();
 
-        root = new Selector();
+        root = new Sequence();
 
-        root.treeNodes.Add(new Sequence());
-        root.treeNodes.Add(new Sequence());
+        root.treeNodes.Add(new Check("Player", detectRange));
+        root.treeNodes.Add(new Attack());
         root.treeNodes.Add(new Sequence());
         root.treeNodes.Add(new Sequence());
         root.treeNodes.Add(new Climb());
