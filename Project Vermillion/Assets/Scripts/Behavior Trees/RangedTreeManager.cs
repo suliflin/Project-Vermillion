@@ -17,11 +17,26 @@ public class RangedTreeManager : BaseBehaviorTree
         //Start Tree Skeleton
 
         root = new Sequence();
-        root.childNodes.Add(new Check("Player", maxRange));
-       // 
+        root.childNodes.Add(new Check("Build", maxRange));
+        root.childNodes.Add(new Barrage());
+
+
+       /* root.childNodes.Add(new Check("Player", maxRange));
         root.childNodes.Add(new AttackRanged());
         root.childNodes.Add(new RaycastForward());
-        root.childNodes.Add(new ArcShot());
+        root.childNodes.Add(new ArcShot());*/
+
+  
+
+
+        //root.childNodes.Add(new Sequence());
+
+        //  root.childNodes[1].childNodes.Add(new AttackRanged());
+
+        //  root.childNodes.Add(new AttackRanged());
+
+
+        //    
         // root.childNodes.Add(new Sequence());
 
         root.childNodes[1].childNodes.Add(new Check("Player", maxRange));
@@ -64,7 +79,7 @@ public class RangedTreeManager : BaseBehaviorTree
             currHealth = maxHealth;
         }
 
-        Debug.Log(root.current);
+
     }
 
     public void ArcAttack()
@@ -83,10 +98,31 @@ public class RangedTreeManager : BaseBehaviorTree
     public void RangedAttack()
     {
         Vector3 a = myTarget.transform.position - transform.position;
+        a.y -= 2;
 
         GameObject ball = GameObject.Instantiate(testball, firePoint.transform.position, transform.rotation);
 
-        ball.GetComponent<Rigidbody>().AddForce(a * 100);
         ball.GetComponent<Rigidbody>().useGravity = false;
+
+        ball.GetComponent<Rigidbody>().AddForce(a * 100);
+        
+    }
+
+    public void RangedBarrage()
+    {
+        for (int i = 0; i < detectedObjects.Count; i++)
+        {
+            if (detectedObjects[i].tag == "Build")
+            {
+                Vector3 a = detectedObjects[i].transform.position - transform.position;
+                a.y -= 2;
+
+                GameObject ball = GameObject.Instantiate(testball, firePoint.transform.position, transform.rotation);
+
+                ball.GetComponent<Rigidbody>().useGravity = false;
+
+                ball.GetComponent<Rigidbody>().AddForce(a * 100);
+            }
+        }
     }
 }

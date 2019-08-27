@@ -30,6 +30,7 @@ public class BaseBehaviorTree : MonoBehaviour
     public float healWaitTime;
 
     public GameObject myTarget;
+
     //public GameObject theBuild;
     //public List<BaseBehaviorTree> Builds = new List<BaseBehaviorTree>();
     public bool isArcShooting;
@@ -50,7 +51,7 @@ public class BaseBehaviorTree : MonoBehaviour
 
     public virtual void Update()
     {
-        root.UpdateBehavior(this);
+        root.UpdateBehavior(this);     
     }
 
     public virtual void OnTriggerEnter(Collider other)
@@ -79,7 +80,15 @@ public class BaseBehaviorTree : MonoBehaviour
         {
             waitingTime = true;
         }
+        if (other.gameObject.CompareTag("Build"))
+        {
+            waitingTime = true;
+        }
     }
+
+ 
+
+    
 
     public virtual void OnTriggerExit(Collider other)
     {
@@ -98,7 +107,6 @@ public class BaseBehaviorTree : MonoBehaviour
             timeToWait = 4f;
         }
     }
-
     public void EndAttack()
     {
         float dist = Vector3.Distance(transform.position, selectedObject.transform.position);
