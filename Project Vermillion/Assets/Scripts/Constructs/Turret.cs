@@ -21,6 +21,11 @@ public class Turret : MonoBehaviour
 
     private float fireCountDown = 0f;
 
+    void Start()
+    {
+        InvokeRepeating("TargetUpdate", 0f, 0.5f);
+    }
+
     public void TargetUpdate()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTags);
@@ -71,8 +76,6 @@ public class Turret : MonoBehaviour
             fireRate = 0.25f;
             range = 20;
         }
-
-        TargetUpdate();
     }
     private void OnDrawGizmosSelected()
     {
