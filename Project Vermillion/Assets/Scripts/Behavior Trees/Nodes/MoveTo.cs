@@ -13,6 +13,7 @@ public class MoveTo : BaseNode
 
     public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
     {
+        Debug.Log(range);
         float distanceToObject = Vector3.Distance(bt.transform.position, bt.selectedObject.transform.position);
 
         if (distanceToObject < range)

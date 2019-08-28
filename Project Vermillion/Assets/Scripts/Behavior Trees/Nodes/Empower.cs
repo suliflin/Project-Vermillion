@@ -6,7 +6,6 @@ public class Empower : BaseNode
 {
     public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
     {
-       // if(Physics.SphereCast(bt.gameObject, bt.detectRange, ))
         {
             ((BossTreeManager)bt).empowerCountdown -= Time.deltaTime;
 
@@ -17,7 +16,6 @@ public class Empower : BaseNode
                     bt.damage += ((BossTreeManager)bt).empowerDamageIncrease;
                     bt.maxHealth += ((BossTreeManager)bt).empowerMaxHealthIncrease;
                     bt.currHealth += ((BossTreeManager)bt).empowerHealthIncrease;
-                    Debug.Log("Empowered");
                     ((BossTreeManager)bt).empowerCountdown = ((BossTreeManager)bt).empowerWaitTime;
                 }
             }

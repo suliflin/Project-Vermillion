@@ -6,7 +6,7 @@ public class Retreat : BaseNode
 {
     public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
     {
-        if (bt.currHealth <= bt.lowHealth)
+        if (bt.currHealth >= bt.lowHealth)
         {
             current = RESULTS.FAILED;
             return current;
@@ -29,7 +29,6 @@ public class Retreat : BaseNode
         {
             GetNextWaypoint(bt);
         }
-
         return current;
     }
 

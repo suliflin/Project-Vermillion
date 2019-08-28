@@ -37,6 +37,7 @@ public class BaseBehaviorTree : MonoBehaviour
     public float appleRange;
     public float healWaitTime;
     public float deathAnimTime;
+    public float enemyReach;
 
     [HideInInspector]
     public float healthCountdown;

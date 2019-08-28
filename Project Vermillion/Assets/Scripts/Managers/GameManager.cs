@@ -142,7 +142,7 @@ public class GameManager : MonoBehaviour
 
         if (state == WaveState.SpawnApple)
         {
-            asm.AppleSpawn();
+            //asm.AppleSpawn();
             state = WaveState.SpawnWave;
         }
 
@@ -169,7 +169,7 @@ public class GameManager : MonoBehaviour
 
         if (state == WaveState.Countdown && waveCountdown <= 0)
         {
-            dm.AdvanceConversation();
+          //  dm.AdvanceConversation();
             state = WaveState.SpawnApple;
         }
 

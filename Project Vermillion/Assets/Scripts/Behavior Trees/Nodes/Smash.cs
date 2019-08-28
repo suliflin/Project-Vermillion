@@ -6,8 +6,6 @@ public class Smash : BaseNode
 {
     public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
     {
-        ((BossTreeManager)bt).smashCountdown -= Time.deltaTime;
-
         Vector3 dir = bt.selectedObject.transform.position - bt.transform.position;
         dir.y = 0;
 
@@ -18,22 +16,16 @@ public class Smash : BaseNode
             bt.transform.rotation = Quaternion.Slerp(bt.transform.rotation, Quaternion.LookRotation(dir), 0.1f);
         }
 
-        if (((BossTreeManager)bt).smashCountdown < 0)
-        {
-            ((BossTreeManager)bt).smashCountdown = 5;
-            ((BossTreeManager)bt).smashChannelingTime -= Time.deltaTime;
-            if (((BossTreeManager)bt).smashChannelingTime < 0)
-            {
-                if (((BossTreeManager)bt).isSmashReady)
-                {
-                    bt.anim.SetBool("IsSmashing", true);
-                }
-                else
-                {
-                    bt.anim.SetBool("IsSmashing", false);
-                }
-            }
+        ((BossTreeManager)bt).smashCountDown -= Time.deltaTime;
 
+        if (((BossTreeManager)bt).smashCountDown < 0)
+        {
+            bt.anim.SetBool("IsSmashing", true);
+            ((BossTreeManager)bt).smashCountDown = ((BossTreeManager)bt).smashWaitTime;
+        }
+        else if(bt.anim.GetCurrentAnimatorStateInfo(0).IsName("Smash"))
+        {
+            bt.anim.SetBool("IsSmashing", false);
         }
 
         current = RESULTS.SUCCEED;

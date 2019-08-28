@@ -11,14 +11,12 @@ public class Provoke : BaseNode
         if (bt.selectedObject.name == "Turret(Clone)")
         {
             bt.selectedObject.GetComponent<Turret>().boss = bt.gameObject;
-            current = RESULTS.SUCCEED;
-            return current;
         }
         else if (bt.selectedObject.name == "Turret(Clone)" && d > ((BossTreeManager)bt).maxRange)
         {
             bt.selectedObject.GetComponent<Turret>().boss = null;
         }
-        current = RESULTS.FAILED;
+        current = RESULTS.SUCCEED;
         return current;
     }
 }

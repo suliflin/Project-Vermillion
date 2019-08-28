@@ -14,9 +14,9 @@ public class BossTreeManager : BaseBehaviorTree
 
     [HideInInspector]
     public float shieldCountdown;
-    public float smashCountdown;
+    public float smashWaitTime;
     public float empowerCountdown;
-    public float smashChannelingTime;
+    public float smashCountDown;
 
     public bool isSmashReady = true;
 
@@ -37,34 +37,27 @@ public class BossTreeManager : BaseBehaviorTree
         root.treeNodes.Add(new Sequence());
         root.treeNodes.Add(new Sequence());
         root.treeNodes.Add(new Sequence());
+        root.treeNodes.Add(new Climb());
+
+        root.treeNodes[0].treeNodes.Add(new Retreat());
+        root.treeNodes[0].treeNodes.Add(new Heal());
 
         root.treeNodes[1].treeNodes.Add(new Check("Player", detectRange));
         root.treeNodes[1].treeNodes.Add(new Smash());
 
-        root.treeNodes[2].treeNodes.Add(new Check("Enemy", detectRange));
-        root.treeNodes[2].treeNodes.Add(new Shield());
+        root.treeNodes[2].treeNodes.Add(new Selector());
+        root.treeNodes[2].treeNodes.Add(new MoveTo(enemyReach));
+        root.treeNodes[2].treeNodes.Add(new Attack());
 
-        root.treeNodes[3].treeNodes.Add(new Check("Player", detectRange));
-        root.treeNodes[3].treeNodes.Add(new Smash());
+        root.treeNodes[3].treeNodes.Add(new Check("Build", detectRange));
+        root.treeNodes[3].treeNodes.Add(new Provoke());
 
-        root.treeNodes[4].treeNodes.Add(new Selector());
-        root.treeNodes[4].treeNodes.Add(new Climb());
+        root.treeNodes[4].treeNodes.Add(new Check("Enemy", detectRange));
+        root.treeNodes[4].treeNodes.Add(new Shield());
 
-        root.treeNodes[4].treeNodes[0].treeNodes.Add(new Sequence());
-        root.treeNodes[4].treeNodes[0].treeNodes.Add(new Sequence());
-        root.treeNodes[4].treeNodes[0].treeNodes.Add(new Sequence());
-
-        root.treeNodes[3].treeNodes[0].treeNodes[0].treeNodes.Add(new Check("Tree", detectRange));
-        root.treeNodes[3].treeNodes[0].treeNodes[0].treeNodes.Add(new MoveTo(treeRange));
-        root.treeNodes[3].treeNodes[0].treeNodes[0].treeNodes.Add(new Attack());
-
-        root.treeNodes[3].treeNodes[0].treeNodes[1].treeNodes.Add(new Check("Build", detectRange));
-        root.treeNodes[3].treeNodes[0].treeNodes[1].treeNodes.Add(new MoveTo(attackRange));
-        root.treeNodes[3].treeNodes[0].treeNodes[1].treeNodes.Add(new Attack());
-
-        root.treeNodes[3].treeNodes[0].treeNodes[2].treeNodes.Add(new Check("Player", detectRange));
-        root.treeNodes[3].treeNodes[0].treeNodes[2].treeNodes.Add(new MoveTo(attackRange));
-        root.treeNodes[3].treeNodes[0].treeNodes[2].treeNodes.Add(new Attack());
+        root.treeNodes[2].treeNodes[0].treeNodes.Add(new Check("Player", detectRange));
+        root.treeNodes[2].treeNodes[0].treeNodes.Add(new Check("Tree", detectRange));
+        root.treeNodes[2].treeNodes[0].treeNodes.Add(new Check("Build", detectRange));
 
         target = spawner.nodes[0].transform;
         player = GameObject.FindGameObjectWithTag("Player");
@@ -91,5 +84,10 @@ public class BossTreeManager : BaseBehaviorTree
     public void SmashAttacking()
     {
         smashCollider.enabled = true;
+    }
+
+    public void SmashEnding()
+    {
+        smashCollider.enabled = false;
     }
 }
