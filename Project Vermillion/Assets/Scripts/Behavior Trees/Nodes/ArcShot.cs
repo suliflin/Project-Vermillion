@@ -24,7 +24,7 @@ public class ArcShot : BaseNode
             bt.anim.SetBool("IsAttacking", false);
             bt.anim.SetBool("isBarraging", false);
             bt.anim.SetBool("ArcShot", true);
-  
+            bt.anim.SetBool("IsMoving", false);
 
         }
 

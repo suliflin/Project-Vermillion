@@ -14,46 +14,31 @@ public class RangedTreeManager : BaseBehaviorTree
         anim = GetComponent<Animator>();
         sb = GetComponent<SteeringBehaviours>();
 
-        //Start Tree Skeleton
+        root = new Selector();
 
-        root = new Sequence();
-        root.childNodes.Add(new Check("Build", maxRange));
-        root.childNodes.Add(new Barrage());
+        root.childNodes.Add(new Sequence());
+        root.childNodes.Add(new Sequence());
+        root.childNodes.Add(new Sequence());
+        root.childNodes.Add(new Sequence());
+        root.childNodes.Add(new Climb());
 
-
-       /* root.childNodes.Add(new Check("Player", maxRange));
-        root.childNodes.Add(new AttackRanged());
-        root.childNodes.Add(new RaycastForward());
-        root.childNodes.Add(new ArcShot());*/
-
-  
-
-
-        //root.childNodes.Add(new Sequence());
-
-        //  root.childNodes[1].childNodes.Add(new AttackRanged());
-
-        //  root.childNodes.Add(new AttackRanged());
-
-
-        //    
-        // root.childNodes.Add(new Sequence());
+        root.childNodes[0].childNodes.Add(new CheckHP());
+        root.childNodes[0].childNodes.Add(new Retreat());
+        root.childNodes[0].childNodes.Add(new Heal());
 
         root.childNodes[1].childNodes.Add(new Check("Player", maxRange));
-        root.childNodes[1].childNodes.Add(new RaycastForward());
-        root.childNodes[1].childNodes.Add(new ArcShot());
+        root.childNodes[1].childNodes.Add(new Selector());
+        root.childNodes[1].childNodes[1].childNodes.Add(new Sequence());
+        root.childNodes[1].childNodes[1].childNodes.Add(new AttackRanged());
 
+        root.childNodes[1].childNodes[1].childNodes[0].childNodes.Add(new RaycastForward());
+        root.childNodes[1].childNodes[1].childNodes[0].childNodes.Add(new ArcShot());
 
-        root.childNodes[2].childNodes.Add(new Selector());
-        root.childNodes[2].childNodes.Add(new Climb());
-        root.childNodes[2].childNodes.Add(new AttackRanged());
+        root.childNodes[2].childNodes.Add(new Check("Tree", maxRange));
+        root.childNodes[2].childNodes.Add(new Barrage());
 
-        root.childNodes[2].childNodes[0].childNodes.Add(new Check("Tree", maxRange));
-        root.childNodes[2].childNodes[0].childNodes.Add(new Check("Player", maxRange));
-        root.childNodes[2].childNodes[0].childNodes.Add(new Check("Turret", maxRange));
-        root.childNodes[2].childNodes[0].childNodes.Add(new Check("Barricade", maxRange));
-
-        //End Tree Skeleton
+        root.childNodes[3].childNodes.Add(new Check("Build", maxRange));
+        root.childNodes[3].childNodes.Add(new Barrage());
 
         target = spawner.nodes[0].transform;
 
@@ -86,13 +71,13 @@ public class RangedTreeManager : BaseBehaviorTree
     {
         Vector3 d = myTarget.transform.position - transform.position;
 
-        d.y += 6;
+        d.y += 12;
 
         GameObject ball = GameObject.Instantiate(testarcball, firePoint.transform.position, transform.rotation);
 
         ball.GetComponent<Rigidbody>().useGravity = true;
 
-        ball.GetComponent<Rigidbody>().AddForce(d * 37);
+        ball.GetComponent<Rigidbody>().AddForce(d * 27);
     }
 
     public void RangedAttack()

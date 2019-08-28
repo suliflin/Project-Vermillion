@@ -6,7 +6,7 @@ public class TestingBullet : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.tag == "Player" || other.gameObject.tag == "Build")
         {
            
             Destroy(gameObject);

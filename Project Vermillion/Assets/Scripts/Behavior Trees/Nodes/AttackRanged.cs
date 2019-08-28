@@ -24,7 +24,7 @@ public class AttackRanged : BaseNode
         {
              bt.anim.SetBool("ArcShot", false);
             bt.anim.SetBool("isBarraging", false);
-
+            bt.anim.SetBool("IsMoving", false);
             bt.anim.SetBool("IsAttacking", true);
            
 

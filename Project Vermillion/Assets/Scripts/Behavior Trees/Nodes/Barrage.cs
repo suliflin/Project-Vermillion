@@ -24,6 +24,7 @@ public class Barrage : BaseNode
             bt.anim.SetBool("ArcShot", false);
             bt.anim.SetBool("IsAttacking", false);
             bt.anim.SetBool("isBarraging", true);
+            bt.anim.SetBool("IsMoving", false);
 
 
         }
