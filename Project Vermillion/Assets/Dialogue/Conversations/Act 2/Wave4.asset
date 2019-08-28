@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a3bec89750c6ee429b6793893afc6d7, type: 3}
+  m_Name: Wave4
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+  speakerRight: {fileID: 11400000, guid: 13c8d93a75e4cd243be7990466a0d1be, type: 2}
+  speakerRightTwo: {fileID: 0}
+  lines:
+  - character: {fileID: 11400000, guid: 13c8d93a75e4cd243be7990466a0d1be, type: 2}
+    text: "I see my brothers are having their difficulties\u2026 Arbos, you coward!
+      You had something up your sleeve! I\u2019ll come for you myself!!"
+  - character: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+    text: "Looks like giving me the additional power to fight back harder made him
+      come out. This is going to be rough but it\u2019s time to push him back!"

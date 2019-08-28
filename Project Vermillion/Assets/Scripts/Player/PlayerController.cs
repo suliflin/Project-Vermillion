@@ -53,6 +53,8 @@ public class PlayerController : MonoBehaviour
         crossbow = GetComponent<CrossbowController>();
         pooler = ObjectPooler.SharedInstance;
 
+        useController = SceneLoader.SharedInstance.UseController;
+
         cameraOffset = mainCamera.transform.position - transform.position;
     }
 

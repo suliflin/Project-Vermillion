@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a3bec89750c6ee429b6793893afc6d7, type: 3}
+  m_Name: Wave2
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 0}
+  speakerRight: {fileID: 11400000, guid: e95164f4d8f242340aa79681494e1cc6, type: 2}
+  speakerRightTwo: {fileID: 0}
+  lines:
+  - character: {fileID: 11400000, guid: e95164f4d8f242340aa79681494e1cc6, type: 2}
+    text: "Seems that they are putting a lot of effort towards the south. Be careful\r
+      as they are attacking on two sides."
+  - character: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+    text: "Seems they are slowly getting organised this time, that might be a\r bad
+      sign."
+  - character: {fileID: 11400000, guid: e95164f4d8f242340aa79681494e1cc6, type: 2}
+    text: Must be Lykos. He must be close.
+  - character: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+    text: "Who is Lykos? You\u2019re going to have to explain your history when I\r
+      catch a proper breather!"

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a3bec89750c6ee429b6793893afc6d7, type: 3}
+  m_Name: Wave10
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+  speakerRight: {fileID: 11400000, guid: 13c8d93a75e4cd243be7990466a0d1be, type: 2}
+  speakerRightTwo: {fileID: 0}
+  lines:
+  - character: {fileID: 11400000, guid: 13c8d93a75e4cd243be7990466a0d1be, type: 2}
+    text: NO! IT WILL NOT END LIKE THIS GIRL! I WILL DESTROY YOU!!
+  - character: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+    text: "All you see is hate\u2026 You can\u2019t even see what you have become\u2026
+      Just another monster to be slain in this world\u2026 If your brother can see
+      you now\u2026"
+  - character: {fileID: 11400000, guid: 13c8d93a75e4cd243be7990466a0d1be, type: 2}
+    text: "Don\u2019t you dare! You don\u2019t know what it\u2019s like to lose family!"
+  - character: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+    text: "That\u2019s the thing\u2026 I do. With this responsibility, I will make
+      sure to protect those I can protect and shoulder the pain of those I couldn\u2019t."
+  - character: {fileID: 11400000, guid: 13c8d93a75e4cd243be7990466a0d1be, type: 2}
+    text: Empty words! Nothing but empty words!
+  - character: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+    text: Then, let action show result.

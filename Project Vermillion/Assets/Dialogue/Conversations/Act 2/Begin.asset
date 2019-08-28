@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a3bec89750c6ee429b6793893afc6d7, type: 3}
+  m_Name: Begin
+  m_EditorClassIdentifier: 
+  speakerLeft: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+  speakerRight: {fileID: 11400000, guid: e95164f4d8f242340aa79681494e1cc6, type: 2}
+  speakerRightTwo: {fileID: 11400000, guid: 13c8d93a75e4cd243be7990466a0d1be, type: 2}
+  lines:
+  - character: {fileID: 11400000, guid: e95164f4d8f242340aa79681494e1cc6, type: 2}
+    text: You doing well lass?
+  - character: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+    text: "Ugh! I\u2019ll never get use to that."
+  - character: {fileID: 11400000, guid: e95164f4d8f242340aa79681494e1cc6, type: 2}
+    text: I suppose that suicidal defense was a plan to discover something.
+  - character: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+    text: "Yes and I\u2019m right. There are reasons why there are small gaps in between
+      each attack."
+  - character: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+    text: Lykos needs to regenerate his power in order to revive his otherwise eliminated
+      soldiers.
+  - character: {fileID: 11400000, guid: e95164f4d8f242340aa79681494e1cc6, type: 2}
+    text: "That is an interesting observation. It\x19s no wonder he\x19s been staying
+      in the back for awhile now."
+  - character: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
+    text: "If we can force him into the field, we might be able to weaken him further
+      unless he has some untapped power he\x19s saving for a final confrontation."
+  - character: {fileID: 11400000, guid: e95164f4d8f242340aa79681494e1cc6, type: 2}
+    text: "I guess we\x19ll have to find out as you defend, Vermillion."
+  - character: {fileID: 11400000, guid: 13c8d93a75e4cd243be7990466a0d1be, type: 2}
+    text: I FOUND YOU, YOU WENCH!

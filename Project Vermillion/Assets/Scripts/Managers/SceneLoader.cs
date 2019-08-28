@@ -24,6 +24,8 @@ public class SceneLoader : MonoBehaviour
     public GameState gState = GameState.Start;
     public GameAct Act = GameAct.Narration;
 
+    public bool UseController;
+
     private GameManager gm;
 
     #region Singleton
