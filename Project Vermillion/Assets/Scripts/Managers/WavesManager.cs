@@ -33,6 +33,7 @@ public class WavesManager : MonoBehaviour
         if (nextWave + 1 > numberOfWaves - 1)
         {
             nextWave = 0;
+            GameManager.SharedInstance.completed = true;
         }
         else
         {

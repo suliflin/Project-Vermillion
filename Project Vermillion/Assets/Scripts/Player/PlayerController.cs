@@ -154,7 +154,7 @@ public class PlayerController : MonoBehaviour
             radial = false;
             radialMenu.SetActive(false);
 
-            if (Input.GetButtonDown("Triangle") && GameManager.SharedInstance.state == GameManager.WaveState.Countdown)
+            if (Input.GetButtonDown("Triangle") && GameManager.SharedInstance.wState == GameManager.WaveState.Countdown)
             {
                 apples += (int)GameManager.SharedInstance.waveCountdown / 10;
 

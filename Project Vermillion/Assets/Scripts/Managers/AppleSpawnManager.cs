@@ -46,7 +46,7 @@ public class AppleSpawnManager : MonoBehaviour
     public void InitializeList(List<int> chosen, int size)
     {
         chosen.Clear();
-
+    
         for (int i = 0; i < size; i++)
         {
             chosen.Add(i);

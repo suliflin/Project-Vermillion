@@ -25,24 +25,6 @@ public class DialogueManager : MonoBehaviour
         speakerUILeft = speakerLeft.GetComponent<SpeakerUI>();
         speakerUIRight = speakerRight.GetComponent<SpeakerUI>();
         gm = GameManager.SharedInstance;
-
-        switch (gm.Act)
-        {
-            case GameManager.GameAct.One:
-                conversations = gm.conversationsActOne;
-                break;
-
-            case GameManager.GameAct.Two:
-                conversations = gm.conversationsActTwo;
-                break;
-
-            case GameManager.GameAct.Three:
-                conversations = gm.conversationsActThree;
-                break;
-
-            default:
-                break;
-        }
     }
 
     void Update()

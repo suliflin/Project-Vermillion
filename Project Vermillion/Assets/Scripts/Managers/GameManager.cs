@@ -5,13 +5,6 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     #region Variables
-    public enum GameAct
-    {
-        One,
-        Two,
-        Three
-    }
-
     public enum WaveState
     {
         SpawnWave,
@@ -21,14 +14,13 @@ public class GameManager : MonoBehaviour
         Complete
     }
 
-    public WaveState state;
-    public GameAct Act = GameAct.One;
+    public WaveState wState = WaveState.Countdown;
+
+    public static GameManager SharedInstance;
+
+    public SceneLoader sl;
 
     public List<ParticleSystem> DeathEffect;
-
-    public List<Conversation> conversationsActOne;
-    public List<Conversation> conversationsActTwo;
-    public List<Conversation> conversationsActThree;
 
     public GameObject player;
     public GameObject recallPoint;
@@ -56,85 +48,73 @@ public class GameManager : MonoBehaviour
     private DialogueManager dm;
     #endregion
 
-    #region Singleton
-    public static GameManager SharedInstance;
+    #region Unity Functions
 
-    private void Awake()
+    void Awake()
     {
         SharedInstance = this;
-    }
-    #endregion
-
-    #region Unity Functions
-    void Start()
-    {
-        wm = GetComponentInChildren<WavesManager>();
-        asm = GetComponentInChildren<AppleSpawnManager>();
-        dm = GetComponentInChildren<DialogueManager>();
-
-        state = WaveState.Countdown;
-
-        waveCountdown = 10;
-
-        playerHealth = playerHealthMax;
-        appleCountdown = appleWait;
-        spawnCountdown = spawnWait;
-        respawnCountdown = respawnWait;
+        sl = SceneLoader.SharedInstance;
     }
 
     void Update()
     {
-        if (treeHealth <= 0)
+        if (sl.gState == SceneLoader.GameState.Start)
         {
-            //Application.Quit();
-            UnityEditor.EditorApplication.isPlaying = false;
+            wm = GetComponentInChildren<WavesManager>();
+            asm = GetComponentInChildren<AppleSpawnManager>();
+            dm = GetComponentInChildren<DialogueManager>();
+
+            waveCountdown = 10;
+
+            playerHealth = playerHealthMax;
+            appleCountdown = appleWait;
+            spawnCountdown = spawnWait;
+            respawnCountdown = respawnWait;
+
+            sl.gState = SceneLoader.GameState.Play;
         }
 
-        if (playerHealth <= 0)
+        if (sl.gState == SceneLoader.GameState.Play)
         {
-            player.GetComponent<PlayerController>().anim.SetBool("IsDead", true);
-            particles.transform.position = player.transform.position;
-
-            respawnCountdown -= Time.deltaTime;
-            main.SetActive(false);
-            death.SetActive(true);
-
-            if (respawnCountdown <= 0)
+            if (treeHealth <= 0)
             {
-                playerHealth = playerHealthMax;
-                player.transform.position = recallPoint.transform.position;
-                respawnCountdown = respawnWait;
-                main.SetActive(true);
-                death.SetActive(false);
+                //Application.Quit();
+                UnityEditor.EditorApplication.isPlaying = false;
             }
-        }
 
-        if (waveCountdown <= 0)
-        {
-            waveCountdown = 0;
-        }
+            if (playerHealth <= 0)
+            {
+                player.GetComponent<PlayerController>().anim.SetBool("IsDead", true);
+                particles.transform.position = player.transform.position;
 
-        if (Act == GameAct.One)
-        {
-            ActOne();
-        }
+                respawnCountdown -= Time.deltaTime;
+                main.SetActive(false);
+                death.SetActive(true);
 
-        if (Act == GameAct.Two)
-        {
-            ActTwo();
-        }
+                if (respawnCountdown <= 0)
+                {
+                    playerHealth = playerHealthMax;
+                    player.transform.position = recallPoint.transform.position;
+                    respawnCountdown = respawnWait;
+                    main.SetActive(true);
+                    death.SetActive(false);
+                }
+            }
 
-        if (Act == GameAct.Three)
-        {
-            ActThree();
+            if (waveCountdown <= 0)
+            {
+                waveCountdown = 0;
+            }
+
+            ActUpdate();
         }
     }
     #endregion
 
     #region Helper Functions
-    public void ActOne()
+    public void ActUpdate()
     {
-        if (state == WaveState.Complete)
+        if (wState == WaveState.Complete)
         {
             waveCountdown = waveWait;
             spawnCountdown = spawnWait;
@@ -142,132 +122,45 @@ public class GameManager : MonoBehaviour
 
             wm.WaveCompleted();
 
-            state = WaveState.Countdown;
+            if (completed)
+            {
+                sl.gState = SceneLoader.GameState.End;
+            }
+
+            wState = WaveState.Countdown;
         }
 
-        if (state == WaveState.SpawnApple)
+        if (wState == WaveState.SpawnApple)
         {
             asm.AppleSpawn();
-            state = WaveState.SpawnWave;
+            wState = WaveState.SpawnWave;
         }
 
-        if (state == WaveState.SpawnWave)
+        if (wState == WaveState.SpawnWave)
         {
             appleCountdown -= Time.deltaTime;
 
             if (appleCountdown <= 0)
             {
                 wm.SpawnWaves();
-                state = WaveState.Wait;
+                wState = WaveState.Wait;
             }
         }
 
-        if (state == WaveState.Wait)
+        if (wState == WaveState.Wait)
         {
             spawnCountdown -= Time.deltaTime;
 
             if (spawnCountdown <= 0)
             {
-                state = WaveState.Complete;
+                wState = WaveState.Complete;
             }
         }
 
-        if (state == WaveState.Countdown && waveCountdown <= 0)
+        if (wState == WaveState.Countdown && waveCountdown <= 0)
         {
             dm.AdvanceConversation();
-            state = WaveState.SpawnApple;
-        }
-
-        waveCountdown -= Time.deltaTime;
-    }
-
-    public void ActTwo()
-    {
-        if (state == WaveState.Complete)
-        {
-            waveCountdown = waveWait;
-            spawnCountdown = spawnWait;
-            appleCountdown = appleWait;
-            wm.WaveCompleted();
-            state = WaveState.Countdown;
-        }
-
-        if (state == WaveState.SpawnApple)
-        {
-            asm.AppleSpawn();
-            state = WaveState.SpawnWave;
-        }
-
-        if (state == WaveState.SpawnWave)
-        {
-            appleCountdown -= Time.deltaTime;
-
-            if (appleCountdown <= 0)
-            {
-                wm.SpawnWaves();
-                state = WaveState.Wait;
-            }
-        }
-
-        if (state == WaveState.Wait)
-        {
-            spawnCountdown -= Time.deltaTime;
-
-            if (spawnCountdown <= 0)
-            {
-                state = WaveState.Complete;
-            }
-        }
-
-        if (state == WaveState.Countdown && waveCountdown <= 0)
-        {
-            state = WaveState.SpawnApple;
-        }
-
-        waveCountdown -= Time.deltaTime;
-    }
-
-    public void ActThree()
-    {
-        if (state == WaveState.Complete)
-        {
-            waveCountdown = waveWait;
-            spawnCountdown = spawnWait;
-            appleCountdown = appleWait;
-            wm.WaveCompleted();
-            state = WaveState.Countdown;
-        }
-
-        if (state == WaveState.SpawnApple)
-        {
-            asm.AppleSpawn();
-            state = WaveState.SpawnWave;
-        }
-
-        if (state == WaveState.SpawnWave)
-        {
-            appleCountdown -= Time.deltaTime;
-
-            if (appleCountdown <= 0)
-            {
-                wm.SpawnWaves();
-                state = WaveState.Wait;
-            }
-        }
-
-        if (state == WaveState.Wait)
-        {
-            spawnCountdown -= Time.deltaTime;
-
-            if (spawnCountdown <= 0)
-            {
-                state = WaveState.Complete;
-            }
-        }
-
-        if (state == WaveState.Countdown && waveCountdown <= 0)
-        {
-            state = WaveState.SpawnApple;
+            wState = WaveState.SpawnApple;
         }
 
         waveCountdown -= Time.deltaTime;
