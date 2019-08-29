@@ -29,6 +29,7 @@ public class BaseBehaviorTree : MonoBehaviour
     public Transform target;
 
     public bool isDead;
+    public bool isShielded;
 
     public float moveSpeed;
     public float detectRange;
@@ -36,7 +37,11 @@ public class BaseBehaviorTree : MonoBehaviour
     public float appleRange;
     public float healWaitTime;
     public float deathAnimTime;
+<<<<<<< HEAD
     public float attackWaitTime;
+=======
+    public float enemyReach;
+>>>>>>> origin/BossBehavior
 
     [HideInInspector]
     public float healthCountdown;
@@ -47,6 +52,7 @@ public class BaseBehaviorTree : MonoBehaviour
     public int currHealth;
     public int lowHealth;
     public int damage;
+    public int shieldHealth;
 
     public virtual void Start() { }
 
@@ -61,11 +67,16 @@ public class BaseBehaviorTree : MonoBehaviour
 
         if (other.gameObject.tag == "Bolt" || other.gameObject.tag == "Bullet")
         {
-            if (dis < 4)
+            if (isShielded)
             {
+                shieldHealth -= 1;
+            }
+                if (dis < 4)
+                {
                 currHealth -= 1;
                 ObjectPooler.SharedInstance.Deactivate(other.gameObject);
-            }
+
+                }
         }
 
         for (int i = 0; i < detectableTags.Count; i++)

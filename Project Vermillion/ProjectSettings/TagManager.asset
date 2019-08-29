@@ -16,6 +16,7 @@ TagManager:
   - Sword
   - Shield
   - Build
+  - Smash
   layers:
   - Default
   - TransparentFX

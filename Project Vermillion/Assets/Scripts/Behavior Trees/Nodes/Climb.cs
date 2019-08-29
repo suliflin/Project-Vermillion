@@ -23,6 +23,7 @@ public class Climb : BaseNode
         }
 
         current = RESULTS.SUCCEED;
+        Debug.Log(current);
         return current;
     }
 

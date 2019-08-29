@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     public int teleporterCost;
     public int turretCost;
     public int apples;
+    public int smashDamage;
 
     public float moveSpeed;
     public float teleporterTimer = 0;
@@ -205,6 +206,11 @@ public class PlayerController : MonoBehaviour
             ObjectPooler.SharedInstance.Deactivate(other.gameObject);
         }
 
+        if (other.gameObject.CompareTag("Smash"))
+        {
+            GameManager.SharedInstance.SetDamage(smashDamage, gameObject);
+        }
+
         selectedObj = other.gameObject;
     }
 
@@ -243,6 +249,7 @@ public class PlayerController : MonoBehaviour
         {
             if (!AppleCheck(obj.GetComponent<Turret>().upgradeCost))
             {
+
                 return false;
             }
 

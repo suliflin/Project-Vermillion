@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
-    private Transform target;
+    public Transform target;
     public Transform partToRotate;
 
     public int health;
@@ -17,6 +17,8 @@ public class Turret : MonoBehaviour
     public string enemyTags;
 
     public GameObject bulletPrefab;
+    public GameObject boss;
+
     public Transform fireDirection;
 
     private float fireCountDown = 0f;
@@ -93,6 +95,11 @@ public class Turret : MonoBehaviour
 
     void FindingEnemy()
     {
+        if (boss != null)
+        {
+            target = boss.transform;
+        }
+
         if (target == null)
             return;
 
@@ -111,5 +118,13 @@ public class Turret : MonoBehaviour
             fireCountDown = 1f / fireRate;
         }
         fireCountDown -= Time.deltaTime;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Smash"))
+        {
+            GameManager.SharedInstance.SetDamage(1, this.gameObject);
+        }
     }
 }
