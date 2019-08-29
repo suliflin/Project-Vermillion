@@ -33,10 +33,6 @@ public class DialogueManager : MonoBehaviour
         {
             AdvanceConversation();
         }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            AdvanceConversation();
-        }
     }
 
     public void AdvanceConversation()
@@ -56,15 +52,16 @@ public class DialogueManager : MonoBehaviour
             activeLineIndex = 0;
             inDialogue = false;
             Time.timeScale = 1;
-        }
 
-        if (conversationIndex < conversations.Count)
-        {
-            conversationIndex++;
-        }
-        else
-        {
-            conversationIndex = 0;
+            if (conversationIndex < conversations.Count)
+            {
+                conversationIndex++;
+            }
+            else
+            {
+                conversationIndex = 0;
+            }
+
         }
     }
 
