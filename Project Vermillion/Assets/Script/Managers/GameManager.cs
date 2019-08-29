@@ -75,6 +75,8 @@ public class GameManager : MonoBehaviour
             waveCountdown = 10;
 
             playerHealth = playerHealthMax;
+
+            sl.gState = SceneLoader.GameState.Play;
         }
 
         if (sl.gState == SceneLoader.GameState.Play)

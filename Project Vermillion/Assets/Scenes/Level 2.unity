@@ -11616,12 +11616,17 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: fc67c5bd966a5cd469635e981b1ed494,
         type: 3}
       propertyPath: m_Name
-      value: Big tree
+      value: Main Tree
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: fc67c5bd966a5cd469635e981b1ed494,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: fc67c5bd966a5cd469635e981b1ed494,
+        type: 3}
+      propertyPath: m_TagString
+      value: Tree
       objectReference: {fileID: 0}
     - target: {fileID: -8761187565393952754, guid: fc67c5bd966a5cd469635e981b1ed494,
         type: 3}

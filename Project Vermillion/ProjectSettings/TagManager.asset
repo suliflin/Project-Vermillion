@@ -11,8 +11,10 @@ TagManager:
   - Smash
   - Sword
   - Shield
+  - Bolt
   - Fist
   - Apples
+  - Tree
   layers:
   - Default
   - TransparentFX

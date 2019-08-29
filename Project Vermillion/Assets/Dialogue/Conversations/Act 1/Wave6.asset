@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speakerLeft: {fileID: 11400000, guid: a6a3ae92512d2da4b8e02a580e406feb, type: 2}
   speakerRight: {fileID: 11400000, guid: 13c8d93a75e4cd243be7990466a0d1be, type: 2}
-  speakerRightTwo: {fileID: 0}
+  speakerRightTwo: {fileID: 11400000, guid: e95164f4d8f242340aa79681494e1cc6, type: 2}
   lines:
   - character: {fileID: 11400000, guid: 13c8d93a75e4cd243be7990466a0d1be, type: 2}
     text: ENOUGH!! Brothers! Attack them from all sides!!
