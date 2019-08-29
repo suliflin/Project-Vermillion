@@ -28,6 +28,10 @@ public class GameManager : MonoBehaviour
     public GameObject death;
     public GameObject particles;
 
+    public AudioClip wolfHowl;
+
+    public AudioSource MusicSource;
+
     public float waveWait;
     public float appleWait;
     public float spawnWait;
@@ -50,6 +54,10 @@ public class GameManager : MonoBehaviour
 
     #region Unity Functions
 
+    private void Start()
+    {
+        MusicSource.clip = wolfHowl;
+    }
     void Awake()
     {
         SharedInstance = this;
@@ -101,6 +109,7 @@ public class GameManager : MonoBehaviour
             if (waveCountdown <= 0)
             {
                 waveCountdown = 0;
+                MusicSource.Play();
             }
 
             ActUpdate();
