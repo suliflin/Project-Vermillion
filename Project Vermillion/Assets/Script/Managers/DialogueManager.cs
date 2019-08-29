@@ -52,15 +52,7 @@ public class DialogueManager : MonoBehaviour
             activeLineIndex = 0;
             inDialogue = false;
             Time.timeScale = 1;
-
-            if (conversationIndex < conversations.Count)
-            {
-                conversationIndex++;
-            }
-            else
-            {
-                conversationIndex = 0;
-            }
+            conversationIndex++;
 
         }
     }
@@ -70,6 +62,11 @@ public class DialogueManager : MonoBehaviour
         Line line = conversations[conversationIndex].lines[activeLineIndex];
         Character character = line.character;
 
+        if (speakerUILeft.Speaker == null)
+        {
+            speakerUILeft.Speaker = conversations[conversationIndex].speakerLeft;
+        }
+        
         if (character == conversations[conversationIndex].speakerRightTwo)
         {
             speakerUIRight.Speaker = conversations[conversationIndex].speakerRightTwo;

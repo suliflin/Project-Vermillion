@@ -60566,12 +60566,17 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 5f0f42f24f2f2d24cbee95c1aedcb716,
         type: 3}
       propertyPath: m_Name
-      value: NEW BIG TREE
+      value: Main Tree
       objectReference: {fileID: 0}
     - target: {fileID: -927199367670048503, guid: 5f0f42f24f2f2d24cbee95c1aedcb716,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 5f0f42f24f2f2d24cbee95c1aedcb716,
+        type: 3}
+      propertyPath: m_TagString
+      value: Tree
       objectReference: {fileID: 0}
     - target: {fileID: -9217944037672465979, guid: 5f0f42f24f2f2d24cbee95c1aedcb716,
         type: 3}

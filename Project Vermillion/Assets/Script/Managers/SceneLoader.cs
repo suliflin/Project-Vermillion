@@ -22,7 +22,7 @@ public class SceneLoader : MonoBehaviour
     }
 
     public GameState gState = GameState.Start;
-    public GameAct Act = GameAct.Narration;
+    public GameAct Act = GameAct.MainMenu;
 
     public bool UseController;
 
@@ -63,22 +63,22 @@ public class SceneLoader : MonoBehaviour
             if (Act == GameAct.Two)
             {
                 SceneManager.LoadScene("Level 3");
-                Act = GameAct.Three;
                 gState = GameState.Start;
+                Act = GameAct.Three;
             }
 
             if (Act == GameAct.One)
             {
                 SceneManager.LoadScene("Level 2");
-                Act = GameAct.Two;
                 gState = GameState.Start;
+                Act = GameAct.Two;
             }
 
             if (Act == GameAct.Narration)
             {
                 SceneManager.LoadScene("Level 1");
-                Act = GameAct.One;
                 gState = GameState.Start;
+                Act = GameAct.One;
             }
 
             if (Act == GameAct.MainMenu)
