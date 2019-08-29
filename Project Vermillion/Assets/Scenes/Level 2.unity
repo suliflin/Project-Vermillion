@@ -9530,7 +9530,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - enemy: {fileID: 0}
-    meleeCount: 0
+    meleeCount: 3
+    rangedCount: 0
+    bossCount: 0
+  - enemy: {fileID: 0}
+    meleeCount: 5
     rangedCount: 0
     bossCount: 0
   - enemy: {fileID: 0}
@@ -9538,36 +9542,32 @@ MonoBehaviour:
     rangedCount: 0
     bossCount: 0
   - enemy: {fileID: 0}
-    meleeCount: 0
+    meleeCount: 10
     rangedCount: 0
     bossCount: 0
   - enemy: {fileID: 0}
-    meleeCount: 0
+    meleeCount: 4
     rangedCount: 0
     bossCount: 0
   - enemy: {fileID: 0}
-    meleeCount: 0
-    rangedCount: 0
+    meleeCount: 3
+    rangedCount: 3
     bossCount: 0
   - enemy: {fileID: 0}
     meleeCount: 0
+    rangedCount: 4
+    bossCount: 0
+  - enemy: {fileID: 0}
+    meleeCount: 3
     rangedCount: 0
     bossCount: 0
   - enemy: {fileID: 0}
-    meleeCount: 0
-    rangedCount: 0
+    meleeCount: 4
+    rangedCount: 2
     bossCount: 0
   - enemy: {fileID: 0}
-    meleeCount: 0
-    rangedCount: 0
-    bossCount: 0
-  - enemy: {fileID: 0}
-    meleeCount: 0
-    rangedCount: 0
-    bossCount: 0
-  - enemy: {fileID: 0}
-    meleeCount: 0
-    rangedCount: 0
+    meleeCount: 4
+    rangedCount: 2
     bossCount: 0
   nodes:
   - {fileID: 280093876}
@@ -28932,14 +28932,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gates:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1760722810}
+  - {fileID: 1242512512}
+  - {fileID: 280093878}
+  - {fileID: 1316709191}
+  - {fileID: 1934112540}
+  - {fileID: 1534600527}
+  - {fileID: 1318151927}
   enemies:
-  - Enemy
+  - Warrior
+  - Ranger
+  - Wolf
   numberOfWaves: 10
   nextWave: 0
 --- !u!4 &962004511
@@ -32979,13 +32982,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1064161711}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 152.33713, y: -10.814358, z: 9.9810295}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 192.66, y: -12.02, z: 49.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1767914422}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1065647968 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 0c2f99270308f194fbb49a33dbe5ccf2,
@@ -39045,7 +39048,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - enemy: {fileID: 0}
-    meleeCount: 0
+    meleeCount: 4
     rangedCount: 0
     bossCount: 0
   - enemy: {fileID: 0}
@@ -39054,7 +39057,7 @@ MonoBehaviour:
     bossCount: 0
   - enemy: {fileID: 0}
     meleeCount: 0
-    rangedCount: 0
+    rangedCount: 6
     bossCount: 0
   - enemy: {fileID: 0}
     meleeCount: 0
@@ -39062,27 +39065,27 @@ MonoBehaviour:
     bossCount: 0
   - enemy: {fileID: 0}
     meleeCount: 0
-    rangedCount: 0
+    rangedCount: 5
     bossCount: 0
   - enemy: {fileID: 0}
     meleeCount: 0
     rangedCount: 0
     bossCount: 0
   - enemy: {fileID: 0}
-    meleeCount: 0
-    rangedCount: 0
+    meleeCount: 2
+    rangedCount: 4
     bossCount: 0
   - enemy: {fileID: 0}
-    meleeCount: 0
-    rangedCount: 0
-    bossCount: 0
+    meleeCount: 3
+    rangedCount: 3
+    bossCount: 1
   - enemy: {fileID: 0}
     meleeCount: 0
-    rangedCount: 0
+    rangedCount: 4
     bossCount: 0
   - enemy: {fileID: 0}
-    meleeCount: 0
-    rangedCount: 0
+    meleeCount: 4
+    rangedCount: 3
     bossCount: 0
   nodes:
   - {fileID: 1242512510}
@@ -41313,45 +41316,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - enemy: {fileID: 0}
+    meleeCount: 3
+    rangedCount: 2
+    bossCount: 0
+  - enemy: {fileID: 0}
+    meleeCount: 3
+    rangedCount: 3
+    bossCount: 0
+  - enemy: {fileID: 0}
+    meleeCount: 2
+    rangedCount: 2
+    bossCount: 0
+  - enemy: {fileID: 0}
     meleeCount: 0
+    rangedCount: 6
+    bossCount: 1
+  - enemy: {fileID: 0}
+    meleeCount: 0
+    rangedCount: 5
+    bossCount: 0
+  - enemy: {fileID: 0}
+    meleeCount: 0
+    rangedCount: 5
+    bossCount: 0
+  - enemy: {fileID: 0}
+    meleeCount: 6
     rangedCount: 0
+    bossCount: 0
+  - enemy: {fileID: 0}
+    meleeCount: 3
+    rangedCount: 2
+    bossCount: 0
+  - enemy: {fileID: 0}
+    meleeCount: 4
+    rangedCount: 2
     bossCount: 0
   - enemy: {fileID: 0}
     meleeCount: 0
     rangedCount: 0
-    bossCount: 0
-  - enemy: {fileID: 0}
-    meleeCount: 0
-    rangedCount: 0
-    bossCount: 0
-  - enemy: {fileID: 0}
-    meleeCount: 0
-    rangedCount: 0
-    bossCount: 0
-  - enemy: {fileID: 0}
-    meleeCount: 0
-    rangedCount: 0
-    bossCount: 0
-  - enemy: {fileID: 0}
-    meleeCount: 0
-    rangedCount: 0
-    bossCount: 0
-  - enemy: {fileID: 0}
-    meleeCount: 0
-    rangedCount: 0
-    bossCount: 0
-  - enemy: {fileID: 0}
-    meleeCount: 0
-    rangedCount: 0
-    bossCount: 0
-  - enemy: {fileID: 0}
-    meleeCount: 0
-    rangedCount: 0
-    bossCount: 0
-  - enemy: {fileID: 0}
-    meleeCount: 0
-    rangedCount: 0
-    bossCount: 0
+    bossCount: 1
   nodes:
   - {fileID: 1316709189}
   - {fileID: 1796712160}
@@ -41406,7 +41409,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - enemy: {fileID: 0}
-    meleeCount: 0
+    meleeCount: 4
+    rangedCount: 2
+    bossCount: 0
+  - enemy: {fileID: 0}
+    meleeCount: 2
+    rangedCount: 3
+    bossCount: 0
+  - enemy: {fileID: 0}
+    meleeCount: 8
     rangedCount: 0
     bossCount: 0
   - enemy: {fileID: 0}
@@ -41418,32 +41429,24 @@ MonoBehaviour:
     rangedCount: 0
     bossCount: 0
   - enemy: {fileID: 0}
-    meleeCount: 0
+    meleeCount: 10
+    rangedCount: 0
+    bossCount: 0
+  - enemy: {fileID: 0}
+    meleeCount: 5
+    rangedCount: 0
+    bossCount: 0
+  - enemy: {fileID: 0}
+    meleeCount: 3
+    rangedCount: 0
+    bossCount: 0
+  - enemy: {fileID: 0}
+    meleeCount: 5
     rangedCount: 0
     bossCount: 0
   - enemy: {fileID: 0}
     meleeCount: 0
-    rangedCount: 0
-    bossCount: 0
-  - enemy: {fileID: 0}
-    meleeCount: 0
-    rangedCount: 0
-    bossCount: 0
-  - enemy: {fileID: 0}
-    meleeCount: 0
-    rangedCount: 0
-    bossCount: 0
-  - enemy: {fileID: 0}
-    meleeCount: 0
-    rangedCount: 0
-    bossCount: 0
-  - enemy: {fileID: 0}
-    meleeCount: 0
-    rangedCount: 0
-    bossCount: 0
-  - enemy: {fileID: 0}
-    meleeCount: 0
-    rangedCount: 0
+    rangedCount: 3
     bossCount: 0
   nodes:
   - {fileID: 1318151925}
@@ -49814,8 +49817,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - enemy: {fileID: 0}
+    meleeCount: 3
+    rangedCount: 4
+    bossCount: 0
+  - enemy: {fileID: 0}
     meleeCount: 0
     rangedCount: 0
+    bossCount: 0
+  - enemy: {fileID: 0}
+    meleeCount: 0
+    rangedCount: 4
     bossCount: 0
   - enemy: {fileID: 0}
     meleeCount: 0
@@ -49827,30 +49838,22 @@ MonoBehaviour:
     bossCount: 0
   - enemy: {fileID: 0}
     meleeCount: 0
-    rangedCount: 0
+    rangedCount: 5
+    bossCount: 0
+  - enemy: {fileID: 0}
+    meleeCount: 2
+    rangedCount: 4
     bossCount: 0
   - enemy: {fileID: 0}
     meleeCount: 0
-    rangedCount: 0
+    rangedCount: 4
     bossCount: 0
   - enemy: {fileID: 0}
-    meleeCount: 0
-    rangedCount: 0
+    meleeCount: 3
+    rangedCount: 6
     bossCount: 0
   - enemy: {fileID: 0}
-    meleeCount: 0
-    rangedCount: 0
-    bossCount: 0
-  - enemy: {fileID: 0}
-    meleeCount: 0
-    rangedCount: 0
-    bossCount: 0
-  - enemy: {fileID: 0}
-    meleeCount: 0
-    rangedCount: 0
-    bossCount: 0
-  - enemy: {fileID: 0}
-    meleeCount: 0
+    meleeCount: 5
     rangedCount: 0
     bossCount: 0
   nodes:
@@ -57479,7 +57482,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - enemy: {fileID: 0}
-    meleeCount: 0
+    meleeCount: 3
+    rangedCount: 2
+    bossCount: 0
+  - enemy: {fileID: 0}
+    meleeCount: 4
+    rangedCount: 0
+    bossCount: 0
+  - enemy: {fileID: 0}
+    meleeCount: 4
     rangedCount: 0
     bossCount: 0
   - enemy: {fileID: 0}
@@ -57487,7 +57498,7 @@ MonoBehaviour:
     rangedCount: 0
     bossCount: 0
   - enemy: {fileID: 0}
-    meleeCount: 0
+    meleeCount: 6
     rangedCount: 0
     bossCount: 0
   - enemy: {fileID: 0}
@@ -57495,27 +57506,19 @@ MonoBehaviour:
     rangedCount: 0
     bossCount: 0
   - enemy: {fileID: 0}
-    meleeCount: 0
+    meleeCount: 5
     rangedCount: 0
     bossCount: 0
   - enemy: {fileID: 0}
-    meleeCount: 0
+    meleeCount: 6
     rangedCount: 0
     bossCount: 0
   - enemy: {fileID: 0}
-    meleeCount: 0
+    meleeCount: 5
     rangedCount: 0
     bossCount: 0
   - enemy: {fileID: 0}
-    meleeCount: 0
-    rangedCount: 0
-    bossCount: 0
-  - enemy: {fileID: 0}
-    meleeCount: 0
-    rangedCount: 0
-    bossCount: 0
-  - enemy: {fileID: 0}
-    meleeCount: 0
+    meleeCount: 6
     rangedCount: 0
     bossCount: 0
   nodes:
@@ -64563,7 +64566,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d038b2020add78240abdf4719247c3d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waves: []
+  waves:
+  - enemy: {fileID: 0}
+    meleeCount: 3
+    rangedCount: 0
+    bossCount: 0
+  - enemy: {fileID: 0}
+    meleeCount: 4
+    rangedCount: 0
+    bossCount: 0
+  - enemy: {fileID: 0}
+    meleeCount: 0
+    rangedCount: 0
+    bossCount: 0
+  - enemy: {fileID: 0}
+    meleeCount: 8
+    rangedCount: 0
+    bossCount: 0
+  - enemy: {fileID: 0}
+    meleeCount: 0
+    rangedCount: 0
+    bossCount: 0
+  - enemy: {fileID: 0}
+    meleeCount: 5
+    rangedCount: 0
+    bossCount: 0
+  - enemy: {fileID: 0}
+    meleeCount: 0
+    rangedCount: 4
+    bossCount: 0
+  - enemy: {fileID: 0}
+    meleeCount: 3
+    rangedCount: 0
+    bossCount: 0
+  - enemy: {fileID: 0}
+    meleeCount: 4
+    rangedCount: 2
+    bossCount: 0
+  - enemy: {fileID: 0}
+    meleeCount: 4
+    rangedCount: 2
+    bossCount: 0
   nodes:
   - {fileID: 1934112538}
   - {fileID: 93504962}
