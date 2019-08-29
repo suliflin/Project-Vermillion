@@ -33,6 +33,10 @@ public class DialogueManager : MonoBehaviour
         {
             AdvanceConversation();
         }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            AdvanceConversation();
+        }
     }
 
     public void AdvanceConversation()

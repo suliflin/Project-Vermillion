@@ -32,7 +32,6 @@ public class Check : BaseNode
         if (shortestDistance <= distance && closestDetectable.gameObject.activeInHierarchy)
         {
             bt.selectedObject = closestDetectable;
-
             current = RESULTS.SUCCEED;
             return current;
         }

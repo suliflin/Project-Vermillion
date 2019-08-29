@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class HealthController : MonoBehaviour
 {
-    public static HealthController Instance;
+    public static HealthController instance;
 
     [SerializeField] GameObject[] hearts = new GameObject[4];
     public int currentHeart;
@@ -11,7 +11,7 @@ public class HealthController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Instance = this;
+        instance = this;
         currentHeart = hearts.Length - 1;
     }
 
