@@ -54,34 +54,38 @@ public class SceneLoader : MonoBehaviour
 
         if (gState == GameState.End)
         {
-            if (Act == GameAct.MainMenu)
+            if (Act == GameAct.Three)
             {
-                SceneManager.LoadScene("Narration");
-                gState = GameState.Start;
+                //Application.Quit();
+                UnityEditor.EditorApplication.isPlaying = false;
             }
 
-            if (Act == GameAct.Narration)
+            if (Act == GameAct.Two)
             {
-                SceneManager.LoadScene("Level 1");
+                SceneManager.LoadScene("Level 3");
+                Act = GameAct.Three;
                 gState = GameState.Start;
             }
 
             if (Act == GameAct.One)
             {
                 SceneManager.LoadScene("Level 2");
+                Act = GameAct.Two;
                 gState = GameState.Start;
             }
 
-            if (Act == GameAct.Two)
+            if (Act == GameAct.Narration)
             {
-                SceneManager.LoadScene("Level 3");
+                SceneManager.LoadScene("Level 1");
+                Act = GameAct.One;
                 gState = GameState.Start;
             }
 
-            if (Act == GameAct.Three)
+            if (Act == GameAct.MainMenu)
             {
-                //Application.Quit();
-                UnityEditor.EditorApplication.isPlaying = false;
+                SceneManager.LoadScene("Narration");
+                gState = GameState.Start;
+                Act = GameAct.Narration;
             }
         }
     }
