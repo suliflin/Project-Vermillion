@@ -18,27 +18,27 @@ public class MeleeTreeManager : BaseBehaviorTree
 
         root = new Selector();
 
-        root.treeNodes.Add(new Sequence());
-        root.treeNodes.Add(new Sequence());
-        root.treeNodes.Add(new Sequence());
-        root.treeNodes.Add(new Sequence());
-        root.treeNodes.Add(new Climb());
+        root.childNodes.Add(new Sequence());
+        root.childNodes.Add(new Sequence());
+        root.childNodes.Add(new Sequence());
+        root.childNodes.Add(new Sequence());
+        root.childNodes.Add(new Climb());
         
-        root.treeNodes[0].treeNodes.Add(new CheckHP());
-        root.treeNodes[0].treeNodes.Add(new Retreat());
-        root.treeNodes[0].treeNodes.Add(new Heal());
+        root.childNodes[0].childNodes.Add(new CheckHP());
+        root.childNodes[0].childNodes.Add(new Retreat());
+        root.childNodes[0].childNodes.Add(new Heal());
 
-        root.treeNodes[1].treeNodes.Add(new Check("Player", detectRange));
-        root.treeNodes[1].treeNodes.Add(new Chase());
-        root.treeNodes[1].treeNodes.Add(new Attack());
+        root.childNodes[1].childNodes.Add(new Check("Player", detectRange));
+        root.childNodes[1].childNodes.Add(new Chase());
+        root.childNodes[1].childNodes.Add(new Attack());
 
-        root.treeNodes[2].treeNodes.Add(new Check("Build", detectRange));
-        root.treeNodes[2].treeNodes.Add(new MoveTo(attackRange));
-        root.treeNodes[2].treeNodes.Add(new Attack());
+        root.childNodes[2].childNodes.Add(new Check("Build", detectRange));
+        root.childNodes[2].childNodes.Add(new MoveTo(attackRange));
+        root.childNodes[2].childNodes.Add(new Attack());
 
-        root.treeNodes[3].treeNodes.Add(new Check("Apples", detectRange));
-        root.treeNodes[3].treeNodes.Add(new MoveTo(appleRange));
-        root.treeNodes[3].treeNodes.Add(new EatApple());
+        root.childNodes[3].childNodes.Add(new Check("Apples", detectRange));
+        root.childNodes[3].childNodes.Add(new MoveTo(appleRange));
+        root.childNodes[3].childNodes.Add(new EatApple());
 
         target = spawner.nodes[0].transform;
 

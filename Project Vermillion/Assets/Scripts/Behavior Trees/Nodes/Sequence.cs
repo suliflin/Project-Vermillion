@@ -6,19 +6,19 @@ public class Sequence : BaseNode
 {
     public override RESULTS UpdateBehavior(BaseBehaviorTree bt)
     {
-        for (int i = 0; i < treeNodes.Count; i++)
+        for (int i = 0; i < childNodes.Count; i++)
         {
-            if (current == RESULTS.RUNNING && treeNodes[i].current != RESULTS.RUNNING)
+            if (current == RESULTS.RUNNING && childNodes[i].current != RESULTS.RUNNING)
             {
                 continue;
             }
 
-            if (treeNodes[i].UpdateBehavior(bt) == RESULTS.RUNNING)
+            if (childNodes[i].UpdateBehavior(bt) == RESULTS.RUNNING)
             {
                 current = RESULTS.RUNNING;
                 return current;
             }
-            if (treeNodes[i].UpdateBehavior(bt) == RESULTS.FAILED)
+            if (childNodes[i].UpdateBehavior(bt) == RESULTS.FAILED)
             {
                 current = RESULTS.FAILED;
                 return current;

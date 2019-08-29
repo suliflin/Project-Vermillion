@@ -206,12 +206,19 @@ public class PlayerController : MonoBehaviour
             ObjectPooler.SharedInstance.Deactivate(other.gameObject);
         }
 
+<<<<<<< HEAD
         if (other.gameObject.CompareTag("Smash"))
         {
             GameManager.SharedInstance.SetDamage(smashDamage, gameObject);
         }
 
         selectedObj = other.gameObject;
+=======
+        if (other.gameObject.CompareTag("ArcBullet"))
+        {
+            health -= 5;
+        }
+>>>>>>> origin/RangedTreeBehavior
     }
 
     void OnTriggerExit(Collider other)

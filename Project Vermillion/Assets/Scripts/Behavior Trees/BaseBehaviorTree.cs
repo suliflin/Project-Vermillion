@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BaseBehaviorTree : MonoBehaviour
 {
+    //try out
     public BaseNode root;
     public BaseNode current;
     
@@ -43,6 +44,14 @@ public class BaseBehaviorTree : MonoBehaviour
     public float enemyReach;
 >>>>>>> origin/BossBehavior
 
+    public GameObject myTarget;
+
+    //public GameObject theBuild;
+    //public List<BaseBehaviorTree> Builds = new List<BaseBehaviorTree>();
+    public bool isArcShooting;
+    public float timeToWait = 4f;
+    public bool waitingTime;
+
     [HideInInspector]
     public float healthCountdown;
     public float attackCountdown;
@@ -52,13 +61,17 @@ public class BaseBehaviorTree : MonoBehaviour
     public int currHealth;
     public int lowHealth;
     public int damage;
+<<<<<<< HEAD
     public int shieldHealth;
+=======
+    public int shieldGained;
+>>>>>>> origin/RangedTreeBehavior
 
     public virtual void Start() { }
 
     public virtual void Update()
     {
-        root.UpdateBehavior(this);
+        root.UpdateBehavior(this);     
     }
 
     public virtual void OnTriggerEnter(Collider other)
@@ -87,7 +100,20 @@ public class BaseBehaviorTree : MonoBehaviour
                 break;
             }
         }
+
+        if (other.gameObject.CompareTag("Player"))
+        {
+            waitingTime = true;
+        }
+        if (other.gameObject.CompareTag("Build"))
+        {
+            waitingTime = true;
+        }
     }
+
+ 
+
+    
 
     public virtual void OnTriggerExit(Collider other)
     {
@@ -99,8 +125,13 @@ public class BaseBehaviorTree : MonoBehaviour
                 break;
             }
         }
-    }
 
+        if (other.gameObject.CompareTag("Player"))
+        {
+            waitingTime = false;
+            timeToWait = 4f;
+        }
+    }
     public void EndAttack()
     {
         float dist = Vector3.Distance(transform.position, selectedObject.transform.position);
@@ -110,4 +141,5 @@ public class BaseBehaviorTree : MonoBehaviour
             GameManager.SharedInstance.SetDamage(damage, selectedObject);
         }
     }
+
 }
