@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BaseBehaviorTree : MonoBehaviour
 {
-    //try out
     public BaseNode root;
     public BaseNode current;
     
@@ -38,16 +37,11 @@ public class BaseBehaviorTree : MonoBehaviour
     public float appleRange;
     public float healWaitTime;
     public float deathAnimTime;
-<<<<<<< HEAD
     public float attackWaitTime;
-=======
     public float enemyReach;
->>>>>>> origin/BossBehavior
 
     public GameObject myTarget;
 
-    //public GameObject theBuild;
-    //public List<BaseBehaviorTree> Builds = new List<BaseBehaviorTree>();
     public bool isArcShooting;
     public float timeToWait = 4f;
     public bool waitingTime;
@@ -61,11 +55,8 @@ public class BaseBehaviorTree : MonoBehaviour
     public int currHealth;
     public int lowHealth;
     public int damage;
-<<<<<<< HEAD
     public int shieldHealth;
-=======
     public int shieldGained;
->>>>>>> origin/RangedTreeBehavior
 
     public virtual void Start() { }
 
@@ -110,10 +101,6 @@ public class BaseBehaviorTree : MonoBehaviour
             waitingTime = true;
         }
     }
-
- 
-
-    
 
     public virtual void OnTriggerExit(Collider other)
     {

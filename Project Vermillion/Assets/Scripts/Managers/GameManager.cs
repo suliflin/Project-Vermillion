@@ -53,27 +53,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         SharedInstance = this;
-<<<<<<< HEAD
         sl = SceneLoader.SharedInstance;
-=======
-    }
-    #endregion
-
-    void Start()
-    {
-        wm = GetComponentInChildren<WavesManager>();
-        asm = GetComponentInChildren<AppleSpawnManager>();
-        dm = GetComponentInChildren<DialogueManager>();
-
-        state = WaveState.Countdown;
-
-        waveCountdown = waveWait;
-
-        playerHealth = playerHealthMax;
-        appleCountdown = appleWait;
-        spawnCountdown = spawnWait;
-        respawnCountdown = respawnWait;
->>>>>>> origin/BossBehavior
     }
 
     void Update()
@@ -86,64 +66,7 @@ public class GameManager : MonoBehaviour
 
             waveCountdown = 10;
 
-<<<<<<< HEAD
             playerHealth = playerHealthMax;
-=======
-            if (respawnCountdown <= 0)
-            {
-                playerHealth = playerHealthMax;
-                //player.transform.position = recallPoint.transform.position;
-                respawnCountdown = respawnWait;
-                main.SetActive(true);
-                death.SetActive(false);
-            }
-        }
-
-        if (waveCountdown <= 0)
-        {
-            waveCountdown = 0;
-        }
-
-        if (Act == GameAct.One)
-        {
-            ActOne();
-        }
-
-        if (Act == GameAct.Two)
-        {
-            ActTwo();
-        }
-
-        if (Act == GameAct.Three)
-        {
-            ActThree();
-        }
-    }
-
-    public void ActOne()
-    {
-        if (state == WaveState.Complete)
-        {
-            waveCountdown = waveWait;
-            spawnCountdown = spawnWait;
->>>>>>> origin/BossBehavior
-            appleCountdown = appleWait;
-            spawnCountdown = spawnWait;
-            respawnCountdown = respawnWait;
-
-<<<<<<< HEAD
-            sl.gState = SceneLoader.GameState.Play;
-=======
-            wm.WaveCompleted();
-
-            state = WaveState.Countdown;
-        }
-
-        if (state == WaveState.SpawnApple)
-        {
-            //asm.AppleSpawn();
-            state = WaveState.SpawnWave;
->>>>>>> origin/BossBehavior
         }
 
         if (sl.gState == SceneLoader.GameState.Play)
@@ -178,14 +101,7 @@ public class GameManager : MonoBehaviour
                 waveCountdown = 0;
             }
 
-<<<<<<< HEAD
             ActUpdate();
-=======
-        if (state == WaveState.Countdown && waveCountdown <= 0)
-        {
-          //  dm.AdvanceConversation();
-            state = WaveState.SpawnApple;
->>>>>>> origin/BossBehavior
         }
     }
     #endregion
@@ -211,13 +127,8 @@ public class GameManager : MonoBehaviour
 
         if (wState == WaveState.SpawnApple)
         {
-<<<<<<< HEAD
             asm.AppleSpawn();
             wState = WaveState.SpawnWave;
-=======
-            //asm.AppleSpawn();
-            state = WaveState.SpawnWave;
->>>>>>> origin/BossBehavior
         }
 
         if (wState == WaveState.SpawnWave)
