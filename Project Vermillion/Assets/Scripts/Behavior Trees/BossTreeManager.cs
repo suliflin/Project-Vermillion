@@ -32,33 +32,27 @@ public class BossTreeManager : BaseBehaviorTree
 
         root = new Selector();
 
-<<<<<<< HEAD
-        root.treeNodes.Add(new Sequence());
-        root.treeNodes.Add(new Sequence());
-        root.treeNodes.Add(new Sequence());
-        root.treeNodes.Add(new Sequence());
-        root.treeNodes.Add(new Sequence());
-        root.treeNodes.Add(new Climb());
+        root.childNodes.Add(new Retreat());
+        root.childNodes.Add(new Sequence());
+        root.childNodes.Add(new Sequence());
+        root.childNodes.Add(new Sequence());
 
-        root.treeNodes[0].treeNodes.Add(new Retreat());
-        root.treeNodes[0].treeNodes.Add(new Heal());
+        root.childNodes[1].childNodes.Add(new Check("Enemy", maxRange));
+        root.childNodes[1].childNodes.Add(new Shield());
 
-        root.treeNodes[1].treeNodes.Add(new Check("Player", detectRange));
-        root.treeNodes[1].treeNodes.Add(new Smash());
+        root.childNodes[2].childNodes.Add(new Check("Enemy", maxRange));
+        root.childNodes[2].childNodes.Add(new Provoke());
 
-        root.treeNodes[2].treeNodes.Add(new Selector());
-        root.treeNodes[2].treeNodes.Add(new MoveTo(enemyReach));
-        root.treeNodes[2].treeNodes.Add(new Attack());
+        root.childNodes[3].childNodes.Add(new Selector());
+        root.childNodes[3].childNodes.Add(new Climb());
+        root.childNodes[3].childNodes.Add(new Selector());
 
-        root.treeNodes[3].treeNodes.Add(new Check("Build", detectRange));
-        root.treeNodes[3].treeNodes.Add(new Provoke());
+        root.childNodes[3].childNodes[0].childNodes.Add(new Check("Tree", maxRange));
+        root.childNodes[3].childNodes[0].childNodes.Add(new Check("Turret", maxRange));
+        root.childNodes[3].childNodes[0].childNodes.Add(new Check("Player", maxRange));
 
-        root.treeNodes[4].treeNodes.Add(new Check("Enemy", detectRange));
-        root.treeNodes[4].treeNodes.Add(new Shield());
-
-        root.treeNodes[2].treeNodes[0].treeNodes.Add(new Check("Player", detectRange));
-        root.treeNodes[2].treeNodes[0].treeNodes.Add(new Check("Tree", detectRange));
-        root.treeNodes[2].treeNodes[0].treeNodes.Add(new Check("Build", detectRange));
+        root.childNodes[3].childNodes[2].childNodes.Add(new Smash());
+        root.childNodes[3].childNodes[2].childNodes.Add(new Attack());
 
         target = spawner.nodes[0].transform;
         player = GameObject.FindGameObjectWithTag("Player");
@@ -90,28 +84,5 @@ public class BossTreeManager : BaseBehaviorTree
     public void SmashEnding()
     {
         smashCollider.enabled = false;
-=======
-        root.childNodes.Add(new Retreat());
-        root.childNodes.Add(new Sequence());
-        root.childNodes.Add(new Sequence());
-        root.childNodes.Add(new Sequence());
-
-        root.childNodes[1].childNodes.Add(new Check("Enemy", maxRange));
-        root.childNodes[1].childNodes.Add(new Shield());
-
-        root.childNodes[2].childNodes.Add(new Check("Enemy", maxRange));
-        root.childNodes[2].childNodes.Add(new Provoke());
-
-        root.childNodes[3].childNodes.Add(new Selector());
-        root.childNodes[3].childNodes.Add(new Climb());
-        root.childNodes[3].childNodes.Add(new Selector());
-
-        root.childNodes[3].childNodes[0].childNodes.Add(new Check("Tree", maxRange));
-        root.childNodes[3].childNodes[0].childNodes.Add(new Check("Turret", maxRange));
-        root.childNodes[3].childNodes[0].childNodes.Add(new Check("Player", maxRange));
-
-        root.childNodes[3].childNodes[2].childNodes.Add(new Smash());
-        root.childNodes[3].childNodes[2].childNodes.Add(new Attack());
->>>>>>> origin/RangedTreeBehavior
     }
 }
