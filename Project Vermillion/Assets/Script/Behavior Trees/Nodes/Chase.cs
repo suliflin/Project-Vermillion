@@ -21,6 +21,7 @@ public class Chase : BaseNode
         if (dist < bt.attackRange)
         {
             current = RESULTS.SUCCEED;
+            Debug.Log(current);
             return current;
         }
 
@@ -58,6 +59,7 @@ public class Chase : BaseNode
         }
 
         current = RESULTS.RUNNING;
+        Debug.Log(current);
         return current;
     }
 }

@@ -16,7 +16,7 @@ public class HealthController : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void LooseHeart()
+    public void LoseHeart()
     {
         if (currentHeart >= 0)
         {

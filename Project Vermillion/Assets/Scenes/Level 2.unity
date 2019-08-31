@@ -11245,7 +11245,6 @@ GameObject:
   - component: {fileID: 338202945}
   - component: {fileID: 338202948}
   - component: {fileID: 338202947}
-  - component: {fileID: 338202946}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -11272,19 +11271,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 600, y: 600}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &338202946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 338202944}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_ShowMaskGraphic: 0
 --- !u!114 &338202947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11298,14 +11284,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.50980395}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: bdd92cdaafbe44344aa8d54f3958b226, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -50717,6 +50703,16 @@ MonoBehaviour:
     tag: Bullet
     amountToPool: 10
     shouldExpand: 1
+  - objectToPool: {fileID: 9085651724894187004, guid: 50fc6e6a070d2804fb6233e77396d37a,
+      type: 3}
+    tag: Ranger
+    amountToPool: 10
+    shouldExpand: 1
+  - objectToPool: {fileID: 5957373078240921229, guid: fdec2c05988a5ed44b317e2677e0455c,
+      type: 3}
+    tag: Boss
+    amountToPool: 1
+    shouldExpand: 0
 --- !u!4 &1557898988
 Transform:
   m_ObjectHideFlags: 0
@@ -57688,6 +57684,8 @@ MonoBehaviour:
   main: {fileID: 963194225}
   death: {fileID: 247734746}
   particles: {fileID: 0}
+  wolfHowl: {fileID: 0}
+  MusicSource: {fileID: 0}
   waveWait: 180
   appleWait: 20
   spawnWait: 10
@@ -57696,7 +57694,7 @@ MonoBehaviour:
   appleCountdown: 0
   spawnCountdown: 0
   respawnCountdown: 0
-  playerHealthMax: 16
+  playerHealthMax: 8
   playerHealth: 0
   treeHealth: 30
   completed: 0

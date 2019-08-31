@@ -53,32 +53,30 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Unity Functions
-
-    private void Start()
-    {
-        MusicSource.clip = wolfHowl;
-    }
     void Awake()
     {
         SharedInstance = this;
         sl = SceneLoader.SharedInstance;
+        //sl.gState = SceneLoader.GameState.Start;
+    }
+
+    void Start()
+    {
+        //MusicSource.clip = wolfHowl;
+
+        wm = GetComponentInChildren<WavesManager>();
+        asm = GetComponentInChildren<AppleSpawnManager>();
+        dm = GetComponentInChildren<DialogueManager>();
+
+        waveCountdown = 10;
+
+        playerHealth = playerHealthMax;
+
+        sl.gState = SceneLoader.GameState.Play;
     }
 
     void Update()
     {
-        if (sl.gState == SceneLoader.GameState.Start)
-        {
-            wm = GetComponentInChildren<WavesManager>();
-            asm = GetComponentInChildren<AppleSpawnManager>();
-            dm = GetComponentInChildren<DialogueManager>();
-
-            waveCountdown = 10;
-
-            playerHealth = playerHealthMax;
-
-            sl.gState = SceneLoader.GameState.Play;
-        }
-
         if (sl.gState == SceneLoader.GameState.Play)
         {
             if (treeHealth <= 0)
@@ -109,7 +107,7 @@ public class GameManager : MonoBehaviour
             if (waveCountdown <= 0)
             {
                 waveCountdown = 0;
-                MusicSource.Play();
+                //MusicSource.Play();
             }
 
             ActUpdate();

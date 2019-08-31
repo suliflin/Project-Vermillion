@@ -15,7 +15,7 @@ public class Attack : BaseNode
         }
 
         bt.attackCountdown -= Time.deltaTime;
-        Debug.Log(bt.attackCountdown);
+
         if (bt.attackCountdown <= 0)
         {
             int random = Random.Range(0, 3);

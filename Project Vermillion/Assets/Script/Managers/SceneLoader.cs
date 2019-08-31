@@ -63,21 +63,18 @@ public class SceneLoader : MonoBehaviour
             if (Act == GameAct.Two)
             {
                 SceneManager.LoadScene("Level 3");
-                gState = GameState.Start;
                 Act = GameAct.Three;
             }
 
             if (Act == GameAct.One)
             {
                 SceneManager.LoadScene("Level 2");
-                gState = GameState.Start;
                 Act = GameAct.Two;
             }
 
             if (Act == GameAct.Narration)
             {
                 SceneManager.LoadScene("Level 1");
-                gState = GameState.Start;
                 Act = GameAct.One;
             }
 

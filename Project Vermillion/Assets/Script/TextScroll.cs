@@ -26,6 +26,7 @@ public class TextScroll : MonoBehaviour
         if (isDone)
         {
             SceneLoader.SharedInstance.gState = SceneLoader.GameState.End;
+            isDone = false;
         }
     }
 
