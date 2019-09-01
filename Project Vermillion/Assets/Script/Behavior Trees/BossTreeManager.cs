@@ -32,27 +32,32 @@ public class BossTreeManager : BaseBehaviorTree
 
         root = new Selector();
 
-        root.childNodes.Add(new Retreat());
         root.childNodes.Add(new Sequence());
         root.childNodes.Add(new Sequence());
         root.childNodes.Add(new Sequence());
+        root.childNodes.Add(new Sequence());
+        root.childNodes.Add(new Sequence());
+        root.childNodes.Add(new Climb());
 
-        root.childNodes[1].childNodes.Add(new Check("Enemy", maxRange));
-        root.childNodes[1].childNodes.Add(new Shield());
+        root.childNodes[0].childNodes.Add(new Retreat());
+        root.childNodes[0].childNodes.Add(new Heal());
 
-        root.childNodes[2].childNodes.Add(new Check("Enemy", maxRange));
-        root.childNodes[2].childNodes.Add(new Provoke());
+        root.childNodes[1].childNodes.Add(new Check("Player", detectRange));
+        root.childNodes[1].childNodes.Add(new Smash());
 
-        root.childNodes[3].childNodes.Add(new Selector());
-        root.childNodes[3].childNodes.Add(new Climb());
-        root.childNodes[3].childNodes.Add(new Selector());
+        root.childNodes[2].childNodes.Add(new Selector());
+        root.childNodes[2].childNodes.Add(new MoveTo(enemyReach));
+        root.childNodes[2].childNodes.Add(new Attack());
 
-        root.childNodes[3].childNodes[0].childNodes.Add(new Check("Tree", maxRange));
-        root.childNodes[3].childNodes[0].childNodes.Add(new Check("Turret", maxRange));
-        root.childNodes[3].childNodes[0].childNodes.Add(new Check("Player", maxRange));
+        root.childNodes[3].childNodes.Add(new Check("Build", detectRange));
+        root.childNodes[3].childNodes.Add(new Provoke());
 
-        root.childNodes[3].childNodes[2].childNodes.Add(new Smash());
-        root.childNodes[3].childNodes[2].childNodes.Add(new Attack());
+        root.childNodes[4].childNodes.Add(new Check("Enemy", detectRange));
+        root.childNodes[4].childNodes.Add(new Shield());
+
+        root.childNodes[2].childNodes[0].childNodes.Add(new Check("Player", detectRange));
+        root.childNodes[2].childNodes[0].childNodes.Add(new Check("Tree", detectRange));
+        root.childNodes[2].childNodes[0].childNodes.Add(new Check("Build", detectRange));
 
         target = spawner.nodes[0].transform;
         player = GameObject.FindGameObjectWithTag("Player");

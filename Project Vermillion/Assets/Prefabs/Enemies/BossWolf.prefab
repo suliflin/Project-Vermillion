@@ -3245,9 +3245,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 603650574f45bd542bbcafaa493c02dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  capsule: {fileID: 0}
-  rb: {fileID: 0}
+  anim: {fileID: 755915726036195812}
+  capsule: {fileID: 4010734273414758394}
+  rb: {fileID: 930550117956016703}
   death: {fileID: 0}
   sb: {fileID: 0}
   spawner: {fileID: 0}
