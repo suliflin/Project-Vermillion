@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
     {
         SharedInstance = this;
         sl = SceneLoader.SharedInstance;
-        //sl.gState = SceneLoader.GameState.Start;
+        sl.gState = SceneLoader.GameState.Start;
     }
 
     void Start()

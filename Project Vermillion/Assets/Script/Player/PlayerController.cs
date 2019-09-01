@@ -34,7 +34,6 @@ public class PlayerController : MonoBehaviour
     public float smooth = 0.3f;
 
     public bool blocked;
-    public bool lookAtPlayer = false;
     public bool useController;
     public bool radial;
 
@@ -191,11 +190,6 @@ public class PlayerController : MonoBehaviour
         Vector3 newPos = transform.position + cameraOffset;
 
         mainCamera.transform.position = Vector3.Slerp(mainCamera.transform.position, newPos, smooth);
-
-        if (lookAtPlayer)
-        {
-            mainCamera.transform.LookAt(transform);
-        }
     }
 
     void OnTriggerEnter(Collider other)
