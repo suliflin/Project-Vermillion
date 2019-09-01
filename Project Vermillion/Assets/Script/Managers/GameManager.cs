@@ -81,8 +81,7 @@ public class GameManager : MonoBehaviour
         {
             if (treeHealth <= 0)
             {
-                //Application.Quit();
-                UnityEditor.EditorApplication.isPlaying = false;
+                Application.Quit();
             }
 
             if (playerHealth <= 0)
