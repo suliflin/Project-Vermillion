@@ -385,7 +385,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: a2264a89bf0b6764fa7616b9dbbefe95, type: 3}
+  - {fileID: 2100000, guid: d0cf942d4207e7746a0a2aa8cad9132e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2035,7 +2035,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: 3b9b44cd0bd9c1e4eac24df574c631da, type: 3}
+  - {fileID: 2100000, guid: 674fd2cb7e210a245bfaf1da4ab13455, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3549,7 +3549,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: a2264a89bf0b6764fa7616b9dbbefe95, type: 3}
+  - {fileID: 2100000, guid: d0cf942d4207e7746a0a2aa8cad9132e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5123,7 +5123,6 @@ MonoBehaviour:
   lowHealth: 3
   damage: 1
   shieldHealth: 0
-  shieldGained: 1
   maxRange: 15
   testarcball: {fileID: 5492744820529933733, guid: 0660b70045e581a4091be3e89253ad83,
     type: 3}

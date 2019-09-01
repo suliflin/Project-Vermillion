@@ -88,7 +88,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: 93d0b682f03ede545a2fa77548563411, type: 3}
+  - {fileID: 2100000, guid: c5cf4a16d8140384eb6fcd3c782008d8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -436,7 +436,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: 93d0b682f03ede545a2fa77548563411, type: 3}
+  - {fileID: 2100000, guid: b78def6629155e64290c78c8430e35b8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1165,7 +1165,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 670224309865224971, guid: 93d0b682f03ede545a2fa77548563411, type: 3}
+  - {fileID: 2100000, guid: c5cf4a16d8140384eb6fcd3c782008d8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2076,7 +2076,6 @@ MonoBehaviour:
   lowHealth: 3
   damage: 1
   shieldHealth: 0
-  shieldGained: 0
   maxVelocity: 10
   maxAcceleration: 10
   targetRadius: 0.005
