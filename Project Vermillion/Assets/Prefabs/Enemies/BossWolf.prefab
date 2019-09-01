@@ -3281,7 +3281,6 @@ MonoBehaviour:
   lowHealth: 10
   damage: 5
   shieldHealth: 0
-  shieldGained: 3
   smashCollider: {fileID: 7211797646480287770}
   maxRange: 5
   treeRange: 0
@@ -3293,7 +3292,7 @@ MonoBehaviour:
   empowerCountdown: 2
   smashCountDown: 0
   isSmashReady: 1
-  shieldGained: 3
+  shieldGained: 5
   empowerHealthIncrease: 5
   empowerMaxHealthIncrease: 10
   empowerDamageIncrease: 5
