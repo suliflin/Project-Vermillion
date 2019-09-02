@@ -56,8 +56,6 @@ public class SceneLoader : MonoBehaviour
         {
             if (Act == GameAct.Three)
             {
-                //Application.Quit();
-                UnityEditor.EditorApplication.isPlaying = false;
             }
 
             if (Act == GameAct.Two)

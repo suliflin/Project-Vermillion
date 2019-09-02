@@ -5018,7 +5018,7 @@ GameObject:
   - component: {fileID: 9085651724894187003}
   m_Layer: 0
   m_Name: RangedWolf
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5094,12 +5094,11 @@ MonoBehaviour:
   death: {fileID: 0}
   sb: {fileID: 0}
   spawner: {fileID: 0}
-  player: {fileID: 0}
+  player: {fileID: 149257857183795882, guid: e0875531172e65040b1cc0898862dbe2, type: 3}
   selectedObject: {fileID: 0}
   detectedObjects: []
   detectableTags:
   - Player
-  - Build
   target: {fileID: 0}
   isDead: 0
   isShielded: 0
@@ -5111,7 +5110,7 @@ MonoBehaviour:
   deathAnimTime: 0
   attackWaitTime: 0
   enemyReach: 0
-  myTarget: {fileID: 0}
+  myTarget: {fileID: 149257857183795882, guid: e0875531172e65040b1cc0898862dbe2, type: 3}
   isArcShooting: 0
   timeToWait: 1.5
   waitingTime: 0

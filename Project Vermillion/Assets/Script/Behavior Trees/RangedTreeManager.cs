@@ -69,7 +69,9 @@ public class RangedTreeManager : BaseBehaviorTree
 
     public void ArcAttack()
     {
-        Vector3 d = myTarget.transform.position - transform.position;
+        Debug.Log("arc");
+
+        Vector3 d = selectedObject.transform.position - transform.position;
 
         d.y += 12;
 
@@ -82,10 +84,11 @@ public class RangedTreeManager : BaseBehaviorTree
 
     public void RangedAttack()
     {
-        Vector3 a = myTarget.transform.position - transform.position;
-        a.y -= 2;
+        Debug.Log("Rangedattaack");
+        Vector3 a = selectedObject.transform.position - transform.position;
+        //a.y -= 2;
 
-        GameObject ball = GameObject.Instantiate(testball, firePoint.transform.position, transform.rotation);
+        GameObject ball = GameObject.Instantiate(testarcball, firePoint.transform.position, transform.rotation);
 
         ball.GetComponent<Rigidbody>().useGravity = false;
 
